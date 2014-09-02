@@ -27,7 +27,7 @@ for(;;){
       //printf("%4ld",p++);//p se incrementa cada un segundo y se envia por usart
       //putc(0x3B);
       printf("%c\r",q);//q contiene el valor del convertidor ana / dig
-      delay_ms(100);
+      delay_ms(2000);
    }
 }
 

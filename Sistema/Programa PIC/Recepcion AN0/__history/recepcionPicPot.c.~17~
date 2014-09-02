@@ -22,12 +22,12 @@ for(;;){
       //set_adc_channel(0);  
       delay_us(20);
       //q=read_adc();
-      q=getch();
-      //q='a';
+      //q=getch();
+      q='a';
       //printf("%4ld",p++);//p se incrementa cada un segundo y se envia por usart
       //putc(0x3B);
       printf("%c\r",q);//q contiene el valor del convertidor ana / dig
-      delay_ms(100);
+      delay_ms(500);
    }
 }
 

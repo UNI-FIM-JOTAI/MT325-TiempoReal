@@ -1,11 +1,11 @@
-CCS PCM C Compiler, Version 5.008, 5967               26-jun-14 10:10
+CCS PCM C Compiler, Version 5.008, 5967               02-sep-14 16:56
 
-               Filename:   D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\Trabajo1\trabajoTiempoReal1\prog_picc\recepcion AN0_transmisionMatlab\recepcionPicPot.lst
+               Filename:   D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\Recepcion AN0\recepcionPicPot.lst
 
-               ROM used:   90 words (1%)
+               ROM used:   70 words (1%)
                            Largest free fragment is 2048
-               RAM used:   7 (2%) at main() level
-                           8 (2%) worst case
+               RAM used:   6 (2%) at main() level
+                           7 (2%) worst case
                Stack used: 1 locations
                Stack size: 7
 
@@ -24,7 +24,7 @@ CCS PCM C Compiler, Version 5.008, 5967               26-jun-14 10:10
 .................... #device adc=10 
 .................... #fuses HS,NOWDT,NOPROTECT,NOLVP  
 .................... #use delay(clock=10000000)  
-0004:  MOVLW  23
+0004:  MOVLW  22
 0005:  MOVWF  04
 0006:  BCF    03.7
 0007:  MOVF   00,W
@@ -46,12 +46,12 @@ CCS PCM C Compiler, Version 5.008, 5967               26-jun-14 10:10
 0017:  GOTO   00A
 0018:  BCF    0A.3
 0019:  BCF    0A.4
-001A:  GOTO   056 (RETURN)
+001A:  GOTO   043 (RETURN)
 .................... #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8)  
 .................... #use FAST_IO(A)  
 .................... #use FAST_IO(B) 
 .................... #use FAST_IO(C)  
-.................... //#byte port_b=6 
+....................  
 .................... void main() 
 001B:  MOVF   03,W
 001C:  ANDLW  1F
@@ -76,67 +76,48 @@ CCS PCM C Compiler, Version 5.008, 5967               26-jun-14 10:10
 ....................    //int16 q; 
 ....................    char q; 
 ....................    //int16 p=0; 
-....................    setup_adc_ports(AN0); 
-002E:  BCF    1F.0
-002F:  BSF    1F.1
-0030:  BSF    1F.2
-0031:  BSF    1F.3
-....................    setup_adc(ADC_CLOCK_INTERNAL); 
-0032:  BCF    1F.6
-0033:  BCF    03.5
-0034:  BSF    1F.6
-0035:  BSF    1F.7
-0036:  BSF    03.5
-0037:  BSF    1F.7
-0038:  BCF    03.5
-0039:  BSF    1F.0
+....................    //setup_adc_ports(AN0); 
+....................    //setup_adc(ADC_CLOCK_INTERNAL); 
 .................... //printf("Tiempo"); 
 .................... //putc(0x3B);//envia punto y coma 
 .................... //printf("Tension\r"); 
 .................... for(;;){ 
-....................    set_adc_channel(0);   
-003A:  MOVLW  00
-003B:  MOVWF  78
-003C:  MOVF   1F,W
-003D:  ANDLW  C7
-003E:  IORWF  78,W
-003F:  MOVWF  1F
-....................    delay_us(20); 
-0040:  MOVLW  10
-0041:  MOVWF  77
-0042:  DECFSZ 77,F
-0043:  GOTO   042
-0044:  NOP
-....................    //q=read_adc(); 
-....................    q=getch(); 
-0045:  BTFSS  0C.5
-0046:  GOTO   045
-0047:  MOVF   1A,W
-0048:  MOVWF  21
-....................  //printf("%4ld",p++);//p se incrementa cada un segundo y se envia por usart 
-....................  //putc(0x3B); 
-....................  printf("%c\r",q);//q contiene el valor del convertidor ana / dig 
-0049:  MOVF   21,W
-004A:  BTFSS  0C.4
-004B:  GOTO   04A
-004C:  MOVWF  19
-004D:  MOVLW  0D
-004E:  BTFSS  0C.4
-004F:  GOTO   04E
-0050:  MOVWF  19
-....................  delay_ms(2000); 
-0051:  MOVLW  08
-0052:  MOVWF  22
-0053:  MOVLW  FA
-0054:  MOVWF  23
-0055:  GOTO   004
-0056:  DECFSZ 22,F
-0057:  GOTO   053
-0058:  GOTO   03A
+....................       //set_adc_channel(0);   
+....................       delay_us(20); 
+002E:  MOVLW  10
+002F:  MOVWF  77
+0030:  DECFSZ 77,F
+0031:  GOTO   030
+0032:  NOP
+....................       //q=read_adc(); 
+....................       q=getch(); 
+0033:  BCF    03.5
+0034:  BTFSS  0C.5
+0035:  GOTO   034
+0036:  MOVF   1A,W
+0037:  MOVWF  21
+....................       //q='a'; 
+....................       //printf("%4ld",p++);//p se incrementa cada un segundo y se envia por usart 
+....................       //putc(0x3B); 
+....................       printf("%c\r",q);//q contiene el valor del convertidor ana / dig 
+0038:  MOVF   21,W
+0039:  BTFSS  0C.4
+003A:  GOTO   039
+003B:  MOVWF  19
+003C:  MOVLW  0D
+003D:  BTFSS  0C.4
+003E:  GOTO   03D
+003F:  MOVWF  19
+....................       delay_ms(100); 
+0040:  MOVLW  64
+0041:  MOVWF  22
+0042:  GOTO   004
+0043:  BSF    03.5
+0044:  GOTO   02E
 ....................    } 
 .................... } 
 ....................  
-0059:  GOTO   059
+0045:  GOTO   045
 
 Configuration Fuses:
    Word  1: 373A   HS NOWDT NOPUT NOBROWNOUT NOLVP NOCPD NOWRT DEBUG NOPROTECT

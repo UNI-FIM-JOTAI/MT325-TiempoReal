@@ -1,0 +1,49 @@
+C:\Users\Erick Arturo\AppData\Local\Temporary Projects\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Form1.resources
+C:\Users\Erick Arturo\AppData\Local\Temporary Projects\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Properties.Resources.resources
+C:\Users\Erick Arturo\AppData\Local\Temporary Projects\RecepcionSerial\obj\x86\Debug\RecepcionSerial.csproj.GenerateResource.Cache
+C:\Users\Erick Arturo\AppData\Local\Temporary Projects\RecepcionSerial\bin\Debug\RecepcionSerial.exe
+C:\Users\Erick Arturo\AppData\Local\Temporary Projects\RecepcionSerial\bin\Debug\RecepcionSerial.pdb
+C:\Users\Erick Arturo\AppData\Local\Temporary Projects\RecepcionSerial\obj\x86\Debug\RecepcionSerial.exe
+C:\Users\Erick Arturo\AppData\Local\Temporary Projects\RecepcionSerial\obj\x86\Debug\RecepcionSerial.pdb
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.exe
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.pdb
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\bin\Debug\RecepcionSerial.exe
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\bin\Debug\RecepcionSerial.pdb
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Form1.resources
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Properties.Resources.resources
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.csproj.GenerateResource.Cache
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.csprojResolveAssemblyReference.cache
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.exe
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.pdb
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerial\RecepcionSerial\bin\Debug\RecepcionSerial.exe
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerial\RecepcionSerial\bin\Debug\RecepcionSerial.pdb
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerial\RecepcionSerial\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Form1.resources
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Properties.Resources.resources
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerial\RecepcionSerial\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerial\RecepcionSerial\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.exe
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.pdb
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerialcomp\RecepcionSerial\bin\Debug\RecepcionSerial.exe
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerialcomp\RecepcionSerial\bin\Debug\RecepcionSerial.pdb
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Form1.resources
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Properties.Resources.resources
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\Trabajo1\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.exe
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\Trabajo1\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.pdb
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\Trabajo1\RecepcionSerialcomp\RecepcionSerial\bin\Debug\RecepcionSerial.exe
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\Trabajo1\RecepcionSerialcomp\RecepcionSerial\bin\Debug\RecepcionSerial.pdb
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\Trabajo1\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.csprojResolveAssemblyReference.cache
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\Trabajo1\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Form1.resources
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\Trabajo1\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Properties.Resources.resources
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\Trabajo1\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.csproj.GenerateResource.Cache
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.exe
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.pdb
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\RecepcionSerialcomp\RecepcionSerial\bin\Debug\RecepcionSerial.exe
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\RecepcionSerialcomp\RecepcionSerial\bin\Debug\RecepcionSerial.pdb
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.csprojResolveAssemblyReference.cache
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Form1.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Properties.Resources.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\RecepcionSerialcomp\RecepcionSerial\obj\x86\Debug\RecepcionSerial.csproj.GenerateResource.Cache
