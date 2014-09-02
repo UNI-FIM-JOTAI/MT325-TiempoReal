@@ -1,0 +1,17 @@
+C:\Users\Erick Arturo\AppData\Local\Temporary Projects\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Form1.resources
+C:\Users\Erick Arturo\AppData\Local\Temporary Projects\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Properties.Resources.resources
+C:\Users\Erick Arturo\AppData\Local\Temporary Projects\RecepcionSerial\obj\x86\Debug\RecepcionSerial.csproj.GenerateResource.Cache
+C:\Users\Erick Arturo\AppData\Local\Temporary Projects\RecepcionSerial\bin\Debug\RecepcionSerial.exe
+C:\Users\Erick Arturo\AppData\Local\Temporary Projects\RecepcionSerial\bin\Debug\RecepcionSerial.pdb
+C:\Users\Erick Arturo\AppData\Local\Temporary Projects\RecepcionSerial\obj\x86\Debug\RecepcionSerial.exe
+C:\Users\Erick Arturo\AppData\Local\Temporary Projects\RecepcionSerial\obj\x86\Debug\RecepcionSerial.pdb
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.exe
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.pdb
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\bin\Debug\RecepcionSerial.exe
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\bin\Debug\RecepcionSerial.pdb
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Form1.resources
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.Properties.Resources.resources
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.csproj.GenerateResource.Cache
+C:\Users\Erick Arturo\Desktop\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.csprojResolveAssemblyReference.cache
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.exe
+D:\IGNACIO\Universidad\Ciclo2014_I\Tiempo Real\trabajoTiempoReal\serial2\RecepcionSerial\RecepcionSerial\obj\x86\Debug\RecepcionSerial.pdb

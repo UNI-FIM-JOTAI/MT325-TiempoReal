@@ -1,0 +1,12 @@
+#include <recepcionPicPot.h>
+#include <16f877A.h>
+
+void main()
+{
+
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

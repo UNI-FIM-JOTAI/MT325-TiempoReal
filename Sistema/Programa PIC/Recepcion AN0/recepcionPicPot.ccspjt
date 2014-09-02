@@ -1,0 +1,23 @@
+[PROJECT]
+Target=recepcionPicPot.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.008
+Compiler=PCM
+CCSVersion=5.008
+[Target Data]
+FileList=recepcionPicPot.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\Erick Arturo\Desktop\recepcionpic\recepcionPicPot]
+Type=4
+[mru-list]
+1=recepcionPicPot.c
+[Opened Files]
+1=recepcionPicPot.c
+2=
+3=
+[recepcionPicPot.c]
+Type=4
+[Units]
+Count=1
+1=recepcionPicPot (main)

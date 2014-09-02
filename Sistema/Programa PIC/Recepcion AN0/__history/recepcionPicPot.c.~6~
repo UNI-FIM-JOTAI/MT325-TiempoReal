@@ -1,0 +1,32 @@
+#include <16f877a.h>
+#device ICD=TRUE
+#device adc=10
+#fuses HS,NOWDT,NOPROTECT,NOLVP 
+#use delay(clock=10000000) 
+#use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8) 
+#use FAST_IO(A) 
+#use FAST_IO(B)
+#use FAST_IO(C) 
+//#byte port_b=6
+void main()
+{
+   int16 q;
+   //char q;
+   //int16 p=0;
+   setup_adc_ports(AN0);
+   setup_adc(ADC_CLOCK_INTERNAL);
+//printf("Tiempo");
+//putc(0x3B);//envia punto y coma
+//printf("Tension\r");
+for(;;){
+   set_adc_channel(0);  
+   delay_us(20);
+   //q=read_adc();
+   q=getch();
+ //printf("%4ld",p++);//p se incrementa cada un segundo y se envia por usart
+ //putc(0x3B);
+ printf("%4ld\r",q);//q contiene el valor del convertidor ana / dig
+ delay_ms(2000);
+   }
+}
+
