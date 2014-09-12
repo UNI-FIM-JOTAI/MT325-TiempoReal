@@ -1,0 +1,69 @@
+E:\Procesadores digitales de señales\visual2\dsp\dsp\bin\Debug\dsp.exe.config
+E:\Procesadores digitales de señales\visual2\dsp\dsp\bin\Debug\dsp.exe
+E:\Procesadores digitales de señales\visual2\dsp\dsp\bin\Debug\dsp.pdb
+E:\Procesadores digitales de señales\visual2\dsp\dsp\obj\Debug\dsp.Form1.resources
+E:\Procesadores digitales de señales\visual2\dsp\dsp\obj\Debug\dsp.Properties.Resources.resources
+E:\Procesadores digitales de señales\visual2\dsp\dsp\obj\Debug\dsp.csproj.GenerateResource.Cache
+E:\Procesadores digitales de señales\visual2\dsp\dsp\obj\Debug\dsp.exe
+E:\Procesadores digitales de señales\visual2\dsp\dsp\obj\Debug\dsp.pdb
+C:\Users\pclabmt15\Desktop\visual2\dsp\dsp\bin\Debug\dsp.exe.config
+C:\Users\pclabmt15\Desktop\visual2\dsp\dsp\obj\Debug\dsp.exe
+C:\Users\pclabmt15\Desktop\visual2\dsp\dsp\obj\Debug\dsp.pdb
+C:\Users\pclabmt15\Desktop\visual2\dsp\dsp\bin\Debug\dsp.exe
+C:\Users\pclabmt15\Desktop\visual2\dsp\dsp\bin\Debug\dsp.pdb
+C:\Users\pclabmt15\Desktop\visual2\dsp\dsp\obj\Debug\dsp.csprojResolveAssemblyReference.cache
+C:\Users\pclabmt15\Desktop\visual2\dsp\dsp\obj\Debug\dsp.Form1.resources
+C:\Users\pclabmt15\Desktop\visual2\dsp\dsp\obj\Debug\dsp.Properties.Resources.resources
+C:\Users\pclabmt15\Desktop\visual2\dsp\dsp\obj\Debug\dsp.csproj.GenerateResource.Cache
+E:\DSP_final\visual2\dsp\dsp\bin\Debug\dsp.exe.config
+E:\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.exe
+E:\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.pdb
+E:\DSP_final\visual2\dsp\dsp\bin\Debug\dsp.exe
+E:\DSP_final\visual2\dsp\dsp\bin\Debug\dsp.pdb
+E:\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.csprojResolveAssemblyReference.cache
+E:\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.Form1.resources
+E:\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.Properties.Resources.resources
+E:\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.csproj.GenerateResource.Cache
+E:\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.miranda.resources
+F:\DSP_final\visual2\dsp\dsp\bin\Debug\dsp.exe.config
+F:\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.exe
+F:\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.pdb
+F:\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.csprojResolveAssemblyReference.cache
+F:\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.Form1.resources
+F:\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.miranda.resources
+F:\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.Properties.Resources.resources
+F:\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.csproj.GenerateResource.Cache
+F:\DSP_final\visual2\dsp\dsp\bin\Debug\dsp.exe
+F:\DSP_final\visual2\dsp\dsp\bin\Debug\dsp.pdb
+E:\visual2\dsp\dsp\bin\Debug\dsp.exe.config
+E:\visual2\dsp\dsp\obj\Debug\dsp.exe
+E:\visual2\dsp\dsp\obj\Debug\dsp.pdb
+E:\visual2\dsp\dsp\bin\Debug\dsp.exe
+E:\visual2\dsp\dsp\bin\Debug\dsp.pdb
+E:\visual2\dsp\dsp\obj\Debug\dsp.csprojResolveAssemblyReference.cache
+E:\visual2\dsp\dsp\obj\Debug\dsp.Form1.resources
+E:\visual2\dsp\dsp\obj\Debug\dsp.miranda.resources
+E:\visual2\dsp\dsp\obj\Debug\dsp.Properties.Resources.resources
+E:\visual2\dsp\dsp\obj\Debug\dsp.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\DSP_final\visual2\dsp\dsp\bin\Debug\dsp.exe.config
+C:\Users\User\Desktop\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.exe
+C:\Users\User\Desktop\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.pdb
+D:\ETSEL\copiausb\ciclo8\dsp\DSP_final\visual2\dsp\dsp\bin\Debug\dsp.exe.config
+D:\ETSEL\copiausb\ciclo8\dsp\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.exe
+D:\ETSEL\copiausb\ciclo8\dsp\DSP_final\visual2\dsp\dsp\obj\Debug\dsp.pdb
+D:\ETSEL\copiausb\ciclo8\dsp\Proyecto\visual2\dsp\dsp\bin\Debug\dsp.exe.config
+D:\ETSEL\copiausb\ciclo8\dsp\Proyecto\visual2\dsp\dsp\obj\Debug\dsp.exe
+D:\ETSEL\copiausb\ciclo8\dsp\Proyecto\visual2\dsp\dsp\obj\Debug\dsp.pdb
+D:\ETSEL\copiausb\ciclo8\dsp\Proyecto\visual2\dsp\dsp\bin\Debug\dsp.exe
+D:\ETSEL\copiausb\ciclo8\dsp\Proyecto\visual2\dsp\dsp\bin\Debug\dsp.pdb
+D:\ETSEL\copiausb\ciclo8\dsp\Proyecto\visual2\dsp\dsp\obj\Debug\dsp.csprojResolveAssemblyReference.cache
+D:\ETSEL\copiausb\ciclo8\dsp\Proyecto\visual2\dsp\dsp\obj\Debug\dsp.Form1.resources
+D:\ETSEL\copiausb\ciclo8\dsp\Proyecto\visual2\dsp\dsp\obj\Debug\dsp.miranda.resources
+D:\ETSEL\copiausb\ciclo8\dsp\Proyecto\visual2\dsp\dsp\obj\Debug\dsp.Properties.Resources.resources
+D:\ETSEL\copiausb\ciclo8\dsp\Proyecto\visual2\dsp\dsp\obj\Debug\dsp.csproj.GenerateResource.Cache
+D:\IGNACIO\Universidad\Ciclo2014_I\DSP\Proyecto\Programas\visual2\dsp\dsp\bin\Debug\dsp.exe.config
+D:\IGNACIO\Universidad\Ciclo2014_I\DSP\Proyecto\Programas\visual2\dsp\dsp\obj\Debug\dsp.exe
+D:\IGNACIO\Universidad\Ciclo2014_I\DSP\Proyecto\Programas\visual2\dsp\dsp\obj\Debug\dsp.pdb
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\visual2\dsp\dsp\bin\Debug\dsp.exe.config
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\visual2\dsp\dsp\obj\Debug\dsp.exe
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\visual2\dsp\dsp\obj\Debug\dsp.pdb

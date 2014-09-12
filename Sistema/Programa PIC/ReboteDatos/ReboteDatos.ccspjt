@@ -1,0 +1,22 @@
+[PROJECT]
+Target=ReboteDatos.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.008
+Compiler=PCM
+CCSVersion=5.008
+[Target Data]
+FileList=ReboteDatos.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\ReboteDatos\ReboteDatos]
+Type=4
+[mru-list]
+1=ReboteDatos.c
+[Opened Files]
+1=ReboteDatos.c
+2=
+[ReboteDatos.c]
+Type=4
+[Units]
+Count=1
+1=ReboteDatos (main)
