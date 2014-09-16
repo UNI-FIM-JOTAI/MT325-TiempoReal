@@ -20,8 +20,6 @@ int1 led_num;
 void Cargar_configuracion();
 void Configurar_interrupciones();
 void version();
-void encender_led ();
-void apagar_led ();
 void encender_all ();
 void apagar_all ();
 //***************************************

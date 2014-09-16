@@ -1,54 +1,61 @@
 
-ROM used:   237/7936 (3%)
-            237/7936 (3%) including unused fragments
+ROM used:   504/7936 (6%)
+            504/7936 (6%) including unused fragments
 
-            0.3 Average locations per line
-            11.3 Average locations per statement
+            0.6 Average locations per line
+            6.4 Average locations per statement
 
-RAM used:   6/357 (2%) at main() level
-            10/357 (3%) worst case
+RAM used:   7/357 (2%) at main() level
+            12/357 (3%) worst case
 
 Stack used: 2 worst case (2 in main + 0 for interrupts)
 Stack size: 7
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   84    21 100  SistemaPIC16F877a.c
+  156    79 100  SistemaPIC16F877a.c
   661     0   0  C:\Program Files (x86)\PICC\Devices\16f877a.h
 ----- -----
-  745    21 Total
+  817    79 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
-0     23  10    1             @delay_ms1
-0     54  23    0   262  4.1  main
-0      9   4    0    32  1.0  @const631
-0     77  32    4     3  0.0  @PSTRINGC7_9600_62_63
-0      8   3    0    32  1.0  Cargar_configuracion
-0     10   4    0    17  0.8  version
-0     12   5    0    33  0.9  @const633
-0     12   5    0    33  0.9  encender_all
-0      9   4    0    33  0.9  @const634
-0     11   5    0    33  0.9  apagar_all
-0      8   3    0             @const635
+0     21   4    1             @delay_ms1
+0     54  11    0   262  4.1  main
+0      9   2    0    32  1.0  @const634
+0     77  15    4     3  0.0  @PSTRINGC7_9600_62_63
+0      8   2    0    32  1.0  Cargar_configuracion
+0     10   2    0    17  0.8  version
+0     12   2    0    33  0.9  @const636
+0     86  17    1   741  5.6  encender_led
+0      9   2    0    33  0.9  @const637
+0      9   2    0    33  0.9  @const638
+0     86  17    5    33  0.9  @PSTRINGCN7_9600_62_63
+0     85  17    1   741  5.6  apagar_led
+0      9   2    0    33  0.9  @const641
+0      8   2    0    33  0.9  @const642
+ Inline         0    33  0.9  encender_all
+0      9   2    0             @const643
+ Inline         0    33  0.9  apagar_all
+0      8   2    0             @const644
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               9
-    Statements              21
+    Functions               15
+    Statements              79
     Comments                132
-    Volume (V)              814
-    Difficulty (D)          10.2
-    Effort to implement (E) 8261
-    Time to implement (T)   8 minutes
-    Est Delivered Bugs (B)  0
-    Cyclomatic Complexity   5
-    Maintainability (MI)    117
+    Volume (V)              3316
+    Difficulty (D)          26.6
+    Effort to implement (E) 88172
+    Time to implement (T)   1 hours, 22 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   23
+    Maintainability (MI)    66
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-007FF   233  1811  
+00004-007FF   500  1544  
 00800-00FFF     0  2048  
 01000-017FF     0  2048  
 01800-01EFF     0  1792  

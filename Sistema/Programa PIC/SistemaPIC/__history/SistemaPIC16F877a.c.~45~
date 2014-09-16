@@ -20,8 +20,6 @@ int1 led_num;
 void Cargar_configuracion();
 void Configurar_interrupciones();
 void version();
-void encender_led ();
-void apagar_led ();
 void encender_all ();
 void apagar_all ();
 //***************************************
@@ -36,9 +34,9 @@ for(;;){
       switch(q){
          case 'v': version();
          break;
-         case 'e': encender_led();
+         case 'e': encender_all();
          break;
-         case 'a': apagar_led();
+         case 'a': apagar_all();
          break;
          default: printf("Error de comando");
          break;
@@ -74,26 +72,19 @@ void version(){
    }
 
 void encender_led (){
-   led_num = 0;
    q=getch();
       switch(q){
          case '0': output_high(PIN_B0);
-                   led_num = 1;
          break;
          case '1': output_high(PIN_B1);
-                   led_num = 1;
          break;
          case '2': output_high(PIN_B2);
-                   led_num = 1;
          break;
          case '3': output_high(PIN_B3);
-                   led_num = 1;
          break;
          case '4': output_high(PIN_B4);
-                   led_num = 1;
          break;
          case '5': output_high(PIN_B5);
-                   led_num = 1;
          break;
          case 'a': encender_all ();
          break;
@@ -101,45 +92,31 @@ void encender_led (){
          break;
          }
       delay_ms(100);
-      
-   if (led_num == 1){
-      printf("Encendido Led %c",q);
-   }
+   printf("Encendidos Led %c",q);
 }
 
-
 void apagar_led (){
-   led_num = 0;
    q=getch();
       switch(q){
-         case '0': output_low(PIN_B0);
-                   led_num = 1;
+         case '0': output_high(PIN_B0);
          break;
-         case '1': output_low(PIN_B1);
-                   led_num = 1;
+         case '1': output_high(PIN_B1);
          break;
-         case '2': output_low(PIN_B2);
-                   led_num = 1;
+         case '2': output_high(PIN_B2);
          break;
-         case '3': output_low(PIN_B3);
-                   led_num = 1;
+         case '3': output_high(PIN_B3);
          break;
-         case '4': output_low(PIN_B4);
-                   led_num = 1;
+         case '4': output_high(PIN_B4);
          break;
-         case '5': output_low(PIN_B5);
-                   led_num = 1;
+         case '5': output_high(PIN_B5);
          break;
-         case 'a': apagar_all ();
+         case 'a': encender_all ();
          break;
          default: printf("Led no encontrado");
          break;
          }
       delay_ms(100);
-
-   if (led_num == 1){
-      printf("Apagado Led %c",q);
-   }
+   printf("Encendidos Led %c",q);
 }
 
 void encender_all (){

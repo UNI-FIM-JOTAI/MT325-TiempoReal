@@ -1,18 +1,26 @@
-004-005 @WRITE_PROGRAM_MEMORY8.P1
-004-005 @READ_PROGRAM_MEMORY8.P2
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
 008     PSP_DATA
 015     CCP_1_LOW
 015     CCP_1
 016     CCP_1_HIGH
-01B     CCP_2_LOW
 01B     CCP_2
+01B     CCP_2_LOW
 01C     CCP_2_HIGH
 020     q
-021     @delay_ms1.P1
-021     @PSTRINGC7_9600_62_63.@SCRATCH1
-022     @PSTRINGC7_9600_62_63.@SCRATCH2
-023     @PSTRINGC7_9600_62_63.@SCRATCH3
-024     @PSTRINGC7_9600_62_63.@SCRATCH4
+021.0   led_num
+022     @PSTRINGCN7_9600_62_63.P1
+022     @delay_ms1.P2
+022     @PSTRINGC7_9600_62_63.@SCRATCH1
+022     encender_led.@SCRATCH1
+022     apagar_led.@SCRATCH1
+023     @PSTRINGC7_9600_62_63.@SCRATCH2
+023     @PSTRINGCN7_9600_62_63.@SCRATCH1
+024     @PSTRINGC7_9600_62_63.@SCRATCH3
+024     @PSTRINGCN7_9600_62_63.@SCRATCH2
+025     @PSTRINGC7_9600_62_63.@SCRATCH4
+025     @PSTRINGCN7_9600_62_63.@SCRATCH3
+026     @PSTRINGCN7_9600_62_63.@SCRATCH4
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -20,32 +28,39 @@
 07A     @SCRATCH
 09C.6   C1OUT
 09C.7   C2OUT
-10D-10E @READ_PROGRAM_MEMORY8.P1
-10D-10E @WRITE_PROGRAM_MEMORY8.P2
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
 
 ROM Allocation:
-000004  @const631.call
-00000D  @const633.call
-000019  @const634.call
-000022  @const635.call
-00002A  Cargar_configuracion
-000032  @PSTRINGC7_9600_62_63
-00007F  version
-000089  encender_all
-000095  apagar_all
-0000A0  @delay_ms1
-0000B7  main
-0000B7  @cinit1
-0000C9  @cinit2
+000004  @const634.call
+00000D  @const636.call
+000019  @const637.call
+000022  @const638.call
+00002B  @const641.call
+000034  @const642.call
+00003C  @const643.call
+000045  @const644.call
+00004D  Cargar_configuracion
+000055  @PSTRINGC7_9600_62_63
+0000A2  version
+0000AC  @delay_ms1
+0000C1  @PSTRINGCN7_9600_62_63
+000117  encender_led
+000145  encender_all
+00016D  apagar_led
+00019B  apagar_all
+0001C2  @cinit1
+0001C2  main
+0001D4  @cinit2
 
 Project Directory:
     D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC\
 
 Project Files:
-    SistemaPIC16F877a.c                                     [16-sep-14 14:50  CRC=7913EFFF]
+    SistemaPIC16F877a.c                                     [16-sep-14 15:13  CRC=DDD8675A]
     C:\Program Files (x86)\PICC\Devices\16f877a.h           [03-jul-13 14:28  CRC=4E65664C]
 
-Source signature=15DEBC97
+Source signature=7AA333F2
 
 Units:
     SistemaPIC16F877a (main)

@@ -1,7 +1,8 @@
-D G "__PCM__" 0 85 ""5.008""
-D G "__DEVICE__" 0 85 "877"
-D G "__DATE__" 0 85 ""16-sep-14""
-D G "__TIME__" 0 85 ""14:51:19"" "Standard Header file for the PIC16F877A device ////////////////"
+d G "INT_COMP" 1 658 "0x008D40"
+D G "__PCM__" 0 157 ""5.008""
+D G "__DEVICE__" 0 157 "877"
+D G "__DATE__" 0 157 ""16-sep-14""
+D G "__TIME__" 0 157 ""15:13:22"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 5 13 "FUNCTION"
 v L "value" 1 28 "int8" `54 
 f B "set_tris_a" 1 28 "void(int8 value)" `53 
@@ -775,22 +776,27 @@ d G "INT_EEPROM" 1 656 "0x008D10"
 d G "INT_TIMER0" 1 657 "0x000B20"
 d G "INT_COMP" 1 658 "0x008D40"
 C L "jump_to_irs" 0 13 1 "FUNCTION"
-V G "q" 0 14 "int8" `622  "Declaracion de Funciones"
-F G "Cargar_configuracion" 0 19 "void()" `623 
-F G "Configurar_interrupciones" 0 20 "void()" `624 
-F G "version" 0 21 "void()" `625 
-F G "encender_all" 0 22 "void()" `626 
-F G "apagar_all" 0 23 "void()" `627  "FUNCION PRINCIPAL"
-F G "main" 0 29 "void()" `628 
+V G "q" 0 14 "int8" `622 
+V G "led_num" 0 15 "int1" `623  "Declaracion de Funciones"
+F G "Cargar_configuracion" 0 20 "void()" `624 
+F G "Configurar_interrupciones" 0 21 "void()" `625 
+F G "version" 0 22 "void()" `626 
+F G "encender_led" 0 23 "void()" `627 
+F G "apagar_led" 0 24 "void()" `628 
+F G "encender_all" 0 25 "void()" `629 
+F G "apagar_all" 0 26 "void()" `630  "FUNCION PRINCIPAL"
+F G "main" 0 32 "void()" `631 
 C L "Cargar_configuracion" 0 13 1 "FUNCTION"
-F G "Cargar_configuracion" 0 52 "void()" `623 
+F G "Cargar_configuracion" 0 55 "void()" `624 
 C L "Cargar_configuracion" 0 13 1 "FUNCTION"
 C L "Cargar_configuracion" 0 13 2 "FUNCTION"
-F G "Configurar_interrupciones" 0 58 "void()" `624  "setup_timer_0(RTCC_INTERNAL|RTCC_DIV_2);   //Configuración timer0"
+F G "Configurar_interrupciones" 0 61 "void()" `625  "setup_timer_0(RTCC_INTERNAL|RTCC_DIV_2);   //Configuración timer0"
 C L "Configurar_interrupciones" 0 13 6 "FUNCTION"
-F G "version" 0 69 "void()" `625 
-F G "encender_all" 0 73 "void()" `626 
-F G "apagar_all" 0 78 "void()" `627 
+F G "version" 0 72 "void()" `626 
+F G "encender_led" 0 76 "void()" `627 
+F G "apagar_led" 0 111 "void()" `628 
+F G "encender_all" 0 145 "void()" `629 
+F G "apagar_all" 0 150 "void()" `630 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0
