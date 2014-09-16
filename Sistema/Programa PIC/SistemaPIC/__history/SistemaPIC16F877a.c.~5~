@@ -1,0 +1,29 @@
+////////////////////////////////////////////////////////
+//                                                    //
+//   PROYECTO CONTROL DE UN PIC VIA PUERTO SERIE PC   //
+//                                                    //
+//          Control de los 7 pines del PORTB          //
+//    Lectura del estado de las entradas B1 a B7      //
+//                   Control del LCD                  //
+//                                                    //
+////////////////////////////////////////////////////////
+
+#include <16f877a.h>
+#device ICD=TRUE
+#fuses HS,NOWDT,NOPROTECT,NOLVP 
+#use delay(clock=10000000) 
+#use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8) 
+#use FAST_IO(A) 
+#use FAST_IO(B)
+#use FAST_IO(C) 
+#include "LCD.C"
+
+void main()
+{
+
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

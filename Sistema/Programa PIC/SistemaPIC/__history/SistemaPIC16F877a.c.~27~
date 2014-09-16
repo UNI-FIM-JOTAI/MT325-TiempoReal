@@ -1,0 +1,21 @@
+#include <16f877a.h>
+#device ICD=TRUE
+#device adc=10
+#fuses HS,NOWDT,NOPROTECT,NOLVP 
+#use delay(clock=10000000) 
+#use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8) 
+#use FAST_IO(A) 
+#use FAST_IO(B)
+#use FAST_IO(C) 
+
+void main()
+{
+   char q;
+for(;;){
+      q=getch();
+      printf("%c\r",q);
+      delay_ms(100);
+   }
+}
+
+

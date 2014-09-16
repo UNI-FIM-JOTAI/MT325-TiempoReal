@@ -5,7 +5,8 @@
 #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8) 
 #use FAST_IO(A) 
 #use FAST_IO(B)
-#use FAST_IO(C) 
+#use FAST_IO(C)
+
 
 // Definicion de variables
    char q;
