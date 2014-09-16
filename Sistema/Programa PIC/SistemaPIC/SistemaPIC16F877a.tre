@@ -1,8 +1,12 @@
 ÀÄSistemaPIC16F877a
-   ÀÄmain  0/43  Ram=0
+   ÀÄmain  0/54  Ram=0
       ÃÄ@cinit1  (Inline)  Ram=0
       ÃÄCargar_configuracion  0/8  Ram=0
       ÃÄversion  0/10  Ram=0
+      ³  ÀÄ@PSTRINGC7_9600_62_63  0/77  Ram=4
+      ÃÄencender_all  0/12  Ram=0
+      ³  ÀÄ@PSTRINGC7_9600_62_63  0/77  Ram=4
+      ÃÄapagar_all  0/11  Ram=0
       ³  ÀÄ@PSTRINGC7_9600_62_63  0/77  Ram=4
       ÃÄ@PSTRINGC7_9600_62_63  0/77  Ram=4
       ÀÄ@delay_ms1  0/23  Ram=1

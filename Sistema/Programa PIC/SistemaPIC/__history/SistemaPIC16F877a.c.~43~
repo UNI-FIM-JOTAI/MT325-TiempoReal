@@ -33,9 +33,9 @@ for(;;){
       switch(q){
          case 'v': version();
          break;
-         case 'e': encender_all();
+         case 'e': version();
          break;
-         case 'a': apagar_all();
+         case 'a': version();
          break;
          default: printf("Error de comando");
          break;

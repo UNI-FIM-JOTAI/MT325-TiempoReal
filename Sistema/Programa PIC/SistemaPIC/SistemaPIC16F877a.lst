@@ -1,8 +1,8 @@
-CCS PCM C Compiler, Version 5.008, 5967               16-sep-14 11:24
+CCS PCM C Compiler, Version 5.008, 5967               16-sep-14 14:51
 
                Filename:   D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC\SistemaPIC16F877a.lst
 
-               ROM used:   186 words (2%)
+               ROM used:   237 words (3%)
                            Largest free fragment is 2048
                RAM used:   6 (2%) at main() level
                            10 (3%) worst case
@@ -13,7 +13,7 @@ CCS PCM C Compiler, Version 5.008, 5967               16-sep-14 11:24
 0000:  NOP
 0001:  MOVLW  00
 0002:  MOVWF  0A
-0003:  GOTO   08F
+0003:  GOTO   0B7
 .................... #include <16f877a.h> 
 .................... //////// Standard Header file for the PIC16F877A device //////////////// 
 .................... #device PIC16F877A 
@@ -38,84 +38,101 @@ CCS PCM C Compiler, Version 5.008, 5967               16-sep-14 11:24
 0016:  DATA 65,1D
 0017:  DATA 20,3B
 0018:  DATA 31,00
+0019:  DATA 45,37
+001A:  DATA E3,32
+001B:  DATA 6E,32
+001C:  DATA 69,32
+001D:  DATA EF,39
+001E:  DATA 20,2A
+001F:  DATA 6F,32
+0020:  DATA EF,39
+0021:  DATA 00,00
+0022:  DATA 41,38
+0023:  DATA E1,33
+0024:  DATA 61,32
+0025:  DATA EF,39
+0026:  DATA 20,2A
+0027:  DATA 6F,32
+0028:  DATA EF,39
+0029:  DATA 00,00
 *
-0021:  MOVF   0B,W
-0022:  MOVWF  21
-0023:  BCF    0B.7
-0024:  BSF    03.5
-0025:  BSF    03.6
-0026:  BSF    0C.7
-0027:  BSF    0C.0
-0028:  NOP
-0029:  NOP
-002A:  BCF    03.5
-002B:  MOVF   0C,W
-002C:  ANDLW  7F
-002D:  BTFSC  03.2
-002E:  GOTO   06A
-002F:  BCF    03.6
-0030:  MOVWF  22
-0031:  BSF    03.6
-0032:  MOVF   0D,W
-0033:  BCF    03.6
-0034:  MOVWF  23
-0035:  BSF    03.6
-0036:  MOVF   0F,W
-0037:  BCF    03.6
-0038:  MOVWF  24
-0039:  MOVF   22,W
-003A:  BTFSS  0C.4
-003B:  GOTO   03A
-003C:  MOVWF  19
-003D:  MOVF   23,W
-003E:  BSF    03.6
-003F:  MOVWF  0D
+0032:  MOVF   0B,W
+0033:  MOVWF  21
+0034:  BCF    0B.7
+0035:  BSF    03.5
+0036:  BSF    03.6
+0037:  BSF    0C.7
+0038:  BSF    0C.0
+0039:  NOP
+003A:  NOP
+003B:  BCF    03.5
+003C:  MOVF   0C,W
+003D:  ANDLW  7F
+003E:  BTFSC  03.2
+003F:  GOTO   07B
 0040:  BCF    03.6
-0041:  MOVF   24,W
+0041:  MOVWF  22
 0042:  BSF    03.6
-0043:  MOVWF  0F
-0044:  BSF    03.5
-0045:  BSF    0C.7
-0046:  BSF    0C.0
-0047:  NOP
-0048:  NOP
-0049:  BCF    03.5
-004A:  RLF    0C,W
-004B:  RLF    0E,W
-004C:  ANDLW  7F
-004D:  BTFSC  03.2
-004E:  GOTO   06A
-004F:  BCF    03.6
-0050:  MOVWF  22
-0051:  BSF    03.6
-0052:  MOVF   0D,W
-0053:  BCF    03.6
-0054:  MOVWF  23
-0055:  BSF    03.6
-0056:  MOVF   0F,W
-0057:  BCF    03.6
-0058:  MOVWF  24
-0059:  MOVF   22,W
-005A:  BTFSS  0C.4
-005B:  GOTO   05A
-005C:  MOVWF  19
-005D:  MOVF   23,W
-005E:  BSF    03.6
-005F:  MOVWF  0D
+0043:  MOVF   0D,W
+0044:  BCF    03.6
+0045:  MOVWF  23
+0046:  BSF    03.6
+0047:  MOVF   0F,W
+0048:  BCF    03.6
+0049:  MOVWF  24
+004A:  MOVF   22,W
+004B:  BTFSS  0C.4
+004C:  GOTO   04B
+004D:  MOVWF  19
+004E:  MOVF   23,W
+004F:  BSF    03.6
+0050:  MOVWF  0D
+0051:  BCF    03.6
+0052:  MOVF   24,W
+0053:  BSF    03.6
+0054:  MOVWF  0F
+0055:  BSF    03.5
+0056:  BSF    0C.7
+0057:  BSF    0C.0
+0058:  NOP
+0059:  NOP
+005A:  BCF    03.5
+005B:  RLF    0C,W
+005C:  RLF    0E,W
+005D:  ANDLW  7F
+005E:  BTFSC  03.2
+005F:  GOTO   07B
 0060:  BCF    03.6
-0061:  MOVF   24,W
+0061:  MOVWF  22
 0062:  BSF    03.6
-0063:  MOVWF  0F
-0064:  INCF   0D,F
-0065:  BTFSC  03.2
-0066:  INCF   0F,F
-0067:  BCF    03.6
-0068:  GOTO   024
-0069:  BSF    03.6
-006A:  BCF    03.6
-006B:  BTFSC  21.7
-006C:  BSF    0B.7
-006D:  RETURN
+0063:  MOVF   0D,W
+0064:  BCF    03.6
+0065:  MOVWF  23
+0066:  BSF    03.6
+0067:  MOVF   0F,W
+0068:  BCF    03.6
+0069:  MOVWF  24
+006A:  MOVF   22,W
+006B:  BTFSS  0C.4
+006C:  GOTO   06B
+006D:  MOVWF  19
+006E:  MOVF   23,W
+006F:  BSF    03.6
+0070:  MOVWF  0D
+0071:  BCF    03.6
+0072:  MOVF   24,W
+0073:  BSF    03.6
+0074:  MOVWF  0F
+0075:  INCF   0D,F
+0076:  BTFSC  03.2
+0077:  INCF   0F,F
+0078:  BCF    03.6
+0079:  GOTO   035
+007A:  BSF    03.6
+007B:  BCF    03.6
+007C:  BTFSC  21.7
+007D:  BSF    0B.7
+007E:  RETURN
 ....................  
 .................... #list 
 ....................  
@@ -124,29 +141,29 @@ CCS PCM C Compiler, Version 5.008, 5967               16-sep-14 11:24
 .................... #fuses HS,NOWDT,NOPROTECT,NOLVP  
 .................... #use delay(clock=10000000)  
 *
-0078:  MOVLW  21
-0079:  MOVWF  04
-007A:  BCF    03.7
-007B:  MOVF   00,W
-007C:  BTFSC  03.2
-007D:  GOTO   08C
-007E:  MOVLW  03
-007F:  MOVWF  78
-0080:  CLRF   77
-0081:  DECFSZ 77,F
-0082:  GOTO   081
-0083:  DECFSZ 78,F
-0084:  GOTO   080
-0085:  MOVLW  3C
-0086:  MOVWF  77
-0087:  DECFSZ 77,F
-0088:  GOTO   087
-0089:  GOTO   08A
-008A:  DECFSZ 00,F
-008B:  GOTO   07E
-008C:  BCF    0A.3
-008D:  BCF    0A.4
-008E:  GOTO   0B8 (RETURN)
+00A0:  MOVLW  21
+00A1:  MOVWF  04
+00A2:  BCF    03.7
+00A3:  MOVF   00,W
+00A4:  BTFSC  03.2
+00A5:  GOTO   0B4
+00A6:  MOVLW  03
+00A7:  MOVWF  78
+00A8:  CLRF   77
+00A9:  DECFSZ 77,F
+00AA:  GOTO   0A9
+00AB:  DECFSZ 78,F
+00AC:  GOTO   0A8
+00AD:  MOVLW  3C
+00AE:  MOVWF  77
+00AF:  DECFSZ 77,F
+00B0:  GOTO   0AF
+00B1:  GOTO   0B2
+00B2:  DECFSZ 00,F
+00B3:  GOTO   0A6
+00B4:  BCF    0A.3
+00B5:  BCF    0A.4
+00B6:  GOTO   0EB (RETURN)
 .................... #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8)  
 .................... #use FAST_IO(A)  
 .................... #use FAST_IO(B) 
@@ -163,68 +180,85 @@ CCS PCM C Compiler, Version 5.008, 5967               16-sep-14 11:24
 .................... void Cargar_configuracion(); 
 .................... void Configurar_interrupciones(); 
 .................... void version(); 
+.................... void encender_all (); 
+.................... void apagar_all (); 
 .................... //*************************************** 
 ....................  
 .................... // ************************************** 
 .................... // FUNCION PRINCIPAL 
 .................... void main() 
-008F:  MOVF   03,W
-0090:  ANDLW  1F
-0091:  MOVWF  03
-0092:  MOVLW  40
-0093:  BSF    03.5
-0094:  MOVWF  19
-0095:  MOVLW  A6
-0096:  MOVWF  18
-0097:  MOVLW  90
-0098:  BCF    03.5
-0099:  MOVWF  18
-009A:  BSF    03.5
-009B:  BSF    1F.0
-009C:  BSF    1F.1
-009D:  BSF    1F.2
-009E:  BCF    1F.3
-009F:  MOVLW  07
-00A0:  MOVWF  1C
-00A1:  BCF    03.7
+00B7:  MOVF   03,W
+00B8:  ANDLW  1F
+00B9:  MOVWF  03
+00BA:  MOVLW  40
+00BB:  BSF    03.5
+00BC:  MOVWF  19
+00BD:  MOVLW  A6
+00BE:  MOVWF  18
+00BF:  MOVLW  90
+00C0:  BCF    03.5
+00C1:  MOVWF  18
+00C2:  BSF    03.5
+00C3:  BSF    1F.0
+00C4:  BSF    1F.1
+00C5:  BSF    1F.2
+00C6:  BCF    1F.3
+00C7:  MOVLW  07
+00C8:  MOVWF  1C
+00C9:  BCF    03.7
 .................... { 
 ....................    Cargar_configuracion(); 
-00A2:  BCF    03.5
-00A3:  GOTO   019
+00CA:  BCF    03.5
+00CB:  GOTO   02A
 .................... for(;;){ 
 ....................       q=getch(); 
-00A4:  BTFSS  0C.5
-00A5:  GOTO   0A4
-00A6:  MOVF   1A,W
-00A7:  MOVWF  20
+00CC:  BTFSS  0C.5
+00CD:  GOTO   0CC
+00CE:  MOVF   1A,W
+00CF:  MOVWF  20
 ....................       switch(q){ 
-00A8:  MOVF   20,W
-00A9:  XORLW  76
-00AA:  BTFSS  03.2
-00AB:  GOTO   0AE
+00D0:  MOVF   20,W
+00D1:  XORLW  76
+00D2:  BTFSC  03.2
+00D3:  GOTO   0DB
+00D4:  XORLW  13
+00D5:  BTFSC  03.2
+00D6:  GOTO   0DD
+00D7:  XORLW  04
+00D8:  BTFSC  03.2
+00D9:  GOTO   0DF
+00DA:  GOTO   0E1
 ....................          case 'v': version(); 
-00AC:  GOTO   06E
+00DB:  GOTO   07F
 ....................          break; 
-00AD:  GOTO   0B5
+00DC:  GOTO   0E8
+....................          case 'e': encender_all(); 
+00DD:  GOTO   089
+....................          break; 
+00DE:  GOTO   0E8
+....................          case 'a': apagar_all(); 
+00DF:  GOTO   095
+....................          break; 
+00E0:  GOTO   0E8
 ....................          default: printf("Error de comando"); 
-00AE:  MOVLW  04
-00AF:  BSF    03.6
-00B0:  MOVWF  0D
-00B1:  MOVLW  00
-00B2:  MOVWF  0F
-00B3:  BCF    03.6
-00B4:  CALL   021
+00E1:  MOVLW  04
+00E2:  BSF    03.6
+00E3:  MOVWF  0D
+00E4:  MOVLW  00
+00E5:  MOVWF  0F
+00E6:  BCF    03.6
+00E7:  CALL   032
 ....................          break; 
 ....................          } 
 ....................       delay_ms(100); 
-00B5:  MOVLW  64
-00B6:  MOVWF  21
-00B7:  GOTO   078
-00B8:  GOTO   0A4
+00E8:  MOVLW  64
+00E9:  MOVWF  21
+00EA:  GOTO   0A0
+00EB:  GOTO   0CC
 ....................    } 
 .................... } 
 .................... // ************************************** 
-00B9:  GOTO   0B9
+00EC:  GOTO   0EC
 ....................  
 ....................  
 .................... // **************************************** 
@@ -233,15 +267,15 @@ CCS PCM C Compiler, Version 5.008, 5967               16-sep-14 11:24
 .................... void Cargar_configuracion(){ 
 ....................    SET_TRIS_B(0x00);    //configura PORTB entrada / 0=salida / 1=entrada 
 *
-0019:  MOVLW  00
-001A:  BSF    03.5
-001B:  MOVWF  06
+002A:  MOVLW  00
+002B:  BSF    03.5
+002C:  MOVWF  06
 ....................    OUTPUT_B(0x00);   //inicializando PORTD en 0x00 
-001C:  BCF    03.5
-001D:  CLRF   06
-001E:  BCF    0A.3
-001F:  BCF    0A.4
-0020:  GOTO   0A4 (RETURN)
+002D:  BCF    03.5
+002E:  CLRF   06
+002F:  BCF    0A.3
+0030:  BCF    0A.4
+0031:  GOTO   0CC (RETURN)
 ....................    //SET_TRIS_D(0x00);    //configura PORTD salida 
 ....................    } 
 ....................  
@@ -259,17 +293,50 @@ CCS PCM C Compiler, Version 5.008, 5967               16-sep-14 11:24
 .................... void version(){ 
 ....................    printf("Version de Software: v1"); 
 *
-006E:  MOVLW  0D
-006F:  BSF    03.6
-0070:  MOVWF  0D
-0071:  MOVLW  00
-0072:  MOVWF  0F
-0073:  BCF    03.6
-0074:  CALL   021
-0075:  BCF    0A.3
-0076:  BCF    0A.4
-0077:  GOTO   0B5 (RETURN)
+007F:  MOVLW  0D
+0080:  BSF    03.6
+0081:  MOVWF  0D
+0082:  MOVLW  00
+0083:  MOVWF  0F
+0084:  BCF    03.6
+0085:  CALL   032
+0086:  BCF    0A.3
+0087:  BCF    0A.4
+0088:  GOTO   0E8 (RETURN)
 ....................    } 
+....................     
+.................... void encender_all (){ 
+....................    OUTPUT_B(0xFF); 
+0089:  MOVLW  FF
+008A:  MOVWF  06
+....................    printf("Encendidos Todos"); 
+008B:  MOVLW  19
+008C:  BSF    03.6
+008D:  MOVWF  0D
+008E:  MOVLW  00
+008F:  MOVWF  0F
+0090:  BCF    03.6
+0091:  CALL   032
+0092:  BCF    0A.3
+0093:  BCF    0A.4
+0094:  GOTO   0E8 (RETURN)
+.................... } 
+....................  
+.................... void apagar_all (){ 
+....................    OUTPUT_B(0x00); 
+0095:  CLRF   06
+....................    printf("Apagados Todos"); 
+0096:  MOVLW  22
+0097:  BSF    03.6
+0098:  MOVWF  0D
+0099:  MOVLW  00
+009A:  MOVWF  0F
+009B:  BCF    03.6
+009C:  CALL   032
+009D:  BCF    0A.3
+009E:  BCF    0A.4
+009F:  GOTO   0E8 (RETURN)
+.................... } 
 .................... //***************************************** 
 ....................  
 

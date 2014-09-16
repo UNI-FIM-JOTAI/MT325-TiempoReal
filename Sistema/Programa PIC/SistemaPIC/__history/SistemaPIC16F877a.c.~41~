@@ -19,8 +19,6 @@ char q;
 void Cargar_configuracion();
 void Configurar_interrupciones();
 void version();
-void encender_all ();
-void apagar_all ();
 //***************************************
 
 // **************************************
@@ -32,10 +30,6 @@ for(;;){
       q=getch();
       switch(q){
          case 'v': version();
-         break;
-         case 'e': encender_all();
-         break;
-         case 'a': apagar_all();
          break;
          default: printf("Error de comando");
          break;
@@ -69,15 +63,5 @@ void Configurar_interrupciones(){
 void version(){
    printf("Version de Software: v1");
    }
-   
-void encender_all (){
-   OUTPUT_B(0xFF);
-   printf("Encendidos Todos");
-}
-
-void apagar_all (){
-   OUTPUT_B(0x00);
-   printf("Apagados Todos");
-}
 //*****************************************
 
