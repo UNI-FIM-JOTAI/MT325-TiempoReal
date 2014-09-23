@@ -57,7 +57,7 @@
             // 
             // serialPort1
             // 
-            this.serialPort1.PortName = "COM23";
+            this.serialPort1.PortName = "COM3";
             // 
             // Monitor
             // 

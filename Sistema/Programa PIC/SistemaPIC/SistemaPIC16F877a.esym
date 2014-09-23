@@ -1,8 +1,8 @@
 d G "INT_COMP" 1 658 "0x008D40"
-D G "__PCM__" 0 157 ""5.008""
-D G "__DEVICE__" 0 157 "877"
-D G "__DATE__" 0 157 ""16-sep-14""
-D G "__TIME__" 0 157 ""15:13:22"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "__PCM__" 0 198 ""5.008""
+D G "__DEVICE__" 0 198 "877"
+D G "__DATE__" 0 198 ""16-sep-14""
+D G "__TIME__" 0 198 ""18:45:25"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 5 13 "FUNCTION"
 v L "value" 1 28 "int8" `54 
 f B "set_tris_a" 1 28 "void(int8 value)" `53 
@@ -777,26 +777,29 @@ d G "INT_TIMER0" 1 657 "0x000B20"
 d G "INT_COMP" 1 658 "0x008D40"
 C L "jump_to_irs" 0 13 1 "FUNCTION"
 V G "q" 0 14 "int8" `622 
-V G "led_num" 0 15 "int1" `623  "Declaracion de Funciones"
-F G "Cargar_configuracion" 0 20 "void()" `624 
-F G "Configurar_interrupciones" 0 21 "void()" `625 
-F G "version" 0 22 "void()" `626 
-F G "encender_led" 0 23 "void()" `627 
-F G "apagar_led" 0 24 "void()" `628 
-F G "encender_all" 0 25 "void()" `629 
-F G "apagar_all" 0 26 "void()" `630  "FUNCION PRINCIPAL"
-F G "main" 0 32 "void()" `631 
+V G "led_num" 0 15 "int1" `623 
+V G "led_state" 0 16 "int1" `624  "Declaracion de Funciones"
+F G "Cargar_configuracion" 0 21 "void()" `625 
+F G "Configurar_interrupciones" 0 22 "void()" `626 
+F G "version" 0 23 "void()" `627 
+F G "encender_led" 0 24 "void()" `628 
+F G "apagar_led" 0 25 "void()" `629 
+F G "encender_all" 0 26 "void()" `630 
+F G "apagar_all" 0 27 "void()" `631 
+F G "estado_led" 0 28 "void()" `632  "FUNCION PRINCIPAL"
+F G "main" 0 34 "void()" `633 
 C L "Cargar_configuracion" 0 13 1 "FUNCTION"
-F G "Cargar_configuracion" 0 55 "void()" `624 
+F G "Cargar_configuracion" 0 59 "void()" `625 
 C L "Cargar_configuracion" 0 13 1 "FUNCTION"
 C L "Cargar_configuracion" 0 13 2 "FUNCTION"
-F G "Configurar_interrupciones" 0 61 "void()" `625  "setup_timer_0(RTCC_INTERNAL|RTCC_DIV_2);   //Configuración timer0"
+F G "Configurar_interrupciones" 0 65 "void()" `626  "setup_timer_0(RTCC_INTERNAL|RTCC_DIV_2);   //Configuración timer0"
 C L "Configurar_interrupciones" 0 13 6 "FUNCTION"
-F G "version" 0 72 "void()" `626 
-F G "encender_led" 0 76 "void()" `627 
-F G "apagar_led" 0 111 "void()" `628 
-F G "encender_all" 0 145 "void()" `629 
-F G "apagar_all" 0 150 "void()" `630 
+F G "version" 0 76 "void()" `627 
+F G "encender_led" 0 80 "void()" `628 
+F G "apagar_led" 0 115 "void()" `629 
+F G "encender_all" 0 149 "void()" `630 
+F G "apagar_all" 0 154 "void()" `631 
+F G "estado_led" 0 159 "void()" `632 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

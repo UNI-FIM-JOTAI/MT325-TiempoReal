@@ -166,7 +166,8 @@ void estado_led (){
          case '1': led_state = input_state(PIN_B1);
                    led_num = 1;
          break;
-         case '2': led_state = input_state(PIN_B2);
+         case '2': output_toggle(PIN_B2);
+                   led_state = input_state(PIN_B2);
                    led_num = 1;
          break;
          case '3': led_state = input_state(PIN_B3);

@@ -13,7 +13,6 @@
 // Definicion de variables
 char q;
 int1 led_num;
-int1 led_state;
 // **************************************
 
 // **************************************
@@ -25,7 +24,6 @@ void encender_led ();
 void apagar_led ();
 void encender_all ();
 void apagar_all ();
-void estado_led ();
 //***************************************
 
 // **************************************
@@ -41,8 +39,6 @@ for(;;){
          case 'e': encender_led();
          break;
          case 'a': apagar_led();
-         break;
-         case 's': estado_led ();
          break;
          default: printf("Error de comando");
          break;
@@ -155,41 +151,5 @@ void apagar_all (){
    OUTPUT_B(0x00);
    printf("Apagados Todos");
 }
-
-void estado_led (){
-   led_num = 0;
-   q=getch();
-      switch(q){
-         case '0': led_state = input_state(PIN_B0);
-                   led_num = 1;
-         break;
-         case '1': led_state = input_state(PIN_B1);
-                   led_num = 1;
-         break;
-         case '2': led_state = input_state(PIN_B2);
-                   led_num = 1;
-         break;
-         case '3': led_state = input_state(PIN_B3);
-                   led_num = 1;
-         break;
-         case '4': led_state = input_state(PIN_B4);
-                   led_num = 1;
-         break;
-         case '5': led_state = input_state(PIN_B5);
-                   led_num = 1;
-         break;
-         default: printf("Led no encontrado");
-         break;
-         }
-      delay_ms(100);
-   if (led_num == 1){
-      if (led_state == 1){
-         printf("Led %c encendido",q);
-      } else {
-         printf("Led %c apagado",q);
-      }
-   }
-}
-
 //*****************************************
 

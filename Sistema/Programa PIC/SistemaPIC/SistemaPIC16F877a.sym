@@ -4,16 +4,18 @@
 015     CCP_1_LOW
 015     CCP_1
 016     CCP_1_HIGH
-01B     CCP_2
 01B     CCP_2_LOW
+01B     CCP_2
 01C     CCP_2_HIGH
 020     q
 021.0   led_num
+021.1   led_state
 022     @PSTRINGCN7_9600_62_63.P1
 022     @delay_ms1.P2
 022     @PSTRINGC7_9600_62_63.@SCRATCH1
 022     encender_led.@SCRATCH1
 022     apagar_led.@SCRATCH1
+022     estado_led.@SCRATCH1
 023     @PSTRINGC7_9600_62_63.@SCRATCH2
 023     @PSTRINGCN7_9600_62_63.@SCRATCH1
 024     @PSTRINGC7_9600_62_63.@SCRATCH3
@@ -32,35 +34,39 @@
 10D-10E @READ_PROGRAM_MEMORY8.P2
 
 ROM Allocation:
-000004  @const634.call
-00000D  @const636.call
-000019  @const637.call
-000022  @const638.call
-00002B  @const641.call
-000034  @const642.call
-00003C  @const643.call
-000045  @const644.call
-00004D  Cargar_configuracion
-000055  @PSTRINGC7_9600_62_63
-0000A2  version
-0000AC  @delay_ms1
-0000C1  @PSTRINGCN7_9600_62_63
-000117  encender_led
-000145  encender_all
-00016D  apagar_led
-00019B  apagar_all
-0001C2  @cinit1
-0001C2  main
-0001D4  @cinit2
+000004  @const636.call
+00000D  @const638.call
+000019  @const639.call
+000022  @const640.call
+00002B  @const643.call
+000034  @const644.call
+00003C  @const645.call
+000045  @const646.call
+00004D  @const647.call
+000056  @const648.call
+00005F  @const649.call
+000067  Cargar_configuracion
+00006F  @PSTRINGC7_9600_62_63
+0000BC  version
+0000C6  @delay_ms1
+0000DB  @PSTRINGCN7_9600_62_63
+000131  encender_led
+00015F  encender_all
+000187  apagar_led
+0001B5  apagar_all
+0001DC  estado_led
+000255  @cinit1
+000255  main
+000267  @cinit2
 
 Project Directory:
     D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC\
 
 Project Files:
-    SistemaPIC16F877a.c                                     [16-sep-14 15:13  CRC=DDD8675A]
+    SistemaPIC16F877a.c                                     [16-sep-14 18:45  CRC=1F8C5A47]
     C:\Program Files (x86)\PICC\Devices\16f877a.h           [03-jul-13 14:28  CRC=4E65664C]
 
-Source signature=7AA333F2
+Source signature=BC5726DF
 
 Units:
     SistemaPIC16F877a (main)
