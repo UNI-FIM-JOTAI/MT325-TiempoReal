@@ -1,9 +1,9 @@
 
-ROM used:   5128/16384 (16%)
+ROM used:   5124/16384 (16%)
             6952/16384 (21%) including unused fragments
 
             2.7 Average locations per line
-            11.4 Average locations per statement
+            11.5 Average locations per statement
 
 RAM used:   220/2048 (11%) at main() level
             284/2048 (14%) worst case
@@ -13,11 +13,11 @@ Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  597   364  81  Multitarea.c
+  600   363  81  Multitarea.c
   821     0   0  C:\Program Files (x86)\PICC\Devices\18F4550.h
   456    84  19  C:\Program Files (x86)\PICC\Drivers\lcd.c
 ----- -----
- 1874   448 Total
+ 1877   447 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -37,7 +37,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     34   0    2             @PSTRINGC_9600_31766_31767
 0     56   1    3   153  4.7  addcbuff
 0     34   0    3   131  3.5  inicbuff
-0    456   4   16  1265  8.3  procesa_cmd
+0    456   4   16  1258  8.8  procesa_cmd
 0     90   1   14             @MUL3232
 0     78   1    0   511  5.2  ROML_LedA1
 0     82   1    0   553  5.2  ROML_LedA2
@@ -66,18 +66,18 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0    470   5    6  1101  9.1  Inicio_SO
 0     28   0    0             @const806
 0     26   0    0             @const807
-0    120   1    0   115  1.2  MAIN
+0    116   1    0    94  1.2  MAIN
 0     22   0    0             @const811
  Inline         0             @cinit1
 
 Program metrics:
     Functions               29
-    Statements              448
-    Comments                299
-    Volume (V)              23195
-    Difficulty (D)          122.5
-    Effort to implement (E) 2842376
-    Time to implement (T)   43 hours, 52 minutes
+    Statements              447
+    Comments                302
+    Volume (V)              23138
+    Difficulty (D)          123.0
+    Effort to implement (E) 2845985
+    Time to implement (T)   43 hours, 55 minutes
     Est Delivered Bugs (B)  7
     Cyclomatic Complexity   72
     Maintainability (MI)    43
@@ -86,7 +86,7 @@ Program metrics:
 -----------  ----  ----
 00000-00006     4  4  
 00008-000A0   154  0  
-000A2-00FFE  3292  642  
+000A2-00FFE  3288  646  
 01000-01100    78  180  
 01102-01200    82  174  
 01202-01300    82  174  

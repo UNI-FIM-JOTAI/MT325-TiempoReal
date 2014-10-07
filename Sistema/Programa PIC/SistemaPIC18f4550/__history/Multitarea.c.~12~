@@ -587,7 +587,7 @@ void main(void)
 {
    output_a(0x00);
    output_b(0x00);
-   //output_c(0x00);
+   output_c(0x00);
    output_d(0x00);
    printf("Esperando conexión..*");
    

@@ -1,7 +1,8 @@
-D G "__PCH__" 0 598 ""5.008""
-D G "__DEVICE__" 0 598 "4550"
-D G "__DATE__" 0 598 ""07-oct-14""
-D G "__TIME__" 0 598 ""09:31:25"" "Standard Header file for the PIC18F4550 device ////////////////"
+D G "Tiempo" 0 7 "200"
+D G "__PCH__" 0 601 ""5.008""
+D G "__DEVICE__" 0 601 "4550"
+D G "__DATE__" 0 601 ""07-oct-14""
+D G "__TIME__" 0 601 ""17:06:14"" "Standard Header file for the PIC18F4550 device ////////////////"
 c L "set_tris_a" 1 5 21 "FUNCTION"
 v L "value" 1 36 "int8" `54 
 f B "set_tris_a" 1 36 "void(int8 value)" `53 
@@ -1004,66 +1005,68 @@ V G "flagcmd" 0 77 "int1" `726
 V G "vpcb" 0 89 "{int32 di,int32 df,int32 da,int8 estado,int8 wreg,int8 status,int8 bsr,int8 id}[7]" `736 
 F G "activar_timer" 0 92 "void()" `737 
 F G "desactivar_timer" 0 98 "void()" `738 
-V L "NUMERO" 0 101 "int8" `740 
-F G "DISPLAY" 0 101 "int32(int8 NUMERO,int8 NUMERO)" `739 
-F G "inter_quantum" 0 117 "void()" `741 
-V L "i" 0 117 "int8" `742 
+V L "NUMERO" 0 102 "int8" `740 
+F G "DISPLAY" 0 102 "int32(int8 NUMERO)" `739 
+F G "inter_quantum" 0 118 "void()" `741 
+V L "i" 0 118 "int8" `742 
 C L "inter_quantum" 0 15 1 "FUNCTION"
-V L "c" 0 138 "int8" `744 
-F G "addcbuff" 0 138 "int8(int8 c,int8 c)" `743 
-F G "mostrar_procesos" 0 139 "void()" `745 
-V L "idp" 0 140 "int8" `747 
-F G "descargar_proceso" 0 140 "void(int8 idp,int8 idp)" `746 
-F G "ir_quantum" 0 141 "void()" `748 
-F G "Config_TMR0" 0 142 "void()" `749 
-F G "serial_isr" 0 146 "void()" `750 
-V L "c" 0 156 "int8" `754 
-F G "addcbuff" 0 157 "int8(int8 c)" `743 
-F G "inicbuff" 0 170 "void(int8 c)" `753 
-V L "i" 0 171 "int8" `754 
-F G "procesa_cmd" 0 179 "void()" `755 
-V L "i" 0 181 "int8" `756 
-V L "j" 0 181 "int8" `757 
-V L "salida" 0 182 "int8[10]" `758  "Argumento de comando (si lo tiene)"
-C L "procesa_cmd" 0 15 1 "FUNCTION"
-C L "procesa_cmd" 0 15 1 "FUNCTION"
-C L "procesa_cmd" 0 15 4 "FUNCTION"
+V L "c" 0 139 "int8" `744 
+F G "addcbuff" 0 139 "void(int8 c)" `743 
+F G "mostrar_procesos" 0 140 "void()" `745 
+V L "idp" 0 141 "int8" `747 
+F G "descargar_proceso" 0 141 "void(int8 idp)" `746 
+F G "ir_quantum" 0 142 "void()" `748 
+F G "Config_TMR0" 0 143 "void()" `749 
+F G "serial_isr" 0 147 "void()" `750 
+V L "c" 0 157 "int8" `754 
+F G "addcbuff" 0 158 "void(int8 c)" `743 
+C L "addcbuff" 0 15 1 "FUNCTION"
+F G "inicbuff" 0 172 "void(int8 c)" `753 
+V L "i" 0 173 "int8" `754 
+F G "procesa_cmd" 0 181 "void()" `755 
+V L "i" 0 183 "int8" `756 
+V L "j" 0 183 "int8" `757 
+V L "salida" 0 184 "int8[10]" `758  "Argumento de comando (si lo tiene)"
 C L "procesa_cmd" 0 15 1 "FUNCTION"
 C L "procesa_cmd" 0 15 1 "FUNCTION"
 C L "procesa_cmd" 0 15 1 "FUNCTION"
-F G "ROML_LedA1" 0 225 "void()" `762 
-F G "ROML_LedA2" 0 247 "void()" `763 
-F G "ROML_LedA3" 0 276 "void()" `764 
-F G "voidTask_LedB1" 0 298 "void()" `765 
-F G "voidTask_LedC1" 0 322 "void()" `766 
-F G "voidTask_LedC2" 0 357 "void()" `767 
-F G "task_manager" 0 392 "void()" `768 
-V L "m" 0 395 "int8" `769 
-V L "mproceso" 0 396 "int32" `770 
-V L "mdirini" 0 396 "int32" `771 
-V L "mdirfin" 0 396 "int32" `772 
-V L "mdiract" 0 396 "int32" `773 
-V L "mm" 0 408 "int16" `784 
-V L "mmm" 0 411 "int8" `785 
-F G "Port_Init" 0 424 "void()" `786 
-C L "Port_Init" 0 15 1 "FUNCTION"
-F G "inte_Init" 0 432 "void()" `787 
-F G "Config_TMR0" 0 438 "void()" `749 
-F G "Procesos_Init" 0 444 "void()" `788 
-V L "idp" 0 477 "int8" `790 
-F G "cargar_proceso" 0 478 "void(int8 idp,int8 idp)" `789 
-V L "idp" 0 486 "int8" `799 
-F G "descargar_proceso" 0 487 "void(int8 idp)" `746 
-V L "s" 0 488 "int8" `798 
-V L "d" 0 488 "int8" `799 
-V L "f" 0 488 "int8" `800 
-F G "ir_quantum" 0 504 "void()" `748 
-V L "i" 0 505 "int8" `802 
+C L "procesa_cmd" 0 15 5 "FUNCTION"
+C L "procesa_cmd" 0 15 1 "FUNCTION"
+C L "procesa_cmd" 0 15 1 "FUNCTION"
+C L "procesa_cmd" 0 15 1 "FUNCTION"
+F G "ROML_LedA1" 0 229 "void()" `762 
+F G "ROML_LedA2" 0 251 "void()" `763 
+F G "ROML_LedA3" 0 280 "void()" `764 
+F G "voidTask_LedB1" 0 302 "void()" `765 
+F G "voidTask_LedC1" 0 326 "void()" `766 
+F G "voidTask_LedC2" 0 361 "void()" `767 
+F G "task_manager" 0 396 "void()" `768 
+V L "m" 0 399 "int8" `769 
+V L "mproceso" 0 400 "int32" `770 
+V L "mdirini" 0 400 "int32" `771 
+V L "mdirfin" 0 400 "int32" `772 
+V L "mdiract" 0 400 "int32" `773 
+V L "mm" 0 412 "int16" `784 
+V L "mmm" 0 415 "int8" `785 
+F G "Port_Init" 0 428 "void()" `786 
+F G "inte_Init" 0 435 "void()" `787 
+F G "Config_TMR0" 0 441 "void()" `749 
+F G "Procesos_Init" 0 447 "void()" `788 
+V L "idp" 0 480 "int8" `790 
+F G "cargar_proceso" 0 481 "void(int8 idp)" `789 
+V L "idp" 0 489 "int8" `799 
+F G "descargar_proceso" 0 490 "void(int8 idp)" `746 
+V L "s" 0 491 "int8" `798 
+V L "d" 0 491 "int8" `799 
+V L "f" 0 491 "int8" `800 
+F G "ir_quantum" 0 507 "void()" `748 
+V L "i" 0 508 "int8" `802 
 C L "ir_quantum" 0 15 1 "FUNCTION"
-F G "MCU_Init" 0 530 "void()" `803 
-F G "Inicio_SO" 0 547 "void()" `805 
+F G "MCU_Init" 0 533 "void()" `803 
+F G "Inicio_SO" 0 550 "void()" `805 
 C L "Inicio_SO" 0 15 1 "FUNCTION"
-F G "MAIN" 0 584 "void()" `808 
+F G "MAIN" 0 587 "void()" `808 
+C L "MAIN" 0 15 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1

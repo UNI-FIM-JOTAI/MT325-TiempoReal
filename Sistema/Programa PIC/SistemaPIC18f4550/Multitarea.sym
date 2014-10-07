@@ -249,11 +249,11 @@ Project Directory:
     D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC18f4550\
 
 Project Files:
-    Multitarea.c                                            [07-oct-14 09:31  CRC=9490DD3D]
+    Multitarea.c                                            [07-oct-14 17:06  CRC=A8C5BEBB]
     C:\Program Files (x86)\PICC\Devices\18F4550.h           [03-jul-13 14:29  CRC=A157EDDE]
     C:\Program Files (x86)\PICC\Drivers\lcd.c               [23-ago-12 09:01  CRC=D28E8746]
 
-Source signature=DB05D9A7
+Source signature=EF3ABB25
 
 Units:
     Multitarea (main)

@@ -136,7 +136,7 @@ void inter_quantum()
    TOSU=00;
 }  
 
-void  addcbuff(char c);
+int  addcbuff(char c);
 void mostrar_procesos();
 void descargar_proceso(int idp);
 void ir_quantum();
@@ -154,7 +154,7 @@ void serial_isr()
    }
 }
 
-void addcbuff(char c)
+int addcbuff(char c)
 {
    switch(c)
    {
@@ -188,7 +188,7 @@ void procesa_cmd(void){
    {
       if (cbuff[i] == '$')
       //while((cbuff[i] != 0x4A) & (i<xbuff))
-      while((cbuff[i] != '*') & (i<xbuff))
+      while((cbuff[i] != '#') & (i<xbuff))
       {
          salida[j++]=cbuff[i++];
       }
@@ -234,11 +234,11 @@ void ROML_LedA1()
       {
          IF(j1==0)
          {
-            OUTPUT_BIT(PIN_A0,0);
-            OUTPUT_BIT(PIN_A1,0);
+            OUTPUT_BIT(PIN_E0,0);
+            OUTPUT_BIT(PIN_E1,0);
          }
-         IF(j1==1){OUTPUT_BIT(PIN_A0,1);}
-         IF(j1==2){OUTPUT_BIT(PIN_A1,1);}
+         IF(j1==1){OUTPUT_BIT(PIN_E0,1);}
+         IF(j1==2){OUTPUT_BIT(PIN_E1,1);}
          for (k1=1;k1<200;++k1){for (l1=1;l1<200;++l1){}}
       }
    }
@@ -287,8 +287,8 @@ while(TRUE){
             for (l3=1;l3<200;++l3)
             {
                output_b(dis1);
-               output_bit(PIN_D0,1);
-               output_bit(PIN_D1,0);
+               output_bit(PIN_A0,1);
+               output_bit(PIN_A1,0);
             }
          }
          if(d1==0){d1=10;}   
@@ -309,8 +309,8 @@ while(true){
             for (l4=1;l4<200;++l4)
             {
                output_b(dis2);
-               output_bit(PIN_D0,0);
-               output_bit(PIN_D1,1);
+               output_bit(PIN_A0,0);
+               output_bit(PIN_A1,1);
             }
          }
          if(d2==10){d2=0;}   
@@ -333,17 +333,17 @@ while(TRUE){
          {
             IF(j3==0)
             {
-               OUTPUT_BIT(PIN_A4,0);
-               OUTPUT_BIT(PIN_A5,0);
+               OUTPUT_BIT(PIN_C0,0);
+               OUTPUT_BIT(PIN_C1,0);
             }
             IF(j3==1)
             {
-               OUTPUT_BIT(PIN_A4,1);
+               OUTPUT_BIT(PIN_C0,1);
             }
             IF(j3==2)
             {
-               OUTPUT_BIT(PIN_A4,0);
-               OUTPUT_BIT(PIN_A5,1);
+               OUTPUT_BIT(PIN_C0,0);
+               OUTPUT_BIT(PIN_C1,1);
             }         
             for (k5=1;k5<200;++k5){for (l5=1;l5<200;++l5){}}
          }
@@ -368,17 +368,17 @@ while(TRUE){
          {
             IF(j4==0)
             {
-               OUTPUT_BIT(PIN_D2,0);
-               OUTPUT_BIT(PIN_D3,0);
+               OUTPUT_BIT(PIN_C2,0);
+               OUTPUT_BIT(PIN_C4,0);
             }
             IF(j4==1)
             {
-               OUTPUT_BIT(PIN_D2,1);
+               OUTPUT_BIT(PIN_C2,1);
             }
             IF(j4==2)
             {
-               OUTPUT_BIT(PIN_D2,0);
-               OUTPUT_BIT(PIN_D3,1);
+               OUTPUT_BIT(PIN_C2,0);
+               OUTPUT_BIT(PIN_C4,1);
             }         
             for (k6=1;k6<200;++k6){for (l6=1;l6<200;++l6){}}
          }
@@ -587,7 +587,7 @@ void main(void)
 {
    output_a(0x00);
    output_b(0x00);
-   //output_c(0x00);
+   output_c(0x00);
    output_d(0x00);
    printf("Esperando conexión..*");
    

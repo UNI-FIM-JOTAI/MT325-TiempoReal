@@ -59,7 +59,7 @@ int k1,k2,k3,k4,k5,k6;
 int l1,l2,l3,l4,l5,l6;
 
 char proceso;
-int SHOW=0;
+INT SHOW=0;
 int d1=10;
 int d2=0;
 
@@ -98,7 +98,6 @@ void desactivar_timer()
 {
    disable_interrupts(INT_TIMER0);
 }
-
 int32 DISPLAY(INT NUMERO){
    IF(NUMERO==0){SHOW=0xBF;};
    IF(NUMERO==1){SHOW=0x86;};
@@ -136,7 +135,7 @@ void inter_quantum()
    TOSU=00;
 }  
 
-void  addcbuff(char c);
+int  addcbuff(char c);
 void mostrar_procesos();
 void descargar_proceso(int idp);
 void ir_quantum();
@@ -154,12 +153,11 @@ void serial_isr()
    }
 }
 
-void addcbuff(char c)
+int addcbuff(char c)
 {
    switch(c)
    {
-      //case 0x2A:
-      case '*':
+      case 0x2A:
          cbuff[xbuff++] = c;
          flagcmd = 1;
       break;
@@ -187,8 +185,7 @@ void procesa_cmd(void){
    for (i=0;i<xbuff;i++)
    {
       if (cbuff[i] == '$')
-      //while((cbuff[i] != 0x4A) & (i<xbuff))
-      while((cbuff[i] != '*') & (i<xbuff))
+      while((cbuff[i] != 0x4A) & (i<xbuff))
       {
          salida[j++]=cbuff[i++];
       }
@@ -209,8 +206,7 @@ void procesa_cmd(void){
       //printf ("\r\n Valor:  %Lu\n", valor);
       //printf ("\r\n Valor2:  %Lu\n", valor2);
       //printf ("\r\n Comando:  %c\n", comando);
-      //i++;
-      break;
+      i++;
    }
    inicbuff();                            // Borro buffer.
    for(i=0;i<lenbuff;i++)                 // Bucle que pone a 0 todos los
@@ -234,11 +230,11 @@ void ROML_LedA1()
       {
          IF(j1==0)
          {
-            OUTPUT_BIT(PIN_A0,0);
-            OUTPUT_BIT(PIN_A1,0);
+            OUTPUT_BIT(PIN_E0,0);
+            OUTPUT_BIT(PIN_E1,0);
          }
-         IF(j1==1){OUTPUT_BIT(PIN_A0,1);}
-         IF(j1==2){OUTPUT_BIT(PIN_A1,1);}
+         IF(j1==1){OUTPUT_BIT(PIN_E0,1);}
+         IF(j1==2){OUTPUT_BIT(PIN_E1,1);}
          for (k1=1;k1<200;++k1){for (l1=1;l1<200;++l1){}}
       }
    }
@@ -287,8 +283,8 @@ while(TRUE){
             for (l3=1;l3<200;++l3)
             {
                output_b(dis1);
-               output_bit(PIN_D0,1);
-               output_bit(PIN_D1,0);
+               output_bit(PIN_A0,1);
+               output_bit(PIN_A1,0);
             }
          }
          if(d1==0){d1=10;}   
@@ -309,8 +305,8 @@ while(true){
             for (l4=1;l4<200;++l4)
             {
                output_b(dis2);
-               output_bit(PIN_D0,0);
-               output_bit(PIN_D1,1);
+               output_bit(PIN_A0,0);
+               output_bit(PIN_A1,1);
             }
          }
          if(d2==10){d2=0;}   
@@ -333,17 +329,17 @@ while(TRUE){
          {
             IF(j3==0)
             {
-               OUTPUT_BIT(PIN_A4,0);
-               OUTPUT_BIT(PIN_A5,0);
+               OUTPUT_BIT(PIN_C0,0);
+               OUTPUT_BIT(PIN_C1,0);
             }
             IF(j3==1)
             {
-               OUTPUT_BIT(PIN_A4,1);
+               OUTPUT_BIT(PIN_C0,1);
             }
             IF(j3==2)
             {
-               OUTPUT_BIT(PIN_A4,0);
-               OUTPUT_BIT(PIN_A5,1);
+               OUTPUT_BIT(PIN_C0,0);
+               OUTPUT_BIT(PIN_C1,1);
             }         
             for (k5=1;k5<200;++k5){for (l5=1;l5<200;++l5){}}
          }
@@ -368,17 +364,17 @@ while(TRUE){
          {
             IF(j4==0)
             {
-               OUTPUT_BIT(PIN_D2,0);
-               OUTPUT_BIT(PIN_D3,0);
+               OUTPUT_BIT(PIN_C2,0);
+               OUTPUT_BIT(PIN_C4,0);
             }
             IF(j4==1)
             {
-               OUTPUT_BIT(PIN_D2,1);
+               OUTPUT_BIT(PIN_C2,1);
             }
             IF(j4==2)
             {
-               OUTPUT_BIT(PIN_D2,0);
-               OUTPUT_BIT(PIN_D3,1);
+               OUTPUT_BIT(PIN_C2,0);
+               OUTPUT_BIT(PIN_C4,1);
             }         
             for (k6=1;k6<200;++k6){for (l6=1;l6<200;++l6){}}
          }
@@ -427,6 +423,7 @@ for (mm=0;mm<250;mm++)
 void Port_Init()
 {
    set_tris_b(0x00);
+   //set_tris_c(0b10000000);
    set_tris_d(0x00);
    set_tris_a(0x00);
 }
@@ -587,7 +584,7 @@ void main(void)
 {
    output_a(0x00);
    output_b(0x00);
-   //output_c(0x00);
+   output_c(0x00);
    output_d(0x00);
    printf("Esperando conexión..*");
    

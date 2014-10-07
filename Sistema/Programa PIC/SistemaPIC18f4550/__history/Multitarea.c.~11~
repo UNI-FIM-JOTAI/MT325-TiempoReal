@@ -368,17 +368,17 @@ while(TRUE){
          {
             IF(j4==0)
             {
-               OUTPUT_BIT(PIN_D2,0);
-               OUTPUT_BIT(PIN_D3,0);
+               OUTPUT_BIT(PIN_D0,0);
+               OUTPUT_BIT(PIN_D1,0);
             }
             IF(j4==1)
             {
-               OUTPUT_BIT(PIN_D2,1);
+               OUTPUT_BIT(PIN_D0,1);
             }
             IF(j4==2)
             {
-               OUTPUT_BIT(PIN_D2,0);
-               OUTPUT_BIT(PIN_D3,1);
+               OUTPUT_BIT(PIN_D0,0);
+               OUTPUT_BIT(PIN_D1,1);
             }         
             for (k6=1;k6<200;++k6){for (l6=1;l6<200;++l6){}}
          }
@@ -587,7 +587,7 @@ void main(void)
 {
    output_a(0x00);
    output_b(0x00);
-   //output_c(0x00);
+   output_c(0x00);
    output_d(0x00);
    printf("Esperando conexión..*");
    

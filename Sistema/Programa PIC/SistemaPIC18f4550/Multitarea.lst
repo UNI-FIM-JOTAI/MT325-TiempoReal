@@ -1,8 +1,8 @@
-CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
+CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 17:06
 
                Filename:   D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC18f4550\Multitarea.lst
 
-               ROM used:   5128 bytes (16%)
+               ROM used:   5124 bytes (16%)
                            Largest free fragment is 12288
                RAM used:   220 (11%) at main() level
                            284 (14%) worst case
@@ -1199,7 +1199,7 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 .................... int l1,l2,l3,l4,l5,l6; 
 ....................  
 .................... char proceso; 
-.................... INT SHOW=0; 
+.................... int SHOW=0; 
 .................... int d1=10; 
 .................... int d2=0; 
 ....................  
@@ -1246,6 +1246,7 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 00C0:  BCF    FF2.5
 00C2:  RETURN 0
 .................... } 
+....................  
 .................... int32 DISPLAY(INT NUMERO){ 
 ....................    IF(NUMERO==0){SHOW=0xBF;}; 
 *
@@ -1544,7 +1545,7 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 02A4:  GOTO   0060
 .................... }   
 ....................  
-.................... int  addcbuff(char c); 
+.................... void  addcbuff(char c); 
 .................... void mostrar_procesos(); 
 .................... void descargar_proceso(int idp); 
 .................... void ir_quantum(); 
@@ -1578,7 +1579,7 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 0322:  GOTO   0060
 .................... } 
 ....................  
-.................... int addcbuff(char c) 
+.................... void addcbuff(char c) 
 .................... { 
 ....................    switch(c) 
 *
@@ -1587,7 +1588,8 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 02CE:  BZ    02D2
 02D0:  BRA    02EA
 ....................    { 
-....................       case 0x2A: 
+....................       //case 0x2A: 
+....................       case '*': 
 ....................          cbuff[xbuff++] = c; 
 02D2:  MOVF   57,W
 02D4:  INCF   57,F
@@ -1671,7 +1673,8 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 0672:  MOVF   FEF,W
 0674:  SUBLW  24
 0676:  BNZ   06DC
-....................       while((cbuff[i] != 0x4A) & (i<xbuff)) 
+....................       //while((cbuff[i] != 0x4A) & (i<xbuff)) 
+....................       while((cbuff[i] != '*') & (i<xbuff)) 
 0678:  CLRF   03
 067A:  MOVF   xEF,W
 067C:  ADDLW  58
@@ -1680,7 +1683,7 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 0682:  ADDWFC 03,W
 0684:  MOVWF  FEA
 0686:  MOVF   FEF,W
-0688:  SUBLW  4A
+0688:  SUBLW  2A
 068A:  BNZ   0690
 068C:  MOVLW  00
 068E:  BRA    0692
@@ -1858,8 +1861,9 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 ....................       //printf ("\r\n Valor:  %Lu\n", valor); 
 ....................       //printf ("\r\n Valor2:  %Lu\n", valor2); 
 ....................       //printf ("\r\n Comando:  %c\n", comando); 
-....................       i++; 
-07F2:  INCF   xEF,F
+....................       //i++; 
+....................       break; 
+07F2:  BRA    07F8
 07F4:  INCF   xEF,F
 07F6:  BRA    065C
 ....................    } 
@@ -1911,24 +1915,24 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 100C:  MOVF   21,F
 100E:  BNZ   1018
 ....................          { 
-....................             OUTPUT_BIT(PIN_E0,0); 
-1010:  BCF    F8D.0
-1012:  BCF    F96.0
-....................             OUTPUT_BIT(PIN_E1,0); 
-1014:  BCF    F8D.1
-1016:  BCF    F96.1
+....................             OUTPUT_BIT(PIN_A0,0); 
+1010:  BCF    F89.0
+1012:  BCF    F92.0
+....................             OUTPUT_BIT(PIN_A1,0); 
+1014:  BCF    F89.1
+1016:  BCF    F92.1
 ....................          } 
-....................          IF(j1==1){OUTPUT_BIT(PIN_E0,1);} 
+....................          IF(j1==1){OUTPUT_BIT(PIN_A0,1);} 
 1018:  DECFSZ 21,W
 101A:  BRA    1020
-101C:  BSF    F8D.0
-101E:  BCF    F96.0
-....................          IF(j1==2){OUTPUT_BIT(PIN_E1,1);} 
+101C:  BSF    F89.0
+101E:  BCF    F92.0
+....................          IF(j1==2){OUTPUT_BIT(PIN_A1,1);} 
 1020:  MOVF   21,W
 1022:  SUBLW  02
 1024:  BNZ   102A
-1026:  BSF    F8D.1
-1028:  BCF    F96.1
+1026:  BSF    F89.1
+1028:  BCF    F92.1
 ....................          for (k1=1;k1<200;++k1){for (l1=1;l1<200;++l1){}} 
 102A:  MOVLW  01
 102C:  MOVWF  29
@@ -2060,12 +2064,12 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 ....................                output_b(dis1); 
 122E:  CLRF   F93
 1230:  MOVFF  25,F8A
-....................                output_bit(PIN_A0,1); 
-1234:  BSF    F89.0
-1236:  BCF    F92.0
-....................                output_bit(PIN_A1,0); 
-1238:  BCF    F89.1
-123A:  BCF    F92.1
+....................                output_bit(PIN_D0,1); 
+1234:  BSF    F8C.0
+1236:  BCF    F95.0
+....................                output_bit(PIN_D1,0); 
+1238:  BCF    F8C.1
+123A:  BCF    F95.1
 123C:  INCF   31,F
 123E:  BRA    1228
 ....................             } 
@@ -2118,12 +2122,12 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 ....................                output_b(dis2); 
 132A:  CLRF   F93
 132C:  MOVFF  26,F8A
-....................                output_bit(PIN_A0,0); 
-1330:  BCF    F89.0
-1332:  BCF    F92.0
-....................                output_bit(PIN_A1,1); 
-1334:  BSF    F89.1
-1336:  BCF    F92.1
+....................                output_bit(PIN_D0,0); 
+1330:  BCF    F8C.0
+1332:  BCF    F95.0
+....................                output_bit(PIN_D1,1); 
+1334:  BSF    F8C.1
+1336:  BCF    F95.1
 1338:  INCF   32,F
 133A:  BRA    1324
 ....................             } 
@@ -2176,32 +2180,32 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 1412:  MOVF   23,F
 1414:  BNZ   141E
 ....................             { 
-....................                OUTPUT_BIT(PIN_C0,0); 
-1416:  BCF    F8B.0
-1418:  BCF    F94.0
-....................                OUTPUT_BIT(PIN_C1,0); 
-141A:  BCF    F8B.1
-141C:  BCF    F94.1
+....................                OUTPUT_BIT(PIN_A4,0); 
+1416:  BCF    F89.4
+1418:  BCF    F92.4
+....................                OUTPUT_BIT(PIN_A5,0); 
+141A:  BCF    F89.5
+141C:  BCF    F92.5
 ....................             } 
 ....................             IF(j3==1) 
 141E:  DECFSZ 23,W
 1420:  BRA    1426
 ....................             { 
-....................                OUTPUT_BIT(PIN_C0,1); 
-1422:  BSF    F8B.0
-1424:  BCF    F94.0
+....................                OUTPUT_BIT(PIN_A4,1); 
+1422:  BSF    F89.4
+1424:  BCF    F92.4
 ....................             } 
 ....................             IF(j3==2) 
 1426:  MOVF   23,W
 1428:  SUBLW  02
 142A:  BNZ   1434
 ....................             { 
-....................                OUTPUT_BIT(PIN_C0,0); 
-142C:  BCF    F8B.0
-142E:  BCF    F94.0
-....................                OUTPUT_BIT(PIN_C1,1); 
-1430:  BSF    F8B.1
-1432:  BCF    F94.1
+....................                OUTPUT_BIT(PIN_A4,0); 
+142C:  BCF    F89.4
+142E:  BCF    F92.4
+....................                OUTPUT_BIT(PIN_A5,1); 
+1430:  BSF    F89.5
+1432:  BCF    F92.5
 ....................             }          
 ....................             for (k5=1;k5<200;++k5){for (l5=1;l5<200;++l5){}} 
 1434:  MOVLW  01
@@ -2265,32 +2269,32 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 1512:  MOVF   24,F
 1514:  BNZ   151E
 ....................             { 
-....................                OUTPUT_BIT(PIN_C2,0); 
-1516:  BCF    F8B.2
-1518:  BCF    F94.2
-....................                OUTPUT_BIT(PIN_C4,0); 
-151A:  BCF    F8B.4
-151C:  BCF    F94.4
+....................                OUTPUT_BIT(PIN_D2,0); 
+1516:  BCF    F8C.2
+1518:  BCF    F95.2
+....................                OUTPUT_BIT(PIN_D3,0); 
+151A:  BCF    F8C.3
+151C:  BCF    F95.3
 ....................             } 
 ....................             IF(j4==1) 
 151E:  DECFSZ 24,W
 1520:  BRA    1526
 ....................             { 
-....................                OUTPUT_BIT(PIN_C2,1); 
-1522:  BSF    F8B.2
-1524:  BCF    F94.2
+....................                OUTPUT_BIT(PIN_D2,1); 
+1522:  BSF    F8C.2
+1524:  BCF    F95.2
 ....................             } 
 ....................             IF(j4==2) 
 1526:  MOVF   24,W
 1528:  SUBLW  02
 152A:  BNZ   1534
 ....................             { 
-....................                OUTPUT_BIT(PIN_C2,0); 
-152C:  BCF    F8B.2
-152E:  BCF    F94.2
-....................                OUTPUT_BIT(PIN_C4,1); 
-1530:  BSF    F8B.4
-1532:  BCF    F94.4
+....................                OUTPUT_BIT(PIN_D2,0); 
+152C:  BCF    F8C.2
+152E:  BCF    F95.2
+....................                OUTPUT_BIT(PIN_D3,1); 
+1530:  BSF    F8C.3
+1532:  BCF    F95.3
 ....................             }          
 ....................             for (k6=1;k6<200;++k6){for (l6=1;l6<200;++l6){}} 
 1534:  MOVLW  01
@@ -2648,7 +2652,6 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 *
 0A7E:  MOVLW  00
 0A80:  MOVWF  F93
-....................    //set_tris_c(0b10000000); 
 ....................    set_tris_d(0x00); 
 0A82:  MOVWF  F95
 ....................    set_tris_a(0x00); 
@@ -3077,7 +3080,7 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 0CFE:  CLRF   FB5
 ....................    port_b_pullups(FALSE); 
 0D00:  BSF    FF1.7
-0D02:  GOTO   0D78 (RETURN)
+0D02:  GOTO   0D74 (RETURN)
 .................... } 
 ....................  
 ....................  
@@ -3367,34 +3370,32 @@ CCS PCH C Compiler, Version 5.008, 5967               07-oct-14 09:31
 ....................    output_b(0x00); 
 0D52:  CLRF   F93
 0D54:  CLRF   F8A
-....................    output_c(0x00); 
-0D56:  CLRF   F94
-0D58:  CLRF   F8B
+....................    //output_c(0x00); 
 ....................    output_d(0x00); 
-0D5A:  CLRF   F95
-0D5C:  CLRF   F8C
+0D56:  CLRF   F95
+0D58:  CLRF   F8C
 ....................    printf("Esperando conexión..*"); 
-0D5E:  MOVLW  68
-0D60:  MOVWF  FF6
-0D62:  MOVLW  0A
-0D64:  MOVWF  FF7
-0D66:  CLRF   16
-0D68:  BTFSC  FF2.7
-0D6A:  BSF    16.7
-0D6C:  BCF    FF2.7
-0D6E:  CALL   02A8
-0D72:  BTFSC  16.7
-0D74:  BSF    FF2.7
+0D5A:  MOVLW  68
+0D5C:  MOVWF  FF6
+0D5E:  MOVLW  0A
+0D60:  MOVWF  FF7
+0D62:  CLRF   16
+0D64:  BTFSC  FF2.7
+0D66:  BSF    16.7
+0D68:  BCF    FF2.7
+0D6A:  CALL   02A8
+0D6E:  BTFSC  16.7
+0D70:  BSF    FF2.7
 ....................     
 ....................    MCU_Init(); 
-0D76:  BRA    0CC0
+0D72:  BRA    0CC0
 ....................    #asm 
 ....................    call 0x4000 
-0D78:  CALL   4000,1
+0D74:  CALL   4000,1
 ....................    #endasm 
 .................... } 
 ....................  
-0D7C:  SLEEP 
+0D78:  SLEEP 
 
 Configuration Fuses:
    Word  1: CC27   PLL12 CPUDIV1 USBDIV HS FCMEN IESO
