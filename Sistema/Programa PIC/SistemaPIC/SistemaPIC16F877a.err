@@ -1,0 +1,5 @@
+>>> Warning 203 "SistemaPIC16F877a.c" Line 166(1,1): Condition always TRUE
+>>> Warning 203 "SistemaPIC16F877a.c" Line 166(1,1): Condition always TRUE
+*** Error 74 "SistemaPIC16F877a.c" Line 253(4,5): Not enough RAM for all variables
+      1 Errors,  2 Warnings.
+Build Failed.

@@ -1,0 +1,22 @@
+[PROJECT]
+Target=Multitarea.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.008
+Compiler=PCH
+CCSVersion=5.008
+[Target Data]
+FileList=Multitarea.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC18f4550\Multitarea]
+Type=4
+[mru-list]
+1=Multitarea.c
+[Opened Files]
+1=Multitarea.c
+2=
+[Multitarea.c]
+Type=4
+[Units]
+Count=1
+1=Multitarea (main)

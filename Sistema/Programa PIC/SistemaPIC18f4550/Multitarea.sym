@@ -1,0 +1,279 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @INTERRUPT_AREA
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016     @INTERRUPT_AREA
+017     np
+018-01D colap
+01E     m
+01F     i
+020     j
+021     j1
+022     j2
+023     j3
+024     j4
+025     dis1
+026     dis2
+027     c1
+028     c2
+029     k1
+02A     k2
+02B     k3
+02C     k4
+02D     k5
+02E     k6
+02F     l1
+030     l2
+031     l3
+032     l4
+033     l5
+034     l6
+035     proceso
+036     SHOW
+037     d1
+038     d2
+039-03C valor
+03D-040 valor2
+041-044 val1
+045-048 val2
+049-04C val3
+04D-050 val4
+051-054 val5
+055-056 quantum
+057     xbuff
+058-061 cbuff
+062     rcvchar
+063     comando
+064.0   flagcmd
+065-0DB vpcb
+0DC     lcd_init.i
+0DD     @delay_ms1.P1
+0DD     lcd_init.@SCRATCH1
+0DE     lcd_send_byte.address
+0DF     lcd_send_byte.n
+0E0     lcd_read_byte.low
+0E0     lcd_send_byte.@SCRATCH1
+0E1     lcd_read_byte.high
+0E1     lcd_send_nibble.n
+0E2     lcd_read_byte.@SCRATCH1
+0E3     inter_quantum.i
+0E3     addcbuff.c
+0E4     inter_quantum.@SCRATCH1
+0E4     addcbuff.@SCRATCH1
+0E5     inter_quantum.@SCRATCH2
+0E5     addcbuff.@SCRATCH2
+0E6     inter_quantum.@SCRATCH3
+0E7     inter_quantum.@SCRATCH4
+0E8     inter_quantum.@SCRATCH5
+0E9     inter_quantum.@SCRATCH6
+0EA     inter_quantum.@SCRATCH7
+0EB     inter_quantum.@SCRATCH8
+0EC     inter_quantum.@SCRATCH9
+0ED     inter_quantum.@SCRATCH10
+0EE     inter_quantum.@SCRATCH11
+0EF     task_manager.m
+0EF     cargar_proceso.idp
+0EF     procesa_cmd.i
+0EF     descargar_proceso.idp
+0EF     ROML_LedA3.@SCRATCH1
+0EF     Inicio_SO.@SCRATCH1
+0F0     descargar_proceso.s
+0F0     procesa_cmd.j
+0F0     DISPLAY.NUMERO
+0F0-0F3 task_manager.mproceso
+0F0     cargar_proceso.@SCRATCH1
+0F0     Inicio_SO.@SCRATCH2
+0F1     descargar_proceso.d
+0F1-0FA procesa_cmd.salida
+0F1     cargar_proceso.@SCRATCH2
+0F1     Inicio_SO.@SCRATCH3
+0F2     descargar_proceso.f
+0F2     Inicio_SO.@SCRATCH4
+0F3     @PRINTF_D_9600_31766_31767.P1
+0F3     descargar_proceso.@SCRATCH1
+0F3     Inicio_SO.@SCRATCH5
+0F4     @PRINTF_D_9600_31766_31767.P1
+0F4-0F7 task_manager.mdirini
+0F4     descargar_proceso.@SCRATCH2
+0F4     Inicio_SO.@SCRATCH6
+0F5     @PRINTF_D_9600_31766_31767.@SCRATCH1
+0F5     descargar_proceso.@SCRATCH3
+0F6     @PRINTF_D_9600_31766_31767.@SCRATCH2
+0F7     @PRINTF_D_9600_31766_31767.@SCRATCH3
+0F8-0FB task_manager.mdirfin
+0F8     @PRINTF_D_9600_31766_31767.@SCRATCH4
+0F9     @DIV88.P1
+0FA     @DIV88.P1
+0FB     inicbuff.i
+0FB     procesa_cmd.@SCRATCH1
+0FB     @DIV88.@SCRATCH1
+0FC-0FF task_manager.mdiract
+0FC     inicbuff.@SCRATCH1
+0FC     procesa_cmd.@SCRATCH2
+0FD     inicbuff.@SCRATCH2
+0FD     procesa_cmd.@SCRATCH3
+0FE     procesa_cmd.@SCRATCH4
+100-101 task_manager.mm
+102     task_manager.mmm
+103     @PSTRINGCN_9600_31766_31767.P1
+103-106 @PRINTF_L32U_9600_31766_31767.P2
+103     @PSTRINGC_9600_31766_31767.@SCRATCH1
+103     task_manager.@SCRATCH1
+104     @PSTRINGC_9600_31766_31767.@SCRATCH2
+104     task_manager.@SCRATCH2
+104     @PSTRINGCN_9600_31766_31767.@SCRATCH1
+105     task_manager.@SCRATCH3
+105     @PSTRINGCN_9600_31766_31767.@SCRATCH2
+106     task_manager.@SCRATCH4
+107-10A @MUL3232.P1
+107     @PRINTF_L32U_9600_31766_31767.@SCRATCH1
+108     @PRINTF_L32U_9600_31766_31767.@SCRATCH2
+109     @PRINTF_L32U_9600_31766_31767.@SCRATCH3
+10A     @PRINTF_L32U_9600_31766_31767.@SCRATCH4
+10B-10E @MUL3232.P1
+10B     @PRINTF_L32U_9600_31766_31767.@SCRATCH5
+10C     @PRINTF_L32U_9600_31766_31767.@SCRATCH6
+10D     @PRINTF_L32U_9600_31766_31767.@SCRATCH7
+10E     @PRINTF_L32U_9600_31766_31767.@SCRATCH8
+10F-112 @DIV3232.P1
+10F     @MUL3232.@SCRATCH1
+110     @MUL3232.@SCRATCH2
+111     @MUL3232.@SCRATCH3
+112     @MUL3232.@SCRATCH4
+113-116 @DIV3232.P1
+113     @MUL3232.@SCRATCH5
+114     @MUL3232.@SCRATCH6
+117     @DIV3232.@SCRATCH1
+118     @DIV3232.@SCRATCH2
+119     @DIV3232.@SCRATCH3
+11A     @DIV3232.@SCRATCH4
+11B     @DIV3232.@SCRATCH5
+F83     PSP_DATA
+F83     lcd
+F8C     lcdlat
+F95     lcdtris
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FD5     T0CON
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE8     wreg
+FE9-FEA @READ_PACKED_MEMORY.P1
+FE9-FEA @WRITE_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PROGRAM_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+FFD     TOSL
+FFE     TOSH
+FFF     TOSU
+
+ROM Allocation:
+0000A2  LCD_INIT_STRING.call
+0000BC  LCD_INIT_STRING.data
+0000C0  desactivar_timer
+0000C4  inter_quantum
+0002A8  @PSTRINGC_9600_31766_31767
+0002CA  addcbuff
+000302  serial_isr
+000326  @const751.call
+000330  DISPLAY
+00039A  @MUL3232
+0003F4  @PSTRINGCN_9600_31766_31767
+00041E  @DIV3232
+0004B2  @PRINTF_L32U_9600_31766_31767
+00056E  activar_timer
+00057A  @const774.call
+0005B0  @const775.call
+0005E4  @const791.call
+0005FE  @const801.call
+00061A  @const804.call
+000632  inicbuff
+000654  procesa_cmd
+00081C  @DIV88
+000844  @PRINTF_D_9600_31766_31767
+0008F6  cargar_proceso
+000968  descargar_proceso
+000A32  @const806.call
+000A4E  @const807.call
+000A68  @const811.call
+000A7E  Port_Init
+000A8A  Procesos_Init
+000B7C  inte_Init
+000B86  Config_TMR0
+000B8E  @delay_ms1
+000BB6  lcd_send_nibble
+000BD2  lcd_read_nibble
+000BDE  lcd_read_byte
+000C1C  lcd_send_byte
+000C58  lcd_init
+000CC0  MCU_Init
+000D06  @cinit1
+000D06  MAIN
+000D4E  @cinit2
+001000  ROML_LedA1
+001102  ROML_LedA2
+001202  ROML_LedA3
+001302  voidTask_LedB1
+001402  voidTask_LedC1
+001502  voidTask_LedC2
+002502  task_manager
+004000  Inicio_SO
+
+Project Directory:
+    D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC18f4550\
+
+Project Files:
+    Multitarea.c                                            [07-oct-14 09:31  CRC=9490DD3D]
+    C:\Program Files (x86)\PICC\Devices\18F4550.h           [03-jul-13 14:29  CRC=A157EDDE]
+    C:\Program Files (x86)\PICC\Drivers\lcd.c               [23-ago-12 09:01  CRC=D28E8746]
+
+Source signature=DB05D9A7
+
+Units:
+    Multitarea (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   Multitarea.xsym
+    Errors:      Multitarea.err
+    Ext Symbols: Multitarea.esym
+    INHX32:      Multitarea.hex
+    Symbols:     Multitarea.sym
+    List:        Multitarea.lst
+    Debug/COFF:  Multitarea.cof
+    Project:     Multitarea.ccspjt
+    Call Tree:   Multitarea.tre
+    Statistics:  Multitarea.STA

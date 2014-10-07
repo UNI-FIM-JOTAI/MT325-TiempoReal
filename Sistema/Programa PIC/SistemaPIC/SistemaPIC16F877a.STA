@@ -1,65 +1,69 @@
 
-ROM used:   656/7936 (8%)
-            656/7936 (8%) including unused fragments
+ROM used:   785/7936 (10%)
+            1239/7936 (16%) including unused fragments
 
-            0.8 Average locations per line
-            5.9 Average locations per statement
+            0.9 Average locations per line
+            7.1 Average locations per statement
 
-RAM used:   7/357 (2%) at main() level
-            12/357 (3%) worst case
+RAM used:   75/357 (21%) at main() level
+            94/357 (26%) worst case
 
-Stack used: 2 worst case (2 in main + 0 for interrupts)
+Stack used: 5 worst case (1 in main + 4 for interrupts)
 Stack size: 7
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  196   112 100  SistemaPIC16F877a.c
+  238   110 100  SistemaPIC16F877a.c
   661     0   0  C:\Program Files (x86)\PICC\Devices\16f877a.h
 ----- -----
-  857   112 Total
+  899   110 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 0     21   3    1             @delay_ms1
-0     59   9    0   306  4.2  main
-0      9   1    0             @const636
-0     77  12    4             @PSTRINGC7_9600_62_63
+0     53   7    4   456  6.2  quantum
+0    234  30    2  1075  9.1  Inicio_SO
+0     37   5    2   879  6.2  @MUL88
+0     41   5    0   511  5.2  ROML_LedB1
+0     33   4    0   511  5.2  ROML_LedB2
+0     24   3    0    25  1.1  MAIN
 0      8   1    0    32  1.0  Cargar_configuracion
-0     10   2    0    17  0.8  version
-0     12   2    0             @const638
-0     86  13    1   741  5.6  encender_led
-0      9   1    0             @const639
-0      9   1    0             @const640
-0     86  13    5             @PSTRINGCN7_9600_62_63
-0     85  13    1   741  5.6  apagar_led
-0      9   1    0             @const643
-0      8   1    0             @const644
- Inline         0    33  0.9  encender_all
-0      9   1    0             @const645
- Inline         0    33  0.9  apagar_all
-0      8   1    0             @const646
-0    121  18    1   879  6.2  estado_led
-0      9   1    0             @const647
-0      9   1    0             @const648
-0      8   1    0             @const649
- Inline         0             @cinit1
+0      8   1    0    25  1.2  Configurar_interrupciones
+0      4   1    0    32  1.0  activar_timer0
+ Inline         0    17  0.8  desactivar_timer0
+0     48   6    3   147  3.8  cargar_proceso
+0     13   2    0   499  7.1  @const676
+0     76  10    5   879  6.2  @PSTRINGCN7_9600_62_63
+0     21   3    3    17  0.8  @DIV88
+0     91  12    6    17  0.8  @PRINTF_D_9600_62_63
+ Inline         7   499  7.1  descargar_proceso
+0     14   2    0    17  0.8  @const688
+0     12   2    0    17  0.8  @const689
+ Inline         0   879  6.2  @cinit1
 
 Program metrics:
-    Functions               8
-    Statements              112
-    Comments                132
-    Volume (V)              3982
-    Difficulty (D)          24.4
-    Effort to implement (E) 97150
-    Time to implement (T)   1 hours, 30 minutes
-    Est Delivered Bugs (B)  1
-    Cyclomatic Complexity   33
-    Maintainability (MI)    95
+    Functions               19
+    Statements              110
+    Comments                142
+    Volume (V)              10558
+    Difficulty (D)          73.1
+    Effort to implement (E) 772168
+    Time to implement (T)   11 hours, 55 minutes
+    Est Delivered Bugs (B)  3
+    Cyclomatic Complexity   55
+    Maintainability (MI)    65
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-007FF   652  1392  
+00004-0002E    43  0  
+0002F-000FF   208  1  
+00100-00200   234  23  
+00201-00204     4  0  
+00205-00300    41  211  
+00301-00304     0  4  
+00305-00400    33  219  
+00401-007FF   218  805  
 00800-00FFF     0  2048  
 01000-017FF     0  2048  
 01800-01EFF     0  1792  

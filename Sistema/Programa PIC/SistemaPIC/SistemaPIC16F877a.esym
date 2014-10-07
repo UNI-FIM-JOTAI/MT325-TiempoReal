@@ -1,8 +1,7 @@
-d G "INT_COMP" 1 658 "0x008D40"
-D G "__PCM__" 0 198 ""5.008""
-D G "__DEVICE__" 0 198 "877"
-D G "__DATE__" 0 198 ""16-sep-14""
-D G "__TIME__" 0 198 ""18:45:25"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "__PCM__" 0 258 ""5.008""
+D G "__DEVICE__" 0 258 "877"
+D G "__DATE__" 0 258 ""30-sep-14""
+D G "__TIME__" 0 258 ""19:57:30"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 5 13 "FUNCTION"
 v L "value" 1 28 "int8" `54 
 f B "set_tris_a" 1 28 "void(int8 value)" `53 
@@ -775,31 +774,61 @@ d G "INT_BUSCOL" 1 655 "0x008D08"
 d G "INT_EEPROM" 1 656 "0x008D10"
 d G "INT_TIMER0" 1 657 "0x000B20"
 d G "INT_COMP" 1 658 "0x008D40"
-C L "jump_to_irs" 0 13 1 "FUNCTION"
-V G "q" 0 14 "int8" `622 
-V G "led_num" 0 15 "int1" `623 
-V G "led_state" 0 16 "int1" `624  "Declaracion de Funciones"
-F G "Cargar_configuracion" 0 21 "void()" `625 
-F G "Configurar_interrupciones" 0 22 "void()" `626 
-F G "version" 0 23 "void()" `627 
-F G "encender_led" 0 24 "void()" `628 
-F G "apagar_led" 0 25 "void()" `629 
-F G "encender_all" 0 26 "void()" `630 
-F G "apagar_all" 0 27 "void()" `631 
-F G "estado_led" 0 28 "void()" `632  "FUNCION PRINCIPAL"
-F G "main" 0 34 "void()" `633 
-C L "Cargar_configuracion" 0 13 1 "FUNCTION"
-F G "Cargar_configuracion" 0 59 "void()" `625 
-C L "Cargar_configuracion" 0 13 1 "FUNCTION"
-C L "Cargar_configuracion" 0 13 2 "FUNCTION"
-F G "Configurar_interrupciones" 0 65 "void()" `626  "setup_timer_0(RTCC_INTERNAL|RTCC_DIV_2);   //Configuración timer0"
-C L "Configurar_interrupciones" 0 13 6 "FUNCTION"
-F G "version" 0 76 "void()" `627 
-F G "encender_led" 0 80 "void()" `628 
-F G "apagar_led" 0 115 "void()" `629 
-F G "encender_all" 0 149 "void()" `630 
-F G "apagar_all" 0 154 "void()" `631 
-F G "estado_led" 0 159 "void()" `632 
+C L "jump_to_irs" 0 20 1 "FUNCTION"
+V G "comando" 0 21 "int8" `627 
+V G "valor" 0 22 "int8" `628 
+V G "quantum" 0 23 "int8" `629 
+V G "j1" 0 24 "int8" `630 
+V G "j2" 0 24 "int8" `631 
+V G "k1" 0 25 "int8" `632 
+V G "k2" 0 25 "int8" `633 
+V G "l1" 0 26 "int8" `634 
+V G "l2" 0 26 "int8" `635 
+V G "i" 0 27 "int8" `636 
+V G "m" 0 28 "int8" `637 
+V G "np" 0 29 "int8" `638 
+V G "temp" 0 30 "int8" `639 
+V G "cola" 0 31 "int8[8]" `640 
+V G "proceso" 0 46 "{int8 id,int8 STATUS,int8 PCLATH,int8 PCL,int16 dir_inicio,int16 dir_fin,int16 dir_actual,int8 acc,int8 estado,int8 estado_proceso,int8 prioridad}[7]" `653  "Declaracion de Funciones"
+F G "Cargar_configuracion" 0 53 "void()" `654 
+F G "Configurar_interrupciones" 0 54 "void()" `655 
+F G "version" 0 55 "void()" `656 
+F G "activar_timer0" 0 56 "void()" `657 
+F G "desactivar_timer0" 0 57 "void()" `658 
+V L "idp" 0 58 "int8" `660 
+F G "cargar_proceso" 0 58 "void(int8 idp)" `659 
+V L "idp" 0 59 "int8" `662 
+F G "descargar_proceso" 0 59 "void(int8 idp)" `661 
+F G "Procesos_Init" 0 60 "void()" `663  "Declaracion de las Interrupciones"
+F G "quantum" 0 65 "void()" `664 
+V L "i" 0 66 "int8" `665 
+F G "Inicio_SO" 0 91 "void()" `669 
+F G "ROML_LedB1" 0 132 "void()" `672 
+F G "ROML_LedB2" 0 153 "void()" `673 
+C L "MAIN" 0 20 1 "FUNCTION"
+F G "MAIN" 0 176 "void()" `674 
+C L "Cargar_configuracion" 0 20 1 "FUNCTION"
+F G "Cargar_configuracion" 0 190 "void()" `654 
+C L "Cargar_configuracion" 0 20 1 "FUNCTION"
+C L "Cargar_configuracion" 0 20 2 "FUNCTION"
+F G "Configurar_interrupciones" 0 196 "void()" `655 
+C L "Configurar_interrupciones" 0 20 5 "FUNCTION"
+F G "activar_timer0" 0 205 "void()" `657 
+C L "activar_timer0" 0 20 1 "FUNCTION"
+C L "activar_timer0" 0 20 1 "FUNCTION"
+F G "desactivar_timer0" 0 209 "void()" `658 
+C L "desactivar_timer0" 0 20 1 "FUNCTION"
+V L "idp" 0 213 "int8" `678 
+F G "cargar_proceso" 0 214 "void(int8 idp)" `659 
+C L "cargar_proceso" 0 20 1 "FUNCTION"
+V L "idp" 0 222 "int8" `687 
+F G "descargar_proceso" 0 223 "void(int8 idp)" `661 
+V L "s" 0 224 "int8" `686 
+V L "d" 0 224 "int8" `687 
+V L "f" 0 224 "int8" `688 
+C L "descargar_proceso" 0 20 1 "FUNCTION"
+F G "Procesos_Init" 0 240 "void()" `663 
+F G "version" 0 251 "void()" `656 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

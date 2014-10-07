@@ -43,7 +43,7 @@ struct PCB{
    int estado;
    int estado_proceso;
    int prioridad;
-} proceso[7];
+} proceso[3];
 
 // **************************************
 

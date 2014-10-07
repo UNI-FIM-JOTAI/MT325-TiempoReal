@@ -1,0 +1,5 @@
+>>> Warning 208 "Multitarea.c" Line 138(6,14): Function not void and does not return a value  addcbuff
+>>> Warning 216 "Multitarea.c" Line 595(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC_9600_31766_31767)
+      Memory usage:   ROM=16%      RAM=11% - 14%
+      0 Errors,  2 Warnings.
+Build Successful.

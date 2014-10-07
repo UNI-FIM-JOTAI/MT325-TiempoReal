@@ -1,72 +1,99 @@
-004-005 @READ_PROGRAM_MEMORY8.P1
-004-005 @WRITE_PROGRAM_MEMORY8.P2
+ na     proceso
+ na     quantum.@SCRATCH6
+ na     Inicio_SO.@SCRATCH2
+ na     cargar_proceso.@SCRATCH2
+ na     @PSTRINGCN7_9600_62_63.@SCRATCH4
+ na     @DIV88.@SCRATCH1
+ na     @PRINTF_D_9600_62_63.@SCRATCH4
+ na     descargar_proceso.@SCRATCH3
+002     PCL
+003     STATUS
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
 008     PSP_DATA
+00A     PCLATH
 015     CCP_1_LOW
 015     CCP_1
 016     CCP_1_HIGH
 01B     CCP_2_LOW
 01B     CCP_2
 01C     CCP_2_HIGH
-020     q
-021.0   led_num
-021.1   led_state
-022     @PSTRINGCN7_9600_62_63.P1
-022     @delay_ms1.P2
-022     @PSTRINGC7_9600_62_63.@SCRATCH1
-022     encender_led.@SCRATCH1
-022     apagar_led.@SCRATCH1
-022     estado_led.@SCRATCH1
-023     @PSTRINGC7_9600_62_63.@SCRATCH2
-023     @PSTRINGCN7_9600_62_63.@SCRATCH1
-024     @PSTRINGC7_9600_62_63.@SCRATCH3
-024     @PSTRINGCN7_9600_62_63.@SCRATCH2
-025     @PSTRINGC7_9600_62_63.@SCRATCH4
-025     @PSTRINGCN7_9600_62_63.@SCRATCH3
-026     @PSTRINGCN7_9600_62_63.@SCRATCH4
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     comando
+029     valor
+02A     quantum
+02B     j1
+02C     j2
+02D     k1
+02E     k2
+02F     l1
+030     l2
+031     i
+032     m
+033     np
+034     temp
+035-03C cola
 077     @SCRATCH
 078     @SCRATCH
-078     _RETURN_
 079     @SCRATCH
 07A     @SCRATCH
+07F     @INTERRUPT_AREA
+08C     PIE1
 09C.6   C1OUT
 09C.7   C2OUT
+0FF     @INTERRUPT_AREA
 10D-10E @WRITE_PROGRAM_MEMORY8.P1
 10D-10E @READ_PROGRAM_MEMORY8.P2
+17F     @INTERRUPT_AREA
+1FF     @INTERRUPT_AREA
+27F     @INTERRUPT_AREA
+2FF     @INTERRUPT_AREA
+37F     @INTERRUPT_AREA
+3FF     @INTERRUPT_AREA
+47F     @INTERRUPT_AREA
+4FF     @INTERRUPT_AREA
+57F     @INTERRUPT_AREA
+5FF     @INTERRUPT_AREA
+67F     @INTERRUPT_AREA
+6FF     @INTERRUPT_AREA
+77F     @INTERRUPT_AREA
+7FF     @INTERRUPT_AREA
+87F     @INTERRUPT_AREA
+8FF     @INTERRUPT_AREA
+97F     @INTERRUPT_AREA
+9FF     @INTERRUPT_AREA
+A7F     @INTERRUPT_AREA
+AFF     @INTERRUPT_AREA
+B7F     @INTERRUPT_AREA
+BFF     @INTERRUPT_AREA
+C7F     @INTERRUPT_AREA
+CFF     @INTERRUPT_AREA
+D7F     @INTERRUPT_AREA
+DFF     @INTERRUPT_AREA
+E7F     @INTERRUPT_AREA
+EFF     @INTERRUPT_AREA
+F7F     @INTERRUPT_AREA
+FFF     @INTERRUPT_AREA
+
+*** na indicates variables that would not fit into memory
 
 ROM Allocation:
-000004  @const636.call
-00000D  @const638.call
-000019  @const639.call
-000022  @const640.call
-00002B  @const643.call
-000034  @const644.call
-00003C  @const645.call
-000045  @const646.call
-00004D  @const647.call
-000056  @const648.call
-00005F  @const649.call
-000067  Cargar_configuracion
-00006F  @PSTRINGC7_9600_62_63
-0000BC  version
-0000C6  @delay_ms1
-0000DB  @PSTRINGCN7_9600_62_63
-000131  encender_led
-00015F  encender_all
-000187  apagar_led
-0001B5  apagar_all
-0001DC  estado_led
-000255  @cinit1
-000255  main
-000267  @cinit2
 
 Project Directory:
     D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC\
 
 Project Files:
-    SistemaPIC16F877a.c                                     [16-sep-14 18:45  CRC=1F8C5A47]
+    SistemaPIC16F877a.c                                     [30-sep-14 19:46  CRC=17306465]
     C:\Program Files (x86)\PICC\Devices\16f877a.h           [03-jul-13 14:28  CRC=4E65664C]
 
-Source signature=BC5726DF
+Source signature=B3FB30FD
 
 Units:
     SistemaPIC16F877a (main)
@@ -84,10 +111,4 @@ Output Files:
     XREF file:   SistemaPIC16F877a.xsym
     Errors:      SistemaPIC16F877a.err
     Ext Symbols: SistemaPIC16F877a.esym
-    INHX8:       SistemaPIC16F877a.hex
     Symbols:     SistemaPIC16F877a.sym
-    List:        SistemaPIC16F877a.lst
-    Debug/COFF:  SistemaPIC16F877a.cof
-    Project:     SistemaPIC16F877a.ccspjt
-    Call Tree:   SistemaPIC16F877a.tre
-    Statistics:  SistemaPIC16F877a.STA

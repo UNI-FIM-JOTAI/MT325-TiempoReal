@@ -21,14 +21,13 @@
 char comando;
 int valor;
 int quantum;
-int j1,j2;
-int k1,k2;
-int l1,l2;
+int1  flagcmd=0;
 int i;
 int m;
 int np = 0;
 int temp;
 int cola[8];
+int16 reloj = 0;
 
 
 struct PCB{
@@ -57,7 +56,6 @@ void activar_timer0 ();
 void desactivar_timer0 ();
 void cargar_proceso(int idp);
 void descargar_proceso(int idp);
-void Procesos_Init();
 //***************************************
 
 // Declaracion de las Interrupciones
@@ -68,8 +66,6 @@ void quantum(void) {
    proceso[0].status = STATUS;
    proceso[0].pclath = PCLATH;
    proceso[0].pcl = PCL;
-   proceso[cola[0]].dir_actual=(int16)PCL;
-   proceso[cola[0]].dir_actual=proceso[cola[0]].dir_actual|((int16)PCLATH<<8);
    
    if(np>1)
    {  temp=cola[0];
@@ -85,7 +81,6 @@ void quantum(void) {
 // **************************************************
 // Procesos
 
-// Sistema Operativo
 #ORG 0x0100, 0x0200
 void Inicio_SO()
 {
@@ -128,46 +123,24 @@ void Inicio_SO()
 
 //PROGRAMA 1: Luces Secuenciales - Bucle Infinito
 #ORG 0x205, 0x300
-void ROML_LedB1()
+void ROML_LedA1()
 {
-   set_tris_b(0x00);
+   set_tris_a(0xFF);
    while(TRUE)
    {
-      for (j1=0;j1<3;j1++)
+      for (j1=0;j1<3;++j1)
       {
          IF(j1==0)
          {
-            OUTPUT_BIT(PIN_B0,0);
-            OUTPUT_BIT(PIN_B1,0);
+            OUTPUT_BIT(PIN_E0,0);
+            OUTPUT_BIT(PIN_E1,0);
          }
-         IF(j1==1){OUTPUT_BIT(PIN_B0,1);}
-         IF(j1==2){OUTPUT_BIT(PIN_B1,1);}
+         IF(j1==1){OUTPUT_BIT(PIN_E0,1);}
+         IF(j1==2){OUTPUT_BIT(PIN_E1,1);}
          for (k1=1;k1<200;++k1){for (l1=1;l1<200;++l1){}}
       }
    }
 }
-
-//PROGRAMA 2 : Luces Secuenciales - Bucle Infinito
-#ORG 0x305, 0x400
-void ROML_LedB2()
-{
-   set_tris_b(0x00);
-   while(TRUE)
-   {
-      for (j2=0;j2<3;j2++)
-      {
-         IF(j2==0)
-         {
-            OUTPUT_BIT(PIN_B2,0);
-            OUTPUT_BIT(PIN_B3,0);
-         }
-         IF(j2==1){OUTPUT_BIT(PIN_B2,1);}
-         IF(j2==2){OUTPUT_BIT(PIN_B3,1);}
-         for (k2=1;k2<500;++k2){for (l2=1;l2<500;++l2){}}
-      }
-   }
-}
-
 
 
 // **************************************
@@ -176,10 +149,6 @@ void main(void)
 {
    Cargar_configuracion();
    Configurar_interrupciones();
-   Procesos_Init();
-   #asm
-   call 0x0100
-   #endasm
 
 }
 // **************************************
@@ -234,18 +203,6 @@ void descargar_proceso(int idp)
    proceso[idp-1].estado=0;
    //proceso=0;
    printf("\n\r Proceso %i descargado. *",idp);
-}
-
-void Procesos_Init()
-{
-   proceso[0].dir_inicio=0x0205;
-   proceso[0].dir_actual=0x0205;
-   proceso[0].dir_fin=0x0300;
-   proceso[1].dir_inicio=0x0305;
-   proceso[1].dir_actual=0x0305;
-   proceso[1].dir_fin=0x0400;
-   proceso[0].estado=0;
-   proceso[1].estado=0;
 }
 
 void version(){

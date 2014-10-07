@@ -18,17 +18,19 @@
 
 // **************************************
 // Definicion de variables y estructuras
+char q;
 char comando;
 int valor;
+int1 led_num;
+int1 led_state;
 int quantum;
-int j1,j2;
-int k1,k2;
-int l1,l2;
+int1  flagcmd=0;
 int i;
 int m;
 int np = 0;
 int temp;
 int cola[8];
+int16 reloj = 0;
 
 
 struct PCB{
@@ -53,11 +55,15 @@ struct PCB{
 void Cargar_configuracion();
 void Configurar_interrupciones();
 void version();
+void encender_led ();
+void apagar_led ();
+void encender_all ();
+void apagar_all ();
+void estado_led ();
 void activar_timer0 ();
 void desactivar_timer0 ();
 void cargar_proceso(int idp);
 void descargar_proceso(int idp);
-void Procesos_Init();
 //***************************************
 
 // Declaracion de las Interrupciones
@@ -68,8 +74,6 @@ void quantum(void) {
    proceso[0].status = STATUS;
    proceso[0].pclath = PCLATH;
    proceso[0].pcl = PCL;
-   proceso[cola[0]].dir_actual=(int16)PCL;
-   proceso[cola[0]].dir_actual=proceso[cola[0]].dir_actual|((int16)PCLATH<<8);
    
    if(np>1)
    {  temp=cola[0];
@@ -85,8 +89,7 @@ void quantum(void) {
 // **************************************************
 // Procesos
 
-// Sistema Operativo
-#ORG 0x0100, 0x0200
+#ORG 0x800, 0x900
 void Inicio_SO()
 {
    while (TRUE)
@@ -115,58 +118,61 @@ void Inicio_SO()
          if(proceso[cola[0]].estado==1)
             {activar_timer0();
              proceso[cola[0]].estado=2;
-             goto_address(proceso[cola[0]].dir_inicio);
+             goto_address(proceso[cola[0]].di);
             }
          else
             {
              activar_timer0();
-             goto_address(proceso[cola[0]].dir_actual);
+             goto_address(proceso[cola[0]].da);
             }
        }
+      /*
+      if(flagcmd) procesa_cmd();
+      switch(comando)
+      {
+         case 'C':{if (valor2<10) cargar_proceso(valor2);break;}
+         case 'D':{if (valor2<10) descargar_proceso(valor2);break;}
+         case 'A':{printf("\r Valor de Acumulador:  %d*", wreg);}
+         case 'X':{for (m=0;m<8;m++) cargar_proceso(m);
+                   break;}
+         
+         case 'T':{quantum=valor;
+                   printf ("\r Valor del Timer:  %Lu*", valor);
+                  }
+      }
+      comando='-';
+      valor2=100;
+      valor=0;
+       if(np>0)
+       {
+         if(vpcb[colap[0]].estado==1)
+            {activar_timer();
+             vpcb[colap[0]].estado=2;
+             goto_address(vpcb[colap[0]].di);
+            }
+         else
+            {wreg=vpcb[colap[0]].wreg;
+             activar_timer();
+             goto_address(vpcb[colap[0]].da);
+            }
+       }*/
    }
 }
 
-//PROGRAMA 1: Luces Secuenciales - Bucle Infinito
-#ORG 0x205, 0x300
-void ROML_LedB1()
-{
-   set_tris_b(0x00);
-   while(TRUE)
-   {
-      for (j1=0;j1<3;j1++)
-      {
-         IF(j1==0)
-         {
-            OUTPUT_BIT(PIN_B0,0);
-            OUTPUT_BIT(PIN_B1,0);
-         }
-         IF(j1==1){OUTPUT_BIT(PIN_B0,1);}
-         IF(j1==2){OUTPUT_BIT(PIN_B1,1);}
-         for (k1=1;k1<200;++k1){for (l1=1;l1<200;++l1){}}
-      }
-   }
-}
 
-//PROGRAMA 2 : Luces Secuenciales - Bucle Infinito
-#ORG 0x305, 0x400
-void ROML_LedB2()
-{
-   set_tris_b(0x00);
-   while(TRUE)
-   {
-      for (j2=0;j2<3;j2++)
-      {
-         IF(j2==0)
-         {
-            OUTPUT_BIT(PIN_B2,0);
-            OUTPUT_BIT(PIN_B3,0);
-         }
-         IF(j2==1){OUTPUT_BIT(PIN_B2,1);}
-         IF(j2==2){OUTPUT_BIT(PIN_B3,1);}
-         for (k2=1;k2<500;++k2){for (l2=1;l2<500;++l2){}}
-      }
-   }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -175,17 +181,15 @@ void ROML_LedB2()
 void main(void)
 {
    Cargar_configuracion();
-   Configurar_interrupciones();
-   Procesos_Init();
-   #asm
-   call 0x0100
-   #endasm
 
 }
 // **************************************
 
+
 // ****************************************
 // Definicion de las Funciones
+
+
 
 void Cargar_configuracion(){
    SET_TRIS_B(0x00);    //configura PORTB entrada / 0=salida / 1=entrada
@@ -236,21 +240,123 @@ void descargar_proceso(int idp)
    printf("\n\r Proceso %i descargado. *",idp);
 }
 
-void Procesos_Init()
-{
-   proceso[0].dir_inicio=0x0205;
-   proceso[0].dir_actual=0x0205;
-   proceso[0].dir_fin=0x0300;
-   proceso[1].dir_inicio=0x0305;
-   proceso[1].dir_actual=0x0305;
-   proceso[1].dir_fin=0x0400;
-   proceso[0].estado=0;
-   proceso[1].estado=0;
-}
-
 void version(){
    printf("Version de Software: v1");
    }
+
+void encender_led (){
+   led_num = 0;
+   q=getch();
+      switch(q){
+         case '0': output_high(PIN_B0);
+                   led_num = 1;
+         break;
+         case '1': output_high(PIN_B1);
+                   led_num = 1;
+         break;
+         case '2': output_high(PIN_B2);
+                   led_num = 1;
+         break;
+         case '3': output_high(PIN_B3);
+                   led_num = 1;
+         break;
+         case '4': output_high(PIN_B4);
+                   led_num = 1;
+         break;
+         case '5': output_high(PIN_B5);
+                   led_num = 1;
+         break;
+         case 'a': encender_all ();
+         break;
+         default: printf("Led no encontrado");
+         break;
+         }
+      delay_ms(100);
+      
+   if (led_num == 1){
+      printf("Encendido Led %c",q);
+   }
+}
+
+
+void apagar_led (){
+   led_num = 0;
+   q=getch();
+      switch(q){
+         case '0': output_low(PIN_B0);
+                   led_num = 1;
+         break;
+         case '1': output_low(PIN_B1);
+                   led_num = 1;
+         break;
+         case '2': output_low(PIN_B2);
+                   led_num = 1;
+         break;
+         case '3': output_low(PIN_B3);
+                   led_num = 1;
+         break;
+         case '4': output_low(PIN_B4);
+                   led_num = 1;
+         break;
+         case '5': output_low(PIN_B5);
+                   led_num = 1;
+         break;
+         case 'a': apagar_all ();
+         break;
+         default: printf("Led no encontrado");
+         break;
+         }
+      delay_ms(100);
+
+   if (led_num == 1){
+      printf("Apagado Led %c",q);
+   }
+}
+
+void encender_all (){
+   OUTPUT_B(0xFF);
+   printf("Encendidos Todos");
+}
+
+void apagar_all (){
+   OUTPUT_B(0x00);
+   printf("Apagados Todos");
+}
+
+void estado_led (){
+   led_num = 0;
+   q=getch();
+      switch(q){
+         case '0': led_state = input_state(PIN_B0);
+                   led_num = 1;
+         break;
+         case '1': led_state = input_state(PIN_B1);
+                   led_num = 1;
+         break;
+         case '2': led_state = input_state(PIN_B2);
+                   led_num = 1;
+         break;
+         case '3': led_state = input_state(PIN_B3);
+                   led_num = 1;
+         break;
+         case '4': led_state = input_state(PIN_B4);
+                   led_num = 1;
+         break;
+         case '5': led_state = input_state(PIN_B5);
+                   led_num = 1;
+         break;
+         default: printf("Led no encontrado");
+         break;
+         }
+      delay_ms(100);
+   if (led_num == 1){
+      if (led_state == 1){
+         printf("Led %c encendido",q);
+      } else {
+         printf("Led %c apagado",q);
+      }
+   }
+}
 
 //*****************************************
 
