@@ -1,16 +1,25 @@
 #include <18F4550.h>
 
+#device ICD=TRUE
+#device adc=10
+#fuses HS,NOWDT,NOPROTECT,NOLVP
 #use delay(clock=10000000)
-#use rs232(baud=9600, xmit=PIN_C6,rcv=PIN_C7,bits=8,parity=N)
-#fuses HS,NOPROTECT,NOWDT,NOLVP,CPUDIV1,nomclr
-#include "lcd.c"
-#define Tiempo 200
+#use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8)
+//#fuses HS,NOPROTECT,NOWDT,NOLVP,CPUDIV1,nomclr
+
+//#include "lcd.c"
+#use FAST_IO(A) 
+#use FAST_IO(B)
+#use FAST_IO(C)
 
 #byte T0CON=0xFD5
 #byte wreg=0xFE8
 #byte TOSU=0xFFF
 #byte TOSH=0xFFE
 #byte TOSL=0xFFD
+
+
+/*
 
 #byte PORTA =0x80
 #byte PORTB =0x81
@@ -45,7 +54,7 @@
 #bit TMR0IE=INTCON.5
 #bit TMR0IF=INTCON.2
 #bit IPEN=RCON.7
-
+*/
 int np=0;
 int colap[6];
 int m;
@@ -56,8 +65,8 @@ int c1,c2;
 int k1,k2,k3,k4,k5,k6;
 int l1,l2,l3,l4,l5,l6;
 
-char proceso,n;
-INT SHOW=0;
+char proceso;
+int SHOW=0;
 int d1=10;
 int d2=0;
 
@@ -96,6 +105,7 @@ void desactivar_timer()
 {
    disable_interrupts(INT_TIMER0);
 }
+
 int32 DISPLAY(INT NUMERO){
    IF(NUMERO==0){SHOW=0xBF;};
    IF(NUMERO==1){SHOW=0x86;};
@@ -110,6 +120,12 @@ int32 DISPLAY(INT NUMERO){
    return(SHOW);
 }
 
+void  addcbuff(char c);
+void mostrar_procesos();
+void descargar_proceso(int idp);
+//void ir_quantum();
+void Config_TMR0();
+
 #INT_TIMER0
 void inter_quantum()
 {  int i=0;
@@ -118,6 +134,7 @@ void inter_quantum()
    vpcb[colap[0]].da=(int32)TOSL;
    vpcb[colap[0]].da=vpcb[colap[0]].da|((int32)TOSH<<8);
    vpcb[colap[0]].da=vpcb[colap[0]].da|((int32)TOSU<<16);
+   output_toggle(PIN_D6);
    if(np>1)
    {  m=colap[0];
       for(i=0;i<np-1;i++)
@@ -125,37 +142,27 @@ void inter_quantum()
       }
       colap[np-1]=m;
    }
-   
-   //pc=inicio_S0;
+
    
    TOSL=00;
    TOSH=40;
    TOSU=00;
 }  
 
-int  addcbuff(char c);
-void mostrar_procesos();
-void descargar_proceso(int idp);
-void ir_quantum();
-void Config_TMR0();
-
 #INT_RDA
 void serial_isr()
 {
    printf("Recibido");
    rcvchar = 0x00;
-   if(kbhit())
-   { 
-      rcvchar = getc();
-      addcbuff(rcvchar);
-   }
+   rcvchar = getc();
+   addcbuff(rcvchar);
 }
 
-int addcbuff(char c)
+void addcbuff(char c)
 {
    switch(c)
    {
-      case 0x2A:
+      case '*':
          cbuff[xbuff++] = c;
          flagcmd = 1;
       break;
@@ -182,29 +189,24 @@ void procesa_cmd(void){
    flagcmd=0;                       // Desactivo flag de comando pendiente.
    for (i=0;i<xbuff;i++)
    {
-      if (cbuff[i] == '$')
-      while((cbuff[i] != 0x4A) & (i<xbuff))
-      {
-         salida[j++]=cbuff[i++];
+      if (cbuff[i] == '$'){
+         while((cbuff[i] != '*') & (i<xbuff))
+         {
+            salida[j++]=cbuff[i++];
+         }
+         comando = salida[1];
+         valor2 = salida[2] -'0' + 1;
+         val1 = salida[2] - '0';
+         val1 = val1;
+         val2 = salida[3] - '0';
+         val2 = val1*10 + val2;
+         val3 = salida[4] - '0';
+         val3 = val2*10 +val3;
+         val4 = salida[5] - '0';
+         val4 = val3*10+val4;
+         val5 = salida[6]-'0';
+         valor = val4*10 + val5;
       }
-      comando = salida[1];
-      valor2 = salida[3] -'0' + 1;
-      //printf ("\r\n Valor:  %Lu\n", valor);
-      val1 = salida[2] - '0';
-      val1 = val1;
-      val2 = salida[3] - '0';
-      val2 = val1*10 + val2;
-      val3 = salida[4] - '0';
-      val3 = val2*10 +val3;
-      val4 = salida[5] - '0';
-      val4 = val3*10+val4;
-      val5 = salida[6]-'0';
-      valor = val4*10 + val5;
-      //valor = valor*10;
-      //printf ("\r\n Valor:  %Lu\n", valor);
-      //printf ("\r\n Valor2:  %Lu\n", valor2);
-      //printf ("\r\n Comando:  %c\n", comando);
-      i++;
    }
    inicbuff();                            // Borro buffer.
    for(i=0;i<lenbuff;i++)                 // Bucle que pone a 0 todos los
@@ -228,11 +230,11 @@ void ROML_LedA1()
       {
          IF(j1==0)
          {
-            OUTPUT_BIT(PIN_E0,0);
-            OUTPUT_BIT(PIN_E1,0);
+            OUTPUT_BIT(PIN_A0,0);
+            OUTPUT_BIT(PIN_A1,0);
          }
-         IF(j1==1){OUTPUT_BIT(PIN_E0,1);}
-         IF(j1==2){OUTPUT_BIT(PIN_E1,1);}
+         IF(j1==1){OUTPUT_BIT(PIN_A0,1);}
+         IF(j1==2){OUTPUT_BIT(PIN_A1,1);}
          for (k1=1;k1<200;++k1){for (l1=1;l1<200;++l1){}}
       }
    }
@@ -281,8 +283,8 @@ while(TRUE){
             for (l3=1;l3<200;++l3)
             {
                output_b(dis1);
-               output_bit(PIN_A0,1);
-               output_bit(PIN_A1,0);
+               output_bit(PIN_D0,1);
+               output_bit(PIN_D1,0);
             }
          }
          if(d1==0){d1=10;}   
@@ -303,8 +305,8 @@ while(true){
             for (l4=1;l4<200;++l4)
             {
                output_b(dis2);
-               output_bit(PIN_A0,0);
-               output_bit(PIN_A1,1);
+               output_bit(PIN_D0,0);
+               output_bit(PIN_D1,1);
             }
          }
          if(d2==10){d2=0;}   
@@ -327,17 +329,17 @@ while(TRUE){
          {
             IF(j3==0)
             {
-               OUTPUT_BIT(PIN_C0,0);
-               OUTPUT_BIT(PIN_C1,0);
+               OUTPUT_BIT(PIN_A4,0);
+               OUTPUT_BIT(PIN_A5,0);
             }
             IF(j3==1)
             {
-               OUTPUT_BIT(PIN_C0,1);
+               OUTPUT_BIT(PIN_A4,1);
             }
             IF(j3==2)
             {
-               OUTPUT_BIT(PIN_C0,0);
-               OUTPUT_BIT(PIN_C1,1);
+               OUTPUT_BIT(PIN_A4,0);
+               OUTPUT_BIT(PIN_A5,1);
             }         
             for (k5=1;k5<200;++k5){for (l5=1;l5<200;++l5){}}
          }
@@ -362,17 +364,17 @@ while(TRUE){
          {
             IF(j4==0)
             {
-               OUTPUT_BIT(PIN_C2,0);
-               OUTPUT_BIT(PIN_C4,0);
+               OUTPUT_BIT(PIN_D2,0);
+               OUTPUT_BIT(PIN_D3,0);
             }
             IF(j4==1)
             {
-               OUTPUT_BIT(PIN_C2,1);
+               OUTPUT_BIT(PIN_D2,1);
             }
             IF(j4==2)
             {
-               OUTPUT_BIT(PIN_C2,0);
-               OUTPUT_BIT(PIN_C4,1);
+               OUTPUT_BIT(PIN_D2,0);
+               OUTPUT_BIT(PIN_D3,1);
             }         
             for (k6=1;k6<200;++k6){for (l6=1;l6<200;++l6){}}
          }
@@ -420,16 +422,16 @@ for (mm=0;mm<250;mm++)
 
 void Port_Init()
 {
-   set_tris_b(0x00);
-   //set_tris_c(0b10000000);
-   set_tris_d(0x00);
-   set_tris_a(0x00);
+   set_tris_b(0xFF);
+   set_tris_d(0xFF);
+   set_tris_a(0xFF);
 }
 
 void inte_Init()
 {
-   enable_interrupts(GLOBAL);
+   
    enable_interrupts(INT_RDA);
+   enable_interrupts(GLOBAL);
 }
 
 void Config_TMR0()
@@ -441,7 +443,7 @@ void Config_TMR0()
 void Procesos_Init()
 {
    vpcb[0].di=0x1000;
-   vpcb[0].da=0x1000;
+   vpcb[0].da=0x1000;   
    vpcb[0].df=0x1100;
    vpcb[1].di=0x1102;
    vpcb[1].da=0x1102;
@@ -531,12 +533,15 @@ void MCU_Init()
    Procesos_Init();
    inte_Init();
    Config_TMR0();
-   lcd_init();
+   //lcd_init();
    setup_spi(FALSE);
    setup_psp(PSP_DISABLED);
    setup_comparator(NC_NC_NC_NC);
    setup_vref(FALSE);
    port_b_pullups(FALSE);
+   output_a(0xFF);
+   delay_ms(500);
+   output_a(0x00);
 }
 
 
@@ -591,4 +596,5 @@ void main(void)
    call 0x4000
    #endasm
 }
+
 

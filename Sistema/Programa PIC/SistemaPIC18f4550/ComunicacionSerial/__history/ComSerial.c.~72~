@@ -7,7 +7,7 @@
 
 #use FAST_IO(A) 
 #use FAST_IO(B)
-#use FAST_IO(D)
+#use FAST_IO(C)
 
 #byte T0CON=0xFD5
 #byte wreg=0xFE8
@@ -170,7 +170,7 @@ void procesa_cmd(void){             // procesa el ultimo comando guardado, un co
 #ORG 0x1000, 0x1100
 void ROML_LedA1()
 {
-   set_tris_a(0x00);
+   set_tris_a(0xFF);
    while(TRUE)
    {
       for (j1=0;j1<3;++j1)
@@ -192,26 +192,26 @@ void ROML_LedA1()
 #ORG 0x1102, 0x1200
 void ROML_LedA2()
 {
-   set_tris_d(0x00);
+   set_tris_a(0xFF);
    while(TRUE)
    {
       for (j2=0;j2<3;++j2)
       {
          IF(j2==0)
          {
-            OUTPUT_BIT(PIN_D2,0);
-            OUTPUT_BIT(PIN_D3,0);
+            OUTPUT_BIT(PIN_A2,0);
+            OUTPUT_BIT(PIN_A3,0);
          }
          IF(j2==1)
          {
-            OUTPUT_BIT(PIN_D2,1);
+            OUTPUT_BIT(PIN_A2,1);
          }
          IF(j2==2)
          {
-            OUTPUT_BIT(PIN_D2,0);
-            OUTPUT_BIT(PIN_D3,1);
+            OUTPUT_BIT(PIN_A2,0);
+            OUTPUT_BIT(PIN_A3,1);
          }         
-         for (k2=1;k2<100;++k2){for (l2=1;l2<200;++l2){}}
+         for (k2=1;k2<200;++k2){for (l2=1;l2<200;++l2){}}
       }
    }
 }
@@ -229,17 +229,17 @@ while(TRUE){
          {
             IF(j3==0)
             {
-               OUTPUT_BIT(PIN_D0,0);
-               OUTPUT_BIT(PIN_D1,0);
+               OUTPUT_BIT(PIN_C0,0);
+               OUTPUT_BIT(PIN_C1,0);
             }
             IF(j3==1)
             {
-               OUTPUT_BIT(PIN_D0,1);
+               OUTPUT_BIT(PIN_C0,1);
             }
             IF(j3==2)
             {
-               OUTPUT_BIT(PIN_D0,0);
-               OUTPUT_BIT(PIN_D1,1);
+               OUTPUT_BIT(PIN_C0,0);
+               OUTPUT_BIT(PIN_C1,1);
             }         
             for (k5=1;k5<200;++k5){for (l5=1;l5<200;++l5){}}
          }
@@ -249,6 +249,7 @@ while(TRUE){
    }
 }
 }
+
 
 //PROGRAMA 6: Luces Secuenciales C2 - Finito
 
@@ -263,17 +264,17 @@ void voidTask_LedC2(){
             {
                IF(j4==0)
                {
-                  OUTPUT_BIT(PIN_D2,0);
-                  OUTPUT_BIT(PIN_D3,0);
+                  OUTPUT_BIT(PIN_C2,0);
+                  OUTPUT_BIT(PIN_C4,0);
                }
                IF(j4==1)
                {
-                  OUTPUT_BIT(PIN_D2,1);
+                  OUTPUT_BIT(PIN_C2,1);
                }
                IF(j4==2)
                {
-                  OUTPUT_BIT(PIN_D2,0);
-                  OUTPUT_BIT(PIN_D3,1);
+                  OUTPUT_BIT(PIN_C2,0);
+                  OUTPUT_BIT(PIN_C4,1);
                }         
                for (k6=1;k6<200;++k6){for (l6=1;l6<200;++l6){}}
             }
@@ -284,11 +285,12 @@ void voidTask_LedC2(){
    }
 }
 
+
 void cargar_proceso(int idp)
 {
     colap[np]=idp-1;
     vpcb[idp-1].estado=1;
-    printf("Proceso %i cargado. *",idp);
+    printf("\n\r Proceso %i cargado. *",idp);
     proceso=10;
     np++;
 }
@@ -307,8 +309,10 @@ void descargar_proceso(int idp)
    np--;   
    vpcb[idp-1].estado=0;
    proceso=0;
-   printf("Proceso %i descargado. *",idp);
+   printf("\n\r Proceso %i descargado. *",idp);
 }
+
+
 
 void Port_Init()
 {
@@ -366,6 +370,7 @@ void MCU_Init()
    Procesos_Init();
    inte_Init();
    Config_TMR0();
+   lcd_init();
    setup_spi(FALSE);
    setup_psp(PSP_DISABLED);
    setup_comparator(NC_NC_NC_NC);
@@ -377,7 +382,7 @@ void MCU_Init()
 void Inicio_SO()
 {
    while (TRUE)
-   {       
+   {  //putc(0);        
       if(flagcmd) procesa_cmd();
       switch(comando)
       {

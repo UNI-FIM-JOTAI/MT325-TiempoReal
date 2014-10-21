@@ -211,7 +211,7 @@ void ROML_LedA2()
             OUTPUT_BIT(PIN_D2,0);
             OUTPUT_BIT(PIN_D3,1);
          }         
-         for (k2=1;k2<100;++k2){for (l2=1;l2<200;++l2){}}
+         for (k2=1;k2<200;++k2){for (l2=1;l2<200;++l2){}}
       }
    }
 }

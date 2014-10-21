@@ -1,59 +1,82 @@
 
-ROM used:   1092/16384 (3%)
-            1092/16384 (3%) including unused fragments
+ROM used:   3104/16384 (9%)
+            5456/16384 (17%) including unused fragments
 
-            0.8 Average locations per line
-            7.2 Average locations per statement
+            2.5 Average locations per line
+            12.8 Average locations per statement
 
-RAM used:   66/2048 (3%) at main() level
-            94/2048 (5%) worst case
+RAM used:   215/2048 (10%) at main() level
+            255/2048 (12%) worst case
 
-Stack used: 4 worst case (2 in main + 2 for interrupts)
+Stack used: 6 worst case (2 in main + 4 for interrupts)
 Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  143    67  44  ComSerial.c
+  416   242 100  ComSerial.c
   821     0   0  C:\Program Files (x86)\PICC\Devices\18F4550.h
-  456    84  56  C:\Program Files (x86)\PICC\Drivers\lcd.c
 ----- -----
- 1420   151 Total
+ 1237   242 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
+0     12   0    0    32  1.0  activar_timer
+0      6   0    0    17  0.8  desactivar_timer
+0    486   8   12   879  7.5  inter_quantum
 0     10   0    0    32  1.0  inte_Init
 0     32   1    0    74  1.5  serial_isr
-0     10   0    0   114  3.1  @const701
-0     34   2    2   153  4.7  @PSTRINGC_9600_31766_31767
-0     56   3    3   153  4.7  addcbuff
-0     34   2    3   131  3.5  inicbuff
-0    440  20   16  1249  8.3  procesa_cmd
-0     84   4   14   114  3.1  @MUL3232
-0     34   2    1    82  1.5  cargar_proceso
-0      8   0    0   114  3.1  @const714
-0     34   2    1    82  1.5  descargar_proceso
-0     12   1    0   553  5.2  @const717
-0    158   7    1   391  5.6  MAIN
- Inline         0   475  5.2  @cinit1
+0     10   0    0   208  6.3  @const704
+0     34   1    2   354  4.7  @PSTRINGC_9600_31766_31767
+0     56   1    3   153  4.7  addcbuff
+0     34   1    3   131  3.5  inicbuff
+0    440   7   16  1249  8.3  procesa_cmd
+0     84   1   14    32  1.0  @MUL3232
+0     70   1    0   511  5.2  ROML_LedA1
+0     72   1    0   553  5.2  ROML_LedA2
+0     96   2    0   697  5.3  voidTask_LedC1
+0     96   2    0   697  5.3  voidTask_LedC2
+0    108   2    3   170  3.8  cargar_proceso
+0     22   0    0   131  3.5  @const721
+0     32   1    3  1249  8.3  @PSTRINGCN_9600_31766_31767
+0     40   1    3   153  4.7  @DIV88
+0    178   3    6   131  3.5  @PRINTF_D_9600_31766_31767
+0    194   3    7   527  7.2  descargar_proceso
+0     26   0    0    82  1.5  @const733
+0     18   0    0   106  1.3  Port_Init
+0      8   0    0    18  1.0  Config_TMR0
+0    242   4    0  1561  2.9  Procesos_Init
+0     66   1    0   169  1.3  MCU_Init
+0     24   0    0   170  3.8  @const737
+0    334   5    6   752  7.7  Inicio_SO
+0     94   2    0    38  0.9  MAIN
+0     22   0    0   170  3.8  @const742
+ Inline         0   357  5.5  @cinit1
 
 Program metrics:
-    Functions               14
-    Statements              151
-    Comments                261
-    Volume (V)              5998
-    Difficulty (D)          53.6
-    Effort to implement (E) 321625
-    Time to implement (T)   4 hours, 58 minutes
-    Est Delivered Bugs (B)  2
-    Cyclomatic Complexity   26
-    Maintainability (MI)    120
+    Functions               31
+    Statements              242
+    Comments                160
+    Volume (V)              20107
+    Difficulty (D)          125.4
+    Effort to implement (E) 2521868
+    Time to implement (T)   38 hours, 55 minutes
+    Est Delivered Bugs (B)  6
+    Cyclomatic Complexity   62
+    Maintainability (MI)    85
 
  Segment     Used  Free
 -----------  ----  ----
-00000-00002     4  0  
-00004-00006     0  4  
-00008-00094   142  0  
-00096-07FFE   946  31672  
+00000-00006     4  4  
+00008-000A0   154  0  
+000A2-00FFE  2278  1656  
+01000-01100    70  188  
+01102-01200    72  184  
+01202-01400     0  512  
+01402-01500    96  160  
+01502-01600    96  160  
+01602-03FFE     0  10750  
+04000-04FFE   334  3762  
+05000-07FFE     0  12288  
 
 
 

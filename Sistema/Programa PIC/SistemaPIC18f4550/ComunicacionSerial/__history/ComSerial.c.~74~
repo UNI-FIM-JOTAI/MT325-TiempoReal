@@ -192,26 +192,26 @@ void ROML_LedA1()
 #ORG 0x1102, 0x1200
 void ROML_LedA2()
 {
-   set_tris_d(0x00);
+   set_tris_a(0x00);
    while(TRUE)
    {
       for (j2=0;j2<3;++j2)
       {
          IF(j2==0)
          {
-            OUTPUT_BIT(PIN_D2,0);
-            OUTPUT_BIT(PIN_D3,0);
+            OUTPUT_BIT(PIN_A2,0);
+            OUTPUT_BIT(PIN_A3,0);
          }
          IF(j2==1)
          {
-            OUTPUT_BIT(PIN_D2,1);
+            OUTPUT_BIT(PIN_A2,1);
          }
          IF(j2==2)
          {
-            OUTPUT_BIT(PIN_D2,0);
-            OUTPUT_BIT(PIN_D3,1);
+            OUTPUT_BIT(PIN_A2,0);
+            OUTPUT_BIT(PIN_A3,1);
          }         
-         for (k2=1;k2<100;++k2){for (l2=1;l2<200;++l2){}}
+         for (k2=1;k2<200;++k2){for (l2=1;l2<200;++l2){}}
       }
    }
 }

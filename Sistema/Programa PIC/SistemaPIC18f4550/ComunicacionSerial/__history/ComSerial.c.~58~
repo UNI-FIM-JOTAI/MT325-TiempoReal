@@ -7,6 +7,7 @@
 #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8)
 //#fuses HS,NOPROTECT,NOWDT,NOLVP,CPUDIV1,nomclr
 
+//#include "lcd.c"
 #use FAST_IO(A) 
 #use FAST_IO(B)
 #use FAST_IO(C)
@@ -154,13 +155,8 @@ void serial_isr()
 {
    printf("Recibido");
    rcvchar = 0x00;
-   if(kbhit())
-   { 
-      rcvchar = getc();
-      printf("Recibido %c",rcvchar);
-      addcbuff(rcvchar);
-      output_toggle(PIN_D7);
-   }
+   rcvchar = getc();
+   addcbuff(rcvchar);
 }
 
 void addcbuff(char c)
@@ -195,31 +191,32 @@ void procesa_cmd(void){
    flagcmd=0;                       // Desactivo flag de comando pendiente.
    for (i=0;i<xbuff;i++)
    {
-      if (cbuff[i] == '$')
-      //while((cbuff[i] != 0x4A) & (i<xbuff))
-      while((cbuff[i] != '*') & (i<xbuff))
-      {
-         salida[j++]=cbuff[i++];
+      if (cbuff[i] == '$'){
+         //while((cbuff[i] != 0x4A) & (i<xbuff))
+         while((cbuff[i] != '*') & (i<xbuff))
+         {
+            salida[j++]=cbuff[i++];
+         }
+         comando = salida[1];
+         valor2 = salida[2] -'0' + 1;
+         //printf ("\r\n Valor:  %Lu\n", valor);
+         val1 = salida[2] - '0';
+         val1 = val1;
+         val2 = salida[3] - '0';
+         val2 = val1*10 + val2;
+         val3 = salida[4] - '0';
+         val3 = val2*10 +val3;
+         val4 = salida[5] - '0';
+         val4 = val3*10+val4;
+         val5 = salida[6]-'0';
+         valor = val4*10 + val5;
+         //valor = valor*10;
+         //printf ("\r\n Valor:  %Lu\n", valor);
+         //printf ("\r\n Valor2:  %Lu\n", valor2);
+         //printf ("\r\n Comando:  %c\n", comando);
+         //i++;
+         //break;
       }
-      comando = salida[1];
-      valor2 = salida[3] -'0' + 1;
-      //printf ("\r\n Valor:  %Lu\n", valor);
-      val1 = salida[2] - '0';
-      val1 = val1;
-      val2 = salida[3] - '0';
-      val2 = val1*10 + val2;
-      val3 = salida[4] - '0';
-      val3 = val2*10 +val3;
-      val4 = salida[5] - '0';
-      val4 = val3*10+val4;
-      val5 = salida[6]-'0';
-      valor = val4*10 + val5;
-      //valor = valor*10;
-      //printf ("\r\n Valor:  %Lu\n", valor);
-      //printf ("\r\n Valor2:  %Lu\n", valor2);
-      //printf ("\r\n Comando:  %c\n", comando);
-      i++;
-      //break;
    }
    inicbuff();                            // Borro buffer.
    for(i=0;i<lenbuff;i++)                 // Bucle que pone a 0 todos los
@@ -609,4 +606,5 @@ void main(void)
    call 0x4000
    #endasm
 }
+
 

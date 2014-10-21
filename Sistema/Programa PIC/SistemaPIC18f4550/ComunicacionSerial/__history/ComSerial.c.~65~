@@ -1,0 +1,211 @@
+#include <18F4550.h>
+
+#use delay(clock=10000000)
+#use rs232(baud=9600, xmit=PIN_C6,rcv=PIN_C7,bits=8,parity=N)
+#fuses HS,NOPROTECT,NOWDT,NOLVP,CPUDIV1,nomclr
+#include "lcd.c"
+#define Tiempo 200
+
+#use FAST_IO(A) 
+#use FAST_IO(B)
+#use FAST_IO(C)
+
+#byte T0CON=0xFD5
+#byte wreg=0xFE8
+#byte TOSU=0xFFF
+#byte TOSH=0xFFE
+#byte TOSL=0xFFD
+
+int np=0;
+int colap[6];
+int m;
+int8 i,j,j1,j2,j3,j4;
+int8 dis1,dis2;
+
+int c1,c2;
+int k1,k2,k3,k4,k5,k6;
+int l1,l2,l3,l4,l5,l6;
+
+char proceso;
+int SHOW=0;
+int d1=10;
+int d2=0;
+
+int const lenbuff=10;
+int32 valor=0;
+int32 valor2=0;
+int32 val1,val2,val3,val4,val5;
+int16 quantum=65048;
+
+
+int   xbuff=0x00;
+char  cbuff[lenbuff];
+char  rcvchar=0x00;
+char  comando;
+int1  flagcmd=0;
+
+
+struct pcb{
+int32 di;
+int32 df; 
+int32 da;
+int estado; 
+int wreg; 
+int status;
+int bsr;
+int id;
+} vpcb[7];
+
+void activar_timer()
+{
+   set_timer0(quantum);
+   enable_interrupts(INT_TIMER0);
+}
+
+void desactivar_timer()
+{
+   disable_interrupts(INT_TIMER0);
+}
+
+void mostrar_procesos();
+void descargar_proceso(int idp);
+void Config_TMR0();
+
+
+#INT_TIMER0
+void inter_quantum()
+{  int i=0;
+   desactivar_timer();
+   vpcb[colap[0]].wreg=wreg;
+   vpcb[colap[0]].da=(int32)TOSL;
+   vpcb[colap[0]].da=vpcb[colap[0]].da|((int32)TOSH<<8);
+   vpcb[colap[0]].da=vpcb[colap[0]].da|((int32)TOSU<<16);
+   output_toggle(PIN_D6);
+   if(np>1)
+   {  m=colap[0];
+      for(i=0;i<np-1;i++)
+      {colap[i]=colap[i+1];
+      }
+      colap[np-1]=m;
+   }
+   
+   TOSL=00;
+   TOSH=40;
+   TOSU=00;
+} 
+
+
+void inte_Init()  // interrupcion de puerto serial
+{
+   enable_interrupts(GLOBAL);
+   enable_interrupts(INT_RDA);
+}
+
+
+#INT_RDA
+void serial_isr()
+{
+   printf("Recibido");     // se envia por Serial una palabra para verificar interrupcion
+   rcvchar = 0x00;
+   rcvchar = getc();    // se recibe el caracter enviado por la computadora
+   addcbuff(rcvchar);   // guarda el caracter en un buffer
+}
+
+void addcbuff(char c)   
+{
+   switch(c)
+   {
+      case '*':                  // en caso de recibir *, levanta el flag para saber que se termino de enviar un comando.
+         cbuff[xbuff++] = c;
+         flagcmd = 1;
+      break;
+      default:
+         cbuff[xbuff++] = c;
+   }
+}
+
+void inicbuff(void)           // inicializa el buffer, limpiandolo
+{
+   int i;
+   for (i=0; i<lenbuff;i++)      
+   {
+      cbuff[i] = 0x00;
+   }
+   xbuff=0x00;
+}
+
+void procesa_cmd(void){             // procesa el ultimo comando guardado, un comando esta comprendido entre $ hasta * 
+ 
+   int i, j=0;                      
+   char salida[lenbuff];            // Argumento de comando (si lo tiene)
+   disable_interrupts(int_rda);     
+   flagcmd=0;                       // Desactivo flag de comando pendiente.
+   for (i=0;i<xbuff;i++)
+   {
+      if (cbuff[i] == '$'){         // verifica que tenga '$'
+         while((cbuff[i] != '*') & (i<xbuff))   // hasta que encuentre *
+         {
+            salida[j++]=cbuff[i++];
+         }
+         comando = salida[1];
+         valor2 = salida[2] -'0' + 1;
+         val1 = salida[2] - '0';
+         val1 = val1;
+         val2 = salida[3] - '0';
+         val2 = val1*10 + val2;
+         val3 = salida[4] - '0';
+         val3 = val2*10 +val3;
+         val4 = salida[5] - '0';
+         val4 = val3*10+val4;
+         val5 = salida[6]-'0';
+         valor = val4*10 + val5;
+      }
+   }
+   inicbuff();                            // Borro buffer.
+   for(i=0;i<lenbuff;i++)                 // Bucle que pone a 0 todos los
+   {
+      salida[i]=0x00;                     // caracteres en el argumento
+   }
+   enable_interrupts(int_rda);            
+}
+
+void cargar_proceso(int valor2){
+   printf("cargado");
+   output_bit(PIN_A0,0);
+   output_bit(PIN_A1,1);
+}
+
+void descargar_proceso(int valor2){
+   printf("descargado");
+   output_bit(PIN_A0,1);
+   output_bit(PIN_A1,0);
+}
+
+void main(void)
+{
+   inte_Init();         // se activa la interrupcion por comunicacion serial
+   
+   set_tris_a(0x00);
+   output_a(0x00);
+   
+   while(true){
+      if(flagcmd == 1){                // se verifica si se ha recibido un nuevo comando
+         procesa_cmd();                // procesa el comando recibido hasta ese momento
+      }
+      switch(comando)                  
+      {
+         case 'C': if (valor2<8){ 
+                     cargar_proceso(valor2);
+                     break;
+                   }
+         case 'D': if (valor2<8) {
+                     descargar_proceso(valor2);
+                     break;
+                   }
+      }
+      comando='-';                  // anula el comando
+      valor2=100;                   // anula el valor
+      valor=0;
+   }
+}
+

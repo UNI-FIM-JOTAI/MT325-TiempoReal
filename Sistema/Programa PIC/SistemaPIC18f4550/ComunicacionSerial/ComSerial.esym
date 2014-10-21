@@ -1,8 +1,7 @@
-D G "Tiempo" 0 7 "200"
-D G "__PCH__" 0 144 ""5.008""
-D G "__DEVICE__" 0 144 "4550"
-D G "__DATE__" 0 144 ""21-oct-14""
-D G "__TIME__" 0 144 ""13:51:14"" "Standard Header file for the PIC18F4550 device ////////////////"
+D G "__PCH__" 0 417 ""5.008""
+D G "__DEVICE__" 0 417 "4550"
+D G "__DATE__" 0 417 ""21-oct-14""
+D G "__TIME__" 0 417 ""16:12:25"" "Standard Header file for the PIC18F4550 device ////////////////"
 c L "set_tris_a" 1 5 21 "FUNCTION"
 v L "value" 1 36 "int8" `54 
 f B "set_tris_a" 1 36 "void(int8 value)" `53 
@@ -901,111 +900,95 @@ d G "INT_EEPROM" 1 815 "0x00A010"
 d G "INT_OSCF" 1 816 "0x00A080"
 d G "INT_SPP" 1 817 "0x009D80"
 d G "INT_USB" 1 818 "0x00A020"
-D G "__LCD_C__" 2 76 ""
-C L "jump_to_irs" 2 2 2 "FUNCTION"
-C L "jump_to_irs" 2 2 1 "FUNCTION"
-C L "jump_to_irs" 2 2 1 "FUNCTION"
-C L "jump_to_irs" 2 2 1 "FUNCTION"
-C L "jump_to_irs" 2 2 1 "FUNCTION"
-C L "jump_to_irs" 2 2 1 "FUNCTION"
-C L "jump_to_irs" 2 2 2 "FUNCTION"
-T G "LCD_PIN_MAP" 2 90 "{int1 enable,int1 rs,int1 rw,int1 unused,int4 data}" `644  "this is to improve compatability with previous LCD drivers that accepted"
-D G "lcd_output_enable" 2 109 "(x) lcdlat.enable=x"
-D G "lcd_enable_tris" 2 110 "()   lcdtris.enable=0"
-D G "lcd_output_rs" 2 117 "(x) lcdlat.rs=x"
-D G "lcd_rs_tris" 2 118 "()   lcdtris.rs=0"
-D G "lcd_output_rw" 2 125 "(x) lcdlat.rw=x"
-D G "lcd_rw_tris" 2 126 "()   lcdtris.rw=0"
-D G "LCD_DATA_PORT" 2 149 "getenv("SFR:PORTD")" "portd"
-V G "lcd" 2 166 "LCD_PIN_MAP" `645 
-V G "lcdlat" 2 166 "LCD_PIN_MAP" `646 
-V G "lcdtris" 2 166 "LCD_PIN_MAP" `647 
-D G "LCD_TYPE" 2 179 "2" "0=5x7, 1=5x10, 2=2 lines"
-D G "LCD_LINE_TWO" 2 183 "0x40" "LCD RAM address for the second line"
-D G "LCD_LINE_LENGTH" 2 187 "20"
-V G "LCD_INIT_STRING" 2 190 "[4]" `648 
-C L "jump_to_irs" 2 2 2 "FUNCTION"
-F G "lcd_read_nibble" 2 194 "int8()" `651 
-F G "lcd_read_byte" 2 197 "int8()" `652 
-V L "low" 2 198 "int8" `653 
-V L "high" 2 198 "int8" `654 
-F G "lcd_read_nibble" 2 244 "int8()" `651 
-V L "n" 2 260 "int8" `656 
-F G "lcd_send_nibble" 2 261 "void(int8 n)" `655 
-V L "address" 2 278 "int8" `658 
-V L "n" 2 278 "int8" `659 
-F G "lcd_send_byte" 2 279 "void(int8 address,int8 n)" `657 
-F G "lcd_init" 2 304 "void()" `660 
-V L "i" 2 305 "int8" `661 
-V L "x" 2 345 "int8" `663 
-V L "y" 2 345 "int8" `664 
-F G "lcd_gotoxy" 2 346 "void(int8 x,int8 y)" `662 
-V L "address" 2 347 "int8" `665 
-V L "c" 2 363 "int8" `667 
-F G "lcd_putc" 2 364 "void(int8 c)" `666 
-V L "x" 2 406 "int8" `669 
-V L "y" 2 406 "int8" `670 
-F G "lcd_getc" 2 407 "int8(int8 x,int8 y)" `668 
-V L "value" 2 408 "int8" `671 
-C L "lcd_getc" 2 2 1 "FUNCTION"
-C L "lcd_set_cgram_char" 2 2 5 "FUNCTION"
-V L "which" 2 424 "int8" `673 
-V L "ptr" 2 424 "*int8" `674 
-F G "lcd_set_cgram_char" 2 425 "void(int8 which,*int8 ptr)" `672 
-V L "i" 2 426 "int8" `675 
-C L "lcd_set_cgram_char" 2 2 1 "FUNCTION"
-V L "on" 2 443 "int8" `677 
-F G "lcd_cursor_on" 2 444 "void(int8 on)" `676 
-C L "lcd_cursor_on" 2 2 1 "FUNCTION"
-C L "lcd_cursor_on" 2 2 1 "FUNCTION"
-D G "Tiempo" 0 7 "200"
-V G "lenbuff" 0 15 "int8" `683 
-V G "xbuff" 0 17 "int8" `685 
-V G "cbuff" 0 18 "int8[10]" `686 
-V G "rcvchar" 0 19 "int8" `687 
-V G "comando" 0 20 "int8" `688 
-V G "flagcmd" 0 21 "int1" `689 
-V G "valor" 0 22 "int32" `690 
-V G "valor2" 0 23 "int32" `691 
-V G "val1" 0 24 "int32" `692 
-V G "val2" 0 24 "int32" `693 
-V G "val3" 0 24 "int32" `694 
-V G "val4" 0 24 "int32" `695 
-V G "val5" 0 24 "int32" `696 
-V L "c" 0 28 "int8" `698 
-F G "addcbuff" 0 28 "void(int8 c)" `697 
-C L "inte_Init" 0 29 1 "FUNCTION"
-F G "inte_Init" 0 30 "void()" `699 
-F G "serial_isr" 0 38 "void()" `700 
-C L "serial_isr" 0 29 1 "FUNCTION"
-C L "serial_isr" 0 29 1 "FUNCTION"
-C L "serial_isr" 0 29 1 "FUNCTION"
-V L "c" 0 45 "int8" `704 
-F G "addcbuff" 0 46 "void(int8 c)" `697 
-C L "addcbuff" 0 29 1 "FUNCTION"
-C L "inicbuff" 0 29 1 "FUNCTION"
-F G "inicbuff" 0 59 "void(int8 c)" `703 
-V L "i" 0 60 "int8" `704 
-F G "procesa_cmd" 0 68 "void()" `705  "procesa el ultimo comando guardado, un comando esta comprendido entre $ hasta *"
-V L "i" 0 70 "int8" `706 
-V L "j" 0 70 "int8" `707 
-V L "salida" 0 71 "int8[10]" `708  "Argumento de comando (si lo tiene)"
-C L "procesa_cmd" 0 29 1 "FUNCTION"
-C L "procesa_cmd" 0 29 1 "FUNCTION"
-C L "procesa_cmd" 0 29 1 "FUNCTION"
-C L "procesa_cmd" 0 29 1 "FUNCTION"
-C L "procesa_cmd" 0 29 1 "FUNCTION"
-C L "procesa_cmd" 0 29 1 "FUNCTION"
-V L "valor2" 0 103 "int8" `713 
-F G "cargar_proceso" 0 103 "void(int8 valor2)" `712 
-V L "valor2" 0 109 "int8" `716 
-F G "descargar_proceso" 0 109 "void(int8 valor2)" `715 
-F G "MAIN" 0 116 "void()" `718 
-C L "MAIN" 0 29 1 "FUNCTION"
-C L "MAIN" 0 29 1 "FUNCTION"
-C L "MAIN" 0 29 1 "FUNCTION"
-C L "MAIN" 0 29 1 "FUNCTION"
-C L "MAIN" 0 29 1 "FUNCTION"
+D G "Tiempo" 0 6 "200"
+V G "np" 0 18 "int8" `643 
+V G "colap" 0 19 "int8[6]" `644 
+V G "m" 0 20 "int8" `645 
+V G "i" 0 21 "int8" `646 
+V G "j" 0 21 "int8" `647 
+V G "j1" 0 21 "int8" `648 
+V G "j2" 0 21 "int8" `649 
+V G "j3" 0 21 "int8" `650 
+V G "j4" 0 21 "int8" `651 
+V G "c1" 0 23 "int8" `652 
+V G "c2" 0 23 "int8" `653 
+V G "k1" 0 24 "int8" `654 
+V G "k2" 0 24 "int8" `655 
+V G "k3" 0 24 "int8" `656 
+V G "k4" 0 24 "int8" `657 
+V G "k5" 0 24 "int8" `658 
+V G "k6" 0 24 "int8" `659 
+V G "l1" 0 25 "int8" `660 
+V G "l2" 0 25 "int8" `661 
+V G "l3" 0 25 "int8" `662 
+V G "l4" 0 25 "int8" `663 
+V G "l5" 0 25 "int8" `664 
+V G "l6" 0 25 "int8" `665 
+V G "proceso" 0 27 "int8" `666 
+V G "lenbuff" 0 29 "int8" `667 
+V G "valor" 0 30 "int32" `669 
+V G "valor2" 0 31 "int32" `670 
+V G "val1" 0 32 "int32" `671 
+V G "val2" 0 32 "int32" `672 
+V G "val3" 0 32 "int32" `673 
+V G "val4" 0 32 "int32" `674 
+V G "val5" 0 32 "int32" `675 
+V G "quantum" 0 33 "int16" `676 
+V G "xbuff" 0 36 "int8" `677 
+V G "cbuff" 0 37 "int8[10]" `678 
+V G "rcvchar" 0 38 "int8" `679 
+V G "comando" 0 39 "int8" `680 
+V G "flagcmd" 0 40 "int1" `681 
+V G "vpcb" 0 52 "{int32 di,int32 df,int32 da,int8 estado,int8 wreg,int8 status,int8 bsr,int8 id}[7]" `691 
+F G "activar_timer" 0 55 "void()" `692 
+F G "desactivar_timer" 0 61 "void()" `693 
+V L "c" 0 65 "int8" `695 
+F G "addcbuff" 0 65 "void(int8 c)" `694 
+F G "mostrar_procesos" 0 66 "void()" `696 
+V L "idp" 0 67 "int8" `698 
+F G "descargar_proceso" 0 67 "void(int8 idp)" `697 
+F G "Config_TMR0" 0 68 "void()" `699 
+F G "inter_quantum" 0 73 "void()" `700 
+V L "i" 0 73 "int8" `701 
+C L "inte_Init" 0 94 1 "FUNCTION"
+F G "inte_Init" 0 95 "void()" `702 
+F G "serial_isr" 0 103 "void()" `703 
+C L "serial_isr" 0 94 1 "FUNCTION"
+C L "serial_isr" 0 94 1 "FUNCTION"
+C L "serial_isr" 0 94 1 "FUNCTION"
+V L "c" 0 110 "int8" `707 
+F G "addcbuff" 0 111 "void(int8 c)" `694 
+C L "addcbuff" 0 94 1 "FUNCTION"
+C L "inicbuff" 0 94 1 "FUNCTION"
+F G "inicbuff" 0 124 "void(int8 c)" `706 
+V L "i" 0 125 "int8" `707 
+F G "procesa_cmd" 0 133 "void()" `708  "procesa el ultimo comando guardado, un comando esta comprendido entre $ hasta *"
+V L "i" 0 135 "int8" `709 
+V L "j" 0 135 "int8" `710 
+V L "salida" 0 136 "int8[10]" `711  "Argumento de comando (si lo tiene)"
+C L "procesa_cmd" 0 94 1 "FUNCTION"
+C L "procesa_cmd" 0 94 1 "FUNCTION"
+C L "procesa_cmd" 0 94 1 "FUNCTION"
+C L "procesa_cmd" 0 94 1 "FUNCTION"
+C L "procesa_cmd" 0 94 1 "FUNCTION"
+C L "procesa_cmd" 0 94 1 "FUNCTION"
+F G "ROML_LedA1" 0 172 "void()" `715 
+F G "ROML_LedA2" 0 194 "void()" `716 
+F G "voidTask_LedC1" 0 222 "void()" `717 
+F G "voidTask_LedC2" 0 256 "void()" `718 
+V L "idp" 0 287 "int8" `720 
+F G "cargar_proceso" 0 288 "void(int8 idp)" `719 
+V L "idp" 0 296 "int8" `731 
+F G "descargar_proceso" 0 297 "void(int8 idp)" `697 
+V L "s" 0 298 "int8" `730 
+V L "d" 0 298 "int8" `731 
+V L "f" 0 298 "int8" `732 
+F G "Port_Init" 0 314 "void()" `734 
+F G "Config_TMR0" 0 324 "void()" `699 
+F G "Procesos_Init" 0 330 "void()" `735 
+F G "MCU_Init" 0 363 "void()" `736 
+F G "Inicio_SO" 0 378 "void()" `738 
+F G "MAIN" 0 407 "void()" `739 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1
