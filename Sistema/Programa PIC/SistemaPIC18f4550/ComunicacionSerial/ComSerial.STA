@@ -1,22 +1,22 @@
 
-ROM used:   3104/16384 (9%)
-            5456/16384 (17%) including unused fragments
+ROM used:   3034/16384 (9%)
+            5458/16384 (17%) including unused fragments
 
             2.5 Average locations per line
-            12.8 Average locations per statement
+            12.9 Average locations per statement
 
-RAM used:   215/2048 (10%) at main() level
-            255/2048 (12%) worst case
+RAM used:   181/2048 (9%) at main() level
+            221/2048 (11%) worst case
 
 Stack used: 6 worst case (2 in main + 4 for interrupts)
 Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  416   242 100  ComSerial.c
+  410   235 100  ComSerial.c
   821     0   0  C:\Program Files (x86)\PICC\Devices\18F4550.h
 ----- -----
- 1237   242 Total
+ 1231   235 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -44,38 +44,37 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     26   0    0    82  1.5  @const733
 0     18   0    0   106  1.3  Port_Init
 0      8   0    0    18  1.0  Config_TMR0
-0    242   4    0  1561  2.9  Procesos_Init
+0    170   3    0  1046  2.9  Procesos_Init
 0     66   1    0   169  1.3  MCU_Init
 0     24   0    0   170  3.8  @const737
-0    334   5    6   752  7.7  Inicio_SO
+0    336   6    6   758  7.7  Inicio_SO
 0     94   2    0    38  0.9  MAIN
 0     22   0    0   170  3.8  @const742
  Inline         0   357  5.5  @cinit1
 
 Program metrics:
     Functions               31
-    Statements              242
+    Statements              235
     Comments                160
-    Volume (V)              20107
-    Difficulty (D)          125.4
-    Effort to implement (E) 2521868
-    Time to implement (T)   38 hours, 55 minutes
+    Volume (V)              19388
+    Difficulty (D)          125.1
+    Effort to implement (E) 2425764
+    Time to implement (T)   37 hours, 26 minutes
     Est Delivered Bugs (B)  6
     Cyclomatic Complexity   62
-    Maintainability (MI)    85
+    Maintainability (MI)    86
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00006     4  4  
 00008-000A0   154  0  
-000A2-00FFE  2278  1656  
+000A2-00FFE  2206  1728  
 01000-01100    70  188  
 01102-01200    72  184  
-01202-01400     0  512  
-01402-01500    96  160  
-01502-01600    96  160  
-01602-03FFE     0  10750  
-04000-04FFE   334  3762  
+01202-01300    96  160  
+01302-01400    96  160  
+01402-03FFE     0  11262  
+04000-04FFE   336  3760  
 05000-07FFE     0  12288  
 
 

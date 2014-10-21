@@ -49,7 +49,7 @@ int wreg;
 int status;
 int bsr;
 int id;
-} vpcb[5];
+} vpcb[7];
 
 void activar_timer()
 {
@@ -211,14 +211,14 @@ void ROML_LedA2()
             OUTPUT_BIT(PIN_D2,0);
             OUTPUT_BIT(PIN_D3,1);
          }         
-         for (k2=1;k2<150;++k2){for (l2=1;l2<200;++l2){}}
+         for (k2=1;k2<100;++k2){for (l2=1;l2<200;++l2){}}
       }
    }
 }
 
 //PROGRAMA 5: Luces Secuenciales C - Finito
 
-#ORG 0x1202, 0x1300
+#ORG 0x1402, 0x1500
 void voidTask_LedC1(){
 while(TRUE){
    while(TRUE)
@@ -245,14 +245,14 @@ while(TRUE){
          }
       }
       comando='D';
-      valor2=3;
+      valor2=5;
    }
 }
 }
 
 //PROGRAMA 6: Luces Secuenciales C2 - Finito
 
-#ORG 0x1302, 0x1400
+#ORG 0x1502, 0x1600
 void voidTask_LedC2(){
    while(TRUE){
       while(TRUE)
@@ -263,23 +263,23 @@ void voidTask_LedC2(){
             {
                IF(j4==0)
                {
-                  OUTPUT_BIT(PIN_D4,0);
-                  OUTPUT_BIT(PIN_D5,0);
+                  OUTPUT_BIT(PIN_D2,0);
+                  OUTPUT_BIT(PIN_D3,0);
                }
                IF(j4==1)
                {
-                  OUTPUT_BIT(PIN_D4,1);
+                  OUTPUT_BIT(PIN_D2,1);
                }
                IF(j4==2)
                {
-                  OUTPUT_BIT(PIN_D4,0);
-                  OUTPUT_BIT(PIN_D5,1);
+                  OUTPUT_BIT(PIN_D2,0);
+                  OUTPUT_BIT(PIN_D3,1);
                }         
                for (k6=1;k6<200;++k6){for (l6=1;l6<200;++l6){}}
             }
          }
          comando='D';
-         valor2=4;
+         valor2=6;
       }
    }
 }
@@ -343,11 +343,19 @@ void Procesos_Init()
    vpcb[4].di=0x1402;
    vpcb[4].da=0x1402;
    vpcb[4].df=0x1500;
+   vpcb[5].di=0x1502;
+   vpcb[5].da=0x1502;
+   vpcb[5].df=0x1600;
+   vpcb[6].di=0x2502;
+   vpcb[6].da=0x2502;
+   vpcb[6].df=0x2850;
    vpcb[0].estado=0;
    vpcb[1].estado=0;
    vpcb[2].estado=0;
    vpcb[3].estado=0;
    vpcb[4].estado=0;
+   vpcb[5].estado=0;
+   vpcb[6].estado=0;
    
 }
 
@@ -370,9 +378,7 @@ void Inicio_SO()
 {
    while (TRUE)
    {       
-      if(flagcmd){
-         procesa_cmd();
-      }
+      if(flagcmd) procesa_cmd();
       switch(comando)
       {
          case 'C':{if (valor2<10) cargar_proceso(valor2);break;}

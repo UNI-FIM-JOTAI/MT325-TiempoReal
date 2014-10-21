@@ -211,7 +211,7 @@ void ROML_LedA2()
             OUTPUT_BIT(PIN_D2,0);
             OUTPUT_BIT(PIN_D3,1);
          }         
-         for (k2=1;k2<150;++k2){for (l2=1;l2<200;++l2){}}
+         for (k2=1;k2<100;++k2){for (l2=1;l2<200;++l2){}}
       }
    }
 }
@@ -245,7 +245,7 @@ while(TRUE){
          }
       }
       comando='D';
-      valor2=3;
+      valor2=2;
    }
 }
 }
@@ -263,23 +263,23 @@ void voidTask_LedC2(){
             {
                IF(j4==0)
                {
-                  OUTPUT_BIT(PIN_D4,0);
-                  OUTPUT_BIT(PIN_D5,0);
+                  OUTPUT_BIT(PIN_D2,0);
+                  OUTPUT_BIT(PIN_D3,0);
                }
                IF(j4==1)
                {
-                  OUTPUT_BIT(PIN_D4,1);
+                  OUTPUT_BIT(PIN_D2,1);
                }
                IF(j4==2)
                {
-                  OUTPUT_BIT(PIN_D4,0);
-                  OUTPUT_BIT(PIN_D5,1);
+                  OUTPUT_BIT(PIN_D2,0);
+                  OUTPUT_BIT(PIN_D3,1);
                }         
                for (k6=1;k6<200;++k6){for (l6=1;l6<200;++l6){}}
             }
          }
          comando='D';
-         valor2=4;
+         valor2=3;
       }
    }
 }

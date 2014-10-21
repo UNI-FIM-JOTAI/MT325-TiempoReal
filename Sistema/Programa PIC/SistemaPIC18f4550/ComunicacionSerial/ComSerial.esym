@@ -1,7 +1,8 @@
-D G "__PCH__" 0 417 ""5.008""
-D G "__DEVICE__" 0 417 "4550"
-D G "__DATE__" 0 417 ""21-oct-14""
-D G "__TIME__" 0 417 ""16:12:25"" "Standard Header file for the PIC18F4550 device ////////////////"
+D G "Tiempo" 0 6 "200"
+D G "__PCH__" 0 411 ""5.008""
+D G "__DEVICE__" 0 411 "4550"
+D G "__DATE__" 0 411 ""21-oct-14""
+D G "__TIME__" 0 411 ""16:41:32"" "Standard Header file for the PIC18F4550 device ////////////////"
 c L "set_tris_a" 1 5 21 "FUNCTION"
 v L "value" 1 36 "int8" `54 
 f B "set_tris_a" 1 36 "void(int8 value)" `53 
@@ -939,7 +940,7 @@ V G "cbuff" 0 37 "int8[10]" `678
 V G "rcvchar" 0 38 "int8" `679 
 V G "comando" 0 39 "int8" `680 
 V G "flagcmd" 0 40 "int1" `681 
-V G "vpcb" 0 52 "{int32 di,int32 df,int32 da,int8 estado,int8 wreg,int8 status,int8 bsr,int8 id}[7]" `691 
+V G "vpcb" 0 52 "{int32 di,int32 df,int32 da,int8 estado,int8 wreg,int8 status,int8 bsr,int8 id}[5]" `691 
 F G "activar_timer" 0 55 "void()" `692 
 F G "desactivar_timer" 0 61 "void()" `693 
 V L "c" 0 65 "int8" `695 
@@ -986,9 +987,9 @@ V L "f" 0 298 "int8" `732
 F G "Port_Init" 0 314 "void()" `734 
 F G "Config_TMR0" 0 324 "void()" `699 
 F G "Procesos_Init" 0 330 "void()" `735 
-F G "MCU_Init" 0 363 "void()" `736 
-F G "Inicio_SO" 0 378 "void()" `738 
-F G "MAIN" 0 407 "void()" `739 
+F G "MCU_Init" 0 355 "void()" `736 
+F G "Inicio_SO" 0 370 "void()" `738 
+F G "MAIN" 0 401 "void()" `739 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1

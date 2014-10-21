@@ -263,17 +263,17 @@ void voidTask_LedC2(){
             {
                IF(j4==0)
                {
-                  OUTPUT_BIT(PIN_D4,0);
-                  OUTPUT_BIT(PIN_D5,0);
+                  OUTPUT_BIT(PIN_D2,0);
+                  OUTPUT_BIT(PIN_D3,0);
                }
                IF(j4==1)
                {
-                  OUTPUT_BIT(PIN_D4,1);
+                  OUTPUT_BIT(PIN_D2,1);
                }
                IF(j4==2)
                {
-                  OUTPUT_BIT(PIN_D4,0);
-                  OUTPUT_BIT(PIN_D5,1);
+                  OUTPUT_BIT(PIN_D2,0);
+                  OUTPUT_BIT(PIN_D3,1);
                }         
                for (k6=1;k6<200;++k6){for (l6=1;l6<200;++l6){}}
             }
