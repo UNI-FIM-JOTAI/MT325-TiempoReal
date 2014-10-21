@@ -101,7 +101,7 @@ void inte_Init()  // interrupcion de puerto serial
 #INT_RDA
 void serial_isr()
 {
-   //printf("Recibido");     // se envia por Serial una palabra para verificar interrupcion
+   printf("Recibido");     // se envia por Serial una palabra para verificar interrupcion
    rcvchar = 0x00;
    rcvchar = getc();    // se recibe el caracter enviado por la computadora
    addcbuff(rcvchar);   // guarda el caracter en un buffer
@@ -292,14 +292,14 @@ void task_manager(){
       desactivar_timer();
       int m;
          int32 mproceso, mdirini, mdirfin, mdiract;
-         printf("|   Proceso  |  Dir.Ini  |  Dir.Fin  |  Dir.Act  |");
+         printf("\r\n|   Proceso  |  Dir.Ini  |  Dir.Fin  |  Dir.Act  |");
          for(m=0;m<np;m++)
          {
             mproceso = colap[m]+1;
             mdirini = vpcb[mproceso-1].di;
             mdirfin = vpcb[mproceso-1].df;
             mdiract = vpcb[mproceso-1].da;
-            printf("|      %Lu     |   %Lu    |   %Lu    |   %Lu    |",mproceso,mdirini,mdirfin,mdiract);
+            printf("\r\n|      %Lu     |   %Lu    |   %Lu    |   %Lu    |",mproceso,mdirini,mdirfin,mdiract);
          }
          printf("*");
       activar_timer();
@@ -413,8 +413,8 @@ void Inicio_SO()
       }
       switch(comando)
       {
-         case 'C':{if (valor2<6) cargar_proceso(valor2);break;}
-         case 'D':{if (valor2<6) descargar_proceso(valor2);break;}
+         case 'C':{if (valor2<10) cargar_proceso(valor2);break;}
+         case 'D':{if (valor2<10) descargar_proceso(valor2);break;}
       }
       comando='-';
       valor2=100;

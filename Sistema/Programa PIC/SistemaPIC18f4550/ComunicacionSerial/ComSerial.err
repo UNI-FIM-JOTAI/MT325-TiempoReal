@@ -1,8 +1,7 @@
->>> Warning 216 "ComSerial.c" Line 408(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC_9600_31766_31767)
 >>> Warning 202 "ComSerial.c" Line 24(11,13): Variable never used:   k3
 >>> Warning 202 "ComSerial.c" Line 24(14,16): Variable never used:   k4
 >>> Warning 202 "ComSerial.c" Line 25(11,13): Variable never used:   l3
 >>> Warning 202 "ComSerial.c" Line 25(14,16): Variable never used:   l4
-      Memory usage:   ROM=9%      RAM=9% - 11%
-      0 Errors,  5 Warnings.
+      Memory usage:   ROM=12%      RAM=9% - 12%
+      0 Errors,  4 Warnings.
 Build Successful.

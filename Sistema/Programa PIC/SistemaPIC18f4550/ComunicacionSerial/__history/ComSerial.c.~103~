@@ -413,8 +413,8 @@ void Inicio_SO()
       }
       switch(comando)
       {
-         case 'C':{if (valor2<6) cargar_proceso(valor2);break;}
-         case 'D':{if (valor2<6) descargar_proceso(valor2);break;}
+         case 'C':{if (valor2<5) cargar_proceso(valor2);break;}
+         case 'D':{if (valor2<5) descargar_proceso(valor2);break;}
       }
       comando='-';
       valor2=100;

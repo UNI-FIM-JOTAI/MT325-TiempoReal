@@ -1,22 +1,42 @@
 ÀÄComSerial
-   ÃÄMAIN  0/94  Ram=0
+   ÃÄMAIN  0/82  Ram=0
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
-   ³  ÀÄMCU_Init  0/66  Ram=0
+   ³  ÀÄMCU_Init  0/54  Ram=0
    ³     ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
    ³     ÃÄPort_Init  0/18  Ram=0
-   ³     ÃÄProcesos_Init  0/170  Ram=0
+   ³     ÃÄProcesos_Init  0/174  Ram=0
    ³     ÃÄinte_Init  0/10  Ram=0
    ³     ÀÄConfig_TMR0  0/8  Ram=0
    ÃÄinter_quantum  0/486  Ram=12
-   ³  ÀÄdesactivar_timer  0/6  Ram=0
-   ÃÄserial_isr  0/32  Ram=0
-   ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ÀÄdesactivar_timer  0/4  Ram=0
+   ÃÄserial_isr  0/22  Ram=0
    ³  ÀÄaddcbuff  0/56  Ram=3
    ÃÄROML_LedA1  0/70  Ram=0
    ÃÄROML_LedA2  0/72  Ram=0
    ÃÄvoidTask_LedC1  0/96  Ram=0
    ÃÄvoidTask_LedC2  0/96  Ram=0
+   ÃÄtask_manager  0/584  Ram=4
+   ³  ÃÄdesactivar_timer  0/4  Ram=0
+   ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ÃÄ@MUL3232  0/84  Ram=14
+   ³  ÃÄ@MUL3232  0/84  Ram=14
+   ³  ÃÄ@MUL3232  0/84  Ram=14
+   ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
+   ³  ÃÄ@PRINTF_L32U_9600_31766_31767  0/166  Ram=12
+   ³  ³  ÃÄ@DIV3232  0/142  Ram=13
+   ³  ³  ÀÄ@DIV3232  0/142  Ram=13
+   ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
+   ³  ÃÄ@PRINTF_L32U_9600_31766_31767  0/166  Ram=12
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
+   ³  ÃÄ@PRINTF_L32U_9600_31766_31767  0/166  Ram=12
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
+   ³  ÃÄ@PRINTF_L32U_9600_31766_31767  0/166  Ram=12
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
+   ³  ÀÄactivar_timer  0/12  Ram=0
    ÀÄInicio_SO  0/336  Ram=6
       ÃÄprocesa_cmd  0/440  Ram=16
       ³  ÃÄ@MUL3232  0/84  Ram=14
