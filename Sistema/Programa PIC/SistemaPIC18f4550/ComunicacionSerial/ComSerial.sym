@@ -21,32 +21,65 @@
 013     @INTERRUPT_AREA
 014     @INTERRUPT_AREA
 015     @INTERRUPT_AREA
-016     rcvchar
-017.0   flagcmd
-018     @PSTRINGCN_9600_31766_31767.P1
-018     MAIN.@SCRATCH1
-019     @PSTRINGCN_9600_31766_31767.@SCRATCH1
-01A     @PSTRINGCN_9600_31766_31767.@SCRATCH2
-F83     lcd
+016     @INTERRUPT_AREA
+017     xbuff
+018-021 cbuff
+022     rcvchar
+023     comando
+024.0   flagcmd
+025-028 valor
+029-02C valor2
+02D-030 val1
+031-034 val2
+035-038 val3
+039-03C val4
+03D-040 val5
+041     cargar_proceso.valor2
+041     procesa_cmd.i
+041     descargar_proceso.valor2
+041     MAIN.@SCRATCH1
+042     procesa_cmd.j
+043-04C procesa_cmd.salida
+04D-050 @MUL3232.P1
+04D     inicbuff.i
+04D     procesa_cmd.@SCRATCH1
+04E     inicbuff.@SCRATCH1
+04E     procesa_cmd.@SCRATCH2
+04F     inicbuff.@SCRATCH2
+04F     procesa_cmd.@SCRATCH3
+050     procesa_cmd.@SCRATCH4
+051-054 @MUL3232.P1
+055     @MUL3232.@SCRATCH1
+056     @MUL3232.@SCRATCH2
+057     @MUL3232.@SCRATCH3
+058     @MUL3232.@SCRATCH4
+059     @MUL3232.@SCRATCH5
+05A     @MUL3232.@SCRATCH6
+05B     addcbuff.c
+05B     @PSTRINGC_9600_31766_31767.@SCRATCH1
+05C     @PSTRINGC_9600_31766_31767.@SCRATCH2
+05C     addcbuff.@SCRATCH1
+05D     addcbuff.@SCRATCH2
 F83     PSP_DATA
+F83     lcd
 F8C     lcdlat
 F95     lcdtris
 FB4.6   C1OUT
 FB4.7   C2OUT
-FBB     CCP_2_LOW
 FBB     CCP_2
+FBB     CCP_2_LOW
 FBC     CCP_2_HIGH
 FBE     CCP_1
 FBE     CCP_1_LOW
 FBF     CCP_1_HIGH
 FD5     T0CON
-FE1-FE2 @WRITE_PACKED_MEMORY.P1
-FE1-FE2 @READ_PACKED_MEMORY.P2
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
 FE8     wreg
-FE9-FEA @WRITE_PACKED_MEMORY.P1
-FE9-FEA @READ_PACKED_MEMORY.P2
-FE9-FEA @WRITE_PROGRAM_MEMORY.P3
-FE9-FEA @READ_PROGRAM_MEMORY.P4
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P4
 FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
 FF6-FF8 @READ_PROGRAM_MEMORY.P2
 FFD     TOSL
@@ -54,23 +87,31 @@ FFE     TOSH
 FFF     TOSU
 
 ROM Allocation:
-000096  serial_isr
-0000B6  @const691.call
-0000BE  inte_Init
-0000C8  @PSTRINGCN_9600_31766_31767
-0000EA  MAIN
-0000EA  @cinit1
-00010E  @cinit2
+000096  @PSTRINGC_9600_31766_31767
+0000B8  addcbuff
+0000F0  serial_isr
+000110  @const701.call
+00011A  @const714.call
+000122  @const717.call
+00012E  inte_Init
+000138  @MUL3232
+00018C  inicbuff
+0001AE  procesa_cmd
+000366  cargar_proceso
+000388  descargar_proceso
+0003AA  @cinit1
+0003AA  MAIN
+0003E0  @cinit2
 
 Project Directory:
     D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC18f4550\ComunicacionSerial\
 
 Project Files:
-    ComSerial.c                                             [21-oct-14 10:36  CRC=758E2EB4]
+    ComSerial.c                                             [21-oct-14 12:40  CRC=5C9C5C53]
     C:\Program Files (x86)\PICC\Devices\18F4550.h           [03-jul-13 14:29  CRC=A157EDDE]
     C:\Program Files (x86)\PICC\Drivers\lcd.c               [23-ago-12 09:01  CRC=D28E8746]
 
-Source signature=BC032B1E
+Source signature=A31158BD
 
 Units:
     ComSerial (main)

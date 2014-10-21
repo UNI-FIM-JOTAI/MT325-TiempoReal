@@ -22,7 +22,7 @@ int1  flagcmd=0;
 int32 valor=0;
 int32 valor2=0;
 int32 val1,val2,val3,val4,val5;
-
+int16 quantum=65048;
 
 
 void  addcbuff(char c);
@@ -46,7 +46,7 @@ void addcbuff(char c)
 {
    switch(c)
    {
-      case '*':
+      case 0x2A:
          cbuff[xbuff++] = c;
          flagcmd = 1;
       break;
@@ -73,24 +73,29 @@ void procesa_cmd(void){
    flagcmd=0;                       // Desactivo flag de comando pendiente.
    for (i=0;i<xbuff;i++)
    {
-      if (cbuff[i] == '$'){
-         while((cbuff[i] != '*') & (i<xbuff))
-         {
-            salida[j++]=cbuff[i++];
-         }
-         comando = salida[1];
-         valor2 = salida[2] -'0' + 1;
-         val1 = salida[2] - '0';
-         val1 = val1;
-         val2 = salida[3] - '0';
-         val2 = val1*10 + val2;
-         val3 = salida[4] - '0';
-         val3 = val2*10 +val3;
-         val4 = salida[5] - '0';
-         val4 = val3*10+val4;
-         val5 = salida[6]-'0';
-         valor = val4*10 + val5;
+      if (cbuff[i] == '$')
+      while((cbuff[i] != 0x4A) & (i<xbuff))
+      {
+         salida[j++]=cbuff[i++];
       }
+      comando = salida[1];
+      valor2 = salida[3] -'0' + 1;
+      //printf ("\r\n Valor:  %Lu\n", valor);
+      val1 = salida[2] - '0';
+      val1 = val1;
+      val2 = salida[3] - '0';
+      val2 = val1*10 + val2;
+      val3 = salida[4] - '0';
+      val3 = val2*10 +val3;
+      val4 = salida[5] - '0';
+      val4 = val3*10+val4;
+      val5 = salida[6]-'0';
+      valor = val4*10 + val5;
+      //valor = valor*10;
+      //printf ("\r\n Valor:  %Lu\n", valor);
+      //printf ("\r\n Valor2:  %Lu\n", valor2);
+      //printf ("\r\n Comando:  %c\n", comando);
+      i++;
    }
    inicbuff();                            // Borro buffer.
    for(i=0;i<lenbuff;i++)                 // Bucle que pone a 0 todos los
@@ -100,43 +105,16 @@ void procesa_cmd(void){
    enable_interrupts(int_rda);
 }
 
-void cargar_proceso(int valor2){
-   printf("cargado");
-   output_bit(PIN_A0,0);
-   output_bit(PIN_A1,1);
-}
-
-void descargar_proceso(int valor2){
-   printf("descargado");
-   output_bit(PIN_A0,1);
-   output_bit(PIN_A1,0);
-}
 
 void main(void)
 {
    inte_Init();         // se activa la interrupcion por comunicacion serial
    
-   set_tris_a(0x00);
-   output_a(0x00);
-   
    while(true){
       if(flagcmd == 1){                // se verifica si se ha recibido un nuevo caracter
-         procesa_cmd();
+         printf("com %c", rcvchar );   // se envia por Serial el caracter obtenido
+         flagcmd = 0;
       }
-      switch(comando)
-      {
-         case 'C': if (valor2<8){ 
-                     cargar_proceso(valor2);
-                     break;
-                   }
-         case 'D': if (valor2<10) {
-                     descargar_proceso(valor2);
-                     break;
-                   }
-      }
-      comando='-';
-      valor2=100;
-      valor=0;
    }
 }
 

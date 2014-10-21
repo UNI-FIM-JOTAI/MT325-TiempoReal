@@ -188,7 +188,7 @@ void main(void)
 // Definicion de las Funciones
 
 void Cargar_configuracion(){
-   SET_TRIS_B(0x00);    //configura PORTB entrada / 0=salida / 1=entrada
+   SET_TRIS_B(0x00);    //configura PORTB salida / 0=salida / 1=entrada
    OUTPUT_B(0x00);   //inicializando PORTD en 0x00
    //SET_TRIS_D(0x00);    //configura PORTD salida
    }

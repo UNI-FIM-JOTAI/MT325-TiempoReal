@@ -1,6 +1,17 @@
 ÀÄComSerial
-   ÃÄMAIN  0/70  Ram=1
+   ÃÄMAIN  0/158  Ram=1
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄinte_Init  0/10  Ram=0
-   ³  ÀÄ@PSTRINGCN_9600_31766_31767  0/34  Ram=3
+   ³  ÃÄprocesa_cmd  0/440  Ram=16
+   ³  ³  ÃÄ@MUL3232  0/84  Ram=14
+   ³  ³  ÃÄ@MUL3232  0/84  Ram=14
+   ³  ³  ÃÄ@MUL3232  0/84  Ram=14
+   ³  ³  ÃÄ@MUL3232  0/84  Ram=14
+   ³  ³  ÀÄinicbuff  0/34  Ram=3
+   ³  ÃÄcargar_proceso  0/34  Ram=1
+   ³  ³  ÀÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ÀÄdescargar_proceso  0/34  Ram=1
+   ³     ÀÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
    ÀÄserial_isr  0/32  Ram=0
+      ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+      ÀÄaddcbuff  0/56  Ram=3

@@ -101,13 +101,11 @@ void procesa_cmd(void){
 }
 
 void cargar_proceso(int valor2){
-   printf("cargado");
    output_bit(PIN_A0,0);
    output_bit(PIN_A1,1);
 }
 
 void descargar_proceso(int valor2){
-   printf("descargado");
    output_bit(PIN_A0,1);
    output_bit(PIN_A1,0);
 }

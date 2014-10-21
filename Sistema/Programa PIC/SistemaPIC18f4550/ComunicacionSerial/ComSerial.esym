@@ -1,7 +1,7 @@
-D G "__PCH__" 0 44 ""5.008""
-D G "__DEVICE__" 0 44 "4550"
-D G "__DATE__" 0 44 ""21-oct-14""
-D G "__TIME__" 0 44 ""10:36:21"" "Standard Header file for the PIC18F4550 device ////////////////"
+D G "__PCH__" 0 144 ""5.008""
+D G "__DEVICE__" 0 144 "4550"
+D G "__DATE__" 0 144 ""21-oct-14""
+D G "__TIME__" 0 144 ""12:43:01"" "Standard Header file for the PIC18F4550 device ////////////////"
 c L "set_tris_a" 1 5 21 "FUNCTION"
 v L "value" 1 36 "int8" `54 
 f B "set_tris_a" 1 36 "void(int8 value)" `53 
@@ -958,11 +958,45 @@ F G "lcd_cursor_on" 2 444 "void(int8 on)" `676
 C L "lcd_cursor_on" 2 2 1 "FUNCTION"
 C L "lcd_cursor_on" 2 2 1 "FUNCTION"
 D G "Tiempo" 0 7 "200"
-V G "rcvchar" 0 15 "int8" `683 
-V G "flagcmd" 0 16 "int1" `684 
-F G "inte_Init" 0 19 "void()" `685 
-F G "serial_isr" 0 26 "void()" `686 
-F G "MAIN" 0 33 "void()" `688 
+V G "lenbuff" 0 15 "int8" `683 
+V G "xbuff" 0 17 "int8" `685 
+V G "cbuff" 0 18 "int8[10]" `686 
+V G "rcvchar" 0 19 "int8" `687 
+V G "comando" 0 20 "int8" `688 
+V G "flagcmd" 0 21 "int1" `689 
+V G "valor" 0 22 "int32" `690 
+V G "valor2" 0 23 "int32" `691 
+V G "val1" 0 24 "int32" `692 
+V G "val2" 0 24 "int32" `693 
+V G "val3" 0 24 "int32" `694 
+V G "val4" 0 24 "int32" `695 
+V G "val5" 0 24 "int32" `696 
+V L "c" 0 28 "int8" `698 
+F G "addcbuff" 0 28 "void(int8 c)" `697 
+C L "inte_Init" 0 29 1 "FUNCTION"
+F G "inte_Init" 0 30 "void()" `699 
+F G "serial_isr" 0 38 "void()" `700 
+C L "serial_isr" 0 29 1 "FUNCTION"
+C L "serial_isr" 0 29 1 "FUNCTION"
+V L "c" 0 45 "int8" `704 
+F G "addcbuff" 0 46 "void(int8 c)" `697 
+F G "inicbuff" 0 59 "void(int8 c)" `703 
+V L "i" 0 60 "int8" `704 
+F G "procesa_cmd" 0 68 "void()" `705 
+V L "i" 0 70 "int8" `706 
+V L "j" 0 70 "int8" `707 
+V L "salida" 0 71 "int8[10]" `708  "Argumento de comando (si lo tiene)"
+C L "procesa_cmd" 0 29 1 "FUNCTION"
+C L "procesa_cmd" 0 29 1 "FUNCTION"
+C L "procesa_cmd" 0 29 1 "FUNCTION"
+C L "procesa_cmd" 0 29 1 "FUNCTION"
+V L "valor2" 0 103 "int8" `713 
+F G "cargar_proceso" 0 103 "void(int8 valor2)" `712 
+V L "valor2" 0 109 "int8" `716 
+F G "descargar_proceso" 0 109 "void(int8 valor2)" `715 
+F G "MAIN" 0 116 "void()" `718 
+C L "MAIN" 0 29 1 "FUNCTION"
+C L "MAIN" 0 29 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1

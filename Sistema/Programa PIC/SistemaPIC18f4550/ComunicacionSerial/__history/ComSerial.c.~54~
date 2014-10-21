@@ -100,24 +100,10 @@ void procesa_cmd(void){
    enable_interrupts(int_rda);
 }
 
-void cargar_proceso(int valor2){
-   printf("cargado");
-   output_bit(PIN_A0,0);
-   output_bit(PIN_A1,1);
-}
-
-void descargar_proceso(int valor2){
-   printf("descargado");
-   output_bit(PIN_A0,1);
-   output_bit(PIN_A1,0);
-}
 
 void main(void)
 {
    inte_Init();         // se activa la interrupcion por comunicacion serial
-   
-   set_tris_a(0x00);
-   output_a(0x00);
    
    while(true){
       if(flagcmd == 1){                // se verifica si se ha recibido un nuevo caracter
