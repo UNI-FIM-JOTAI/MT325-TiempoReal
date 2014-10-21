@@ -1,4 +1,4 @@
-CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 12:43
+CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 13:51
 
                Filename:   D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC18f4550\ComunicacionSerial\ComSerial.lst
 
@@ -635,14 +635,14 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 12:43
 00FC:  BTFSS  F9E.5
 00FE:  BRA    00FC
 0100:  MOVFF  FAE,22
-....................    addcbuff(rcvchar); 
+....................    addcbuff(rcvchar);   // guarda el caracter en un buffer 
 0104:  MOVFF  22,5B
 0108:  BRA    00B8
 010A:  BCF    F9E.5
 010C:  GOTO   0054
 .................... } 
 ....................  
-.................... void addcbuff(char c) 
+.................... void addcbuff(char c)    
 .................... { 
 ....................    switch(c) 
 *
@@ -651,7 +651,7 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 12:43
 00BC:  BZ    00C0
 00BE:  BRA    00D8
 ....................    { 
-....................       case '*': 
+....................       case '*':                  // en caso de recibir *, levanta el flag para saber que se termino de enviar un comando. 
 ....................          cbuff[xbuff++] = c; 
 00C0:  MOVF   17,W
 00C2:  INCF   17,F
@@ -681,10 +681,10 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 12:43
 00EC:  GOTO   010A (RETURN)
 .................... } 
 ....................  
-.................... void inicbuff(void) 
+.................... void inicbuff(void)           // inicializa el buffer, limpiandolo 
 .................... { 
 ....................    int i; 
-....................    for (i=0; i<lenbuff;i++) 
+....................    for (i=0; i<lenbuff;i++)       
 *
 018C:  CLRF   4D
 018E:  MOVF   4D,W
@@ -708,12 +708,12 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 12:43
 01AA:  GOTO   0344 (RETURN)
 .................... } 
 ....................  
-.................... void procesa_cmd(void){ 
+.................... void procesa_cmd(void){             // procesa el ultimo comando guardado, un comando esta comprendido entre $ hasta *  
 01AE:  CLRF   42
 ....................   
-....................    int i, j=0; 
-....................    char salida[lenbuff];                   // Argumento de comando (si lo tiene) 
-....................    disable_interrupts(int_rda); 
+....................    int i, j=0;                       
+....................    char salida[lenbuff];            // Argumento de comando (si lo tiene) 
+....................    disable_interrupts(int_rda);      
 01B0:  BCF    F9D.5
 ....................    flagcmd=0;                       // Desactivo flag de comando pendiente. 
 01B2:  BCF    24.0
@@ -724,7 +724,7 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 12:43
 01BA:  BTFSC  FD8.0
 01BC:  BRA    0342
 ....................    { 
-....................       if (cbuff[i] == '$'){ 
+....................       if (cbuff[i] == '$'){         // verifica que tenga '$' 
 01BE:  CLRF   03
 01C0:  MOVF   41,W
 01C2:  ADDLW  18
@@ -736,7 +736,7 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 12:43
 01CE:  SUBLW  24
 01D0:  BTFSS  FD8.2
 01D2:  BRA    033E
-....................          while((cbuff[i] != '*') & (i<xbuff)) 
+....................          while((cbuff[i] != '*') & (i<xbuff))   // hasta que encuentre * 
 01D4:  CLRF   03
 01D6:  MOVF   41,W
 01D8:  ADDLW  18
@@ -934,7 +934,7 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 12:43
 035C:  INCF   41,F
 035E:  BRA    0346
 ....................    } 
-....................    enable_interrupts(int_rda); 
+....................    enable_interrupts(int_rda);             
 0360:  BSF    F9D.5
 0362:  GOTO   03F0 (RETURN)
 .................... } 
@@ -1023,13 +1023,13 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 12:43
 03E8:  CLRF   F89
 ....................     
 ....................    while(true){ 
-....................       if(flagcmd == 1){                // se verifica si se ha recibido un nuevo caracter 
+....................       if(flagcmd == 1){                // se verifica si se ha recibido un nuevo comando 
 03EA:  BTFSS  24.0
 03EC:  BRA    03F0
-....................          procesa_cmd(); 
+....................          procesa_cmd();                // procesa el comando recibido hasta ese momento 
 03EE:  BRA    01AE
 ....................       } 
-....................       switch(comando) 
+....................       switch(comando)                   
 03F0:  MOVF   23,W
 03F2:  XORLW  43
 03F4:  BZ    03FC
@@ -1053,7 +1053,7 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 12:43
 ....................                      break; 
 0414:  BRA    042E
 ....................                    } 
-....................          case 'D': if (valor2<10) { 
+....................          case 'D': if (valor2<8) { 
 0416:  MOVF   2C,F
 0418:  BNZ   042E
 041A:  MOVF   2B,F
@@ -1061,7 +1061,7 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 12:43
 041E:  MOVF   2A,F
 0420:  BNZ   042E
 0422:  MOVF   29,W
-0424:  SUBLW  09
+0424:  SUBLW  07
 0426:  BNC   042E
 ....................                      descargar_proceso(valor2); 
 0428:  MOVFF  29,41
@@ -1069,10 +1069,10 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 12:43
 ....................                      break; 
 ....................                    } 
 ....................       } 
-....................       comando='-'; 
+....................       comando='-';                  // anula el comando 
 042E:  MOVLW  2D
 0430:  MOVWF  23
-....................       valor2=100; 
+....................       valor2=100;                   // anula el valor 
 0432:  CLRF   2C
 0434:  CLRF   2B
 0436:  CLRF   2A

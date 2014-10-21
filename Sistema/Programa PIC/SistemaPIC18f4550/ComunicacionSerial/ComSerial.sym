@@ -107,11 +107,11 @@ Project Directory:
     D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC18f4550\ComunicacionSerial\
 
 Project Files:
-    ComSerial.c                                             [21-oct-14 12:40  CRC=5C9C5C53]
+    ComSerial.c                                             [21-oct-14 13:51  CRC=756FABD8]
     C:\Program Files (x86)\PICC\Devices\18F4550.h           [03-jul-13 14:29  CRC=A157EDDE]
     C:\Program Files (x86)\PICC\Drivers\lcd.c               [23-ago-12 09:01  CRC=D28E8746]
 
-Source signature=A31158BD
+Source signature=BBE4A842
 
 Units:
     ComSerial (main)

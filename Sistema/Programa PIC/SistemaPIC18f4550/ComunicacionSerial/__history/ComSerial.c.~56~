@@ -39,14 +39,14 @@ void serial_isr()
    printf("Recibido");     // se envia por Serial una palabra para verificar interrupcion
    rcvchar = 0x00;
    rcvchar = getc();    // se recibe el caracter enviado por la computadora
-   addcbuff(rcvchar);   // guarda el caracter en un buffer
+   addcbuff(rcvchar);
 }
 
-void addcbuff(char c)   
+void addcbuff(char c)
 {
    switch(c)
    {
-      case '*':                  // en caso de recibir *, levanta el flag para saber que se termino de enviar un comando.
+      case '*':
          cbuff[xbuff++] = c;
          flagcmd = 1;
       break;
@@ -55,26 +55,26 @@ void addcbuff(char c)
    }
 }
 
-void inicbuff(void)           // inicializa el buffer, limpiandolo
+void inicbuff(void)
 {
    int i;
-   for (i=0; i<lenbuff;i++)      
+   for (i=0; i<lenbuff;i++)
    {
       cbuff[i] = 0x00;
    }
    xbuff=0x00;
 }
 
-void procesa_cmd(void){             // procesa el ultimo comando guardado, un comando esta comprendido entre $ hasta * 
+void procesa_cmd(void){
  
-   int i, j=0;                      
-   char salida[lenbuff];            // Argumento de comando (si lo tiene)
-   disable_interrupts(int_rda);     
+   int i, j=0;
+   char salida[lenbuff];                   // Argumento de comando (si lo tiene)
+   disable_interrupts(int_rda);
    flagcmd=0;                       // Desactivo flag de comando pendiente.
    for (i=0;i<xbuff;i++)
    {
-      if (cbuff[i] == '$'){         // verifica que tenga '$'
-         while((cbuff[i] != '*') & (i<xbuff))   // hasta que encuentre *
+      if (cbuff[i] == '$'){
+         while((cbuff[i] != '*') & (i<xbuff))
          {
             salida[j++]=cbuff[i++];
          }
@@ -97,7 +97,7 @@ void procesa_cmd(void){             // procesa el ultimo comando guardado, un co
    {
       salida[i]=0x00;                     // caracteres en el argumento
    }
-   enable_interrupts(int_rda);            
+   enable_interrupts(int_rda);
 }
 
 void cargar_proceso(int valor2){
@@ -120,22 +120,22 @@ void main(void)
    output_a(0x00);
    
    while(true){
-      if(flagcmd == 1){                // se verifica si se ha recibido un nuevo comando
-         procesa_cmd();                // procesa el comando recibido hasta ese momento
+      if(flagcmd == 1){                // se verifica si se ha recibido un nuevo caracter
+         procesa_cmd();
       }
-      switch(comando)                  
+      switch(comando)
       {
          case 'C': if (valor2<8){ 
                      cargar_proceso(valor2);
                      break;
                    }
-         case 'D': if (valor2<8) {
+         case 'D': if (valor2<10) {
                      descargar_proceso(valor2);
                      break;
                    }
       }
-      comando='-';                  // anula el comando
-      valor2=100;                   // anula el valor
+      comando='-';
+      valor2=100;
       valor=0;
    }
 }

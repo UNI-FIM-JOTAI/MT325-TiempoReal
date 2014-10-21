@@ -1,7 +1,8 @@
+D G "Tiempo" 0 7 "200"
 D G "__PCH__" 0 144 ""5.008""
 D G "__DEVICE__" 0 144 "4550"
 D G "__DATE__" 0 144 ""21-oct-14""
-D G "__TIME__" 0 144 ""12:43:01"" "Standard Header file for the PIC18F4550 device ////////////////"
+D G "__TIME__" 0 144 ""13:51:14"" "Standard Header file for the PIC18F4550 device ////////////////"
 c L "set_tris_a" 1 5 21 "FUNCTION"
 v L "value" 1 36 "int8" `54 
 f B "set_tris_a" 1 36 "void(int8 value)" `53 
@@ -978,14 +979,19 @@ F G "inte_Init" 0 30 "void()" `699
 F G "serial_isr" 0 38 "void()" `700 
 C L "serial_isr" 0 29 1 "FUNCTION"
 C L "serial_isr" 0 29 1 "FUNCTION"
+C L "serial_isr" 0 29 1 "FUNCTION"
 V L "c" 0 45 "int8" `704 
 F G "addcbuff" 0 46 "void(int8 c)" `697 
+C L "addcbuff" 0 29 1 "FUNCTION"
+C L "inicbuff" 0 29 1 "FUNCTION"
 F G "inicbuff" 0 59 "void(int8 c)" `703 
 V L "i" 0 60 "int8" `704 
-F G "procesa_cmd" 0 68 "void()" `705 
+F G "procesa_cmd" 0 68 "void()" `705  "procesa el ultimo comando guardado, un comando esta comprendido entre $ hasta *"
 V L "i" 0 70 "int8" `706 
 V L "j" 0 70 "int8" `707 
 V L "salida" 0 71 "int8[10]" `708  "Argumento de comando (si lo tiene)"
+C L "procesa_cmd" 0 29 1 "FUNCTION"
+C L "procesa_cmd" 0 29 1 "FUNCTION"
 C L "procesa_cmd" 0 29 1 "FUNCTION"
 C L "procesa_cmd" 0 29 1 "FUNCTION"
 C L "procesa_cmd" 0 29 1 "FUNCTION"
@@ -995,6 +1001,9 @@ F G "cargar_proceso" 0 103 "void(int8 valor2)" `712
 V L "valor2" 0 109 "int8" `716 
 F G "descargar_proceso" 0 109 "void(int8 valor2)" `715 
 F G "MAIN" 0 116 "void()" `718 
+C L "MAIN" 0 29 1 "FUNCTION"
+C L "MAIN" 0 29 1 "FUNCTION"
+C L "MAIN" 0 29 1 "FUNCTION"
 C L "MAIN" 0 29 1 "FUNCTION"
 C L "MAIN" 0 29 1 "FUNCTION"
 F B "reset_cpu" 0 0
