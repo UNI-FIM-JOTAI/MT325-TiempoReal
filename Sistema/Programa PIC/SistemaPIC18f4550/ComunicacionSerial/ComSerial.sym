@@ -194,16 +194,16 @@ ROM Allocation:
 000738  @DIV88
 000760  @PRINTF_D_9600_31766_31767
 000812  cargar_proceso
-00087E  descargar_proceso
-000940  @const757.call
-000956  Port_Init
-000968  Procesos_Init
-000A16  inte_Init
-000A20  Config_TMR0
-000A28  MCU_Init
-000A5E  MAIN
-000A5E  @cinit1
-000A9E  @cinit2
+00087C  descargar_proceso
+00093C  @const757.call
+000952  Port_Init
+000964  Procesos_Init
+000A12  inte_Init
+000A1C  Config_TMR0
+000A24  MCU_Init
+000A5A  MAIN
+000A5A  @cinit1
+000A9A  @cinit2
 001000  ROML_LedA1
 001102  ROML_LedA2
 001202  voidTask_LedC1
@@ -215,10 +215,10 @@ Project Directory:
     D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC18f4550\ComunicacionSerial\
 
 Project Files:
-    ComSerial.c                                             [21-oct-14 17:49  CRC=196F1FBA]
+    ComSerial.c                                             [21-oct-14 17:55  CRC=BD03A8E3]
     C:\Program Files (x86)\PICC\Devices\18F4550.h           [03-jul-13 14:29  CRC=A157EDDE]
 
-Source signature=5C1EFB76
+Source signature=FFB3849F
 
 Units:
     ComSerial (main)

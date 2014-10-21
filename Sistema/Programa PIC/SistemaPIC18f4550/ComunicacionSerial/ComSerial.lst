@@ -1,8 +1,8 @@
-CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 17:49
+CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 17:55
 
                Filename:   D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC18f4550\ComunicacionSerial\ComSerial.lst
 
-               ROM used:   3986 bytes (12%)
+               ROM used:   4038 bytes (12%)
                            Largest free fragment is 12288
                RAM used:   181 (9%) at main() level
                            240 (12%) worst case
@@ -10,7 +10,7 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 17:49
                Stack size: 31
 
 *
-0000:  GOTO   0A5E
+0000:  GOTO   0A5A
 *
 0008:  MOVWF  04
 000A:  MOVFF  FD8,05
@@ -445,17 +445,17 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 17:49
 080E:  MOVWF  FAD
 0810:  RETURN 0
 *
-0940:  DATA 45,73
-0942:  DATA 70,65
-0944:  DATA 72,61
-0946:  DATA 6E,64
-0948:  DATA 6F,20
-094A:  DATA 63,6F
-094C:  DATA 6E,65
-094E:  DATA 78,69
-0950:  DATA F3,6E
-0952:  DATA 2E,2E
-0954:  DATA 2A,00
+093C:  DATA 45,73
+093E:  DATA 70,65
+0940:  DATA 72,61
+0942:  DATA 6E,64
+0944:  DATA 6F,20
+0946:  DATA 63,6F
+0948:  DATA 6E,65
+094A:  DATA 78,69
+094C:  DATA F3,6E
+094E:  DATA 2E,2E
+0950:  DATA 2A,00
 ....................  
 .................... #list 
 ....................  
@@ -771,11 +771,11 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 17:49
 .................... { 
 ....................    enable_interrupts(GLOBAL); 
 *
-0A16:  MOVLW  C0
-0A18:  IORWF  FF2,F
+0A12:  MOVLW  C0
+0A14:  IORWF  FF2,F
 ....................    enable_interrupts(INT_RDA); 
-0A1A:  BSF    F9D.5
-0A1C:  GOTO   0A38 (RETURN)
+0A16:  BSF    F9D.5
+0A18:  GOTO   0A34 (RETURN)
 .................... } 
 ....................  
 ....................  
@@ -1719,139 +1719,139 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 17:49
 0876:  MOVWF  33
 ....................     np++; 
 0878:  INCF   17,F
-087A:  GOTO   402E (RETURN)
+087A:  RETURN 0
 .................... } 
 ....................  
 .................... void descargar_proceso(int idp) 
 .................... { 
 ....................    int s,d,f; 
 ....................    for(s=0;s<np;s++) 
-087E:  CLRF   xC4
-0880:  MOVF   17,W
-0882:  SUBWF  xC4,W
-0884:  BC    08A8
+087C:  CLRF   xC4
+087E:  MOVF   17,W
+0880:  SUBWF  xC4,W
+0882:  BC    08A6
 ....................       {if(colap[s]==idp-1) 
-0886:  CLRF   03
-0888:  MOVF   xC4,W
-088A:  ADDLW  18
-088C:  MOVWF  FE9
-088E:  MOVLW  00
-0890:  ADDWFC 03,W
-0892:  MOVWF  FEA
-0894:  MOVFF  FEF,C7
-0898:  MOVLW  01
-089A:  SUBWF  xC3,W
-089C:  SUBWF  xC7,W
-089E:  BNZ   08A4
+0884:  CLRF   03
+0886:  MOVF   xC4,W
+0888:  ADDLW  18
+088A:  MOVWF  FE9
+088C:  MOVLW  00
+088E:  ADDWFC 03,W
+0890:  MOVWF  FEA
+0892:  MOVFF  FEF,C7
+0896:  MOVLW  01
+0898:  SUBWF  xC3,W
+089A:  SUBWF  xC7,W
+089C:  BNZ   08A2
 ....................          {d=s;} 
-08A0:  MOVFF  C4,C5
-08A4:  INCF   xC4,F
-08A6:  BRA    0880
+089E:  MOVFF  C4,C5
+08A2:  INCF   xC4,F
+08A4:  BRA    087E
 ....................       } 
 ....................    f=np-1; 
-08A8:  MOVLW  01
-08AA:  SUBWF  17,W
-08AC:  MOVWF  xC6
+08A6:  MOVLW  01
+08A8:  SUBWF  17,W
+08AA:  MOVWF  xC6
 ....................    for(s=d;s<f;s++) 
-08AE:  MOVFF  C5,C4
-08B2:  MOVF   xC6,W
-08B4:  SUBWF  xC4,W
-08B6:  BC    08EC
+08AC:  MOVFF  C5,C4
+08B0:  MOVF   xC6,W
+08B2:  SUBWF  xC4,W
+08B4:  BC    08EA
 ....................       {colap[s]=colap[s+1]; 
-08B8:  CLRF   03
-08BA:  MOVF   xC4,W
-08BC:  ADDLW  18
-08BE:  MOVWF  01
-08C0:  MOVLW  00
-08C2:  ADDWFC 03,F
-08C4:  MOVFF  03,C8
-08C8:  MOVLW  01
-08CA:  ADDWF  xC4,W
-08CC:  CLRF   03
-08CE:  ADDLW  18
-08D0:  MOVWF  FE9
-08D2:  MOVLW  00
-08D4:  ADDWFC 03,W
-08D6:  MOVWF  FEA
-08D8:  MOVFF  FEF,C9
-08DC:  MOVFF  C8,FEA
-08E0:  MOVFF  01,FE9
-08E4:  MOVFF  C9,FEF
-08E8:  INCF   xC4,F
-08EA:  BRA    08B2
+08B6:  CLRF   03
+08B8:  MOVF   xC4,W
+08BA:  ADDLW  18
+08BC:  MOVWF  01
+08BE:  MOVLW  00
+08C0:  ADDWFC 03,F
+08C2:  MOVFF  03,C8
+08C6:  MOVLW  01
+08C8:  ADDWF  xC4,W
+08CA:  CLRF   03
+08CC:  ADDLW  18
+08CE:  MOVWF  FE9
+08D0:  MOVLW  00
+08D2:  ADDWFC 03,W
+08D4:  MOVWF  FEA
+08D6:  MOVFF  FEF,C9
+08DA:  MOVFF  C8,FEA
+08DE:  MOVFF  01,FE9
+08E2:  MOVFF  C9,FEF
+08E6:  INCF   xC4,F
+08E8:  BRA    08B0
 ....................       } 
 ....................    np--;    
-08EC:  DECF   17,F
+08EA:  DECF   17,F
 ....................    vpcb[idp-1].estado=0; 
-08EE:  MOVLW  01
-08F0:  SUBWF  xC3,W
-08F2:  MULLW  11
-08F4:  MOVF   FF3,W
-08F6:  CLRF   xC8
-08F8:  MOVWF  xC7
-08FA:  MOVLW  0C
-08FC:  ADDWF  xC7,W
-08FE:  MOVWF  01
-0900:  MOVLW  00
-0902:  ADDWFC xC8,W
-0904:  MOVWF  03
-0906:  MOVF   01,W
-0908:  ADDLW  60
-090A:  MOVWF  FE9
-090C:  MOVLW  00
-090E:  ADDWFC 03,W
-0910:  MOVWF  FEA
-0912:  CLRF   FEF
+08EC:  MOVLW  01
+08EE:  SUBWF  xC3,W
+08F0:  MULLW  11
+08F2:  MOVF   FF3,W
+08F4:  CLRF   xC8
+08F6:  MOVWF  xC7
+08F8:  MOVLW  0C
+08FA:  ADDWF  xC7,W
+08FC:  MOVWF  01
+08FE:  MOVLW  00
+0900:  ADDWFC xC8,W
+0902:  MOVWF  03
+0904:  MOVF   01,W
+0906:  ADDLW  60
+0908:  MOVWF  FE9
+090A:  MOVLW  00
+090C:  ADDWFC 03,W
+090E:  MOVWF  FEA
+0910:  CLRF   FEF
 ....................    proceso=0; 
-0914:  CLRF   33
+0912:  CLRF   33
 ....................    printf("Proceso %i descargado. *",idp); 
-0916:  MOVLW  2C
-0918:  MOVWF  FF6
-091A:  MOVLW  05
-091C:  MOVWF  FF7
-091E:  MOVLW  08
-0920:  MOVWF  xD7
-0922:  RCALL  0350
-0924:  MOVFF  C3,C7
-0928:  MOVLW  18
-092A:  MOVWF  xC8
-092C:  RCALL  0760
-092E:  MOVLW  36
-0930:  MOVWF  FF6
-0932:  MOVLW  05
-0934:  MOVWF  FF7
-0936:  MOVLW  0E
-0938:  MOVWF  xD7
-093A:  RCALL  0350
-093C:  GOTO   404A (RETURN)
+0914:  MOVLW  2C
+0916:  MOVWF  FF6
+0918:  MOVLW  05
+091A:  MOVWF  FF7
+091C:  MOVLW  08
+091E:  MOVWF  xD7
+0920:  RCALL  0350
+0922:  MOVFF  C3,C7
+0926:  MOVLW  18
+0928:  MOVWF  xC8
+092A:  RCALL  0760
+092C:  MOVLW  36
+092E:  MOVWF  FF6
+0930:  MOVLW  05
+0932:  MOVWF  FF7
+0934:  MOVLW  0E
+0936:  MOVWF  xD7
+0938:  RCALL  0350
+093A:  RETURN 0
 .................... } 
 ....................  
 .................... void Port_Init() 
 .................... { 
 ....................    set_tris_b(0x00); 
 *
-0956:  MOVLW  00
-0958:  MOVWF  F93
+0952:  MOVLW  00
+0954:  MOVWF  F93
 ....................    set_tris_d(0x00); 
-095A:  MOVWF  F95
+0956:  MOVWF  F95
 ....................    set_tris_a(0x00); 
-095C:  MOVWF  F92
+0958:  MOVWF  F92
 ....................    output_b(0x00); 
-095E:  CLRF   F8A
+095A:  CLRF   F8A
 ....................    output_d(0x00); 
-0960:  CLRF   F8C
+095C:  CLRF   F8C
 ....................    output_a(0x00); 
-0962:  CLRF   F89
-0964:  GOTO   0A34 (RETURN)
+095E:  CLRF   F89
+0960:  GOTO   0A30 (RETURN)
 .................... } 
 ....................  
 .................... void Config_TMR0() 
 .................... { 
 ....................    T0CON=0b10000111; 
 *
-0A20:  MOVLW  87
-0A22:  MOVWF  FD5
-0A24:  GOTO   0A3A (RETURN)
+0A1C:  MOVLW  87
+0A1E:  MOVWF  FD5
+0A20:  GOTO   0A36 (RETURN)
 ....................  
 .................... } 
 ....................  
@@ -1859,111 +1859,111 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 17:49
 .................... { 
 ....................    vpcb[0].di=0x1000; 
 *
-0968:  CLRF   x63
-096A:  CLRF   x62
-096C:  MOVLW  10
-096E:  MOVWF  x61
-0970:  CLRF   x60
+0964:  CLRF   x63
+0966:  CLRF   x62
+0968:  MOVLW  10
+096A:  MOVWF  x61
+096C:  CLRF   x60
 ....................    vpcb[0].da=0x1000;    
-0972:  CLRF   x6B
-0974:  CLRF   x6A
-0976:  MOVWF  x69
-0978:  CLRF   x68
+096E:  CLRF   x6B
+0970:  CLRF   x6A
+0972:  MOVWF  x69
+0974:  CLRF   x68
 ....................    vpcb[0].df=0x1100; 
-097A:  CLRF   x67
-097C:  CLRF   x66
-097E:  MOVLW  11
-0980:  MOVWF  x65
-0982:  CLRF   x64
+0976:  CLRF   x67
+0978:  CLRF   x66
+097A:  MOVLW  11
+097C:  MOVWF  x65
+097E:  CLRF   x64
 ....................    vpcb[1].di=0x1102; 
-0984:  CLRF   x74
-0986:  CLRF   x73
-0988:  MOVWF  x72
-098A:  MOVLW  02
-098C:  MOVWF  x71
+0980:  CLRF   x74
+0982:  CLRF   x73
+0984:  MOVWF  x72
+0986:  MOVLW  02
+0988:  MOVWF  x71
 ....................    vpcb[1].da=0x1102; 
-098E:  CLRF   x7C
-0990:  CLRF   x7B
-0992:  MOVLW  11
-0994:  MOVWF  x7A
-0996:  MOVLW  02
-0998:  MOVWF  x79
+098A:  CLRF   x7C
+098C:  CLRF   x7B
+098E:  MOVLW  11
+0990:  MOVWF  x7A
+0992:  MOVLW  02
+0994:  MOVWF  x79
 ....................    vpcb[1].df=0x1200; 
-099A:  CLRF   x78
-099C:  CLRF   x77
-099E:  MOVLW  12
-09A0:  MOVWF  x76
-09A2:  CLRF   x75
+0996:  CLRF   x78
+0998:  CLRF   x77
+099A:  MOVLW  12
+099C:  MOVWF  x76
+099E:  CLRF   x75
 ....................    vpcb[2].di=0x1202; 
-09A4:  CLRF   x85
-09A6:  CLRF   x84
-09A8:  MOVWF  x83
-09AA:  MOVLW  02
-09AC:  MOVWF  x82
+09A0:  CLRF   x85
+09A2:  CLRF   x84
+09A4:  MOVWF  x83
+09A6:  MOVLW  02
+09A8:  MOVWF  x82
 ....................    vpcb[2].da=0x1202; 
-09AE:  CLRF   x8D
-09B0:  CLRF   x8C
-09B2:  MOVLW  12
-09B4:  MOVWF  x8B
-09B6:  MOVLW  02
-09B8:  MOVWF  x8A
+09AA:  CLRF   x8D
+09AC:  CLRF   x8C
+09AE:  MOVLW  12
+09B0:  MOVWF  x8B
+09B2:  MOVLW  02
+09B4:  MOVWF  x8A
 ....................    vpcb[2].df=0x1300; 
-09BA:  CLRF   x89
-09BC:  CLRF   x88
-09BE:  MOVLW  13
-09C0:  MOVWF  x87
-09C2:  CLRF   x86
+09B6:  CLRF   x89
+09B8:  CLRF   x88
+09BA:  MOVLW  13
+09BC:  MOVWF  x87
+09BE:  CLRF   x86
 ....................    vpcb[3].di=0x1302; 
-09C4:  CLRF   x96
-09C6:  CLRF   x95
-09C8:  MOVWF  x94
-09CA:  MOVLW  02
-09CC:  MOVWF  x93
+09C0:  CLRF   x96
+09C2:  CLRF   x95
+09C4:  MOVWF  x94
+09C6:  MOVLW  02
+09C8:  MOVWF  x93
 ....................    vpcb[3].da=0x1302; 
-09CE:  CLRF   x9E
-09D0:  CLRF   x9D
-09D2:  MOVLW  13
-09D4:  MOVWF  x9C
-09D6:  MOVLW  02
-09D8:  MOVWF  x9B
+09CA:  CLRF   x9E
+09CC:  CLRF   x9D
+09CE:  MOVLW  13
+09D0:  MOVWF  x9C
+09D2:  MOVLW  02
+09D4:  MOVWF  x9B
 ....................    vpcb[3].df=0x1400; 
-09DA:  CLRF   x9A
-09DC:  CLRF   x99
-09DE:  MOVLW  14
-09E0:  MOVWF  x98
-09E2:  CLRF   x97
+09D6:  CLRF   x9A
+09D8:  CLRF   x99
+09DA:  MOVLW  14
+09DC:  MOVWF  x98
+09DE:  CLRF   x97
 ....................    vpcb[4].di=0x2502; 
-09E4:  CLRF   xA7
-09E6:  CLRF   xA6
-09E8:  MOVLW  25
-09EA:  MOVWF  xA5
-09EC:  MOVLW  02
-09EE:  MOVWF  xA4
+09E0:  CLRF   xA7
+09E2:  CLRF   xA6
+09E4:  MOVLW  25
+09E6:  MOVWF  xA5
+09E8:  MOVLW  02
+09EA:  MOVWF  xA4
 ....................    vpcb[4].da=0x2502; 
-09F0:  CLRF   xAF
-09F2:  CLRF   xAE
-09F4:  MOVLW  25
-09F6:  MOVWF  xAD
-09F8:  MOVLW  02
-09FA:  MOVWF  xAC
+09EC:  CLRF   xAF
+09EE:  CLRF   xAE
+09F0:  MOVLW  25
+09F2:  MOVWF  xAD
+09F4:  MOVLW  02
+09F6:  MOVWF  xAC
 ....................    vpcb[4].df=0x2850; 
-09FC:  CLRF   xAB
-09FE:  CLRF   xAA
-0A00:  MOVLW  28
-0A02:  MOVWF  xA9
-0A04:  MOVLW  50
-0A06:  MOVWF  xA8
+09F8:  CLRF   xAB
+09FA:  CLRF   xAA
+09FC:  MOVLW  28
+09FE:  MOVWF  xA9
+0A00:  MOVLW  50
+0A02:  MOVWF  xA8
 ....................    vpcb[0].estado=0; 
-0A08:  CLRF   x6C
+0A04:  CLRF   x6C
 ....................    vpcb[1].estado=0; 
-0A0A:  CLRF   x7D
+0A06:  CLRF   x7D
 ....................    vpcb[2].estado=0; 
-0A0C:  CLRF   x8E
+0A08:  CLRF   x8E
 ....................    vpcb[3].estado=0; 
-0A0E:  CLRF   x9F
+0A0A:  CLRF   x9F
 ....................    vpcb[4].estado=0; 
-0A10:  CLRF   xB0
-0A12:  GOTO   0A36 (RETURN)
+0A0C:  CLRF   xB0
+0A0E:  GOTO   0A32 (RETURN)
 ....................     
 .................... } 
 ....................  
@@ -1971,41 +1971,41 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 17:49
 .................... { 
 ....................    printf("Conectado.............*"); 
 *
-0A28:  MOVLW  46
-0A2A:  MOVWF  FF6
-0A2C:  MOVLW  05
-0A2E:  MOVWF  FF7
-0A30:  RCALL  02DA
+0A24:  MOVLW  46
+0A26:  MOVWF  FF6
+0A28:  MOVLW  05
+0A2A:  MOVWF  FF7
+0A2C:  RCALL  02DA
 ....................    Port_Init(); 
-0A32:  BRA    0956
+0A2E:  BRA    0952
 ....................    Procesos_Init(); 
-0A34:  BRA    0968
+0A30:  BRA    0964
 ....................    inte_Init(); 
-0A36:  BRA    0A16
+0A32:  BRA    0A12
 ....................    Config_TMR0(); 
-0A38:  BRA    0A20
+0A34:  BRA    0A1C
 ....................    setup_spi(FALSE); 
-0A3A:  CLRF   FC6
+0A36:  CLRF   FC6
 ....................    setup_psp(PSP_DISABLED); 
-0A3C:  BCF    F96.4
+0A38:  BCF    F96.4
 ....................    setup_comparator(NC_NC_NC_NC); 
-0A3E:  MOVLW  07
-0A40:  MOVWF  FB4
-0A42:  MOVF   F92,W
-0A44:  MOVWF  F92
-0A46:  MOVLW  07
-0A48:  MOVWF  00
-0A4A:  DECFSZ 00,F
-0A4C:  BRA    0A4A
-0A4E:  BRA    0A50
-0A50:  NOP   
-0A52:  MOVF   FB4,W
-0A54:  BCF    FA1.6
+0A3A:  MOVLW  07
+0A3C:  MOVWF  FB4
+0A3E:  MOVF   F92,W
+0A40:  MOVWF  F92
+0A42:  MOVLW  07
+0A44:  MOVWF  00
+0A46:  DECFSZ 00,F
+0A48:  BRA    0A46
+0A4A:  BRA    0A4C
+0A4C:  NOP   
+0A4E:  MOVF   FB4,W
+0A50:  BCF    FA1.6
 ....................    setup_vref(FALSE); 
-0A56:  CLRF   FB5
+0A52:  CLRF   FB5
 ....................    port_b_pullups(FALSE); 
-0A58:  BSF    FF1.7
-0A5A:  GOTO   0AAA (RETURN)
+0A54:  BSF    FF1.7
+0A56:  GOTO   0AA6 (RETURN)
 .................... } 
 ....................  
 ....................  
@@ -2024,223 +2024,251 @@ CCS PCH C Compiler, Version 5.008, 5967               21-oct-14 17:49
 ....................       switch(comando) 
 4008:  MOVF   5E,W
 400A:  XORLW  43
-400C:  BZ    4014
+400C:  BZ    401C
 400E:  XORLW  07
-4010:  BZ    4030
-4012:  BRA    404A
+4010:  BZ    4038
+4012:  XORLW  11
+4014:  BZ    4054
+4016:  XORLW  0D
+4018:  BZ    406C
+401A:  BRA    4082
 ....................       { 
 ....................          case 'C':{if (valor2<6) cargar_proceso(valor2);break;} 
-4014:  MOVF   3B,F
-4016:  BNZ   402E
-4018:  MOVF   3A,F
-401A:  BNZ   402E
-401C:  MOVF   39,F
-401E:  BNZ   402E
-4020:  MOVF   38,W
-4022:  SUBLW  05
-4024:  BNC   402E
-4026:  MOVFF  38,C3
-402A:  GOTO   0812
-402E:  BRA    404A
+401C:  MOVF   3B,F
+401E:  BNZ   4036
+4020:  MOVF   3A,F
+4022:  BNZ   4036
+4024:  MOVF   39,F
+4026:  BNZ   4036
+4028:  MOVF   38,W
+402A:  SUBLW  05
+402C:  BNC   4036
+402E:  MOVFF  38,C3
+4032:  CALL   0812
+4036:  BRA    4082
 ....................          case 'D':{if (valor2<6) descargar_proceso(valor2);break;} 
-4030:  MOVF   3B,F
-4032:  BNZ   404A
-4034:  MOVF   3A,F
-4036:  BNZ   404A
-4038:  MOVF   39,F
-403A:  BNZ   404A
-403C:  MOVF   38,W
-403E:  SUBLW  05
-4040:  BNC   404A
-4042:  MOVFF  38,C3
-4046:  GOTO   087E
+4038:  MOVF   3B,F
+403A:  BNZ   4052
+403C:  MOVF   3A,F
+403E:  BNZ   4052
+4040:  MOVF   39,F
+4042:  BNZ   4052
+4044:  MOVF   38,W
+4046:  SUBLW  05
+4048:  BNC   4052
+404A:  MOVFF  38,C3
+404E:  CALL   087C
+4052:  BRA    4082
+....................          case 'U':{for (m=1;m<6;m++) {cargar_proceso(m);} 
+4054:  MOVLW  01
+4056:  MOVWF  1E
+4058:  MOVF   1E,W
+405A:  SUBLW  05
+405C:  BNC   406A
+405E:  MOVFF  1E,C3
+4062:  CALL   0812
+4066:  INCF   1E,F
+4068:  BRA    4058
+....................                    break;} 
+406A:  BRA    4082
+....................          case 'X':{for (m=1;m<6;m++) {descargar_proceso(m);} 
+406C:  MOVLW  01
+406E:  MOVWF  1E
+4070:  MOVF   1E,W
+4072:  SUBLW  05
+4074:  BNC   4082
+4076:  MOVFF  1E,C3
+407A:  CALL   087C
+407E:  INCF   1E,F
+4080:  BRA    4070
+....................                    break;} 
 ....................       } 
 ....................       comando='-'; 
-404A:  MOVLW  2D
-404C:  MOVWF  5E
+4082:  MOVLW  2D
+4084:  MOVWF  5E
 ....................       valor2=100; 
-404E:  CLRF   3B
-4050:  CLRF   3A
-4052:  CLRF   39
-4054:  MOVLW  64
-4056:  MOVWF  38
+4086:  CLRF   3B
+4088:  CLRF   3A
+408A:  CLRF   39
+408C:  MOVLW  64
+408E:  MOVWF  38
 ....................       valor=0; 
-4058:  CLRF   37
-405A:  CLRF   36
-405C:  CLRF   35
-405E:  CLRF   34
+4090:  CLRF   37
+4092:  CLRF   36
+4094:  CLRF   35
+4096:  CLRF   34
 ....................        if(np>0) 
-4060:  MOVF   17,F
-4062:  BZ    414C
+4098:  MOVF   17,F
+409A:  BZ    4184
 ....................        { 
 ....................          if(vpcb[colap[0]].estado==1) 
-4064:  MOVF   18,W
-4066:  MULLW  11
-4068:  MOVF   FF3,W
-406A:  CLRF   xC4
-406C:  MOVWF  xC3
-406E:  MOVLW  0C
-4070:  ADDWF  xC3,W
-4072:  MOVWF  01
-4074:  MOVLW  00
-4076:  ADDWFC xC4,W
-4078:  MOVWF  03
-407A:  MOVF   01,W
-407C:  ADDLW  60
-407E:  MOVWF  FE9
-4080:  MOVLW  00
-4082:  ADDWFC 03,W
-4084:  MOVWF  FEA
-4086:  DECFSZ FEF,W
-4088:  BRA    40E6
+409C:  MOVF   18,W
+409E:  MULLW  11
+40A0:  MOVF   FF3,W
+40A2:  CLRF   xC4
+40A4:  MOVWF  xC3
+40A6:  MOVLW  0C
+40A8:  ADDWF  xC3,W
+40AA:  MOVWF  01
+40AC:  MOVLW  00
+40AE:  ADDWFC xC4,W
+40B0:  MOVWF  03
+40B2:  MOVF   01,W
+40B4:  ADDLW  60
+40B6:  MOVWF  FE9
+40B8:  MOVLW  00
+40BA:  ADDWFC 03,W
+40BC:  MOVWF  FEA
+40BE:  DECFSZ FEF,W
+40C0:  BRA    411E
 ....................             {activar_timer(); 
-408A:  CALL   04A4
+40C2:  CALL   04A4
 ....................              vpcb[colap[0]].estado=2; 
-408E:  MOVF   18,W
-4090:  MULLW  11
-4092:  MOVF   FF3,W
-4094:  CLRF   xC4
-4096:  MOVWF  xC3
-4098:  MOVLW  0C
-409A:  ADDWF  xC3,W
-409C:  MOVWF  01
-409E:  MOVLW  00
-40A0:  ADDWFC xC4,W
-40A2:  MOVWF  03
-40A4:  MOVF   01,W
-40A6:  ADDLW  60
-40A8:  MOVWF  FE9
-40AA:  MOVLW  00
-40AC:  ADDWFC 03,W
-40AE:  MOVWF  FEA
-40B0:  MOVLW  02
-40B2:  MOVWF  FEF
+40C6:  MOVF   18,W
+40C8:  MULLW  11
+40CA:  MOVF   FF3,W
+40CC:  CLRF   xC4
+40CE:  MOVWF  xC3
+40D0:  MOVLW  0C
+40D2:  ADDWF  xC3,W
+40D4:  MOVWF  01
+40D6:  MOVLW  00
+40D8:  ADDWFC xC4,W
+40DA:  MOVWF  03
+40DC:  MOVF   01,W
+40DE:  ADDLW  60
+40E0:  MOVWF  FE9
+40E2:  MOVLW  00
+40E4:  ADDWFC 03,W
+40E6:  MOVWF  FEA
+40E8:  MOVLW  02
+40EA:  MOVWF  FEF
 ....................              goto_address(vpcb[colap[0]].di); 
-40B4:  MOVF   18,W
-40B6:  MULLW  11
-40B8:  MOVF   FF3,W
-40BA:  CLRF   xC4
-40BC:  MOVWF  xC3
-40BE:  MOVLW  60
-40C0:  ADDWF  xC3,W
-40C2:  MOVWF  FE9
-40C4:  MOVLW  00
-40C6:  ADDWFC xC4,W
-40C8:  MOVWF  FEA
-40CA:  MOVFF  FEF,C5
-40CE:  MOVFF  FEC,C6
-40D2:  MOVFF  FEC,C7
-40D6:  MOVFF  FEC,C8
-40DA:  MOVFF  C6,FFA
-40DE:  MOVFF  C5,FE8
-40E2:  MOVWF  FF9
+40EC:  MOVF   18,W
+40EE:  MULLW  11
+40F0:  MOVF   FF3,W
+40F2:  CLRF   xC4
+40F4:  MOVWF  xC3
+40F6:  MOVLW  60
+40F8:  ADDWF  xC3,W
+40FA:  MOVWF  FE9
+40FC:  MOVLW  00
+40FE:  ADDWFC xC4,W
+4100:  MOVWF  FEA
+4102:  MOVFF  FEF,C5
+4106:  MOVFF  FEC,C6
+410A:  MOVFF  FEC,C7
+410E:  MOVFF  FEC,C8
+4112:  MOVFF  C6,FFA
+4116:  MOVFF  C5,FE8
+411A:  MOVWF  FF9
 ....................             } 
-40E4:  BRA    414C
+411C:  BRA    4184
 ....................          else 
 ....................             {wreg=vpcb[colap[0]].wreg; 
-40E6:  MOVF   18,W
-40E8:  MULLW  11
-40EA:  MOVF   FF3,W
-40EC:  CLRF   xC4
-40EE:  MOVWF  xC3
-40F0:  MOVLW  0D
-40F2:  ADDWF  xC3,W
-40F4:  MOVWF  01
-40F6:  MOVLW  00
-40F8:  ADDWFC xC4,W
-40FA:  MOVWF  03
-40FC:  MOVF   01,W
-40FE:  ADDLW  60
-4100:  MOVWF  FE9
-4102:  MOVLW  00
-4104:  ADDWFC 03,W
-4106:  MOVWF  FEA
-4108:  MOVFF  FEF,FE8
+411E:  MOVF   18,W
+4120:  MULLW  11
+4122:  MOVF   FF3,W
+4124:  CLRF   xC4
+4126:  MOVWF  xC3
+4128:  MOVLW  0D
+412A:  ADDWF  xC3,W
+412C:  MOVWF  01
+412E:  MOVLW  00
+4130:  ADDWFC xC4,W
+4132:  MOVWF  03
+4134:  MOVF   01,W
+4136:  ADDLW  60
+4138:  MOVWF  FE9
+413A:  MOVLW  00
+413C:  ADDWFC 03,W
+413E:  MOVWF  FEA
+4140:  MOVFF  FEF,FE8
 ....................              activar_timer(); 
-410C:  CALL   04A4
+4144:  CALL   04A4
 ....................              goto_address(vpcb[colap[0]].da); 
-4110:  MOVF   18,W
-4112:  MULLW  11
-4114:  MOVF   FF3,W
-4116:  CLRF   xC4
-4118:  MOVWF  xC3
-411A:  MOVLW  08
-411C:  ADDWF  xC3,W
-411E:  MOVWF  01
-4120:  MOVLW  00
-4122:  ADDWFC xC4,W
-4124:  MOVWF  03
-4126:  MOVF   01,W
-4128:  ADDLW  60
-412A:  MOVWF  FE9
-412C:  MOVLW  00
-412E:  ADDWFC 03,W
-4130:  MOVWF  FEA
-4132:  MOVFF  FEF,C3
-4136:  MOVFF  FEC,C4
-413A:  MOVFF  FEC,C5
-413E:  MOVFF  FEC,C6
-4142:  MOVFF  C4,FFA
-4146:  MOVFF  C3,FE8
-414A:  MOVWF  FF9
+4148:  MOVF   18,W
+414A:  MULLW  11
+414C:  MOVF   FF3,W
+414E:  CLRF   xC4
+4150:  MOVWF  xC3
+4152:  MOVLW  08
+4154:  ADDWF  xC3,W
+4156:  MOVWF  01
+4158:  MOVLW  00
+415A:  ADDWFC xC4,W
+415C:  MOVWF  03
+415E:  MOVF   01,W
+4160:  ADDLW  60
+4162:  MOVWF  FE9
+4164:  MOVLW  00
+4166:  ADDWFC 03,W
+4168:  MOVWF  FEA
+416A:  MOVFF  FEF,C3
+416E:  MOVFF  FEC,C4
+4172:  MOVFF  FEC,C5
+4176:  MOVFF  FEC,C6
+417A:  MOVFF  C4,FFA
+417E:  MOVFF  C3,FE8
+4182:  MOVWF  FF9
 ....................             } 
 ....................        } 
-414C:  BRA    4000
+4184:  BRA    4000
 ....................    } 
-414E:  RETURN 0
+4186:  RETURN 0
 .................... } 
 ....................  
 .................... void main(void) 
 *
-0A5E:  CLRF   FF8
-0A60:  BCF    FD0.7
-0A62:  BSF    07.7
-0A64:  BCF    FB8.3
-0A66:  MOVLW  40
-0A68:  MOVWF  FAF
-0A6A:  MOVLW  A6
-0A6C:  MOVWF  FAC
-0A6E:  MOVLW  90
-0A70:  MOVWF  FAB
-0A72:  CLRF   17
-0A74:  CLRF   37
-0A76:  CLRF   36
-0A78:  CLRF   35
-0A7A:  CLRF   34
-0A7C:  CLRF   3B
-0A7E:  CLRF   3A
-0A80:  CLRF   39
-0A82:  CLRF   38
-0A84:  MOVLW  FE
-0A86:  MOVWF  51
-0A88:  MOVLW  18
-0A8A:  MOVWF  50
-0A8C:  CLRF   52
-0A8E:  CLRF   5D
-0A90:  BCF    5F.0
-0A92:  MOVF   FC1,W
-0A94:  ANDLW  C0
-0A96:  IORLW  0F
-0A98:  MOVWF  FC1
-0A9A:  MOVLW  07
-0A9C:  MOVWF  FB4
+0A5A:  CLRF   FF8
+0A5C:  BCF    FD0.7
+0A5E:  BSF    07.7
+0A60:  BCF    FB8.3
+0A62:  MOVLW  40
+0A64:  MOVWF  FAF
+0A66:  MOVLW  A6
+0A68:  MOVWF  FAC
+0A6A:  MOVLW  90
+0A6C:  MOVWF  FAB
+0A6E:  CLRF   17
+0A70:  CLRF   37
+0A72:  CLRF   36
+0A74:  CLRF   35
+0A76:  CLRF   34
+0A78:  CLRF   3B
+0A7A:  CLRF   3A
+0A7C:  CLRF   39
+0A7E:  CLRF   38
+0A80:  MOVLW  FE
+0A82:  MOVWF  51
+0A84:  MOVLW  18
+0A86:  MOVWF  50
+0A88:  CLRF   52
+0A8A:  CLRF   5D
+0A8C:  BCF    5F.0
+0A8E:  MOVF   FC1,W
+0A90:  ANDLW  C0
+0A92:  IORLW  0F
+0A94:  MOVWF  FC1
+0A96:  MOVLW  07
+0A98:  MOVWF  FB4
 .................... { 
 ....................    printf("Esperando conexión..*"); 
-0A9E:  MOVLW  40
-0AA0:  MOVWF  FF6
-0AA2:  MOVLW  09
-0AA4:  MOVWF  FF7
-0AA6:  RCALL  02DA
+0A9A:  MOVLW  3C
+0A9C:  MOVWF  FF6
+0A9E:  MOVLW  09
+0AA0:  MOVWF  FF7
+0AA2:  RCALL  02DA
 ....................     
 ....................    MCU_Init(); 
-0AA8:  BRA    0A28
+0AA4:  BRA    0A24
 ....................    #asm 
 ....................    call 0x4000 
-0AAA:  CALL   4000,1
+0AA6:  CALL   4000,1
 ....................    #endasm 
 .................... } 
 ....................  
-0AAE:  SLEEP 
+0AAA:  SLEEP 
 
 Configuration Fuses:
    Word  1: CC27   PLL12 CPUDIV1 USBDIV HS FCMEN IESO

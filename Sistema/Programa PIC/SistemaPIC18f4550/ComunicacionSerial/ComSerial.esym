@@ -1,7 +1,8 @@
-D G "__PCH__" 0 449 ""5.008""
-D G "__DEVICE__" 0 449 "4550"
-D G "__DATE__" 0 449 ""21-oct-14""
-D G "__TIME__" 0 449 ""17:49:20"" "Standard Header file for the PIC18F4550 device ////////////////"
+D G "Tiempo" 0 6 "200"
+D G "__PCH__" 0 453 ""5.008""
+D G "__DEVICE__" 0 453 "4550"
+D G "__DATE__" 0 453 ""21-oct-14""
+D G "__TIME__" 0 453 ""17:55:37"" "Standard Header file for the PIC18F4550 device ////////////////"
 c L "set_tris_a" 1 5 21 "FUNCTION"
 v L "value" 1 36 "int8" `54 
 f B "set_tris_a" 1 36 "void(int8 value)" `53 
@@ -995,7 +996,7 @@ F G "Config_TMR0" 0 361 "void()" `699
 F G "Procesos_Init" 0 367 "void()" `750 
 F G "MCU_Init" 0 392 "void()" `751 
 F G "Inicio_SO" 0 408 "void()" `753 
-F G "MAIN" 0 439 "void()" `754 
+F G "MAIN" 0 443 "void()" `754 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1

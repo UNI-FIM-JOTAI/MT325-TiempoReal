@@ -37,23 +37,27 @@
    ³  ³  ÀÄ*
    ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
    ³  ÀÄactivar_timer  0/12  Ram=0
-   ÀÄInicio_SO  0/336  Ram=6
+   ÀÄInicio_SO  0/392  Ram=6
       ÃÄprocesa_cmd  0/440  Ram=16
       ³  ÃÄ@MUL3232  0/84  Ram=14
       ³  ÃÄ@MUL3232  0/84  Ram=14
       ³  ÃÄ@MUL3232  0/84  Ram=14
       ³  ÃÄ@MUL3232  0/84  Ram=14
       ³  ÀÄinicbuff  0/34  Ram=3
-      ÃÄcargar_proceso  0/108  Ram=3
+      ÃÄcargar_proceso  0/106  Ram=3
       ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
       ³  ÃÄ@PRINTF_D_9600_31766_31767  0/178  Ram=6
       ³  ³  ÃÄ@DIV88  0/40  Ram=3
       ³  ³  ÀÄ@DIV88  0/40  Ram=3
       ³  ÀÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
-      ÃÄdescargar_proceso  0/194  Ram=7
+      ÃÄdescargar_proceso  0/192  Ram=7
       ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
       ³  ÃÄ@PRINTF_D_9600_31766_31767  0/178  Ram=6
       ³  ³  ÀÄ*
       ³  ÀÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
+      ÃÄcargar_proceso  0/106  Ram=3
+      ³  ÀÄ*
+      ÃÄdescargar_proceso  0/192  Ram=7
+      ³  ÀÄ*
       ÃÄactivar_timer  0/12  Ram=0
       ÀÄactivar_timer  0/12  Ram=0

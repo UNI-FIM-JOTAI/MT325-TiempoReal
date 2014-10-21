@@ -415,10 +415,6 @@ void Inicio_SO()
       {
          case 'C':{if (valor2<6) cargar_proceso(valor2);break;}
          case 'D':{if (valor2<6) descargar_proceso(valor2);break;}
-         case 'U':{for (m=1;m<6;m++) {cargar_proceso(m);}
-                   break;}
-         case 'X':{for (m=1;m<6;m++) {descargar_proceso(m);}
-                   break;}
       }
       comando='-';
       valor2=100;
