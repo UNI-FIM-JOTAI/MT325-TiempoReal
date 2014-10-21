@@ -1,0 +1,4 @@
+>>> Warning 216 "Multitarea.c" Line 611(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC_9600_31766_31767)
+      Memory usage:   ROM=15%      RAM=11% - 14%
+      0 Errors,  1 Warnings.
+Build Successful.

@@ -1,0 +1,96 @@
+
+ROM used:   4728/15968 (15%)
+            6944/15968 (22%) including unused fragments
+
+            3.3 Average locations per line
+            12.8 Average locations per statement
+
+RAM used:   220/2036 (11%) at main() level
+            281/2036 (14%) worst case
+
+Stack used: 6 worst case (2 in main + 4 for interrupts)
+Stack size: 30
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  613   368 100  Multitarea.c
+  821     0   0  C:\Program Files (x86)\PICC\Devices\18F4550.h
+----- -----
+ 1434   368 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     42   0    1             @delay_ms1
+0     12   0    0    32  1.0  activar_timer
+0      4   0    0    17  0.8  desactivar_timer
+0    106   1    1   673  3.3  DISPLAY
+0    488   5   12   879  7.5  inter_quantum
+0     40   0    0   119  2.0  serial_isr
+0     10   0    0    94  1.2  @const710
+0     34   0    2    94  1.2  @PSTRINGC_9600_31766_31767
+0     56   1    3   153  4.7  addcbuff
+0     34   0    3   131  3.5  inicbuff
+0    456   5   16  1265  8.3  procesa_cmd
+0     90   1   14             @MUL3232
+0     70   1    0   511  5.2  ROML_LedA1
+0     72   1    0   553  5.2  ROML_LedA2
+0     80   1    1   441  6.6  ROML_LedA3
+0     90   1    0   475  5.2  voidTask_LedB1
+0     96   1    0   697  5.3  voidTask_LedC1
+0    106   1    0   697  5.3  voidTask_LedC2
+0    606   6    4   876  6.3  task_manager
+0     54   1    0    94  1.2  @const733
+0     52   1    0    94  1.2  @const734
+0     32   0    3    94  1.2  @PSTRINGCN_9600_31766_31767
+0    148   2   13             @DIV3232
+0    186   2   12    94  1.2  @PRINTF_L32U_9600_31766_31767
+0     12   0    0    48  1.1  Port_Init
+0     10   0    0    32  1.0  inte_Init
+0      8   0    0    18  1.0  Config_TMR0
+0    242   3    0  1561  2.9  Procesos_Init
+0    106   1    3   170  3.8  cargar_proceso
+0     26   0    0             @const750
+0     40   0    3             @DIV88
+0    178   2    6             @PRINTF_D_9600_31766_31767
+0    194   2    7   527  7.2  descargar_proceso
+0     28   0    0             @const760
+0     86   1    1   240  1.3  MCU_Init
+0     24   0    0  1101  9.1  @const764
+0    462   5    6  1101  9.1  Inicio_SO
+0     28   0    0    94  1.2  @const766
+0     26   0    0   115  1.2  @const767
+0    114   1    0   115  1.2  MAIN
+0     22   0    0             @const771
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               33
+    Statements              368
+    Comments                205
+    Volume (V)              23479
+    Difficulty (D)          118.9
+    Effort to implement (E) 2792177
+    Time to implement (T)   43 hours, 5 minutes
+    Est Delivered Bugs (B)  7
+    Cyclomatic Complexity   81
+    Maintainability (MI)    64
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00006     4  4  
+00008-000A0   154  0  
+000A2-00FFE  2988  946  
+01000-01100    70  188  
+01102-01200    72  184  
+01202-01300    80  176  
+01302-01400    90  166  
+01402-01500    96  160  
+01502-01600   106  150  
+01602-02500     0  3840  
+02502-02850   606  242  
+02852-03FFE     0  6062  
+04000-04FFE   462  3634  
+05000-07CBE     0  11456  
+
+
+

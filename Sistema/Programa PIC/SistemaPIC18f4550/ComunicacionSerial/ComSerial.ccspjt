@@ -1,0 +1,22 @@
+[PROJECT]
+Target=ComSerial.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.008
+Compiler=PCH
+CCSVersion=5.008
+[Target Data]
+FileList=ComSerial.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\;C:\Program Files (x86)\PICC\Drivers\C:\Program Files (x86)\PICC\Devices\
+[D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC18f4550\ComunicacionSerial\ComSerial]
+Type=4
+[mru-list]
+1=ComSerial.c
+[Opened Files]
+1=ComSerial.c
+2=
+[ComSerial.c]
+Type=4
+[Units]
+Count=1
+1=ComSerial (main)
