@@ -67,3 +67,10 @@ D:\IGNACIO\Universidad\Ciclo2014_I\DSP\Proyecto\Programas\visual2\dsp\dsp\obj\De
 D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\visual2\dsp\dsp\bin\Debug\dsp.exe.config
 D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\visual2\dsp\dsp\obj\Debug\dsp.exe
 D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\visual2\dsp\dsp\obj\Debug\dsp.pdb
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\visual2\dsp\dsp\obj\Debug\dsp.csprojResolveAssemblyReference.cache
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\visual2\dsp\dsp\obj\Debug\dsp.Form1.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\visual2\dsp\dsp\obj\Debug\dsp.miranda.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\visual2\dsp\dsp\obj\Debug\dsp.Properties.Resources.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\visual2\dsp\dsp\obj\Debug\dsp.csproj.GenerateResource.Cache
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\visual2\dsp\dsp\bin\Debug\dsp.exe
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\visual2\dsp\dsp\bin\Debug\dsp.pdb

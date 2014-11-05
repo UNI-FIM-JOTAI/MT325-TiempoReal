@@ -1,3 +1,13 @@
+/*
+Tiempo real
+comandos para enviar
+COMANDO: $C0*     //Programa1
+COMANDO: $C1*     //Programa2
+COMANDO: $C2*     //Programa3
+COMANDO: $C3*     //Programa4
+COMANDO: $C4*     //Programa5
+
+*/
 #include <18F4550.h>
 
 #use delay(clock=10000000)
@@ -167,7 +177,7 @@ void procesa_cmd(void){             // procesa el ultimo comando guardado, un co
 
 //PROGRAMA 1: Luces Secuenciales - Bucle Infinito
 
-#ORG 0x1000, 0x1100
+#ORG 0x1000, 0x1100        // COMANDO: $C0*
 void ROML_LedA1()
 {
    set_tris_a(0x00);
@@ -189,7 +199,7 @@ void ROML_LedA1()
 
 //PROGRAMA 2: Luces Secuenciales 2 - Bucle Infinito
 
-#ORG 0x1102, 0x1200
+#ORG 0x1102, 0x1200        // COMANDO: $C1*
 void ROML_LedA2()
 {
    set_tris_d(0x00);
@@ -218,7 +228,7 @@ void ROML_LedA2()
 
 //PROGRAMA 3: Luces Secuenciales C - Finito
 
-#ORG 0x1202, 0x1300
+#ORG 0x1202, 0x1300     // COMANDO: $C2*
 void voidTask_LedC1(){
 while(TRUE){
    while(TRUE)
@@ -252,7 +262,7 @@ while(TRUE){
 
 //PROGRAMA 4: Luces Secuenciales C2 - Finito
 
-#ORG 0x1302, 0x1400
+#ORG 0x1302, 0x1400        // COMANDO: $C3*
 void voidTask_LedC2(){
    while(TRUE){
       while(TRUE)
@@ -286,7 +296,7 @@ void voidTask_LedC2(){
 
 // PROGRAMA 5: Mostrar Procesos
 
-#ORG 0x2502, 0x2850
+#ORG 0x2502, 0x2850           // COMANDO: $C4*
 void task_manager(){
    while(TRUE){
       desactivar_timer();

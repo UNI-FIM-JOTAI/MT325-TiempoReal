@@ -1,2 +1,0 @@
-D:\IGNACIO\Programacion\C#\Programas\LecSerialDatos\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe.config
-C:\Users\Basilio\Desktop\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe.config

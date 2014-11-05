@@ -24,7 +24,16 @@ namespace dsp
         int c = 0;
         int lec = 0;
         int flag = 0;
+        int p1 = 0, p2 = 0, p3 = 0, p4 = 0, p5 = 0;
         string[] datos = new string[100];
+
+        string Recibirdato;
+        string Enviardato;
+        string temp_char;
+        string mostrar_envio;
+        int tam_s;
+        int num_list = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -37,6 +46,30 @@ namespace dsp
                 Puertos.Text = s;
             }
             serialPort1.PortName = "COM1";
+            serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+        }
+
+        private void extract_send()
+        {
+            tam_s = Enviardato.Length;
+            for (int i = tam_s - 1; i >= 0; i--)
+            {
+                temp_char = Enviardato.Remove(0, i);
+                serialPort1.Write(temp_char);
+                Enviardato = Enviardato.Remove(i);
+
+            }
+        }
+
+        private void actualizar(object sender, EventArgs e)
+        {
+            Recibido.Text = "";
+            Recibido.Text = (Recibirdato);
+            if (Recibido.Text.Length != 0)
+            {
+                listBox1.Items.Insert(num_list, Convert.ToString(Recibido.Text));
+                num_list++;
+            }
         }
 
         private void conectar_Click(object sender, EventArgs e)
@@ -58,107 +91,109 @@ namespace dsp
 
         private void velocidad_Click(object sender, EventArgs e)//iniciar
         {
-            serialPort1.Write("V");
-            Enviado.Text = "V";
+            if (p3 == 0)
+            {
+                serialPort1.Write("$");
+                Thread.Sleep(200);
+                serialPort1.Write("C");
+                Thread.Sleep(200);
+                serialPort1.Write("2");
+                Thread.Sleep(200);
+                serialPort1.Write("*");
+                Thread.Sleep(200);
+                Enviado.Text = "$C2*";
+                p3 = 1;
+            }
+            else
+            {
+                serialPort1.Write("$");
+                Thread.Sleep(200);
+                serialPort1.Write("D");
+                Thread.Sleep(200);
+                serialPort1.Write("2");
+                Thread.Sleep(200);
+                serialPort1.Write("*");
+                Thread.Sleep(200);
+                Enviado.Text = "$D2*";
+                p3 = 0;
+
+            }
             i++;
             lista_Enviado.TabIndex = i + 1;
-            lista_Enviado.AppendText("V" + " ");
+            lista_Enviado.AppendText("3" + " ");
             flag = 1;
         }
 
         private void corriente_Click(object sender, EventArgs e)//mostrar
         {
-            serialPort1.Write("A");
-            Enviado.Text = "A";
+            if (p4 == 0)
+            {
+                serialPort1.Write("$");
+                Thread.Sleep(200);
+                serialPort1.Write("C");
+                Thread.Sleep(200);
+                serialPort1.Write("3");
+                Thread.Sleep(200);
+                serialPort1.Write("*");
+                Thread.Sleep(200);
+                Enviado.Text = "$C3*";
+                p4 = 1;
+            }
+            else
+            {
+                serialPort1.Write("$");
+                Thread.Sleep(200);
+                serialPort1.Write("D");
+                Thread.Sleep(200);
+                serialPort1.Write("3");
+                Thread.Sleep(200);
+                serialPort1.Write("*");
+                Thread.Sleep(200);
+                Enviado.Text = "$D3*";
+                p4 = 0;
+
+            }
             i++;
             lista_Enviado.TabIndex = i + 1;
-            lista_Enviado.AppendText("A" + " ");
-            flag = 2;
-            //int i;           
-            //lista_Recibido.Clear();            
-            //    for (i = 0; i < c; i++)
-            //    {
-            //
-            //        lista_Recibido.TabIndex = i + 1;
-            //        lista_Recibido.AppendText(datos[i] + " ");
-            //
-            //    }                
+            lista_Enviado.AppendText("4" + " ");
+            flag = 2;               
             
         }
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            f = 1;
-            rx = serialPort1.ReadExisting();
-            Recibido.Text = rx;
-            r++;
-            lista_Recibido.TabIndex = r + 1;
-            lista_Recibido.AppendText(rx + " ");
-            if (rx == "*")
-            {
-                Thread.Sleep(10);
-                serialPort1.Write("B");
-                i++;
-                lista_Enviado.TabIndex = i + 1;
-                lista_Enviado.AppendText("B" + " ");
-                Thread.Sleep(10000);
-                serialPort1.Write("@");
-                i++;
-                lista_Enviado.TabIndex = i + 1;
-                lista_Enviado.AppendText("@" + " ");
-                lec = 1; f = 0;
-            }
-            if (lec == 1 && f != 0)
-            {
-                temp1 = Convert.ToInt16(rx[0]);
-                Thread.Sleep(10000);
-                serialPort1.Write("@");
-                i++;
-                lista_Enviado.TabIndex = i + 1;
-                lista_Enviado.AppendText("@" + " ");
-                lec = 2; f = 0;
-            }
-            if (lec == 2 && f != 0)
-            {
-                f = 0;
-                temp2 = Convert.ToInt16(rx[0]);
-                tempgen = temp2 + (temp1 * 256);
-                datos[c] = Convert.ToString(tempgen);
-
-                i++;
-                lista_Enviado.TabIndex = i + 1;
-                lista_Enviado.AppendText("@" + " ");
-                if (flag == 1)
-                {
-                    Velocidad.Text = datos[c];
-                    r++;
-                    lista_Recibido.TabIndex = r + 1;
-                    lista_Recibido.AppendText(datos[c] + " ");
-                }
-                if (flag == 2)
-                {
-                    Corriente.Text = datos[c];
-                    r++;
-                    lista_Recibido.TabIndex = r + 1;
-                    lista_Recibido.AppendText(datos[c] + " ");
-                }
-                flag = 0;
-                c++; lec = 1;
-                serialPort1.Write("@");
-                i++;
-                lista_Enviado.TabIndex = i + 1;
-                lista_Enviado.AppendText("@" + " ");
-            }
-
-            //if (c == 100)
-            //{
-            //    c = 0;
-            //}
+            // Recibirdato = "";
+            Recibirdato += this.serialPort1.ReadExisting();
+            this.Invoke(new EventHandler(actualizar));
         }
 
         private void cw_Click(object sender, EventArgs e)
         {
-            serialPort1.Write("1");
-            Enviado.Text = "1";
+            if (p1 == 0)
+            {
+                serialPort1.Write("$");
+                Thread.Sleep(200);
+                serialPort1.Write("C");
+                Thread.Sleep(200);
+                serialPort1.Write("0");
+                Thread.Sleep(200);
+                serialPort1.Write("*");
+                Thread.Sleep(200);
+                Enviado.Text = "$C0*";
+                p1 = 1;
+            }
+            else {
+                serialPort1.Write("$");
+                Thread.Sleep(200);
+                serialPort1.Write("D");
+                Thread.Sleep(200);
+                serialPort1.Write("0");
+                Thread.Sleep(200);
+                serialPort1.Write("*");
+                Thread.Sleep(200);
+                Enviado.Text = "$D0*";
+                p1 = 0;
+                
+            }
             i++;
             lista_Enviado.TabIndex = i + 1;
             lista_Enviado.AppendText("1" + " ");
@@ -166,8 +201,33 @@ namespace dsp
 
         private void ccw_Click(object sender, EventArgs e)
         {
-            serialPort1.Write("2");
-            Enviado.Text = "2";
+            if (p2 == 0)
+            {
+                serialPort1.Write("$");
+                Thread.Sleep(200);
+                serialPort1.Write("C");
+                Thread.Sleep(200);
+                serialPort1.Write("1");
+                Thread.Sleep(200);
+                serialPort1.Write("*");
+                Thread.Sleep(200);
+                Enviado.Text = "$C1*";
+                p2 = 1;
+            }
+            else
+            {
+                serialPort1.Write("$");
+                Thread.Sleep(200);
+                serialPort1.Write("D");
+                Thread.Sleep(200);
+                serialPort1.Write("1");
+                Thread.Sleep(200);
+                serialPort1.Write("*");
+                Thread.Sleep(200);
+                Enviado.Text = "$D1*";
+                p2 = 0;
+
+            }
             i++;
             lista_Enviado.TabIndex = i + 1;
             lista_Enviado.AppendText("2" + " ");
@@ -175,11 +235,36 @@ namespace dsp
 
         private void stop_Click(object sender, EventArgs e)
         {
-            serialPort1.Write("3");
-            Enviado.Text = "3";
+            if (p5 == 0)
+            {
+                serialPort1.Write("$");
+                Thread.Sleep(200);
+                serialPort1.Write("C");
+                Thread.Sleep(200);
+                serialPort1.Write("4");
+                Thread.Sleep(200);
+                serialPort1.Write("*");
+                Thread.Sleep(200);
+                Enviado.Text = "$C4*";
+                p5 = 1;
+            }
+            else
+            {
+                serialPort1.Write("$");
+                Thread.Sleep(200);
+                serialPort1.Write("D");
+                Thread.Sleep(200);
+                serialPort1.Write("4");
+                Thread.Sleep(200);
+                serialPort1.Write("*");
+                Thread.Sleep(200);
+                Enviado.Text = "$D4*";
+                p5 = 0;
+
+            }
             i++;
             lista_Enviado.TabIndex = i + 1;
-            lista_Enviado.AppendText("3" + " ");
+            lista_Enviado.AppendText("5" + " ");
         }
 
         private void Puertos_SelectedIndexChanged(object sender, EventArgs e)
@@ -188,6 +273,11 @@ namespace dsp
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lista_Recibido_TextChanged(object sender, EventArgs e)
         {
 
         }
