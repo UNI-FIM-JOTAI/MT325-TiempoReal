@@ -14,6 +14,11 @@ namespace InterfazGrafica
 {
     public partial class Principal : Form
     {
+        #region VARIABLES
+        private string data = "";
+
+        #endregion
+
         public Principal()
         {
             InitializeComponent();
@@ -57,6 +62,21 @@ namespace InterfazGrafica
         private void PuertoList_SelectedIndexChanged(object sender, EventArgs e)
         {
             PuertoSerial.PortName = PuertoList.Text;
+        }
+
+        private void Principal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PuertoSerial_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            data += PuertoSerial.ReadExisting();
+            data = data.ToString();
+            if (data.EndsWith("*")) 
+            {
+                data = data.Remove(data.Length - 2);
+            }
         }
     }
 }

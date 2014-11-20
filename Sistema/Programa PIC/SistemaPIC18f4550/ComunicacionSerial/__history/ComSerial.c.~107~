@@ -40,7 +40,6 @@ int const lenbuff=10;
 int32 valor=0;
 int32 valor2=0;
 int32 val1,val2,val3,val4,val5;
-//int16 quantum=65048;
 int16 quantum=65048;
 
 

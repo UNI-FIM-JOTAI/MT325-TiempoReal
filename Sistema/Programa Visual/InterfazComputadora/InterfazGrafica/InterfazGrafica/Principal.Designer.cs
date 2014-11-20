@@ -58,11 +58,15 @@
             this.BtnConexion.UseVisualStyleBackColor = true;
             this.BtnConexion.Click += new System.EventHandler(this.BtnConexion_Click);
             // 
+            // PuertoSerial
+            // 
+            this.PuertoSerial.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.PuertoSerial_DataReceived);
+            // 
             // BtnCalendarizacion
             // 
             this.BtnCalendarizacion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnCalendarizacion.BackgroundImage")));
             this.BtnCalendarizacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnCalendarizacion.Location = new System.Drawing.Point(166, 23);
+            this.BtnCalendarizacion.Location = new System.Drawing.Point(162, 12);
             this.BtnCalendarizacion.Name = "BtnCalendarizacion";
             this.BtnCalendarizacion.Size = new System.Drawing.Size(83, 77);
             this.BtnCalendarizacion.TabIndex = 2;
@@ -82,6 +86,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Principal";
             this.Text = "InterfazGrafica";
+            this.Load += new System.EventHandler(this.Principal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BtnCalendarizacion)).EndInit();
             this.ResumeLayout(false);
 

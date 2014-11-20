@@ -202,7 +202,7 @@ void procesa_cmd(void){
          salida[j++]=cbuff[i++];
       }
       comando = salida[1];
-      valor2 = salida[3] -'0' + 1;
+      valor2 = salida[2] -'0' + 1;
       //printf ("\r\n Valor:  %Lu\n", valor);
       val1 = salida[2] - '0';
       val1 = val1;

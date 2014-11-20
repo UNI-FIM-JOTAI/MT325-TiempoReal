@@ -1,9 +1,9 @@
-D G "Tiempo" 0 6 "200"
-D G "__PCH__" 0 453 ""5.008""
-D G "__DEVICE__" 0 453 "4550"
-D G "__DATE__" 0 453 ""21-oct-14""
-D G "__TIME__" 0 453 ""17:55:37"" "Standard Header file for the PIC18F4550 device ////////////////"
-c L "set_tris_a" 1 5 21 "FUNCTION"
+D G "__PCH__" 0 464 ""5.008""
+D G "__DEVICE__" 0 464 "4550"
+D G "__DATE__" 0 464 ""18-nov-14""
+D G "__TIME__" 0 464 ""18:30:00"" "Tiempo real"
+c L "set_tris_a" 0 105 6 "FUNCTION"
+c L "set_tris_a" 1 1 22 "FUNCTION"
 v L "value" 1 36 "int8" `54 
 f B "set_tris_a" 1 36 "void(int8 value)" `53 
 v L "value" 1 37 "int8" `56 
@@ -102,7 +102,7 @@ d G "putc" 1 122 "putchar"
 d G "fputc" 1 123 "putchar"
 d G "fgets" 1 124 "gets"
 d G "fputs" 1 125 "puts"
-c L "output_drive" 1 5 3 "FUNCTION"
+c L "output_drive" 1 1 3 "FUNCTION"
 f B "restart_cause" 1 130 "int8()" `105 
 f B "reset_cpu" 1 131 "void()" `106 
 f B "sleep" 1 132 "void()" `107  "Constants returned from RESTART_CAUSE() are:"
@@ -115,7 +115,7 @@ d G "WDT_FROM_SLEEP" 1 139 "3"
 d G "RESET_INSTRUCTION" 1 140 "0"
 d G "SLEEP_FULL" 1 143 "0" "Default"
 d G "SLEEP_IDLE" 1 144 "1" "Clock and peripherals don't stop"
-c L "sleep" 1 5 5 "FUNCTION"
+c L "sleep" 1 1 5 "FUNCTION"
 v L "mode" 1 151 "int8" `109 
 f B "setup_timer_0" 1 151 "void(int8 mode)" `108 
 v L "value" 1 152 "int16" `111 
@@ -155,7 +155,7 @@ d G "RTCC_DIV_128" 1 186 "6"
 d G "RTCC_DIV_256" 1 187 "7"
 d G "RTCC_OFF" 1 188 "0x80"
 d G "RTCC_8_BIT" 1 189 "0x40"
-c L "get_rtcc" 1 5 8 "FUNCTION"
+c L "get_rtcc" 1 1 8 "FUNCTION"
 v L "mode" 1 200 "int16" `120 
 f B "setup_wdt" 1 200 "void(int16 mode)" `119 
 f B "restart_wdt" 1 201 "void()" `121  "Constants used for SETUP_WDT() are:"
@@ -177,7 +177,7 @@ d G "WDT_16" 1 218 "0x1B00"
 d G "WDT_32S" 1 219 "0x1D00"
 d G "WDT_64S" 1 220 "0x1F00"
 d G "WDT_128S" 1 221 "0x2100"
-c L "restart_wdt" 1 5 3 "FUNCTION"
+c L "restart_wdt" 1 1 3 "FUNCTION"
 v L "mode" 1 227 "int16" `123 
 f B "setup_timer_1" 1 227 "void(int16 mode)" `122 
 f B "get_timer1" 1 228 "int16()" `124 
@@ -192,7 +192,7 @@ d G "T1_DIV_BY_1" 1 239 "0"
 d G "T1_DIV_BY_2" 1 240 "0x10"
 d G "T1_DIV_BY_4" 1 241 "0x20"
 d G "T1_DIV_BY_8" 1 242 "0x30"
-c L "set_timer1" 1 5 3 "FUNCTION"
+c L "set_timer1" 1 1 3 "FUNCTION"
 v L "mode" 1 247 "int8" `128 
 v L "period" 1 247 "int8" `129 
 v L "postscale" 1 247 "int8" `130 
@@ -204,7 +204,7 @@ d G "T2_DISABLED" 1 251 "0"
 d G "T2_DIV_BY_1" 1 252 "4"
 d G "T2_DIV_BY_4" 1 253 "5"
 d G "T2_DIV_BY_16" 1 254 "6"
-c L "set_timer2" 1 5 3 "FUNCTION"
+c L "set_timer2" 1 1 3 "FUNCTION"
 v L "mode" 1 259 "int16" `135 
 f B "setup_timer_3" 1 259 "void(int16 mode)" `134 
 f B "get_timer3" 1 260 "int16()" `136 
@@ -218,7 +218,7 @@ d G "T3_DIV_BY_1" 1 269 "0"
 d G "T3_DIV_BY_2" 1 270 "0x10"
 d G "T3_DIV_BY_4" 1 271 "0x20"
 d G "T3_DIV_BY_8" 1 272 "0x30"
-c L "set_timer3" 1 5 4 "FUNCTION"
+c L "set_timer3" 1 1 4 "FUNCTION"
 v L "mode" 1 278 "int32" `140 
 f B "setup_ccp1" 1 278 "void(int32 mode)" `139 
 v L "mode" 1 279 "int32" `142 
@@ -240,7 +240,7 @@ d G "CCP_PWM" 1 292 "0xC"
 d G "CCP_PWM_PLUS_1" 1 293 "0x1c"
 d G "CCP_PWM_PLUS_2" 1 294 "0x2c"
 d G "CCP_PWM_PLUS_3" 1 295 "0x3c"
-c L "set_pwm1_duty" 1 5 1 "FUNCTION"
+c L "set_pwm1_duty" 1 1 1 "FUNCTION"
 d G "T3_CCP1_TO_2" 1 301 "0x48"
 d G "T3_CCP2" 1 302 "0x8"
 d G "CCP_PWM_H_H" 1 305 "0x0c"
@@ -264,7 +264,7 @@ d G "CCP_SHUTDOWN_BD_L" 1 326 "0x000000"
 d G "CCP_SHUTDOWN_BD_H" 1 327 "0x010000"
 d G "CCP_SHUTDOWN_BD_F" 1 328 "0x020000"
 d G "CCP_SHUTDOWN_RESTART" 1 330 "0x80000000"
-c L "set_pwm1_duty" 1 5 1 "FUNCTION"
+c L "set_pwm1_duty" 1 1 1 "FUNCTION"
 v L "mode" 1 334 "int32" `150 
 f B "setup_ccp2" 1 334 "void(int32 mode)" `149 
 v L "mode" 1 335 "int32" `152 
@@ -272,7 +272,7 @@ v L "pwm" 1 335 "int8" `153
 f G "setup_ccp2" 1 335 "void(int32 mode,int8 pwm)" `151 
 v L "value" 1 336 "int16" `155 
 f B "set_pwm2_duty" 1 336 "void(int16 value)" `154 
-c L "set_pwm2_duty" 1 5 5 "FUNCTION"
+c L "set_pwm2_duty" 1 1 5 "FUNCTION"
 v L "mode" 1 345 "int8" `160 
 f B "setup_psp" 1 345 "void(int8 mode)" `159 
 f B "psp_output_full" 1 346 "int8()" `161 
@@ -280,7 +280,7 @@ f B "psp_input_full" 1 347 "int8()" `162
 f B "psp_overflow" 1 348 "int8()" `163  "Constants used in SETUP_PSP() are:"
 d G "PSP_ENABLED" 1 350 "0x10"
 d G "PSP_DISABLED" 1 351 "0"
-c L "psp_overflow" 1 5 3 "FUNCTION"
+c L "psp_overflow" 1 1 3 "FUNCTION"
 v L "mode" 1 358 "int32" `166 
 f B "setup_spi" 1 358 "void(int32 mode)" `165 
 v L "value" 1 359 "int8" `168 
@@ -305,7 +305,7 @@ d G "SPI_SAMPLE_AT_MIDDLE" 1 378 "0x0000"
 d G "SPI_SAMPLE_AT_END" 1 379 "0x8000"
 d G "SPI_L_TO_H" 1 382 "SPI_SCK_IDLE_LOW"
 d G "SPI_H_TO_L" 1 383 "SPI_SCK_IDLE_HIGH"
-c L "spi_data_in" 1 5 2 "FUNCTION"
+c L "spi_data_in" 1 1 2 "FUNCTION"
 v L "baud" 1 387 "int32" `174 
 f B "setup_uart" 1 387 "void(int32 baud)" `173 
 v L "baud" 1 388 "int32" `176 
@@ -330,7 +330,7 @@ d G "UART_AUTODETECT" 1 398 "8"
 d G "UART_AUTODETECT_NOWAIT" 1 399 "9"
 d G "UART_WAKEUP_ON_RDA" 1 400 "10"
 d G "UART_SEND_BREAK" 1 401 "13"
-c L "set_uart_speed" 1 5 3 "FUNCTION"
+c L "set_uart_speed" 1 1 3 "FUNCTION"
 v L "mode" 1 405 "int32" `192 
 f B "setup_comparator" 1 405 "void(int32 mode)" `191  "Constants used in setup_comparator() are:"
 d G "A0_A3_A1_A3" 1 407 "0xfff04"
@@ -343,14 +343,14 @@ d G "A0_VR_A1_VR" 1 413 "0x3ff06"
 d G "A3_VR_A2_VR" 1 414 "0xcff0e"
 d G "CP1_INVERT" 1 415 "0x0000010"
 d G "CP2_INVERT" 1 416 "0x0000020"
-c L "setup_comparator" 1 5 2 "FUNCTION"
+c L "setup_comparator" 1 1 2 "FUNCTION"
 v L "mode" 1 423 "int8" `196 
 f B "setup_vref" 1 423 "void(int8 mode)" `195  "Constants used in setup_vref() are:"
 d G "VREF_LOW" 1 425 "0xa0"
 d G "VREF_HIGH" 1 426 "0x80"
 d G "VREF_F5" 1 428 "0x40"
 d G "VREF_COMP" 1 429 "0x10"
-c L "setup_vref" 1 5 2 "FUNCTION"
+c L "setup_vref" 1 1 2 "FUNCTION"
 v L "mode" 1 433 "int8" `198 
 f B "setup_low_volt_detect" 1 433 "void(int8 mode)" `197  "Constants used in setup_low_volt_detect() are:"
 d G "LVD_LVDIN" 1 435 "0x1F"
@@ -371,7 +371,7 @@ d G "LVD_22" 1 449 "0x11"
 d G "LVD_21" 1 450 "0x10"
 d G "LVD_TRIGGER_BELOW" 1 452 "0"
 d G "LVD_TRIGGER_ABOVE" 1 453 "0x80"
-c L "setup_low_volt_detect" 1 5 2 "FUNCTION"
+c L "setup_low_volt_detect" 1 1 2 "FUNCTION"
 v L "mode" 1 458 "int16" `200 
 f B "setup_oscillator" 1 458 "int8(int16 mode)" `199 
 v L "mode" 1 459 "int16" `202 
@@ -392,7 +392,7 @@ d G "OSC_IDLE_MODE" 1 475 "0x80"
 d G "OSC_31250" 1 476 "0x8000"
 d G "OSC_STATE_STABLE" 1 480 "4"
 d G "OSC_STATE_EXT_RUNNING" 1 481 "8"
-c L "setup_oscillator" 1 5 4 "FUNCTION"
+c L "setup_oscillator" 1 1 4 "FUNCTION"
 v L "mode" 1 488 "int16" `205 
 f B "setup_adc" 1 488 "void(int16 mode)" `204 
 f B "read_adc" 1 489 "int8()" `206 
@@ -418,7 +418,7 @@ d G "ADC_TAD_MUL_8" 1 508 "0x20"
 d G "ADC_TAD_MUL_12" 1 509 "0x28"
 d G "ADC_TAD_MUL_16" 1 510 "0x30"
 d G "ADC_TAD_MUL_20" 1 511 "0x38"
-c L "adc_done" 1 5 1 "FUNCTION"
+c L "adc_done" 1 1 1 "FUNCTION"
 v L "pins" 1 514 "int8" `214 
 f B "setup_adc_ports" 1 514 "void(int8 pins)" `213 
 v L "pins" 1 515 "int8" `216 
@@ -459,7 +459,7 @@ d G "VSS_VREF" 1 550 "0x10" "Range 0-VrefH"
 d G "ADC_START_AND_READ" 1 553 "7" "This is the default if nothing is specified"
 d G "ADC_START_ONLY" 1 554 "1"
 d G "ADC_READ_ONLY" 1 555 "6"
-c L "set_adc_channel" 1 5 3 "FUNCTION"
+c L "set_adc_channel" 1 1 3 "FUNCTION"
 v L "x" 1 561 "sint8" `221 
 f B "abs" 1 561 "sint8(sint8 x)" `220 
 v L "x" 1 562 "sint16" `223 
@@ -829,7 +829,7 @@ f G "get_capture_time" 1 738 "int16(int8 stream)" `587
 f B "get_capture_event" 1 739 "int8()" `589 
 v L "stream" 1 740 "int8" `591 
 f G "get_capture_event" 1 740 "int8(int8 stream)" `590  "Enviroment Prototypes:"
-c L "get_capture_event" 1 5 2 "FUNCTION"
+c L "get_capture_event" 1 1 2 "FUNCTION"
 v L "address" 1 753 "int16" `593 
 f B "goto_address" 1 753 "void(int16 address)" `592 
 v L "label" 1 754 "int16" `595 
@@ -855,7 +855,7 @@ f B "read_eeprom" 1 771 "int8(__EEADDRESS__ address)" `612
 v L "address" 1 772 "__EEADDRESS__" `615 
 v L "value" 1 772 "int8" `616 
 f B "write_eeprom" 1 772 "void(__EEADDRESS__ address,int8 value)" `614  "INT"
-c L "write_eeprom" 1 5 4 "FUNCTION"
+c L "write_eeprom" 1 1 4 "FUNCTION"
 v L "interrupt" 1 779 "int32" `618 
 f B "enable_interrupts" 1 779 "void(int32 interrupt)" `617 
 v L "interrupt" 1 780 "int32" `620 
@@ -901,102 +901,112 @@ d G "INT_EEPROM" 1 815 "0x00A010"
 d G "INT_OSCF" 1 816 "0x00A080"
 d G "INT_SPP" 1 817 "0x009D80"
 d G "INT_USB" 1 818 "0x00A020"
-D G "Tiempo" 0 6 "200"
-V G "np" 0 18 "int8" `643 
-V G "colap" 0 19 "int8[6]" `644 
-V G "m" 0 20 "int8" `645 
-V G "i" 0 21 "int8" `646 
-V G "j" 0 21 "int8" `647 
-V G "j1" 0 21 "int8" `648 
-V G "j2" 0 21 "int8" `649 
-V G "j3" 0 21 "int8" `650 
-V G "j4" 0 21 "int8" `651 
-V G "c1" 0 23 "int8" `652 
-V G "c2" 0 23 "int8" `653 
-V G "k1" 0 24 "int8" `654 
-V G "k2" 0 24 "int8" `655 
-V G "k3" 0 24 "int8" `656 
-V G "k4" 0 24 "int8" `657 
-V G "k5" 0 24 "int8" `658 
-V G "k6" 0 24 "int8" `659 
-V G "l1" 0 25 "int8" `660 
-V G "l2" 0 25 "int8" `661 
-V G "l3" 0 25 "int8" `662 
-V G "l4" 0 25 "int8" `663 
-V G "l5" 0 25 "int8" `664 
-V G "l6" 0 25 "int8" `665 
-V G "proceso" 0 27 "int8" `666 
-V G "lenbuff" 0 29 "int8" `667 
-V G "valor" 0 30 "int32" `669 
-V G "valor2" 0 31 "int32" `670 
-V G "val1" 0 32 "int32" `671 
-V G "val2" 0 32 "int32" `672 
-V G "val3" 0 32 "int32" `673 
-V G "val4" 0 32 "int32" `674 
-V G "val5" 0 32 "int32" `675 
-V G "quantum" 0 33 "int16" `676 
-V G "xbuff" 0 36 "int8" `677 
-V G "cbuff" 0 37 "int8[10]" `678 
-V G "rcvchar" 0 38 "int8" `679 
-V G "comando" 0 39 "int8" `680 
-V G "flagcmd" 0 40 "int1" `681 
-V G "vpcb" 0 52 "{int32 di,int32 df,int32 da,int8 estado,int8 wreg,int8 status,int8 bsr,int8 id}[5]" `691 
-F G "activar_timer" 0 55 "void()" `692 
-F G "desactivar_timer" 0 61 "void()" `693 
-V L "c" 0 65 "int8" `695 
-F G "addcbuff" 0 65 "void(int8 c)" `694 
-F G "mostrar_procesos" 0 66 "void()" `696 
-V L "idp" 0 67 "int8" `698 
-F G "descargar_proceso" 0 67 "void(int8 idp)" `697 
-F G "Config_TMR0" 0 68 "void()" `699 
-F G "inter_quantum" 0 73 "void()" `700 
-V L "i" 0 73 "int8" `701 
-C L "inte_Init" 0 94 1 "FUNCTION"
-F G "inte_Init" 0 95 "void()" `702 
-F G "serial_isr" 0 103 "void()" `703  "printf("Recibido");     // se envia por Serial una palabra para verificar interrupcion"
-C L "serial_isr" 0 94 1 "FUNCTION"
-C L "serial_isr" 0 94 1 "FUNCTION"
-V L "c" 0 110 "int8" `705 
-F G "addcbuff" 0 111 "void(int8 c)" `694 
-C L "addcbuff" 0 94 1 "FUNCTION"
-C L "inicbuff" 0 94 1 "FUNCTION"
-F G "inicbuff" 0 124 "void(int8 c)" `704 
-V L "i" 0 125 "int8" `705 
-F G "procesa_cmd" 0 133 "void()" `706  "procesa el ultimo comando guardado, un comando esta comprendido entre $ hasta *"
-V L "i" 0 135 "int8" `707 
-V L "j" 0 135 "int8" `708 
-V L "salida" 0 136 "int8[10]" `709  "Argumento de comando (si lo tiene)"
-C L "procesa_cmd" 0 94 1 "FUNCTION"
-C L "procesa_cmd" 0 94 1 "FUNCTION"
-C L "procesa_cmd" 0 94 1 "FUNCTION"
-C L "procesa_cmd" 0 94 1 "FUNCTION"
-C L "procesa_cmd" 0 94 1 "FUNCTION"
-C L "procesa_cmd" 0 94 1 "FUNCTION"
-F G "ROML_LedA1" 0 172 "void()" `713 
-F G "ROML_LedA2" 0 194 "void()" `714 
-F G "voidTask_LedC1" 0 222 "void()" `715 
-F G "voidTask_LedC2" 0 256 "void()" `716 
-F G "task_manager" 0 290 "void()" `717 
-V L "m" 0 293 "int8" `718 
-V L "mproceso" 0 294 "int32" `719 
-V L "mdirini" 0 294 "int32" `720 
-V L "mdirfin" 0 294 "int32" `721 
-V L "mdiract" 0 294 "int32" `722 
-V L "mm" 0 308 "int16" `734 
-V L "mmm" 0 311 "int8" `735 
-V L "idp" 0 324 "int8" `737 
-F G "cargar_proceso" 0 325 "void(int8 idp)" `736 
-V L "idp" 0 333 "int8" `746 
-F G "descargar_proceso" 0 334 "void(int8 idp)" `697 
-V L "s" 0 335 "int8" `745 
-V L "d" 0 335 "int8" `746 
-V L "f" 0 335 "int8" `747 
-F G "Port_Init" 0 351 "void()" `749 
-F G "Config_TMR0" 0 361 "void()" `699 
-F G "Procesos_Init" 0 367 "void()" `750 
-F G "MCU_Init" 0 392 "void()" `751 
-F G "Inicio_SO" 0 408 "void()" `753 
-F G "MAIN" 0 443 "void()" `754 
+D G "Tiempo" 0 16 "200"
+V G "np" 0 28 "int8" `643 
+V G "colap" 0 29 "int8[6]" `644 
+V G "m" 0 30 "int8" `645 
+V G "i" 0 31 "int8" `646 
+V G "j" 0 31 "int8" `647 
+V G "j1" 0 31 "int8" `648 
+V G "j2" 0 31 "int8" `649 
+V G "j3" 0 31 "int8" `650 
+V G "j4" 0 31 "int8" `651 
+V G "c1" 0 33 "int8" `652 
+V G "c2" 0 33 "int8" `653 
+V G "k1" 0 34 "int8" `654 
+V G "k2" 0 34 "int8" `655 
+V G "k3" 0 34 "int8" `656 
+V G "k4" 0 34 "int8" `657 
+V G "k5" 0 34 "int8" `658 
+V G "k6" 0 34 "int8" `659 
+V G "l1" 0 35 "int8" `660 
+V G "l2" 0 35 "int8" `661 
+V G "l3" 0 35 "int8" `662 
+V G "l4" 0 35 "int8" `663 
+V G "l5" 0 35 "int8" `664 
+V G "l6" 0 35 "int8" `665 
+V G "proceso" 0 37 "int8" `666 
+V G "lenbuff" 0 39 "int8" `667 
+V G "valor" 0 40 "int32" `669 
+V G "valor2" 0 41 "int32" `670 
+V G "val1" 0 42 "int32" `671 
+V G "val2" 0 42 "int32" `672 
+V G "val3" 0 42 "int32" `673 
+V G "val4" 0 42 "int32" `674 
+V G "val5" 0 42 "int32" `675  "int16 quantum=65048;"
+V G "quantum" 0 44 "int16" `676 
+V G "xbuff" 0 47 "int8" `677 
+V G "cbuff" 0 48 "int8[10]" `678 
+V G "rcvchar" 0 49 "int8" `679 
+V G "comando" 0 50 "int8" `680 
+V G "flagcmd" 0 51 "int1" `681 
+V G "vpcb" 0 63 "{int32 di,int32 df,int32 da,int8 estado,int8 wreg,int8 status,int8 bsr,int8 id}[5]" `691 
+F G "activar_timer" 0 66 "void()" `692 
+F G "desactivar_timer" 0 72 "void()" `693 
+V L "c" 0 76 "int8" `695 
+F G "addcbuff" 0 76 "void(int8 c)" `694 
+F G "mostrar_procesos" 0 77 "void()" `696 
+V L "idp" 0 78 "int8" `698 
+F G "descargar_proceso" 0 78 "void(int8 idp)" `697 
+F G "Config_TMR0" 0 79 "void()" `699 
+F G "inter_quantum" 0 84 "void()" `700 
+V L "i" 0 84 "int8" `701 
+C L "inte_Init" 0 105 1 "FUNCTION"
+F G "inte_Init" 0 106 "void()" `702 
+F G "serial_isr" 0 114 "void()" `703  "printf("Recibido");     // se envia por Serial una palabra para verificar interrupcion"
+C L "serial_isr" 0 105 1 "FUNCTION"
+C L "serial_isr" 0 105 1 "FUNCTION"
+V L "c" 0 121 "int8" `705 
+F G "addcbuff" 0 122 "void(int8 c)" `694 
+C L "addcbuff" 0 105 1 "FUNCTION"
+C L "inicbuff" 0 105 1 "FUNCTION"
+F G "inicbuff" 0 135 "void(int8 c)" `704 
+V L "i" 0 136 "int8" `705 
+F G "procesa_cmd" 0 144 "void()" `706  "procesa el ultimo comando guardado, un comando esta comprendido entre $ hasta *"
+V L "i" 0 146 "int8" `707 
+V L "j" 0 146 "int8" `708 
+V L "salida" 0 147 "int8[10]" `709  "Argumento de comando (si lo tiene)"
+C L "procesa_cmd" 0 105 1 "FUNCTION"
+C L "procesa_cmd" 0 105 1 "FUNCTION"
+C L "procesa_cmd" 0 105 1 "FUNCTION"
+C L "procesa_cmd" 0 105 1 "FUNCTION"
+C L "procesa_cmd" 0 105 1 "FUNCTION"
+C L "procesa_cmd" 0 105 1 "FUNCTION"
+C L "ROML_LedA1" 0 105 1 "FUNCTION"
+C L "ROML_LedA1" 0 105 1 "FUNCTION"
+F G "ROML_LedA1" 0 183 "void()" `713 
+C L "ROML_LedA2" 0 105 1 "FUNCTION"
+C L "ROML_LedA2" 0 105 1 "FUNCTION"
+F G "ROML_LedA2" 0 205 "void()" `714 
+C L "voidTask_LedC1" 0 105 1 "FUNCTION"
+C L "voidTask_LedC1" 0 105 1 "FUNCTION"
+F G "voidTask_LedC1" 0 233 "void()" `715 
+C L "voidTask_LedC2" 0 105 1 "FUNCTION"
+C L "voidTask_LedC2" 0 105 1 "FUNCTION"
+F G "voidTask_LedC2" 0 267 "void()" `716 
+C L "task_manager" 0 105 1 "FUNCTION"
+C L "task_manager" 0 105 1 "FUNCTION"
+F G "task_manager" 0 301 "void()" `717 
+V L "m" 0 304 "int8" `718 
+V L "mproceso" 0 305 "int32" `719 
+V L "mdirini" 0 305 "int32" `720 
+V L "mdirfin" 0 305 "int32" `721 
+V L "mdiract" 0 305 "int32" `722 
+V L "mm" 0 319 "int16" `734 
+V L "mmm" 0 322 "int8" `735 
+V L "idp" 0 335 "int8" `737 
+F G "cargar_proceso" 0 336 "void(int8 idp)" `736 
+V L "idp" 0 344 "int8" `746 
+F G "descargar_proceso" 0 345 "void(int8 idp)" `697 
+V L "s" 0 346 "int8" `745 
+V L "d" 0 346 "int8" `746 
+V L "f" 0 346 "int8" `747 
+F G "Port_Init" 0 362 "void()" `749 
+F G "Config_TMR0" 0 372 "void()" `699 
+F G "Procesos_Init" 0 378 "void()" `750 
+F G "MCU_Init" 0 403 "void()" `751 
+F G "Inicio_SO" 0 419 "void()" `753 
+F G "MAIN" 0 454 "void()" `754 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1
