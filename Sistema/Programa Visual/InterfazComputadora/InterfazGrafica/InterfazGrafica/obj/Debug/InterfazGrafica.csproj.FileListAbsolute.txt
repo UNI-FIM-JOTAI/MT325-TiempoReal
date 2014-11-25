@@ -8,3 +8,4 @@ D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazC
 D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.pdb
 D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.Caledarizacion.resources
 D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.Principal.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.CargaDescarga.resources

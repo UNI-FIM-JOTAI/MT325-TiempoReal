@@ -30,33 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
-            this.PuertoList = new System.Windows.Forms.ComboBox();
-            this.BtnConexion = new System.Windows.Forms.Button();
             this.PuertoSerial = new System.IO.Ports.SerialPort(this.components);
             this.BtnCalendarizacion = new System.Windows.Forms.PictureBox();
+            this.BtnCargaDescarga = new System.Windows.Forms.Button();
+            this.BtnVersion = new System.Windows.Forms.Button();
+            this.BtnAdmProcesos = new System.Windows.Forms.Button();
+            this.Calendarizacion = new System.Windows.Forms.Label();
+            this.AdmProcesos = new System.Windows.Forms.Label();
+            this.CargaDescarga = new System.Windows.Forms.Label();
+            this.Version = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCalendarizacion)).BeginInit();
             this.SuspendLayout();
-            // 
-            // PuertoList
-            // 
-            this.PuertoList.FormattingEnabled = true;
-            this.PuertoList.Location = new System.Drawing.Point(21, 79);
-            this.PuertoList.Name = "PuertoList";
-            this.PuertoList.Size = new System.Drawing.Size(94, 21);
-            this.PuertoList.TabIndex = 0;
-            this.PuertoList.SelectedIndexChanged += new System.EventHandler(this.PuertoList_SelectedIndexChanged);
-            // 
-            // BtnConexion
-            // 
-            this.BtnConexion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnConexion.BackgroundImage")));
-            this.BtnConexion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnConexion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnConexion.Location = new System.Drawing.Point(34, 12);
-            this.BtnConexion.Name = "BtnConexion";
-            this.BtnConexion.Size = new System.Drawing.Size(68, 61);
-            this.BtnConexion.TabIndex = 1;
-            this.BtnConexion.UseVisualStyleBackColor = true;
-            this.BtnConexion.Click += new System.EventHandler(this.BtnConexion_Click);
             // 
             // PuertoSerial
             // 
@@ -66,12 +50,96 @@
             // 
             this.BtnCalendarizacion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnCalendarizacion.BackgroundImage")));
             this.BtnCalendarizacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnCalendarizacion.Location = new System.Drawing.Point(162, 12);
+            this.BtnCalendarizacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCalendarizacion.Location = new System.Drawing.Point(57, 64);
             this.BtnCalendarizacion.Name = "BtnCalendarizacion";
-            this.BtnCalendarizacion.Size = new System.Drawing.Size(83, 77);
+            this.BtnCalendarizacion.Size = new System.Drawing.Size(85, 75);
             this.BtnCalendarizacion.TabIndex = 2;
             this.BtnCalendarizacion.TabStop = false;
             this.BtnCalendarizacion.Click += new System.EventHandler(this.BtnCalendarizacion_Click);
+            // 
+            // BtnCargaDescarga
+            // 
+            this.BtnCargaDescarga.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnCargaDescarga.BackgroundImage")));
+            this.BtnCargaDescarga.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnCargaDescarga.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCargaDescarga.Location = new System.Drawing.Point(207, 64);
+            this.BtnCargaDescarga.Name = "BtnCargaDescarga";
+            this.BtnCargaDescarga.Size = new System.Drawing.Size(85, 75);
+            this.BtnCargaDescarga.TabIndex = 3;
+            this.BtnCargaDescarga.UseVisualStyleBackColor = true;
+            this.BtnCargaDescarga.Click += new System.EventHandler(this.BtnCargaDescarga_Click);
+            // 
+            // BtnVersion
+            // 
+            this.BtnVersion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnVersion.BackgroundImage")));
+            this.BtnVersion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnVersion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnVersion.Location = new System.Drawing.Point(57, 177);
+            this.BtnVersion.Name = "BtnVersion";
+            this.BtnVersion.Size = new System.Drawing.Size(85, 75);
+            this.BtnVersion.TabIndex = 4;
+            this.BtnVersion.UseVisualStyleBackColor = true;
+            // 
+            // BtnAdmProcesos
+            // 
+            this.BtnAdmProcesos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnAdmProcesos.BackgroundImage")));
+            this.BtnAdmProcesos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnAdmProcesos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAdmProcesos.Location = new System.Drawing.Point(207, 177);
+            this.BtnAdmProcesos.Name = "BtnAdmProcesos";
+            this.BtnAdmProcesos.Size = new System.Drawing.Size(85, 75);
+            this.BtnAdmProcesos.TabIndex = 5;
+            this.BtnAdmProcesos.UseVisualStyleBackColor = true;
+            // 
+            // Calendarizacion
+            // 
+            this.Calendarizacion.AutoSize = true;
+            this.Calendarizacion.BackColor = System.Drawing.Color.Transparent;
+            this.Calendarizacion.Font = new System.Drawing.Font("Segoe Marker", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Calendarizacion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Calendarizacion.Location = new System.Drawing.Point(41, 42);
+            this.Calendarizacion.Name = "Calendarizacion";
+            this.Calendarizacion.Size = new System.Drawing.Size(115, 19);
+            this.Calendarizacion.TabIndex = 6;
+            this.Calendarizacion.Text = "Calendarización";
+            // 
+            // AdmProcesos
+            // 
+            this.AdmProcesos.AutoSize = true;
+            this.AdmProcesos.BackColor = System.Drawing.Color.Transparent;
+            this.AdmProcesos.Font = new System.Drawing.Font("Segoe Marker", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdmProcesos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AdmProcesos.Location = new System.Drawing.Point(199, 155);
+            this.AdmProcesos.Name = "AdmProcesos";
+            this.AdmProcesos.Size = new System.Drawing.Size(106, 19);
+            this.AdmProcesos.TabIndex = 7;
+            this.AdmProcesos.Text = "Adm. Procesos";
+            this.AdmProcesos.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // CargaDescarga
+            // 
+            this.CargaDescarga.AutoSize = true;
+            this.CargaDescarga.BackColor = System.Drawing.Color.Transparent;
+            this.CargaDescarga.Font = new System.Drawing.Font("Segoe Marker", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CargaDescarga.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CargaDescarga.Location = new System.Drawing.Point(190, 42);
+            this.CargaDescarga.Name = "CargaDescarga";
+            this.CargaDescarga.Size = new System.Drawing.Size(127, 19);
+            this.CargaDescarga.TabIndex = 8;
+            this.CargaDescarga.Text = "Carga y Descarga";
+            // 
+            // Version
+            // 
+            this.Version.AutoSize = true;
+            this.Version.BackColor = System.Drawing.Color.Transparent;
+            this.Version.Font = new System.Drawing.Font("Segoe Marker", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Version.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Version.Location = new System.Drawing.Point(70, 155);
+            this.Version.Name = "Version";
+            this.Version.Size = new System.Drawing.Size(59, 19);
+            this.Version.TabIndex = 9;
+            this.Version.Text = "Version";
             // 
             // Principal
             // 
@@ -79,25 +147,36 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(732, 388);
+            this.ClientSize = new System.Drawing.Size(370, 310);
+            this.Controls.Add(this.Version);
+            this.Controls.Add(this.CargaDescarga);
+            this.Controls.Add(this.AdmProcesos);
+            this.Controls.Add(this.Calendarizacion);
+            this.Controls.Add(this.BtnAdmProcesos);
+            this.Controls.Add(this.BtnVersion);
+            this.Controls.Add(this.BtnCargaDescarga);
             this.Controls.Add(this.BtnCalendarizacion);
-            this.Controls.Add(this.BtnConexion);
-            this.Controls.Add(this.PuertoList);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Principal";
             this.Text = "InterfazGrafica";
             this.Load += new System.EventHandler(this.Principal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BtnCalendarizacion)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ComboBox PuertoList;
-        private System.Windows.Forms.Button BtnConexion;
         private System.IO.Ports.SerialPort PuertoSerial;
         private System.Windows.Forms.PictureBox BtnCalendarizacion;
+        private System.Windows.Forms.Button BtnCargaDescarga;
+        private System.Windows.Forms.Button BtnVersion;
+        private System.Windows.Forms.Button BtnAdmProcesos;
+        private System.Windows.Forms.Label Calendarizacion;
+        private System.Windows.Forms.Label AdmProcesos;
+        private System.Windows.Forms.Label CargaDescarga;
+        private System.Windows.Forms.Label Version;
     }
 }
 

@@ -22,11 +22,11 @@ namespace InterfazGrafica
         public Principal()
         {
             InitializeComponent();
-            PuertoList.Items.Clear();
+            //PuertoList.Items.Clear();
             foreach (string s in SerialPort.GetPortNames())
             {
-                PuertoList.Items.Add(s);
-                PuertoList.Text = s;
+            //    PuertoList.Items.Add(s);
+            //    PuertoList.Text = s;
             }
             PuertoSerial.PortName = "COM1";
         }
@@ -35,7 +35,7 @@ namespace InterfazGrafica
         {
             if (!PuertoSerial.IsOpen)
             {
-                PuertoSerial.PortName = PuertoList.Text;
+               // PuertoSerial.PortName = PuertoList.Text;
             }
             PuertoSerial.Close();
             PuertoSerial.Open();
@@ -46,7 +46,7 @@ namespace InterfazGrafica
             }
             else
             {
-                MessageBox.Show("Puerto " + PuertoList.Text + " conectado con exito.", "Exito en la conexión.",
+                MessageBox.Show("Puerto conectado con exito.", "Exito en la conexión.",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
@@ -54,14 +54,14 @@ namespace InterfazGrafica
 
         private void BtnCalendarizacion_Click(object sender, EventArgs e)
         {
-            Caledarizacion frm = new Caledarizacion();
-            frm.Show();
+            Caledarizacion frm1 = new Caledarizacion();
+            frm1.Show();
 
         }
 
         private void PuertoList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PuertoSerial.PortName = PuertoList.Text;
+           // PuertoSerial.PortName = PuertoList.Text;
         }
 
         private void Principal_Load(object sender, EventArgs e)
@@ -75,8 +75,20 @@ namespace InterfazGrafica
             data = data.ToString();
             if (data.EndsWith("*")) 
             {
-                data = data.Remove(data.Length - 2);
+                data = data.Remove(data.Length - 1);
+                
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCargaDescarga_Click(object sender, EventArgs e)
+        {
+            CargaDescarga fmr2 = new CargaDescarga();
+            fmr2.Show();
         }
     }
 }
