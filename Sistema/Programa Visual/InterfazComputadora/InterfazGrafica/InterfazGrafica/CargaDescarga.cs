@@ -183,6 +183,11 @@ namespace InterfazGrafica
             //Btn_Descargar5.Enabled = false;
         }
 
+        private void PuertoList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         
     }
 }

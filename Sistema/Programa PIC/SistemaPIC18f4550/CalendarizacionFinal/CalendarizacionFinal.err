@@ -1,0 +1,15 @@
+>>> Warning 203 "CalendarizacionFinal.c" Line 532(1,1): Condition always TRUE
+>>> Warning 216 "CalendarizacionFinal.c" Line 778(1,2): Interrupts disabled during call to prevent re-entrancy:  (@MUL1616)
+>>> Warning 202 "CalendarizacionFinal.c" Line 53(7,14): Variable never used:   quantum
+>>> Warning 202 "CalendarizacionFinal.c" Line 60(9,11): Variable never used:   ii
+>>> Warning 202 "CalendarizacionFinal.c" Line 77(7,12): Variable never used:   value
+>>> Warning 202 "CalendarizacionFinal.c" Line 78(7,13): Variable never used:   value1
+>>> Warning 202 "CalendarizacionFinal.c" Line 84(18,20): Variable never used:   k5
+>>> Warning 202 "CalendarizacionFinal.c" Line 84(21,23): Variable never used:   k6
+>>> Warning 202 "CalendarizacionFinal.c" Line 85(18,20): Variable never used:   l5
+>>> Warning 202 "CalendarizacionFinal.c" Line 85(21,23): Variable never used:   l6
+>>> Warning 202 "CalendarizacionFinal.c" Line 87(6,7): Variable never used:   m
+>>> Warning 202 "CalendarizacionFinal.c" Line 110(5,20): Variable never used:   long_calendario
+      Memory usage:   ROM=29%      RAM=86% - 90%
+      0 Errors,  12 Warnings.
+Build Successful.

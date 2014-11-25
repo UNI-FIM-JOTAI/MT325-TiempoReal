@@ -1,8 +1,8 @@
-D G "__PCH__" 0 464 ""5.008""
-D G "__DEVICE__" 0 464 "4550"
-D G "__DATE__" 0 464 ""18-nov-14""
-D G "__TIME__" 0 464 ""18:30:00"" "Tiempo real"
-c L "set_tris_a" 0 105 6 "FUNCTION"
+D G "__PCH__" 0 0 ""5.008""
+D G "__DEVICE__" 0 0 ""
+D G "__DATE__" 0 0 ""25-nov-14""
+D G "__TIME__" 0 0 ""15:31:52"" "Tiempo real"
+c L "set_tris_a" 0 0 6 "FUNCTION"
 c L "set_tris_a" 1 1 22 "FUNCTION"
 v L "value" 1 36 "int8" `54 
 f B "set_tris_a" 1 36 "void(int8 value)" `53 

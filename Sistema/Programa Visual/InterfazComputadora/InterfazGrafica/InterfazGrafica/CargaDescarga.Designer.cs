@@ -200,6 +200,7 @@
             this.PuertoList.Name = "PuertoList";
             this.PuertoList.Size = new System.Drawing.Size(94, 21);
             this.PuertoList.TabIndex = 4;
+            this.PuertoList.SelectedIndexChanged += new System.EventHandler(this.PuertoList_SelectedIndexChanged);
             // 
             // PuertoSerial
             // 

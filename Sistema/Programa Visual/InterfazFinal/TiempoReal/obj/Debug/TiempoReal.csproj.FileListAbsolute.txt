@@ -1,0 +1,121 @@
+C:\Users\Administrador\Desktop\Tiempo Real\Interfaz\TiempoReal\TiempoReal\bin\Debug\TiempoReal.exe.config
+C:\Users\Administrador\Desktop\Tiempo Real\Interfaz\TiempoReal\TiempoReal\bin\Debug\TiempoReal.exe
+C:\Users\Administrador\Desktop\Tiempo Real\Interfaz\TiempoReal\TiempoReal\bin\Debug\TiempoReal.pdb
+C:\Users\Administrador\Desktop\Tiempo Real\Interfaz\TiempoReal\TiempoReal\obj\Debug\TiempoReal.csprojResolveAssemblyReference.cache
+C:\Users\Administrador\Desktop\Tiempo Real\Interfaz\TiempoReal\TiempoReal\obj\Debug\TiempoReal.Form1.resources
+C:\Users\Administrador\Desktop\Tiempo Real\Interfaz\TiempoReal\TiempoReal\obj\Debug\TiempoReal.Properties.Resources.resources
+C:\Users\Administrador\Desktop\Tiempo Real\Interfaz\TiempoReal\TiempoReal\obj\Debug\TiempoReal.csproj.GenerateResource.Cache
+C:\Users\Administrador\Desktop\Tiempo Real\Interfaz\TiempoReal\TiempoReal\obj\Debug\TiempoReal.exe
+C:\Users\Administrador\Desktop\Tiempo Real\Interfaz\TiempoReal\TiempoReal\obj\Debug\TiempoReal.pdb
+C:\Users\Administrador\Desktop\Tiempo Real\Interfaz\TiempoReal\TiempoReal\obj\Debug\TiempoReal.Form2.resources
+C:\Users\Administrador\Desktop\Tiempo Real\Interfaz\TiempoReal\TiempoReal\obj\Debug\TiempoReal.Form3.resources
+C:\Users\Administrador\Desktop\Tiempo Real\Interfaz\TiempoReal\TiempoReal\obj\Debug\TiempoReal.Form4.resources
+C:\Users\User\Desktop\2013-II\VISUALTiempoReal\TiempoReal\bin\Debug\TiempoReal.exe.config
+C:\Users\User\Desktop\2013-II\VISUALTiempoReal\TiempoReal\obj\Debug\TiempoReal.exe
+C:\Users\User\Desktop\2013-II\VISUALTiempoReal\TiempoReal\obj\Debug\TiempoReal.pdb
+C:\Users\User\Desktop\2013-II\VISUALTiempoReal\TiempoReal\bin\Debug\TiempoReal.exe
+C:\Users\User\Desktop\2013-II\VISUALTiempoReal\TiempoReal\bin\Debug\TiempoReal.pdb
+C:\Users\User\Desktop\2013-II\VISUALTiempoReal\TiempoReal\obj\Debug\TiempoReal.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\2013-II\VISUALTiempoReal\TiempoReal\obj\Debug\TiempoReal.Form1.resources
+C:\Users\User\Desktop\2013-II\VISUALTiempoReal\TiempoReal\obj\Debug\TiempoReal.Form2.resources
+C:\Users\User\Desktop\2013-II\VISUALTiempoReal\TiempoReal\obj\Debug\TiempoReal.Form3.resources
+C:\Users\User\Desktop\2013-II\VISUALTiempoReal\TiempoReal\obj\Debug\TiempoReal.Form4.resources
+C:\Users\User\Desktop\2013-II\VISUALTiempoReal\TiempoReal\obj\Debug\TiempoReal.Properties.Resources.resources
+C:\Users\User\Desktop\2013-II\VISUALTiempoReal\TiempoReal\obj\Debug\TiempoReal.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\ParedesSalcedo\Interfaz_JM\TiempoReal\bin\Debug\TiempoReal.exe.config
+C:\Users\User\Desktop\ParedesSalcedo\Interfaz_JM\TiempoReal\obj\Debug\TiempoReal.exe
+C:\Users\User\Desktop\ParedesSalcedo\Interfaz_JM\TiempoReal\obj\Debug\TiempoReal.pdb
+C:\Users\User\Desktop\ParedesSalcedo\Interfaz_JM\TiempoReal\bin\Debug\TiempoReal.exe
+C:\Users\User\Desktop\ParedesSalcedo\Interfaz_JM\TiempoReal\bin\Debug\TiempoReal.pdb
+C:\Users\User\Desktop\ParedesSalcedo\Interfaz_JM\TiempoReal\obj\Debug\TiempoReal.Cargar_Proceso.resources
+C:\Users\User\Desktop\ParedesSalcedo\Interfaz_JM\TiempoReal\obj\Debug\TiempoReal.Properties.Resources.resources
+C:\Users\User\Desktop\ParedesSalcedo\Interfaz_JM\TiempoReal\obj\Debug\TiempoReal.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\ParedesSalcedo\Interfaz_JM\TiempoReal\obj\Debug\TiempoReal.Main_Form.resources
+C:\Users\User\Desktop\ParedesSalcedo\Interfaz_JM\TiempoReal\obj\Debug\TiempoReal.Descargar_Proceso.resources
+C:\Users\User\Desktop\ParedesSalcedo\Interfaz_JM\TiempoReal\obj\Debug\TiempoReal.Administrador_Procesos.resources
+C:\Users\User\Desktop\ParedesSalcedo\Interfaz_JM\TiempoReal\obj\Debug\TiempoReal.Ayuda.resources
+C:\Users\User\Desktop\ParedesSalcedo\Interfaz_JM\TiempoReal\obj\Debug\TiempoReal.Version_SO.resources
+C:\Users\User\Desktop\ParedesSalcedo\Interfaz_JM\TiempoReal\obj\Debug\TiempoReal.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\bin\Debug\TiempoReal.exe.config
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.exe
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.pdb
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\bin\Debug\TiempoReal.exe
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\bin\Debug\TiempoReal.pdb
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Ayuda.resources
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Main_Form.resources
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Cargar_Proceso.resources
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Descargar_Proceso.resources
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Administrador_Procesos.resources
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Properties.Resources.resources
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Version_SO.resources
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Calendario_main.resources
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.LecturaADC.resources
+C:\Users\User\Desktop\ParedesSalcedo\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.csprojResolveAssemblyReference.cache
+D:\Tiempo Real\RTOS_interfaz\TiempoReal\bin\Debug\TiempoReal.exe.config
+D:\Tiempo Real\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.exe
+D:\Tiempo Real\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.pdb
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\bin\Debug\TiempoReal.exe.config
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.exe
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.pdb
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\bin\Debug\TiempoReal.exe
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\bin\Debug\TiempoReal.pdb
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.csprojResolveAssemblyReference.cache
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Ayuda.resources
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Calendario_main.resources
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.LecturaADC.resources
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Main_Form.resources
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Cargar_Proceso.resources
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Descargar_Proceso.resources
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Administrador_Procesos.resources
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Properties.Resources.resources
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Version_SO.resources
+D:\Escritorio\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.csproj.GenerateResource.Cache
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\bin\Debug\TiempoReal.exe.config
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.exe
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.pdb
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\bin\Debug\TiempoReal.exe
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\bin\Debug\TiempoReal.pdb
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.csprojResolveAssemblyReference.cache
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Ayuda.resources
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Calendario_main.resources
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.LecturaADC.resources
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Main_Form.resources
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Cargar_Proceso.resources
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Descargar_Proceso.resources
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Administrador_Procesos.resources
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Properties.Resources.resources
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Version_SO.resources
+E:\TR\MT325_PAREDES_SALCEDO\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.csproj.GenerateResource.Cache
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\bin\Debug\TiempoReal.exe.config
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.exe
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.pdb
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\bin\Debug\TiempoReal.exe
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\bin\Debug\TiempoReal.pdb
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.csprojResolveAssemblyReference.cache
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Ayuda.resources
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Calendario_main.resources
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.LecturaADC.resources
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Main_Form.resources
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Cargar_Proceso.resources
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Descargar_Proceso.resources
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Administrador_Procesos.resources
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Properties.Resources.resources
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.Version_SO.resources
+D:\IGNACIO\Universidad\Ciclo2014_II\Tiempo Real\VISUAL\Tiempo Real 02\OTROS\ParedesRojas_SalcedoPiscoya\RTOS_interfaz\TiempoReal\obj\Debug\TiempoReal.csproj.GenerateResource.Cache
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\bin\Debug\TiempoReal.exe.config
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\obj\Debug\TiempoReal.exe
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\obj\Debug\TiempoReal.pdb
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\bin\Debug\TiempoReal.exe
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\bin\Debug\TiempoReal.pdb
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\obj\Debug\TiempoReal.csprojResolveAssemblyReference.cache
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\obj\Debug\TiempoReal.Ayuda.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\obj\Debug\TiempoReal.Calendario_main.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\obj\Debug\TiempoReal.LecturaADC.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\obj\Debug\TiempoReal.Main_Form.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\obj\Debug\TiempoReal.Cargar_Proceso.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\obj\Debug\TiempoReal.Descargar_Proceso.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\obj\Debug\TiempoReal.Administrador_Procesos.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\obj\Debug\TiempoReal.Properties.Resources.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\obj\Debug\TiempoReal.Version_SO.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazFinal\TiempoReal\obj\Debug\TiempoReal.csproj.GenerateResource.Cache
