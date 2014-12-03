@@ -17,7 +17,7 @@ namespace InterfazGrafica
 
         #region VARIABLES
         private string data = "";
-        private int j = 0, k = 0;
+        private int j = 0;
         private string cmd,cmd_num;
 
         #endregion
@@ -115,70 +115,70 @@ namespace InterfazGrafica
 
         private void Btn_Cargar1_Click(object sender, EventArgs e)
         {
-            PuertoSerial.Write("$C0*");
+            PuertoSerial.Write("$C1*");
             Btn_Cargar1.Enabled = false;
             Btn_Descargar1.Enabled = true;
         }
 
         private void Btn_Descargar1_Click(object sender, EventArgs e)
         {
-            PuertoSerial.Write("$D0*");
+            PuertoSerial.Write("$D1*");
             Btn_Cargar1.Enabled = true;
             Btn_Descargar1.Enabled = false;
         }
 
         private void Btn_Cargar2_Click(object sender, EventArgs e)
         {
-            PuertoSerial.Write("$C1*");
+            PuertoSerial.Write("$C2*");
             Btn_Cargar2.Enabled = false;
             Btn_Descargar2.Enabled = true;
         }
 
         private void Btn_Descargar2_Click(object sender, EventArgs e)
         {
-            PuertoSerial.Write("$D1*");
+            PuertoSerial.Write("$D2*");
             Btn_Cargar2.Enabled = true;
             Btn_Descargar2.Enabled = false;
         }
 
         private void Btn_Cargar3_Click(object sender, EventArgs e)
         {
-            PuertoSerial.Write("$C2*");
+            PuertoSerial.Write("$C3*");
             Btn_Cargar3.Enabled = false;
             //Btn_Descargar3.Enabled = true;
         }
 
         private void Btn_Descargar3_Click(object sender, EventArgs e)
         {
-            PuertoSerial.Write("$D2*");
+            PuertoSerial.Write("$D3*");
             Btn_Cargar3.Enabled = true;
             //Btn_Descargar3.Enabled = false;
         }
 
         private void Btn_Cargar4_Click(object sender, EventArgs e)
         {
-            PuertoSerial.Write("$C3*");
+            PuertoSerial.Write("$C4*");
             Btn_Cargar4.Enabled = false;
             //Btn_Descargar4.Enabled = true;
         }
 
         private void Btn_Descargar4_Click(object sender, EventArgs e)
         {
-            PuertoSerial.Write("$D3*");
+            PuertoSerial.Write("$D4*");
             Btn_Cargar4.Enabled = true;
             //Btn_Descargar4.Enabled = false;
         }
 
         private void Btn_Cargar5_Click(object sender, EventArgs e)
         {
-            PuertoSerial.Write("$C4*");
+            PuertoSerial.Write("$C5*");
             //Btn_Cargar5.Enabled = false;
             //Btn_Descargar5.Enabled = true;
         }
 
         private void Btn_Descargar5_Click(object sender, EventArgs e)
         {
-            PuertoSerial.Write("$D4*");
+            PuertoSerial.Write("$D5*");
             //Btn_Cargar5.Enabled = true;
             //Btn_Descargar5.Enabled = false;
         }

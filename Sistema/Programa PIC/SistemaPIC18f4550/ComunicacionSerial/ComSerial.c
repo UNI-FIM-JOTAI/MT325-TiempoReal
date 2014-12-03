@@ -1,13 +1,3 @@
-/*
-Tiempo real
-comandos para enviar
-COMANDO: $C0*     //Programa1
-COMANDO: $C1*     //Programa2
-COMANDO: $C2*     //Programa3
-COMANDO: $C3*     //Programa4
-COMANDO: $C4*     //Programa5
-
-*/
 #include <18F4550.h>
 
 #use delay(clock=10000000)
@@ -27,7 +17,7 @@ COMANDO: $C4*     //Programa5
 
 int np=0;
 int colap[6];
-int m;
+int m,m1;
 int8 i,j,j1,j2,j3,j4;
 
 int c1,c2;
@@ -37,11 +27,9 @@ int l1,l2,l3,l4,l5,l6;
 char proceso;
 
 int const lenbuff=10;
-int32 valor=0;
-int32 valor2=0;
+int valor2=0;
 int32 val1,val2,val3,val4,val5;
 //int16 quantum=65048;
-int16 quantum=65048;
 
 
 int   xbuff=0x00;
@@ -60,11 +48,37 @@ int wreg;
 int status;
 int bsr;
 int id;
-} vpcb[5];
+int prioridad;
+} vpcb[10];
+
+// ======== VARIABLES DEL CALENDARIO ========== \\
+// estado_calendario = 0 -->   No ejecutar 
+// estado_calendario = 1 -->   Ejecutar 
+// estado_calendario = 2 -->   Vacio
+// estado_calendario = 3 -->   Cargando
+
+int8 calendario[1000];
+int reloj = 0;
+int estado_calendario = 0;
+int prioridad_act = 0;
+//=========================
+int16 mcm=0;
+//=============================
+
 
 void activar_timer()
 {
-   set_timer0(quantum);
+   // set_timer0(65478);    //    para 3ms
+   // set_timer0(65438);    //    para 5ms
+   // set_timer0(65380);    //    para 8ms
+   // set_timer0(65341);    //    para 10ms
+   // set_timer0(65282);    //    para 13ms
+   // set_timer0(65243);    //    para 15ms
+   // set_timer0(65185);    //    para 18ms
+   // set_timer0(65146);    //    para 20ms
+    set_timer0(65048);    //    para 25ms
+   // set_timer0(64950);    //    para 30ms
+   //set_timer0(quantum);
    enable_interrupts(INT_TIMER0);
 }
 
@@ -83,24 +97,45 @@ void Config_TMR0();
 void inter_quantum()
 {  int i=0;
    desactivar_timer();
+   output_toggle(PIN_D6);
+   // Guardando variables
    vpcb[colap[0]].wreg=wreg;
    vpcb[colap[0]].da=(int32)TOSL;
    vpcb[colap[0]].da=vpcb[colap[0]].da|((int32)TOSH<<8);
    vpcb[colap[0]].da=vpcb[colap[0]].da|((int32)TOSU<<16);
-   output_toggle(PIN_D6);
+   
+   // corriendo proceso
    if(np>1)
-   {  m=colap[0];
-      for(i=0;i<np-1;i++)
-      {colap[i]=colap[i+1];
+   {   
+      prioridad_act = 0;
+      for (i=1; i<np; i++ ){
+         if (vpcb[colap[i]].prioridad > prioridad_act){
+            m1 = i;
+            prioridad_act = vpcb[colap[i]].prioridad;
+         }
+      }
+      
+      m=colap[0];
+      colap[0] = colap[m1];
+      for(i=m1;i<np-1;i++)
+      {
+         colap[i]=colap[i+1];
       }
       colap[np-1]=m;
    }
    
+   if(estado_calendario == 1){
+      reloj++;
+      if(reloj == mcm){
+         reloj = 0;
+      }
+   }
+   
+   //==== PC=S0_Init() =======
    TOSL=00;
    TOSH=40;
    TOSU=00;
 } 
-
 
 void inte_Init()  // interrupcion de puerto serial
 {
@@ -141,6 +176,7 @@ void inicbuff(void)           // inicializa el buffer, limpiandolo
    xbuff=0x00;
 }
 
+
 void procesa_cmd(void){             // procesa el ultimo comando guardado, un comando esta comprendido entre $ hasta * 
  
    int i, j=0;                      
@@ -155,17 +191,10 @@ void procesa_cmd(void){             // procesa el ultimo comando guardado, un co
             salida[j++]=cbuff[i++];
          }
          comando = salida[1];
-         valor2 = salida[2] -'0' + 1;
-         val1 = salida[2] - '0';
-         val1 = val1;
-         val2 = salida[3] - '0';
-         val2 = val1*10 + val2;
-         val3 = salida[4] - '0';
-         val3 = val2*10 +val3;
-         val4 = salida[5] - '0';
-         val4 = val3*10+val4;
-         val5 = salida[6]-'0';
-         valor = val4*10 + val5;
+         valor2 = salida[2] -'0';
+         val1 = salida[2];
+         val2 = salida[3];
+         
       }
    }
    inicbuff();                            // Borro buffer.
@@ -176,125 +205,122 @@ void procesa_cmd(void){             // procesa el ultimo comando guardado, un co
    enable_interrupts(int_rda);            
 }
 
-//PROGRAMA 1: Luces Secuenciales - Bucle Infinito
 
-#ORG 0x1000, 0x1100        // COMANDO: $C0*
-void ROML_LedA1()
+//*****************************************************************************
+//PROGRAMA 1: Parpadeo Led D0
+
+#ORG 0x1000, 0x1044
+void Parpadear_D0()
 {
-   set_tris_a(0x00);
    while(TRUE)
    {
-      for (j1=0;j1<3;++j1)
-      {
-         IF(j1==0)
-         {
-            OUTPUT_BIT(PIN_A0,0);
-            OUTPUT_BIT(PIN_A1,0);
-         }
-         IF(j1==1){OUTPUT_BIT(PIN_A0,1);}
-         IF(j1==2){OUTPUT_BIT(PIN_A1,1);}
-         for (k1=1;k1<200;++k1){for (l1=1;l1<200;++l1){}}
-      }
+      output_toggle(PIN_D0);
+      for (k1=1;k1<170;++k1){for (l1=1;l1<170;++l1){}}
+      output_toggle(PIN_D0);
+      for (k1=1;k1<170;++k1){for (l1=1;l1<170;++l1){}}
    }
 }
 
-//PROGRAMA 2: Luces Secuenciales 2 - Bucle Infinito
+//*****************************************************************************
+//PROGRAMA 2: Parpadeo Led D1
 
-#ORG 0x1102, 0x1200        // COMANDO: $C1*
-void ROML_LedA2()
+#ORG 0x1046, 0x1090       
+void Parpadear_D1()
 {
-   set_tris_d(0x00);
    while(TRUE)
    {
-      for (j2=0;j2<3;++j2)
-      {
-         IF(j2==0)
-         {
-            OUTPUT_BIT(PIN_D2,0);
-            OUTPUT_BIT(PIN_D3,0);
-         }
-         IF(j2==1)
-         {
-            OUTPUT_BIT(PIN_D2,1);
-         }
-         IF(j2==2)
-         {
-            OUTPUT_BIT(PIN_D2,0);
-            OUTPUT_BIT(PIN_D3,1);
-         }         
-         for (k2=1;k2<150;++k2){for (l2=1;l2<200;++l2){}}
-      }
+      output_toggle(PIN_D1);
+      for (k1=1;k1<170;++k1){for (l1=1;l1<170;++l1){}}
+      output_toggle(PIN_D1);
+      for (k1=1;k1<170;++k1){for (l1=1;l1<170;++l1){}}
    }
 }
 
-//PROGRAMA 3: Luces Secuenciales C - Finito
+//*****************************************************************************
+//PROGRAMA 3: Parpadeo Led D2
 
-#ORG 0x1202, 0x1300     // COMANDO: $C2*
-void voidTask_LedC1(){
-while(TRUE){
+#ORG 0x1092, 0x10D6
+void Parpadear_D2()
+{
    while(TRUE)
    {
-      for (c1=0;c1<5;c1++)
-      {
-         for (j3=0;j3<3;++j3)
-         {
-            IF(j3==0)
-            {
-               OUTPUT_BIT(PIN_D0,0);
-               OUTPUT_BIT(PIN_D1,0);
-            }
-            IF(j3==1)
-            {
-               OUTPUT_BIT(PIN_D0,1);
-            }
-            IF(j3==2)
-            {
-               OUTPUT_BIT(PIN_D0,0);
-               OUTPUT_BIT(PIN_D1,1);
-            }         
-            for (k5=1;k5<200;++k5){for (l5=1;l5<200;++l5){}}
-         }
-      }
-      comando='D';
-      valor2=3;
-   }
-}
-}
-
-//PROGRAMA 4: Luces Secuenciales C2 - Finito
-
-#ORG 0x1302, 0x1400        // COMANDO: $C3*
-void voidTask_LedC2(){
-   while(TRUE){
-      while(TRUE)
-      {
-         for (c2=0;c2<5;c2++)
-         {
-            for (j4=0;j4<3;++j4)
-            {
-               IF(j4==0)
-               {
-                  OUTPUT_BIT(PIN_D4,0);
-                  OUTPUT_BIT(PIN_D5,0);
-               }
-               IF(j4==1)
-               {
-                  OUTPUT_BIT(PIN_D4,1);
-               }
-               IF(j4==2)
-               {
-                  OUTPUT_BIT(PIN_D4,0);
-                  OUTPUT_BIT(PIN_D5,1);
-               }         
-               for (k6=1;k6<200;++k6){for (l6=1;l6<200;++l6){}}
-            }
-         }
-         comando='D';
-         valor2=4;
-      }
+      output_toggle(PIN_D2);
+      for (k1=1;k1<170;++k1){for (l1=1;l1<170;++l1){}}
+      output_toggle(PIN_D2);
+      for (k1=1;k1<170;++k1){for (l1=1;l1<170;++l1){}}
    }
 }
 
+//*****************************************************************************
+//PROGRAMA 4: Parpadeo Led D3 - FINITO
+
+#ORG 0x10D8, 0x1128
+void Parpadear_D3()
+{
+   while(TRUE)
+   {
+      output_toggle(PIN_D3);
+      for (k1=1;k1<170;++k1){for (l1=1;l1<170;++l1){}}
+      output_toggle(PIN_D3);
+      for (k1=1;k1<170;++k1){for (l1=1;l1<170;++l1){}}
+      comando = 'D';
+      valor2 = 4;
+   }
+}
+
+//*****************************************************************************
+//PROGRAMA 5: Parpadeo Led D4 - FINITO
+
+#ORG 0x112A, 0x117A
+void Parpadear_D4()
+{
+   while(TRUE)
+   {
+      output_toggle(PIN_D4);
+      for (k1=1;k1<170;++k1){for (l1=1;l1<170;++l1){}}
+      output_toggle(PIN_D4);
+      for (k1=1;k1<170;++k1){for (l1=1;l1<170;++l1){}}
+      comando = 'D';
+      valor2 = 5;
+   }
+}
+
+
+//*****************************************************************************
+//PROGRAMA 6: Parpadeo Led B0 - FINITO
+
+#ORG 0x117C, 0x11CC
+void Parpadear_B0()
+{
+   while(TRUE)
+   {
+      output_toggle(PIN_B0);
+      for (k1=1;k1<170;++k1){for (l1=1;l1<170;++l1){}}
+      output_toggle(PIN_B0);
+      for (k1=1;k1<170;++k1){for (l1=1;l1<170;++l1){}}
+      comando = 'D';
+      valor2 = 6;
+   }
+}
+
+//*****************************************************************************
+//PROGRAMA 7: Parpadeo Led B1 - FINITO
+#ORG 0x11CE, 0x121E
+void Parpadear_B1()
+{
+   while(TRUE)
+   {
+      output_toggle(PIN_B1);
+      for (k1=1;k1<170;++k1){for (l1=1;l1<170;++l1){}}
+      output_toggle(PIN_B1);
+      for (k1=1;k1<170;++k1){for (l1=1;l1<170;++l1){}}
+      comando = 'D';
+      valor2 = 7;
+   }
+}
+
+
+/*
 // PROGRAMA 5: Mostrar Procesos
 
 #ORG 0x2502, 0x2850           // COMANDO: $C4*
@@ -329,14 +355,19 @@ void task_manager(){
    }
    
 }
+*/
 
+void limpiar_calendario (int mcm){
+   for (int i=0; i<mcm; i++){
+      Calendario[i] = 0;
+   }
+}
 
-
-void cargar_proceso(int idp)
+void cargar_proceso(int idp, int prioridad)
 {
     colap[np]=idp-1;
     vpcb[idp-1].estado=1;
-    printf("Proceso %i cargado. *",idp);
+    vpcb[idp-1].prioridad =prioridad;
     proceso=10;
     np++;
 }
@@ -355,7 +386,6 @@ void descargar_proceso(int idp)
    np--;   
    vpcb[idp-1].estado=0;
    proceso=0;
-   printf("Proceso %i descargado. *",idp);
 }
 
 void Port_Init()
@@ -376,26 +406,43 @@ void Config_TMR0()
 
 void Procesos_Init()
 {
+   //Programa 1
    vpcb[0].di=0x1000;
    vpcb[0].da=0x1000;   
-   vpcb[0].df=0x1100;
-   vpcb[1].di=0x1102;
-   vpcb[1].da=0x1102;
-   vpcb[1].df=0x1200;
-   vpcb[2].di=0x1202;
-   vpcb[2].da=0x1202;
-   vpcb[2].df=0x1300;
-   vpcb[3].di=0x1302;
-   vpcb[3].da=0x1302;
-   vpcb[3].df=0x1400;
-   vpcb[4].di=0x2502;
-   vpcb[4].da=0x2502;
-   vpcb[4].df=0x2850;
+   vpcb[0].df=0x1044;
+   //Programa 2
+   vpcb[1].di=0x1046;
+   vpcb[1].da=0x1046;
+   vpcb[1].df=0x1090;
+   //Programa 3
+   vpcb[2].di=0x1092;
+   vpcb[2].da=0x1092;
+   vpcb[2].df=0x10D6;
+   //Programa 4
+   vpcb[3].di=0x10D8;
+   vpcb[3].da=0x10D8;
+   vpcb[3].df=0x1128;
+   //Programa 5
+   vpcb[4].di=0x112A;
+   vpcb[4].da=0x112A;
+   vpcb[4].df=0x117A;
+   //Programa 6
+   vpcb[5].di=0x117C;
+   vpcb[5].da=0x117C;
+   vpcb[5].df=0x11CC;
+   //Programa 7
+   vpcb[6].di=0x11CE;
+   vpcb[6].da=0x11CE;
+   vpcb[6].df=0x121E;
+   
    vpcb[0].estado=0;
    vpcb[1].estado=0;
    vpcb[2].estado=0;
    vpcb[3].estado=0;
    vpcb[4].estado=0;
+   vpcb[5].estado=0;
+   vpcb[6].estado=0;
+
    
 }
 
@@ -424,18 +471,62 @@ void Inicio_SO()
       }
       switch(comando)
       {
-         case 'C':{if (valor2<6) cargar_proceso(valor2);break;}
-         case 'D':{if (valor2<6) descargar_proceso(valor2);break;}
-         case 'U':{for (m=1;m<6;m++) {cargar_proceso(m);}
-                   break;}
-         case 'X':{for (m=1;m<6;m++) {descargar_proceso(m);}
-                   break;}
+         case 'C': {    // Cargar proceso especifico
+                     if (valor2<6) cargar_proceso(valor2 , 1);
+                     break;
+                   }
+         case 'D': {    // Descargar proceso especifico
+                     if (valor2<6) descargar_proceso(valor2);
+                     break;
+                   }
+         case 'U': {    // Cargar procesos 1-6
+                     for (m=1;m<6;m++) {cargar_proceso(m , 1);}
+                     break;
+                   }
+         case 'X': {    // Descargar procesos 1-6
+                     for (m=1;m<6;m++) {descargar_proceso(m);}
+                     break;
+                   }
+         case 'M': {    // iniciar/detener carga del calendario
+                     if (valor2 == 0) {
+                        estado_calendario = 3;
+                        mcm = (val1*255) + val2;
+                        limpiar_calendario (mcm);
+                        printf("M+0*");
+                     } else if ( valor2 == 1 ){
+                        estado_calendario = 0;
+                        printf("M+1*");
+                     }
+                     break;
+                   }
+         case 'P': {    // Guardar un proceso en el calendario
+                     int pos;
+                     pos = (val1*255) + val2;
+                     Calendario[pos] = valor2;
+                     printf("P+%i*",valor2);
+                     break;
+                   }
+         case 'T': {    // Ejecutar calendario
+                     estado_calendario = 1;
+                     reloj = 0;
+                     printf("T+1*");
+                     break;
+                   }
+         case 'R': {    // Detener Calendario
+                     estado_calendario = 0;
+                     printf("R+1*");
+                     break;
+                   }
       }
       comando='-';
       valor2=100;
-      valor=0;
-       if(np>0)
-       {
+      if (estado_calendario == 1){
+         if (Calendario[reloj] != 0){
+            cargar_proceso(Calendario[reloj] , 2);
+         }
+      }
+      if(np>0)
+      {
          if(vpcb[colap[0]].estado==1)
             {activar_timer();
              vpcb[colap[0]].estado=2;
@@ -446,7 +537,7 @@ void Inicio_SO()
              activar_timer();
              goto_address(vpcb[colap[0]].da);
             }
-       }
+      }
    }
 }
 

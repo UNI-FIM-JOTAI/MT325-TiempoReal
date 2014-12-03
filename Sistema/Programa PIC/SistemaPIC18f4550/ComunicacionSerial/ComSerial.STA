@@ -1,86 +1,85 @@
 
-ROM used:   4038/16384 (12%)
-            6362/16384 (19%) including unused fragments
+ROM used:   3398/16384 (10%)
+            5352/16384 (16%) including unused fragments
 
-            3.1 Average locations per line
-            15.1 Average locations per statement
+            2.5 Average locations per line
+            12.6 Average locations per statement
 
-RAM used:   181/2048 (9%) at main() level
-            240/2048 (12%) worst case
+RAM used:   1272/2048 (62%) at main() level
+            1302/2048 (64%) worst case
 
-Stack used: 6 worst case (2 in main + 4 for interrupts)
+Stack used: 5 worst case (2 in main + 3 for interrupts)
 Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  463   267 100  ComSerial.c
+  529   269 100  ComSerial.c
   821     0   0  C:\Program Files (x86)\PICC\Devices\18F4550.h
 ----- -----
- 1284   267 Total
+ 1350   269 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 0     12   0    0    32  1.0  activar_timer
-0      4   0    0    17  0.8  desactivar_timer
-0    486   6   12   879  7.5  inter_quantum
+0      6   0    0    17  0.8  desactivar_timer
+0    680  10   12  1420  8.0  inter_quantum
 0     10   0    0    32  1.0  inte_Init
 0     22   0    0    54  1.5  serial_isr
-0     56   1    3   153  4.7  addcbuff
-0     34   0    3   131  3.5  inicbuff
-0    440   5   16  1249  8.3  procesa_cmd
-0     84   1   14             @MUL3232
-0     70   1    0   511  5.2  ROML_LedA1
-0     72   1    0   553  5.2  ROML_LedA2
-0     96   1    0   697  5.3  voidTask_LedC1
-0     96   1    0   697  5.3  voidTask_LedC2
-0    584   7    4   937  6.3  task_manager
-0     52   1    0             @const723
-0     34   0    2             @PSTRINGC_9600_31766_31767
-0     50   1    0             @const725
-0     32   0    3             @PSTRINGCN_9600_31766_31767
-0    142   2   13             @DIV3232
-0    166   2   12             @PRINTF_L32U_9600_31766_31767
-0    106   1    3   170  3.8  cargar_proceso
-0     22   0    0             @const738
-0     40   0    3             @DIV88
-0    178   2    6             @PRINTF_D_9600_31766_31767
-0    192   2    7   527  7.2  descargar_proceso
-0     26   0    0             @const748
+0     60   1    3   153  4.7  addcbuff
+0     38   1    3   131  3.5  inicbuff
+0    212   3   15   736  7.2  procesa_cmd
+0     64   1    0   339  3.7  Parpadear_D0
+0     64   1    0   339  3.7  Parpadear_D1
+0     64   1    0   339  3.7  Parpadear_D2
+0     72   1    0   391  3.7  Parpadear_D3
+0     72   1    0   391  3.7  Parpadear_D4
+0     72   1    0   391  3.7  Parpadear_D5
+0     36   1    3   104  3.7  limpiar_calendario
+0    110   2    4   208  4.3  cargar_proceso
+0    158   2    7   483  7.3  descargar_proceso
 0     18   0    0   106  1.3  Port_Init
 0      8   0    0    18  1.0  Config_TMR0
-0    174   2    0  1046  2.9  Procesos_Init
+0    174   3    0  1046  2.9  Procesos_Init
 0     54   1    0   169  1.3  MCU_Init
-0     24   0    0             @const752
-0    392   5    6  1096  8.7  Inicio_SO
-0     82   1    0    38  0.9  MAIN
-0     22   0    0             @const757
- Inline         0             @cinit1
+0     24   0    0  2048 10.2  @const733
+0     34   1    2  2048 10.2  @PSTRINGC_9600_31766_31767
+0    660  10    6  2048 10.2  Inicio_SO
+0     92   1   14    38  0.9  @MUL3232
+0      6   0    0    38  0.9  @const739
+0      6   0    0    38  0.9  @const740
+0     44   1    3    38  0.9  @DIV88
+0    192   3    6    38  0.9  @PRINTF_D_9600_31766_31767
+0     80   1    0    38  0.9  @goto11106
+0     74   1    0    38  0.9  MAIN
+0     22   0    0    38  0.9  @const753
+ Inline         0    38  0.9  @cinit1
 
 Program metrics:
-    Functions               21
-    Statements              267
-    Comments                187
-    Volume (V)              15108
-    Difficulty (D)          83.8
-    Effort to implement (E) 1266617
-    Time to implement (T)   19 hours, 33 minutes
-    Est Delivered Bugs (B)  4
-    Cyclomatic Complexity   51
-    Maintainability (MI)    45
+    Functions               33
+    Statements              269
+    Comments                254
+    Volume (V)              22595
+    Difficulty (D)          115.2
+    Effort to implement (E) 2601914
+    Time to implement (T)   40 hours, 9 minutes
+    Est Delivered Bugs (B)  6
+    Cyclomatic Complexity   97
+    Maintainability (MI)    57
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00006     4  4  
 00008-000A0   154  0  
-000A2-00FFE  2570  1364  
-01000-01100    70  188  
-01102-01200    72  184  
-01202-01300    96  160  
-01302-01400    96  160  
-01402-02500     0  4352  
-02502-02850   584  264  
-02852-03FFE     0  6062  
-04000-04FFE   392  3704  
+000A2-00FFE  2172  1762  
+01000-01044    64  6  
+01046-01090    64  12  
+01092-010D6    64  6  
+010D8-01128    72  10  
+0112A-0117A    72  10  
+0117C-011F4     0  122  
+011F6-012CC    72  144  
+012CE-03FFE     0  11570  
+04000-04FFE   660  3436  
 05000-07FFE     0  12288  
 
 
