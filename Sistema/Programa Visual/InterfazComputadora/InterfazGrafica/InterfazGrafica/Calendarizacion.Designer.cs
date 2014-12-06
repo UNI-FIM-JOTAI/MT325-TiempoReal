@@ -65,6 +65,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.LConexion = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnPredeterminado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnLimpiar)).BeginInit();
@@ -433,6 +434,18 @@
             this.label3.Text = "Cargar Calendario";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // LConexion
+            // 
+            this.LConexion.AutoSize = true;
+            this.LConexion.BackColor = System.Drawing.Color.Transparent;
+            this.LConexion.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LConexion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LConexion.Location = new System.Drawing.Point(43, 3);
+            this.LConexion.Name = "LConexion";
+            this.LConexion.Size = new System.Drawing.Size(64, 14);
+            this.LConexion.TabIndex = 32;
+            this.LConexion.Text = "Conectar";
+            // 
             // Caledarizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,6 +453,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(756, 415);
+            this.Controls.Add(this.LConexion);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -509,5 +523,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LConexion;
     }
 }

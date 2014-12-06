@@ -43,6 +43,8 @@
             this.BtnConexion = new System.Windows.Forms.Button();
             this.PuertoList = new System.Windows.Forms.ComboBox();
             this.PuertoSerial = new System.IO.Ports.SerialPort(this.components);
+            this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.LConexion = new System.Windows.Forms.Label();
             this.GBx_Proceso3.SuspendLayout();
             this.GBx_Proceso1.SuspendLayout();
             this.GBx_Proceso2.SuspendLayout();
@@ -206,13 +208,30 @@
             // 
             this.PuertoSerial.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.PuertoSerial_DataReceived);
             // 
+            // Timer
+            // 
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
+            // LConexion
+            // 
+            this.LConexion.AutoSize = true;
+            this.LConexion.BackColor = System.Drawing.Color.Transparent;
+            this.LConexion.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LConexion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LConexion.Location = new System.Drawing.Point(48, 9);
+            this.LConexion.Name = "LConexion";
+            this.LConexion.Size = new System.Drawing.Size(64, 14);
+            this.LConexion.TabIndex = 33;
+            this.LConexion.Text = "Conectar";
+            // 
             // CargaDescarga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(530, 259);
+            this.ClientSize = new System.Drawing.Size(530, 246);
+            this.Controls.Add(this.LConexion);
             this.Controls.Add(this.BtnConexion);
             this.Controls.Add(this.PuertoList);
             this.Controls.Add(this.GBx_Proceso4);
@@ -228,6 +247,7 @@
             this.GBx_Proceso2.ResumeLayout(false);
             this.GBx_Proceso4.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -246,5 +266,7 @@
         private System.Windows.Forms.Button BtnConexion;
         private System.Windows.Forms.ComboBox PuertoList;
         private System.IO.Ports.SerialPort PuertoSerial;
+        private System.Windows.Forms.Timer Timer;
+        private System.Windows.Forms.Label LConexion;
     }
 }

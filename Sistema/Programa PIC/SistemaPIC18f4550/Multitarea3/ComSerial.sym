@@ -1,0 +1,221 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @INTERRUPT_AREA
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016     np
+017-01C colap
+01D     m
+01E     m1
+01F     i
+020     j
+021     k1
+022     k2
+023     k3
+024     k4
+025     k5
+026     k6
+027     k7
+028     l1
+029     l2
+02A     l3
+02B     l4
+02C     l5
+02D     l6
+02E     l7
+02F     cont
+030.0   contar
+030.1   flagcmd
+031     proceso
+032     valor2
+033-036 val1
+037-03A val2
+03B-03E val3
+03F-042 val4
+043-046 val5
+047     xbuff
+048-051 cbuff
+052     rcvchar
+053     comando
+054-107 vpcb
+108-4EF calendario
+4F0-4F1 reloj
+4F2     estado_calendario
+4F3     prioridad_act
+4F4-4F5 mcm
+4F8     addcbuff.c
+4F8     inter_quantum.i
+4F9     addcbuff.@SCRATCH1
+4FA     addcbuff.@SCRATCH2
+500     inter_quantum.@SCRATCH1
+501     inter_quantum.@SCRATCH2
+502     inter_quantum.@SCRATCH3
+503     inter_quantum.@SCRATCH4
+504     Inicio_SO.pos
+504     inter_quantum.@SCRATCH5
+505     limpiar_calendario.mcm
+505     @PRINTF_D_9600_31766_31767.P1
+505     descargar_proceso.idp
+505     procesa_cmd.i
+505     inter_quantum.@SCRATCH6
+505     @PSTRINGC_9600_31766_31767.@SCRATCH1
+505     Inicio_SO.@SCRATCH1
+506     cargar_proceso.idp
+506     descargar_proceso.s
+506     procesa_cmd.j
+506     limpiar_calendario.i
+506     @PRINTF_D_9600_31766_31767.P1
+506     inter_quantum.@SCRATCH7
+506     @PSTRINGC_9600_31766_31767.@SCRATCH2
+506     Inicio_SO.@SCRATCH2
+507     cargar_proceso.prioridad
+507-510 procesa_cmd.salida
+507     descargar_proceso.d
+507     inter_quantum.@SCRATCH8
+507     limpiar_calendario.@SCRATCH1
+507     Inicio_SO.@SCRATCH3
+507     @PRINTF_D_9600_31766_31767.@SCRATCH1
+508     descargar_proceso.f
+508     inter_quantum.@SCRATCH9
+508     limpiar_calendario.@SCRATCH2
+508     cargar_proceso.@SCRATCH1
+508     Inicio_SO.@SCRATCH4
+508     @PRINTF_D_9600_31766_31767.@SCRATCH2
+509-50C @MUL3232.P1
+509     inter_quantum.@SCRATCH10
+509     cargar_proceso.@SCRATCH2
+509     descargar_proceso.@SCRATCH1
+509     Inicio_SO.@SCRATCH5
+509     @PRINTF_D_9600_31766_31767.@SCRATCH3
+50A     inter_quantum.@SCRATCH11
+50A     descargar_proceso.@SCRATCH2
+50A     Inicio_SO.@SCRATCH6
+50A     @PRINTF_D_9600_31766_31767.@SCRATCH4
+50B     @DIV88.P1
+50B     descargar_proceso.@SCRATCH3
+50C     @DIV88.P1
+50D-510 @MUL3232.P1
+50D     @DIV88.@SCRATCH1
+511     inicbuff.i
+511     procesa_cmd.@SCRATCH1
+511     @MUL3232.@SCRATCH1
+512     inicbuff.@SCRATCH1
+512     procesa_cmd.@SCRATCH2
+512     @MUL3232.@SCRATCH2
+513     inicbuff.@SCRATCH2
+513     procesa_cmd.@SCRATCH3
+513     @MUL3232.@SCRATCH3
+514     @MUL3232.@SCRATCH4
+515     @MUL3232.@SCRATCH5
+516     @MUL3232.@SCRATCH6
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FD5     T0CON
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE8     wreg
+FE9-FEA @WRITE_PACKED_MEMORY.P1
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PROGRAM_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+FFD     TOSL
+FFE     TOSH
+FFF     TOSU
+
+ROM Allocation:
+0000A2  desactivar_timer
+0000A8  inter_quantum
+00035A  addcbuff
+000396  serial_isr
+0003AC  @const732.call
+0003C4  inicbuff
+0003EA  procesa_cmd
+0004CE  cargar_proceso
+00053C  @DIV88
+000568  @PRINTF_D_9600_31766_31767
+000626  descargar_proceso
+0006C4  @MUL3232
+000720  limpiar_calendario
+000744  @PSTRINGC_9600_31766_31767
+000766  activar_timer
+000772  @goto11160
+0007C2  @const746.call
+0007C8  @const747.call
+0007CE  @const750.call
+0007D4  @const751.call
+0007DA  @const756.call
+0007F0  Port_Init
+000802  Procesos_Init
+000908  inte_Init
+000912  Config_TMR0
+00091A  MCU_Init
+000950  @cinit1
+000950  MAIN
+00098A  @cinit2
+001000  Parpadear_D0
+001046  Parpadear_D1
+001092  Parpadear_D2
+0010D8  Parpadear_D3
+0011DA  Parpadear_D4
+0012DC  Parpadear_B0
+0013DE  Parpadear_B1
+004000  Inicio_SO
+
+Project Directory:
+    D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC18f4550\ComunicacionSerial\
+
+Project Files:
+    ComSerial.c                                             [04-dic-14 16:32  CRC=FCA7DD9A]
+    C:\Program Files (x86)\PICC\Devices\18F4550.h           [03-jul-13 14:29  CRC=A157EDDE]
+
+Source signature=3F57B956
+
+Units:
+    ComSerial (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   ComSerial.xsym
+    Errors:      ComSerial.err
+    Ext Symbols: ComSerial.esym
+    INHX32:      ComSerial.hex
+    Symbols:     ComSerial.sym
+    List:        ComSerial.lst
+    Debug/COFF:  ComSerial.cof
+    Project:     ComSerial.ccspjt
+    Call Tree:   ComSerial.tre
+    Statistics:  ComSerial.STA

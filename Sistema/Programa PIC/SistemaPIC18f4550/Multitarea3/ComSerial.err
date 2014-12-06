@@ -1,0 +1,7 @@
+>>> Warning 202 "ComSerial.c" Line 25(5,9): Variable never used:   cont
+>>> Warning 202 "ComSerial.c" Line 26(6,12): Variable never used:   contar
+>>> Warning 202 "ComSerial.c" Line 32(22,26): Variable never used:   val4
+>>> Warning 202 "ComSerial.c" Line 32(27,31): Variable never used:   val5
+      Memory usage:   ROM=12%      RAM=62% - 64%
+      0 Errors,  4 Warnings.
+Build Successful.

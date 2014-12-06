@@ -22,18 +22,21 @@ namespace InterfazGrafica
         int NumProcesos = 0;
         int Proceso, Duracion, Periodo;
         int tmpProceso, tmpDuracion, tmpPeriodo; 
-        int [] DuracionProceso = {5,5,5,5,5};
-        int [] PeriodoMuestreo = {30,25,23,30,40};
-        int[] ListaProcesos = {4,5,6,0,0};
+        int [] DuracionProceso = {3,3,1,1,5};
+        int [] PeriodoMuestreo = {10,10,10,10,10};
+        int[] ListaProcesos = {4,5,6,7,0};
         int MCM;
+        string TxMCM;
         private string data = "";
         private int j = 0;
         private string cmd;
         int cmd_num;
         int flag_cmd;
+        int estado_conexion = 0;
 
         int flag_envio=0;
         int pos_envio, proceso_envio;
+        string Txtmp;
         int tmp1_envio,tmp2_envio;
         string msg;
 
@@ -58,27 +61,53 @@ namespace InterfazGrafica
             DefinirDuracionPedeterminada();
             DefinirPeriodoPredeterminado();
             NumProcesos = 0;
+            Timer.Enabled = true;
+            RTBx_Terminal.Text = "INICIO";
         }
 
         private void BtnConexion_Click(object sender, EventArgs e)
         {
-            if (!PuertoSerial.IsOpen)
+            if (estado_conexion == 0)
             {
-                PuertoSerial.PortName = PuertoList.Text;
-            }
-            PuertoSerial.Close();
-            PuertoSerial.Open();
-            if (!PuertoSerial.IsOpen)
-            {
-                MessageBox.Show("No hay un puerto abierto.", "Error de conexión.",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (!PuertoSerial.IsOpen)
+                {
+                    PuertoSerial.PortName = PuertoList.Text;
+                }
+
+                PuertoSerial.Close();
+                PuertoSerial.Open();
+
+                if (!PuertoSerial.IsOpen)
+                {
+                    MessageBox.Show("No hay un puerto abierto.", "Error de conexión.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show("Puerto " + PuertoList.Text + " conectado con exito.", "Exito en la conexión.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    estado_conexion = 1;
+                    LConexion.Text = "Desconectar";
+                }
             }
             else
             {
-                MessageBox.Show("Puerto " + PuertoList.Text + " conectado con exito.", "Exito en la conexión.",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
+                PuertoSerial.Close();
+                if (PuertoSerial.IsOpen)
+                {
+                    MessageBox.Show("No se ha podido desconectar.", "Error en desconexion.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show("Puerto " + PuertoList.Text + " desconectado con exito.", "Exito en la desconexión.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    estado_conexion = 0;
+                    LConexion.Text = "Conectar";
+                }
             }
+
+            
         }
 
         private void PuertoList_SelectedIndexChanged(object sender, EventArgs e)
@@ -110,12 +139,14 @@ namespace InterfazGrafica
         private void BtnCargar_Click(object sender, EventArgs e)
         {
             msg = "$M0";
-            tmp1_envio = MCM / 255;
-            tmp2_envio = MCM % 255;
-            msg = msg + Convert.ToString(tmp1_envio);
-            msg = msg + Convert.ToString(tmp2_envio);
+            TxMCM = Convert.ToString(MCM);
+            while (TxMCM.Length < 3)
+            {
+                TxMCM = "0" + TxMCM;
+            }
+            msg = msg + TxMCM;
             msg = msg + "*";
-            this.RTBx_Terminal.AppendText("Cargando Calendario ...\nPor favor espere.\n");
+            this.RTBx_Terminal.AppendText("\nCargando Calendario ...\nPor favor espere.\n");
             EnviarComando(msg);
         }
 
@@ -500,6 +531,7 @@ namespace InterfazGrafica
 
         private void ProcesarComando(object s, EventArgs e)
         {
+            this.RTBx_Terminal.AppendText("<- " + data + "\n");
             char[] delimitadores = { '+' };
             string[] palabras = data.Split(delimitadores);
             j = 0;
@@ -511,11 +543,13 @@ namespace InterfazGrafica
                         cmd = s1;
                         break;
                     case 1:
-                        cmd_num = Convert.ToInt16(s1) - '0' ;
+                        cmd_num = Convert.ToInt16(s1) ;
                         break;
                 }
                 j = j + 1;
             }
+            //this.RTBx_Terminal.AppendText("\nComando:"+cmd);
+            //this.RTBx_Terminal.AppendText("\nNumero:"+Convert.ToString(cmd_num)+"\n");
             data = "";
             flag_cmd = 1;
 
@@ -523,6 +557,7 @@ namespace InterfazGrafica
 
         private void EnviarComando(string Enviardato)
         {
+            this.RTBx_Terminal.AppendText("-> ");
             int tam_s=0;
             string temp_char;
             tam_s = Enviardato.Length;
@@ -533,11 +568,14 @@ namespace InterfazGrafica
                     temp_char = Enviardato.Remove(i);
                     temp_char = temp_char.Remove(0, i - 1);
                     PuertoSerial.Write(temp_char);
+                    this.RTBx_Terminal.AppendText(temp_char);
                     Thread.Sleep(50);
 
                 }
                 temp_char = Enviardato.Remove(0, tam_s - 1);
+                this.RTBx_Terminal.AppendText(temp_char);
                 PuertoSerial.Write(temp_char);
+                this.RTBx_Terminal.AppendText("\n");
             }
         }
 
@@ -554,7 +592,11 @@ namespace InterfazGrafica
                             pos_envio = 0;
                             proceso_envio = 0;
                         }
-                        if (cmd_num == 1) { flag_envio = 0; }
+                        if (cmd_num == 1) 
+                        { 
+                            flag_envio = 0;
+                            this.RTBx_Terminal.AppendText("Calendario Cargado\n");
+                        }
                         break;
                     case "P":
                         if (cmd_num != proceso_envio)
@@ -566,10 +608,6 @@ namespace InterfazGrafica
 
                 if (flag_envio == 1 )
                 {
-                    while (Calendario[pos_envio] == 0 && pos_envio <= MCM)
-                    {
-                        pos_envio++;
-                    }
 
                     if (pos_envio >= MCM)
                     {
@@ -581,14 +619,21 @@ namespace InterfazGrafica
                         msg = "";
                         msg = msg + "$P";
                         proceso_envio = Calendario[pos_envio];
-                        tmp1_envio = pos_envio / 255;
-                        tmp2_envio = pos_envio % 255;
                         msg = msg + Convert.ToString(proceso_envio);
-                        msg = msg + Convert.ToString(tmp1_envio);
-                        msg = msg + Convert.ToString(tmp2_envio);
+                        Txtmp = Convert.ToString(pos_envio);
+                        while (Txtmp.Length < 3)
+                        {
+                            Txtmp = "0" + Txtmp;
+                        }
+                        this.RTBx_Terminal.AppendText("\nposicion:" + Txtmp);
+                        msg = msg + Txtmp;
                         msg = msg + "*";
                         EnviarComando(msg);
                     }
+                    do
+                    {
+                        pos_envio++;
+                    } while (Calendario[pos_envio] == 0 && pos_envio <= MCM) ;
                     
                 }
 

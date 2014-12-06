@@ -1,0 +1,2381 @@
+CCS PCH C Compiler, Version 5.008, 5967               04-dic-14 14:26
+
+               Filename:   D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC18f4550\ComunicacionSerial\ComSerial.lst
+
+               ROM used:   3878 bytes (12%)
+                           Largest free fragment is 12288
+               RAM used:   1270 (62%) at main() level
+                           1300 (63%) worst case
+               Stack used: 5 locations (2 in main + 3 for interrupts)
+               Stack size: 31
+
+*
+0000:  GOTO   0944
+*
+0008:  MOVWF  04
+000A:  MOVFF  FD8,05
+000E:  MOVFF  FE0,06
+0012:  MOVLB  0
+0014:  MOVFF  FE9,0C
+0018:  MOVFF  FEA,07
+001C:  MOVFF  FE1,08
+0020:  MOVFF  FE2,09
+0024:  MOVFF  FD9,0A
+0028:  MOVFF  FDA,0B
+002C:  MOVFF  FF3,12
+0030:  MOVFF  FF4,13
+0034:  MOVFF  FFA,14
+0038:  MOVFF  00,0E
+003C:  MOVFF  01,0F
+0040:  MOVFF  02,10
+0044:  MOVFF  03,11
+0048:  BTFSS  FF2.5
+004A:  GOTO   0054
+004E:  BTFSC  FF2.2
+0050:  GOTO   00A8
+0054:  BTFSS  F9D.5
+0056:  GOTO   0060
+005A:  BTFSC  F9E.5
+005C:  GOTO   039C
+0060:  MOVFF  0E,00
+0064:  MOVFF  0F,01
+0068:  MOVFF  10,02
+006C:  MOVFF  11,03
+0070:  MOVFF  0C,FE9
+0074:  MOVFF  07,FEA
+0078:  BSF    07.7
+007A:  MOVFF  08,FE1
+007E:  MOVFF  09,FE2
+0082:  MOVFF  0A,FD9
+0086:  MOVFF  0B,FDA
+008A:  MOVFF  12,FF3
+008E:  MOVFF  13,FF4
+0092:  MOVFF  14,FFA
+0096:  MOVF   04,W
+0098:  MOVFF  06,FE0
+009C:  MOVFF  05,FD8
+00A0:  RETFIE 0
+.................... #include <18F4550.h> 
+.................... //////// Standard Header file for the PIC18F4550 device //////////////// 
+.................... #device PIC18F4550 
+*
+03B2:  MOVLB  5
+03B4:  MOVF   x0C,W
+03B6:  CLRF   01
+03B8:  SUBWF  x0B,W
+03BA:  BC    03C2
+03BC:  MOVFF  50B,00
+03C0:  BRA    03DA
+03C2:  CLRF   00
+03C4:  MOVLW  08
+03C6:  MOVWF  x0D
+03C8:  RLCF   x0B,F
+03CA:  RLCF   00,F
+03CC:  MOVF   x0C,W
+03CE:  SUBWF  00,W
+03D0:  BTFSC  FD8.0
+03D2:  MOVWF  00
+03D4:  RLCF   01,F
+03D6:  DECFSZ x0D,F
+03D8:  BRA    03C8
+03DA:  MOVLB  0
+03DC:  RETURN 0
+03DE:  MOVLW  20
+03E0:  MOVLB  5
+03E2:  BTFSS  x06.4
+03E4:  MOVLW  30
+03E6:  MOVWF  x07
+03E8:  MOVFF  505,00
+03EC:  BTFSS  x05.7
+03EE:  BRA    0400
+03F0:  COMF   00,F
+03F2:  INCF   00,F
+03F4:  MOVFF  00,505
+03F8:  MOVLW  2D
+03FA:  MOVWF  x07
+03FC:  BSF    x06.7
+03FE:  BSF    x06.0
+0400:  MOVF   01,W
+0402:  MOVFF  505,50B
+0406:  MOVLW  64
+0408:  MOVWF  x0C
+040A:  MOVLB  0
+040C:  RCALL  03B2
+040E:  MOVFF  00,505
+0412:  MOVLW  30
+0414:  ADDWF  01,W
+0416:  MOVLB  5
+0418:  MOVWF  x08
+041A:  MOVFF  505,50B
+041E:  MOVLW  0A
+0420:  MOVWF  x0C
+0422:  MOVLB  0
+0424:  RCALL  03B2
+0426:  MOVLW  30
+0428:  ADDWF  00,W
+042A:  MOVLB  5
+042C:  MOVWF  x0A
+042E:  MOVLW  30
+0430:  ADDWF  01,W
+0432:  MOVWF  x09
+0434:  MOVFF  507,00
+0438:  MOVLW  30
+043A:  SUBWF  x08,W
+043C:  BZ    0446
+043E:  BSF    x06.1
+0440:  BTFSC  x06.7
+0442:  BSF    x06.2
+0444:  BRA    046A
+0446:  MOVFF  507,508
+044A:  MOVLW  20
+044C:  MOVWF  x07
+044E:  MOVLW  30
+0450:  SUBWF  x09,W
+0452:  BZ    045C
+0454:  BSF    x06.0
+0456:  BTFSC  x06.7
+0458:  BSF    x06.1
+045A:  BRA    046A
+045C:  BTFSS  FD8.2
+045E:  BSF    x06.0
+0460:  BNZ   046A
+0462:  MOVFF  508,509
+0466:  MOVLW  20
+0468:  MOVWF  x08
+046A:  BTFSC  x06.2
+046C:  BRA    0478
+046E:  BTFSC  x06.1
+0470:  BRA    0480
+0472:  BTFSC  x06.0
+0474:  BRA    0488
+0476:  BRA    0490
+0478:  MOVF   x07,W
+047A:  BTFSS  F9E.4
+047C:  BRA    047A
+047E:  MOVWF  FAD
+0480:  MOVF   x08,W
+0482:  BTFSS  F9E.4
+0484:  BRA    0482
+0486:  MOVWF  FAD
+0488:  MOVF   x09,W
+048A:  BTFSS  F9E.4
+048C:  BRA    048A
+048E:  MOVWF  FAD
+0490:  MOVF   x0A,W
+0492:  BTFSS  F9E.4
+0494:  BRA    0492
+0496:  MOVWF  FAD
+0498:  MOVLB  0
+049A:  RETURN 0
+049C:  DATA 43,6F
+049E:  DATA 6E,65
+04A0:  DATA 63,74
+04A2:  DATA 61,64
+04A4:  DATA 6F,2E
+04A6:  DATA 2E,2E
+04A8:  DATA 2E,2E
+04AA:  DATA 2E,2E
+04AC:  DATA 2E,2E
+04AE:  DATA 2E,2E
+04B0:  DATA 2E,2E
+04B2:  DATA 2A,00
+*
+06BA:  MOVLB  5
+06BC:  CLRF   x0D
+06BE:  CLRF   x0E
+06C0:  MOVLW  01
+06C2:  MOVWF  x0F
+06C4:  CLRF   FDA
+06C6:  CLRF   FD9
+06C8:  MOVLW  05
+06CA:  MOVWF  x12
+06CC:  MOVWF  x11
+06CE:  MOVLW  05
+06D0:  MOVWF  FEA
+06D2:  MOVLW  09
+06D4:  MOVWF  FE9
+06D6:  MOVFF  512,FE2
+06DA:  MOVFF  511,FE1
+06DE:  MOVFF  50F,510
+06E2:  BCF    FD8.0
+06E4:  MOVF   FE5,W
+06E6:  MULWF  FEE
+06E8:  MOVF   FF3,W
+06EA:  ADDWFC x0D,F
+06EC:  MOVF   FF4,W
+06EE:  ADDWFC x0E,F
+06F0:  DECFSZ x10,F
+06F2:  BRA    06E2
+06F4:  MOVFF  50D,FDE
+06F8:  MOVFF  50E,50D
+06FC:  CLRF   x0E
+06FE:  BTFSC  FD8.0
+0700:  INCF   x0E,F
+0702:  INCF   x11,F
+0704:  BTFSC  FD8.2
+0706:  INCF   x12,F
+0708:  INCF   x0F,F
+070A:  MOVF   x0F,W
+070C:  SUBLW  05
+070E:  BNZ   06CE
+0710:  MOVLB  0
+0712:  RETURN 0
+*
+0738:  TBLRD*+
+073A:  MOVF   FF5,F
+073C:  BZ    0758
+073E:  MOVFF  FF6,505
+0742:  MOVFF  FF7,506
+0746:  MOVF   FF5,W
+0748:  BTFSS  F9E.4
+074A:  BRA    0748
+074C:  MOVWF  FAD
+074E:  MOVFF  505,FF6
+0752:  MOVFF  506,FF7
+0756:  BRA    0738
+0758:  RETURN 0
+*
+0766:  MOVFF  FF2,0D
+076A:  BCF    FF2.7
+076C:  ADDWF  FE8,W
+076E:  CLRF   FF7
+0770:  RLCF   FF7,F
+0772:  ADDLW  8B
+0774:  MOVWF  FF6
+0776:  MOVLW  07
+0778:  ADDWFC FF7,F
+077A:  TBLRD*-
+077C:  MOVF   FF5,W
+077E:  MOVWF  FFA
+0780:  TBLRD*
+0782:  MOVF   FF5,W
+0784:  BTFSC  0D.7
+0786:  BSF    FF2.7
+0788:  MOVWF  FF9
+078A:  DATA 18,40
+078C:  DATA 58,40
+078E:  DATA C4,41
+0790:  DATA C4,41
+0792:  DATA C4,41
+0794:  DATA C4,41
+0796:  DATA C4,41
+0798:  DATA C4,41
+079A:  DATA C4,41
+079C:  DATA C4,41
+079E:  DATA C8,40
+07A0:  DATA C4,41
+07A2:  DATA C4,41
+07A4:  DATA 36,41
+07A6:  DATA C4,41
+07A8:  DATA B2,41
+07AA:  DATA C4,41
+07AC:  DATA 98,41
+07AE:  DATA 90,40
+07B0:  DATA C4,41
+07B2:  DATA C4,41
+07B4:  DATA B0,40
+07B6:  DATA 4D,2B
+07B8:  DATA 30,2A
+07BA:  DATA 00,00
+07BC:  DATA 4D,2B
+07BE:  DATA 31,2A
+07C0:  DATA 00,00
+07C2:  DATA 54,2B
+07C4:  DATA 31,2A
+07C6:  DATA 00,00
+07C8:  DATA 52,2B
+07CA:  DATA 31,2A
+07CC:  DATA 00,00
+07CE:  DATA 45,73
+07D0:  DATA 70,65
+07D2:  DATA 72,61
+07D4:  DATA 6E,64
+07D6:  DATA 6F,20
+07D8:  DATA 63,6F
+07DA:  DATA 6E,65
+07DC:  DATA 78,69
+07DE:  DATA F3,6E
+07E0:  DATA 2E,2E
+07E2:  DATA 2A,00
+....................  
+.................... #list 
+....................  
+....................  
+.................... #use delay(clock=10000000) 
+.................... #use rs232(baud=9600, xmit=PIN_C6,rcv=PIN_C7,bits=8,parity=N) 
+.................... #fuses HS,NOPROTECT,NOWDT,NOLVP,CPUDIV1,nomclr 
+.................... #define Tiempo 200 
+....................  
+.................... #use FAST_IO(A)  
+.................... #use FAST_IO(B) 
+.................... #use FAST_IO(D) 
+....................  
+.................... #byte T0CON=0xFD5 
+.................... #byte wreg=0xFE8 
+.................... #byte TOSU=0xFFF 
+.................... #byte TOSH=0xFFE 
+.................... #byte TOSL=0xFFD 
+....................  
+.................... int np=0; 
+.................... int colap[6]; 
+.................... int m,m1; 
+.................... int8 i,j; 
+....................  
+.................... int8 k1,k2,k3,k4,k5,k6,k7; 
+.................... int8 l1,l2,l3,l4,l5,l6,l7; 
+.................... int cont; 
+.................... int1 contar=0; 
+....................  
+.................... char proceso; 
+....................  
+.................... int const lenbuff=10; 
+.................... int valor2=0; 
+.................... int32 val1,val2,val3,val4,val5; 
+.................... //int16 quantum=65048; 
+....................  
+....................  
+.................... int   xbuff=0x00; 
+.................... char  cbuff[lenbuff]; 
+.................... char  rcvchar=0x00; 
+.................... char  comando; 
+.................... int1  flagcmd=0; 
+....................  
+....................  
+.................... struct pcb{ 
+.................... int32 di; 
+.................... int32 df;  
+.................... int32 da; 
+.................... int estado;  
+.................... int wreg;  
+.................... int status; 
+.................... int bsr; 
+.................... int id; 
+.................... int prioridad; 
+.................... } vpcb[10]; 
+....................  
+.................... // ======== VARIABLES DEL CALENDARIO ========== \\ 
+.................... // estado_calendario = 0 -->   No ejecutar  
+.................... // estado_calendario = 1 -->   Ejecutar  
+.................... // estado_calendario = 2 -->   Vacio 
+.................... // estado_calendario = 3 -->   Cargando 
+....................  
+.................... int8 calendario[1000]; 
+.................... int16 reloj = 0; 
+.................... int estado_calendario = 0; 
+.................... int prioridad_act = 0; 
+.................... //========================= 
+.................... int16 mcm=0; 
+.................... //============================= 
+....................  
+....................  
+.................... void activar_timer() 
+.................... { 
+....................    // set_timer0(65478);    //    para 3ms 
+....................    // set_timer0(65438);    //    para 5ms 
+....................    // set_timer0(65380);    //    para 8ms 
+....................    // set_timer0(65341);    //    para 10ms 
+....................    // set_timer0(65282);    //    para 13ms 
+....................    // set_timer0(65243);    //    para 15ms 
+....................    // set_timer0(65185);    //    para 18ms 
+....................    // set_timer0(65146);    //    para 20ms 
+....................     set_timer0(65048);    //    para 25ms 
+*
+075A:  MOVLW  FE
+075C:  MOVWF  FD7
+075E:  MOVLW  18
+0760:  MOVWF  FD6
+....................    // set_timer0(64950);    //    para 30ms 
+....................    //set_timer0(quantum); 
+....................    enable_interrupts(INT_TIMER0); 
+0762:  BSF    FF2.5
+0764:  RETURN 0
+.................... } 
+....................  
+.................... void desactivar_timer() 
+.................... { 
+....................    disable_interrupts(INT_TIMER0); 
+*
+00A2:  BCF    FF2.5
+00A4:  GOTO   00B0 (RETURN)
+.................... } 
+....................  
+.................... void addcbuff(char c); 
+.................... void mostrar_procesos(); 
+.................... void descargar_proceso(int idp); 
+.................... void Config_TMR0(); 
+....................  
+....................  
+.................... #INT_TIMER0 
+.................... void inter_quantum() 
+00A8:  MOVLB  4
+00AA:  CLRF   xF8
+.................... {  int i=0; 
+....................    desactivar_timer(); 
+00AC:  MOVLB  0
+00AE:  BRA    00A2
+....................    output_toggle(PIN_D6); 
+00B0:  BTG    F8C.6
+....................    // Guardando variables 
+....................    vpcb[colap[0]].wreg=wreg; 
+00B2:  MOVF   17,W
+00B4:  MULLW  12
+00B6:  MOVF   FF3,W
+00B8:  MOVLB  5
+00BA:  CLRF   x01
+00BC:  MOVWF  x00
+00BE:  MOVLW  0D
+00C0:  ADDWF  x00,W
+00C2:  MOVWF  01
+00C4:  MOVLW  00
+00C6:  ADDWFC x01,W
+00C8:  MOVWF  03
+00CA:  MOVF   01,W
+00CC:  ADDLW  54
+00CE:  MOVWF  FE9
+00D0:  MOVLW  00
+00D2:  ADDWFC 03,W
+00D4:  MOVWF  FEA
+00D6:  MOVFF  FE8,FEF
+....................    vpcb[colap[0]].da=(int32)TOSL; 
+00DA:  MOVF   17,W
+00DC:  MULLW  12
+00DE:  MOVF   FF3,W
+00E0:  CLRF   x01
+00E2:  MOVWF  x00
+00E4:  MOVLW  08
+00E6:  ADDWF  x00,W
+00E8:  MOVWF  01
+00EA:  MOVLW  00
+00EC:  ADDWFC x01,W
+00EE:  MOVWF  03
+00F0:  MOVF   01,W
+00F2:  ADDLW  54
+00F4:  MOVWF  FE9
+00F6:  MOVLW  00
+00F8:  ADDWFC 03,W
+00FA:  MOVWF  FEA
+00FC:  CLRF   01
+00FE:  CLRF   02
+0100:  CLRF   03
+0102:  MOVFF  FFD,FEF
+0106:  MOVFF  01,FEC
+010A:  MOVFF  02,FEC
+010E:  MOVFF  03,FEC
+....................    vpcb[colap[0]].da=vpcb[colap[0]].da|((int32)TOSH<<8); 
+0112:  MOVF   17,W
+0114:  MULLW  12
+0116:  MOVF   FF3,W
+0118:  CLRF   x01
+011A:  MOVWF  x00
+011C:  MOVLW  08
+011E:  ADDWF  x00,W
+0120:  MOVWF  01
+0122:  MOVLW  00
+0124:  ADDWFC x01,W
+0126:  MOVWF  03
+0128:  MOVF   01,W
+012A:  ADDLW  54
+012C:  MOVWF  01
+012E:  MOVLW  00
+0130:  ADDWFC 03,F
+0132:  MOVFF  01,500
+0136:  MOVFF  03,501
+013A:  MOVF   17,W
+013C:  MULLW  12
+013E:  MOVF   FF3,W
+0140:  CLRF   x03
+0142:  MOVWF  x02
+0144:  MOVLW  08
+0146:  ADDWF  x02,W
+0148:  MOVWF  01
+014A:  MOVLW  00
+014C:  ADDWFC x03,W
+014E:  MOVWF  03
+0150:  MOVF   01,W
+0152:  ADDLW  54
+0154:  MOVWF  FE9
+0156:  MOVLW  00
+0158:  ADDWFC 03,W
+015A:  MOVWF  FEA
+015C:  MOVFF  FEF,502
+0160:  MOVFF  FEC,503
+0164:  MOVFF  FEC,504
+0168:  MOVFF  FEC,505
+016C:  CLRF   x08
+016E:  CLRF   x07
+0170:  CLRF   00
+0172:  MOVF   00,W
+0174:  IORWF  x02,W
+0176:  MOVWF  00
+0178:  MOVF   FFE,W
+017A:  IORWF  x03,W
+017C:  MOVWF  01
+017E:  MOVF   x07,W
+0180:  IORWF  x04,W
+0182:  MOVWF  02
+0184:  MOVF   x08,W
+0186:  IORWF  x05,W
+0188:  MOVFF  501,FEA
+018C:  MOVFF  500,FE9
+0190:  MOVFF  00,FEF
+0194:  MOVFF  01,FEC
+0198:  MOVFF  02,FEC
+019C:  MOVWF  FEC
+....................    vpcb[colap[0]].da=vpcb[colap[0]].da|((int32)TOSU<<16); 
+019E:  MOVF   17,W
+01A0:  MULLW  12
+01A2:  MOVF   FF3,W
+01A4:  CLRF   x01
+01A6:  MOVWF  x00
+01A8:  MOVLW  08
+01AA:  ADDWF  x00,W
+01AC:  MOVWF  01
+01AE:  MOVLW  00
+01B0:  ADDWFC x01,W
+01B2:  MOVWF  03
+01B4:  MOVF   01,W
+01B6:  ADDLW  54
+01B8:  MOVWF  01
+01BA:  MOVLW  00
+01BC:  ADDWFC 03,F
+01BE:  MOVFF  01,500
+01C2:  MOVFF  03,501
+01C6:  MOVF   17,W
+01C8:  MULLW  12
+01CA:  MOVF   FF3,W
+01CC:  CLRF   x03
+01CE:  MOVWF  x02
+01D0:  MOVLW  08
+01D2:  ADDWF  x02,W
+01D4:  MOVWF  01
+01D6:  MOVLW  00
+01D8:  ADDWFC x03,W
+01DA:  MOVWF  03
+01DC:  MOVF   01,W
+01DE:  ADDLW  54
+01E0:  MOVWF  FE9
+01E2:  MOVLW  00
+01E4:  ADDWFC 03,W
+01E6:  MOVWF  FEA
+01E8:  MOVFF  FEF,502
+01EC:  MOVFF  FEC,503
+01F0:  MOVFF  FEC,504
+01F4:  MOVFF  FEC,505
+01F8:  CLRF   x07
+01FA:  CLRF   00
+01FC:  CLRF   01
+01FE:  MOVF   00,W
+0200:  IORWF  x02,W
+0202:  MOVWF  00
+0204:  MOVF   01,W
+0206:  IORWF  x03,W
+0208:  MOVWF  01
+020A:  MOVF   FFF,W
+020C:  IORWF  x04,W
+020E:  MOVWF  02
+0210:  MOVF   x07,W
+0212:  IORWF  x05,W
+0214:  MOVFF  501,FEA
+0218:  MOVFF  500,FE9
+021C:  MOVFF  00,FEF
+0220:  MOVFF  01,FEC
+0224:  MOVFF  02,FEC
+0228:  MOVWF  FEC
+....................     
+....................    // corriendo proceso 
+....................    if(np>1) 
+022A:  MOVF   16,W
+022C:  SUBLW  01
+022E:  BTFSC  FD8.0
+0230:  BRA    032C
+....................    {    
+....................       prioridad_act = 0; 
+0232:  MOVLB  4
+0234:  CLRF   xF3
+....................       for (i=1; i<np; i++ ){ 
+0236:  MOVLW  01
+0238:  MOVWF  xF8
+023A:  MOVF   16,W
+023C:  SUBWF  xF8,W
+023E:  BC    02BA
+....................          if (vpcb[colap[i]].prioridad > prioridad_act){ 
+0240:  CLRF   03
+0242:  MOVF   xF8,W
+0244:  ADDLW  17
+0246:  MOVWF  FE9
+0248:  MOVLW  00
+024A:  ADDWFC 03,W
+024C:  MOVWF  FEA
+024E:  MOVF   FEF,W
+0250:  MULLW  12
+0252:  MOVF   FF3,W
+0254:  MOVLB  5
+0256:  CLRF   x01
+0258:  MOVWF  x00
+025A:  MOVLW  11
+025C:  ADDWF  x00,W
+025E:  MOVWF  01
+0260:  MOVLW  00
+0262:  ADDWFC x01,W
+0264:  MOVWF  03
+0266:  MOVF   01,W
+0268:  ADDLW  54
+026A:  MOVWF  FE9
+026C:  MOVLW  00
+026E:  ADDWFC 03,W
+0270:  MOVWF  FEA
+0272:  MOVF   FEF,W
+0274:  MOVLB  4
+0276:  SUBWF  xF3,W
+0278:  BC    02B6
+....................             m1 = i; 
+027A:  MOVFF  4F8,1E
+....................             prioridad_act = vpcb[colap[i]].prioridad; 
+027E:  CLRF   03
+0280:  MOVF   xF8,W
+0282:  ADDLW  17
+0284:  MOVWF  FE9
+0286:  MOVLW  00
+0288:  ADDWFC 03,W
+028A:  MOVWF  FEA
+028C:  MOVF   FEF,W
+028E:  MULLW  12
+0290:  MOVF   FF3,W
+0292:  MOVLB  5
+0294:  CLRF   x01
+0296:  MOVWF  x00
+0298:  MOVLW  11
+029A:  ADDWF  x00,W
+029C:  MOVWF  01
+029E:  MOVLW  00
+02A0:  ADDWFC x01,W
+02A2:  MOVWF  03
+02A4:  MOVF   01,W
+02A6:  ADDLW  54
+02A8:  MOVWF  FE9
+02AA:  MOVLW  00
+02AC:  ADDWFC 03,W
+02AE:  MOVWF  FEA
+02B0:  MOVFF  FEF,4F3
+02B4:  MOVLB  4
+....................          } 
+02B6:  INCF   xF8,F
+02B8:  BRA    023A
+....................       } 
+....................        
+....................       m=colap[0]; 
+02BA:  MOVFF  17,1D
+....................       colap[0] = colap[m1]; 
+02BE:  CLRF   03
+02C0:  MOVF   1E,W
+02C2:  ADDLW  17
+02C4:  MOVWF  FE9
+02C6:  MOVLW  00
+02C8:  ADDWFC 03,W
+02CA:  MOVWF  FEA
+02CC:  MOVFF  FEF,17
+....................       for(i=m1;i<np-1;i++) 
+02D0:  MOVFF  1E,4F8
+02D4:  MOVLW  01
+02D6:  SUBWF  16,W
+02D8:  SUBWF  xF8,W
+02DA:  BC    0316
+....................       { 
+....................          colap[i]=colap[i+1]; 
+02DC:  CLRF   03
+02DE:  MOVF   xF8,W
+02E0:  ADDLW  17
+02E2:  MOVWF  01
+02E4:  MOVLW  00
+02E6:  ADDWFC 03,F
+02E8:  MOVFF  03,501
+02EC:  MOVLW  01
+02EE:  MOVLB  4
+02F0:  ADDWF  xF8,W
+02F2:  CLRF   03
+02F4:  ADDLW  17
+02F6:  MOVWF  FE9
+02F8:  MOVLW  00
+02FA:  ADDWFC 03,W
+02FC:  MOVWF  FEA
+02FE:  MOVFF  FEF,502
+0302:  MOVLB  5
+0304:  MOVFF  501,FEA
+0308:  MOVFF  01,FE9
+030C:  MOVFF  502,FEF
+0310:  MOVLB  4
+0312:  INCF   xF8,F
+0314:  BRA    02D4
+....................       } 
+....................       colap[np-1]=m; 
+0316:  MOVLW  01
+0318:  SUBWF  16,W
+031A:  CLRF   03
+031C:  ADDLW  17
+031E:  MOVWF  FE9
+0320:  MOVLW  00
+0322:  ADDWFC 03,W
+0324:  MOVWF  FEA
+0326:  MOVFF  1D,FEF
+032A:  MOVLB  5
+....................    } 
+....................     
+....................    if(contar == 1){ 
+032C:  BTFSS  30.0
+032E:  BRA    0332
+....................       cont++; 
+0330:  INCF   2F,F
+....................    } 
+....................     
+....................    if(estado_calendario == 1){ 
+0332:  MOVLB  4
+0334:  DECFSZ xF2,W
+0336:  BRA    0350
+....................       reloj++; 
+0338:  INCF   xF0,F
+033A:  BTFSC  FD8.2
+033C:  INCF   xF1,F
+....................       if(reloj >= mcm){ 
+033E:  MOVF   xF5,W
+0340:  SUBWF  xF1,W
+0342:  BNC   0350
+0344:  BNZ   034C
+0346:  MOVF   xF4,W
+0348:  SUBWF  xF0,W
+034A:  BNC   0350
+....................          reloj = 0; 
+034C:  CLRF   xF1
+034E:  CLRF   xF0
+....................       } 
+....................    } 
+....................     
+....................    //==== PC=S0_Init() ======= 
+....................    TOSL=00; 
+0350:  CLRF   FFD
+....................    TOSH=40; 
+0352:  MOVLW  28
+0354:  MOVWF  FFE
+....................    TOSU=00; 
+0356:  CLRF   FFF
+0358:  BCF    FF2.2
+035A:  MOVLB  0
+035C:  GOTO   0060
+.................... }  
+....................  
+.................... void inte_Init()  // interrupcion de puerto serial 
+.................... { 
+....................    enable_interrupts(GLOBAL); 
+*
+08FC:  MOVLW  C0
+08FE:  IORWF  FF2,F
+....................    enable_interrupts(INT_RDA); 
+0900:  BSF    F9D.5
+0902:  GOTO   091E (RETURN)
+.................... } 
+....................  
+....................  
+.................... #INT_RDA 
+.................... void serial_isr() 
+.................... { 
+....................    //printf("Recibido");     // se envia por Serial una palabra para verificar interrupcion 
+....................    rcvchar = 0x00; 
+*
+039C:  CLRF   52
+....................    rcvchar = getc();    // se recibe el caracter enviado por la computadora 
+039E:  BTFSS  F9E.5
+03A0:  BRA    039E
+03A2:  MOVFF  FAE,52
+....................    addcbuff(rcvchar);   // guarda el caracter en un buffer 
+03A6:  MOVFF  52,4F8
+03AA:  BRA    0360
+03AC:  BCF    F9E.5
+03AE:  GOTO   0060
+.................... } 
+....................  
+.................... void addcbuff(char c)    
+.................... { 
+....................    switch(c) 
+*
+0360:  MOVLB  4
+0362:  MOVF   xF8,W
+0364:  XORLW  2A
+0366:  MOVLB  0
+0368:  BZ    036C
+036A:  BRA    0384
+....................    { 
+....................       case '*':                  // en caso de recibir *, levanta el flag para saber que se termino de enviar un comando. 
+....................          cbuff[xbuff++] = c; 
+036C:  MOVF   47,W
+036E:  INCF   47,F
+0370:  CLRF   03
+0372:  ADDLW  48
+0374:  MOVWF  FE9
+0376:  MOVLW  00
+0378:  ADDWFC 03,W
+037A:  MOVWF  FEA
+037C:  MOVFF  4F8,FEF
+....................          flagcmd = 1; 
+0380:  BSF    30.1
+....................       break; 
+0382:  BRA    0398
+....................       default: 
+....................          cbuff[xbuff++] = c; 
+0384:  MOVF   47,W
+0386:  INCF   47,F
+0388:  CLRF   03
+038A:  ADDLW  48
+038C:  MOVWF  FE9
+038E:  MOVLW  00
+0390:  ADDWFC 03,W
+0392:  MOVWF  FEA
+0394:  MOVFF  4F8,FEF
+....................    } 
+0398:  GOTO   03AC (RETURN)
+.................... } 
+....................  
+.................... void inicbuff(void)           // inicializa el buffer, limpiandolo 
+.................... { 
+....................    int i; 
+....................    for (i=0; i<lenbuff;i++)       
+*
+04B4:  MOVLB  5
+04B6:  CLRF   x11
+04B8:  MOVF   x11,W
+04BA:  SUBLW  09
+04BC:  BNC   04D2
+....................    { 
+....................       cbuff[i] = 0x00; 
+04BE:  CLRF   03
+04C0:  MOVF   x11,W
+04C2:  ADDLW  48
+04C4:  MOVWF  FE9
+04C6:  MOVLW  00
+04C8:  ADDWFC 03,W
+04CA:  MOVWF  FEA
+04CC:  CLRF   FEF
+04CE:  INCF   x11,F
+04D0:  BRA    04B8
+....................    } 
+....................    xbuff=0x00; 
+04D2:  CLRF   47
+04D4:  MOVLB  0
+04D6:  GOTO   0588 (RETURN)
+.................... } 
+....................  
+....................  
+.................... void procesa_cmd(void){             // procesa el ultimo comando guardado, un comando esta comprendido entre $ hasta *  
+04DA:  MOVLB  5
+04DC:  CLRF   x06
+....................   
+....................    int i, j=0;                       
+....................    char salida[lenbuff];            // Argumento de comando (si lo tiene) 
+....................    disable_interrupts(int_rda);      
+04DE:  BCF    F9D.5
+....................    flagcmd=0;                       // Desactivo flag de comando pendiente. 
+04E0:  BCF    30.1
+....................    for (i=0;i<xbuff;i++) 
+04E2:  CLRF   x05
+04E4:  MOVF   47,W
+04E6:  SUBWF  x05,W
+04E8:  BC    0584
+....................    { 
+....................       if (cbuff[i] == '$'){         // verifica que tenga '$' 
+04EA:  CLRF   03
+04EC:  MOVF   x05,W
+04EE:  ADDLW  48
+04F0:  MOVWF  FE9
+04F2:  MOVLW  00
+04F4:  ADDWFC 03,W
+04F6:  MOVWF  FEA
+04F8:  MOVF   FEF,W
+04FA:  SUBLW  24
+04FC:  BNZ   0580
+....................          while((cbuff[i] != '*') & (i<xbuff))   // hasta que encuentre * 
+04FE:  CLRF   03
+0500:  MOVF   x05,W
+0502:  ADDLW  48
+0504:  MOVWF  FE9
+0506:  MOVLW  00
+0508:  ADDWFC 03,W
+050A:  MOVWF  FEA
+050C:  MOVF   FEF,W
+050E:  SUBLW  2A
+0510:  BNZ   0516
+0512:  MOVLW  00
+0514:  BRA    0518
+0516:  MOVLW  01
+0518:  MOVWF  x11
+051A:  MOVF   47,W
+051C:  SUBWF  x05,W
+051E:  BNC   0524
+0520:  MOVLW  00
+0522:  BRA    0526
+0524:  MOVLW  01
+0526:  ANDWF  x11,W
+0528:  BZ    0562
+....................          { 
+....................             salida[j++]=cbuff[i++]; 
+052A:  MOVF   x06,W
+052C:  INCF   x06,F
+052E:  CLRF   03
+0530:  ADDLW  07
+0532:  MOVWF  01
+0534:  MOVLW  05
+0536:  ADDWFC 03,F
+0538:  MOVFF  01,511
+053C:  MOVFF  03,512
+0540:  MOVF   x05,W
+0542:  INCF   x05,F
+0544:  CLRF   03
+0546:  ADDLW  48
+0548:  MOVWF  FE9
+054A:  MOVLW  00
+054C:  ADDWFC 03,W
+054E:  MOVWF  FEA
+0550:  MOVFF  FEF,513
+0554:  MOVFF  512,FEA
+0558:  MOVFF  01,FE9
+055C:  MOVFF  513,FEF
+0560:  BRA    04FE
+....................          } 
+....................          comando = salida[1]; 
+0562:  MOVFF  508,53
+....................          valor2 = salida[2] -'0'; 
+0566:  MOVLW  30
+0568:  SUBWF  x09,W
+056A:  MOVWF  32
+....................          val1 = salida[2]; 
+056C:  CLRF   36
+056E:  CLRF   35
+0570:  CLRF   34
+0572:  MOVFF  509,33
+....................          val2 = salida[3]; 
+0576:  CLRF   3A
+0578:  CLRF   39
+057A:  CLRF   38
+057C:  MOVFF  50A,37
+....................           
+....................       } 
+0580:  INCF   x05,F
+0582:  BRA    04E4
+....................    } 
+....................    inicbuff();                            // Borro buffer. 
+0584:  MOVLB  0
+0586:  BRA    04B4
+....................    for(i=0;i<lenbuff;i++)                 // Bucle que pone a 0 todos los 
+0588:  MOVLB  5
+058A:  CLRF   x05
+058C:  MOVF   x05,W
+058E:  SUBLW  09
+0590:  BNC   05A6
+....................    { 
+....................       salida[i]=0x00;                     // caracteres en el argumento 
+0592:  CLRF   03
+0594:  MOVF   x05,W
+0596:  ADDLW  07
+0598:  MOVWF  FE9
+059A:  MOVLW  05
+059C:  ADDWFC 03,W
+059E:  MOVWF  FEA
+05A0:  CLRF   FEF
+05A2:  INCF   x05,F
+05A4:  BRA    058C
+....................    } 
+....................    enable_interrupts(int_rda);             
+05A6:  BSF    F9D.5
+05A8:  MOVLB  0
+05AA:  GOTO   4008 (RETURN)
+.................... } 
+....................  
+....................  
+.................... //***************************************************************************** 
+.................... //PROGRAMA 1: Parpadeo Led D0 
+....................  
+.................... #ORG 0x1000, 0x1044 
+.................... void Parpadear_D0() 
+.................... { 
+....................    while(TRUE) 
+....................    { 
+....................       output_toggle(PIN_D0); 
+*
+1000:  BTG    F8C.0
+....................       for (k1=1;k1<150;k1++){for (l1=1;l1<200;l1++){}} 
+1002:  MOVLW  01
+1004:  MOVWF  21
+1006:  MOVF   21,W
+1008:  SUBLW  95
+100A:  BNC   101E
+100C:  MOVLW  01
+100E:  MOVWF  28
+1010:  MOVF   28,W
+1012:  SUBLW  C7
+1014:  BNC   101A
+1016:  INCF   28,F
+1018:  BRA    1010
+101A:  INCF   21,F
+101C:  BRA    1006
+....................       output_toggle(PIN_D0); 
+101E:  BTG    F8C.0
+....................       for (k1=1;k1<150;k1++){for (l1=1;l1<200;l1++){}} 
+1020:  MOVLW  01
+1022:  MOVWF  21
+1024:  MOVF   21,W
+1026:  SUBLW  95
+1028:  BNC   103C
+102A:  MOVLW  01
+102C:  MOVWF  28
+102E:  MOVF   28,W
+1030:  SUBLW  C7
+1032:  BNC   1038
+1034:  INCF   28,F
+1036:  BRA    102E
+1038:  INCF   21,F
+103A:  BRA    1024
+103C:  BRA    1000
+....................    } 
+103E:  RETURN 0
+.................... } 
+....................  
+.................... //***************************************************************************** 
+.................... //PROGRAMA 2: Parpadeo Led D1 
+....................  
+.................... #ORG 0x1046, 0x1090        
+.................... void Parpadear_D1() 
+.................... { 
+....................    while(TRUE) 
+....................    { 
+....................       output_toggle(PIN_D1); 
+*
+1046:  BTG    F8C.1
+....................       for (k2=1;k2<50;k2++){for (l2=1;l2<200;l2++){}} 
+1048:  MOVLW  01
+104A:  MOVWF  22
+104C:  MOVF   22,W
+104E:  SUBLW  31
+1050:  BNC   1064
+1052:  MOVLW  01
+1054:  MOVWF  29
+1056:  MOVF   29,W
+1058:  SUBLW  C7
+105A:  BNC   1060
+105C:  INCF   29,F
+105E:  BRA    1056
+1060:  INCF   22,F
+1062:  BRA    104C
+....................       output_toggle(PIN_D1); 
+1064:  BTG    F8C.1
+....................       for (k2=1;k2<50;k2++){for (l2=1;l2<200;l2++){}} 
+1066:  MOVLW  01
+1068:  MOVWF  22
+106A:  MOVF   22,W
+106C:  SUBLW  31
+106E:  BNC   1082
+1070:  MOVLW  01
+1072:  MOVWF  29
+1074:  MOVF   29,W
+1076:  SUBLW  C7
+1078:  BNC   107E
+107A:  INCF   29,F
+107C:  BRA    1074
+107E:  INCF   22,F
+1080:  BRA    106A
+1082:  BRA    1046
+....................    } 
+1084:  RETURN 0
+.................... } 
+....................  
+.................... //***************************************************************************** 
+.................... //PROGRAMA 3: Parpadeo Led D2 
+....................  
+.................... #ORG 0x1092, 0x10D6 
+.................... void Parpadear_D2() 
+.................... { 
+....................    while(TRUE) 
+....................    { 
+....................       output_toggle(PIN_D2); 
+*
+1092:  BTG    F8C.2
+....................       for (k3=1;k3<100;k3++){for (l3=1;l3<200;l3++){}} 
+1094:  MOVLW  01
+1096:  MOVWF  23
+1098:  MOVF   23,W
+109A:  SUBLW  63
+109C:  BNC   10B0
+109E:  MOVLW  01
+10A0:  MOVWF  2A
+10A2:  MOVF   2A,W
+10A4:  SUBLW  C7
+10A6:  BNC   10AC
+10A8:  INCF   2A,F
+10AA:  BRA    10A2
+10AC:  INCF   23,F
+10AE:  BRA    1098
+....................       output_toggle(PIN_D2); 
+10B0:  BTG    F8C.2
+....................       for (k3=1;k3<100;k3++){for (l3=1;l3<200;l3++){}} 
+10B2:  MOVLW  01
+10B4:  MOVWF  23
+10B6:  MOVF   23,W
+10B8:  SUBLW  63
+10BA:  BNC   10CE
+10BC:  MOVLW  01
+10BE:  MOVWF  2A
+10C0:  MOVF   2A,W
+10C2:  SUBLW  C7
+10C4:  BNC   10CA
+10C6:  INCF   2A,F
+10C8:  BRA    10C0
+10CA:  INCF   23,F
+10CC:  BRA    10B6
+10CE:  BRA    1092
+....................    } 
+10D0:  RETURN 0
+.................... } 
+....................  
+.................... //***************************************************************************** 
+.................... //PROGRAMA 4: Parpadeo Led D3 - FINITO 
+....................  
+.................... #ORG 0x10D8, 0x11D8 
+.................... void Parpadear_D3() 
+.................... { 
+....................    cont = 0; 
+*
+10D8:  CLRF   2F
+....................    contar = 1; 
+10DA:  BSF    30.0
+....................    while(TRUE) 
+....................    { 
+....................       output_toggle(PIN_D3); 
+10DC:  BTG    F8C.3
+....................       for (k4=1;k4<200;k4++){for (l4=1;l4<100;l4++){}} 
+10DE:  MOVLW  01
+10E0:  MOVWF  24
+10E2:  MOVF   24,W
+10E4:  SUBLW  C7
+10E6:  BNC   10FA
+10E8:  MOVLW  01
+10EA:  MOVWF  2B
+10EC:  MOVF   2B,W
+10EE:  SUBLW  63
+10F0:  BNC   10F6
+10F2:  INCF   2B,F
+10F4:  BRA    10EC
+10F6:  INCF   24,F
+10F8:  BRA    10E2
+....................       output_toggle(PIN_D3); 
+10FA:  BTG    F8C.3
+....................       for (k4=1;k4<200;k4++){for (l4=1;l4<100;l4++){}} 
+10FC:  MOVLW  01
+10FE:  MOVWF  24
+1100:  MOVF   24,W
+1102:  SUBLW  C7
+1104:  BNC   1118
+1106:  MOVLW  01
+1108:  MOVWF  2B
+110A:  MOVF   2B,W
+110C:  SUBLW  63
+110E:  BNC   1114
+1110:  INCF   2B,F
+1112:  BRA    110A
+1114:  INCF   24,F
+1116:  BRA    1100
+....................       comando = 'D'; 
+1118:  MOVLW  44
+111A:  MOVWF  53
+....................       valor2 = 4; 
+111C:  MOVLW  04
+111E:  MOVWF  32
+....................       printf("T=%i*", cont); 
+1120:  MOVLW  54
+1122:  BTFSS  F9E.4
+1124:  BRA    1122
+1126:  MOVWF  FAD
+1128:  MOVLW  3D
+112A:  BTFSS  F9E.4
+112C:  BRA    112A
+112E:  MOVWF  FAD
+1130:  MOVFF  2F,505
+1134:  MOVLW  18
+1136:  MOVLB  5
+1138:  MOVWF  x06
+113A:  MOVLB  0
+113C:  CALL   03DE
+1140:  MOVLW  2A
+1142:  BTFSS  F9E.4
+1144:  BRA    1142
+1146:  MOVWF  FAD
+....................       contar = 0; 
+1148:  BCF    30.0
+114A:  BRA    10DC
+....................    } 
+114C:  RETURN 0
+.................... } 
+....................  
+.................... //***************************************************************************** 
+.................... //PROGRAMA 5: Parpadeo Led D4 - FINITO 
+....................  
+.................... #ORG 0x11DA, 0x12DA 
+.................... void Parpadear_D4() 
+.................... { 
+....................    cont = 0; 
+*
+11DA:  CLRF   2F
+....................    contar = 1; 
+11DC:  BSF    30.0
+....................    while(TRUE) 
+....................    { 
+....................       output_toggle(PIN_D4); 
+11DE:  BTG    F8C.4
+....................       for (k5=1;k5<150;++k5){for (l5=1;l5<100;++l5){}} 
+11E0:  MOVLW  01
+11E2:  MOVWF  25
+11E4:  MOVF   25,W
+11E6:  SUBLW  95
+11E8:  BNC   11FC
+11EA:  MOVLW  01
+11EC:  MOVWF  2C
+11EE:  MOVF   2C,W
+11F0:  SUBLW  63
+11F2:  BNC   11F8
+11F4:  INCF   2C,F
+11F6:  BRA    11EE
+11F8:  INCF   25,F
+11FA:  BRA    11E4
+....................       output_toggle(PIN_D4); 
+11FC:  BTG    F8C.4
+....................       for (k5=1;k5<150;++k5){for (l5=1;l5<100;++l5){}} 
+11FE:  MOVLW  01
+1200:  MOVWF  25
+1202:  MOVF   25,W
+1204:  SUBLW  95
+1206:  BNC   121A
+1208:  MOVLW  01
+120A:  MOVWF  2C
+120C:  MOVF   2C,W
+120E:  SUBLW  63
+1210:  BNC   1216
+1212:  INCF   2C,F
+1214:  BRA    120C
+1216:  INCF   25,F
+1218:  BRA    1202
+....................       comando = 'D'; 
+121A:  MOVLW  44
+121C:  MOVWF  53
+....................       valor2 = 5; 
+121E:  MOVLW  05
+1220:  MOVWF  32
+....................       printf("T=%i*", cont); 
+1222:  MOVLW  54
+1224:  BTFSS  F9E.4
+1226:  BRA    1224
+1228:  MOVWF  FAD
+122A:  MOVLW  3D
+122C:  BTFSS  F9E.4
+122E:  BRA    122C
+1230:  MOVWF  FAD
+1232:  MOVFF  2F,505
+1236:  MOVLW  18
+1238:  MOVLB  5
+123A:  MOVWF  x06
+123C:  MOVLB  0
+123E:  CALL   03DE
+1242:  MOVLW  2A
+1244:  BTFSS  F9E.4
+1246:  BRA    1244
+1248:  MOVWF  FAD
+....................       contar = 0; 
+124A:  BCF    30.0
+124C:  BRA    11DE
+....................    } 
+124E:  RETURN 0
+.................... } 
+....................  
+....................  
+.................... //***************************************************************************** 
+.................... //PROGRAMA 6: Parpadeo Led B0 - FINITO 
+....................  
+.................... #ORG 0x12DC, 0x13DC 
+.................... void Parpadear_B0() 
+.................... { 
+....................    cont = 0; 
+*
+12DC:  CLRF   2F
+....................    contar = 1; 
+12DE:  BSF    30.0
+....................    while(TRUE) 
+....................    { 
+....................       output_toggle(PIN_B0); 
+12E0:  BTG    F8A.0
+....................       for (k6=1;k6<100;k6++){for (l6=1;l6<100;l6++){}} 
+12E2:  MOVLW  01
+12E4:  MOVWF  26
+12E6:  MOVF   26,W
+12E8:  SUBLW  63
+12EA:  BNC   12FE
+12EC:  MOVLW  01
+12EE:  MOVWF  2D
+12F0:  MOVF   2D,W
+12F2:  SUBLW  63
+12F4:  BNC   12FA
+12F6:  INCF   2D,F
+12F8:  BRA    12F0
+12FA:  INCF   26,F
+12FC:  BRA    12E6
+....................       output_toggle(PIN_B0); 
+12FE:  BTG    F8A.0
+....................       for (k6=1;k6<100;k6++){for (l6=1;l6<100;l6++){}} 
+1300:  MOVLW  01
+1302:  MOVWF  26
+1304:  MOVF   26,W
+1306:  SUBLW  63
+1308:  BNC   131C
+130A:  MOVLW  01
+130C:  MOVWF  2D
+130E:  MOVF   2D,W
+1310:  SUBLW  63
+1312:  BNC   1318
+1314:  INCF   2D,F
+1316:  BRA    130E
+1318:  INCF   26,F
+131A:  BRA    1304
+....................       comando = 'D'; 
+131C:  MOVLW  44
+131E:  MOVWF  53
+....................       valor2 = 6; 
+1320:  MOVLW  06
+1322:  MOVWF  32
+....................       printf("T=%i*", cont); 
+1324:  MOVLW  54
+1326:  BTFSS  F9E.4
+1328:  BRA    1326
+132A:  MOVWF  FAD
+132C:  MOVLW  3D
+132E:  BTFSS  F9E.4
+1330:  BRA    132E
+1332:  MOVWF  FAD
+1334:  MOVFF  2F,505
+1338:  MOVLW  18
+133A:  MOVLB  5
+133C:  MOVWF  x06
+133E:  MOVLB  0
+1340:  CALL   03DE
+1344:  MOVLW  2A
+1346:  BTFSS  F9E.4
+1348:  BRA    1346
+134A:  MOVWF  FAD
+....................       contar = 0; 
+134C:  BCF    30.0
+134E:  BRA    12E0
+....................    } 
+1350:  RETURN 0
+.................... } 
+....................  
+.................... //***************************************************************************** 
+.................... //PROGRAMA 7: Parpadeo Led B1 - FINITO 
+.................... #ORG 0x13DE, 0x14DE 
+.................... void Parpadear_B1() 
+.................... { 
+....................    cont = 0; 
+*
+13DE:  CLRF   2F
+....................    contar = 1; 
+13E0:  BSF    30.0
+....................    while(TRUE) 
+....................    { 
+....................       output_toggle(PIN_B1); 
+13E2:  BTG    F8A.1
+....................       for (k7=1;k7<50;k7++){for (l7=1;l7<100;++l7){}} 
+13E4:  MOVLW  01
+13E6:  MOVWF  27
+13E8:  MOVF   27,W
+13EA:  SUBLW  31
+13EC:  BNC   1400
+13EE:  MOVLW  01
+13F0:  MOVWF  2E
+13F2:  MOVF   2E,W
+13F4:  SUBLW  63
+13F6:  BNC   13FC
+13F8:  INCF   2E,F
+13FA:  BRA    13F2
+13FC:  INCF   27,F
+13FE:  BRA    13E8
+....................       output_toggle(PIN_B1); 
+1400:  BTG    F8A.1
+....................       for (k7=1;k7<50;k7++){for (l7=1;l7<100;++l7){}} 
+1402:  MOVLW  01
+1404:  MOVWF  27
+1406:  MOVF   27,W
+1408:  SUBLW  31
+140A:  BNC   141E
+140C:  MOVLW  01
+140E:  MOVWF  2E
+1410:  MOVF   2E,W
+1412:  SUBLW  63
+1414:  BNC   141A
+1416:  INCF   2E,F
+1418:  BRA    1410
+141A:  INCF   27,F
+141C:  BRA    1406
+....................       comando = 'D'; 
+141E:  MOVLW  44
+1420:  MOVWF  53
+....................       valor2 = 7; 
+1422:  MOVLW  07
+1424:  MOVWF  32
+....................       printf("T=%i*", cont); 
+1426:  MOVLW  54
+1428:  BTFSS  F9E.4
+142A:  BRA    1428
+142C:  MOVWF  FAD
+142E:  MOVLW  3D
+1430:  BTFSS  F9E.4
+1432:  BRA    1430
+1434:  MOVWF  FAD
+1436:  MOVFF  2F,505
+143A:  MOVLW  18
+143C:  MOVLB  5
+143E:  MOVWF  x06
+1440:  MOVLB  0
+1442:  CALL   03DE
+1446:  MOVLW  2A
+1448:  BTFSS  F9E.4
+144A:  BRA    1448
+144C:  MOVWF  FAD
+....................       contar = 0; 
+144E:  BCF    30.0
+1450:  BRA    13E2
+....................    } 
+1452:  RETURN 0
+.................... } 
+....................  
+....................  
+.................... /* 
+.................... // PROGRAMA 5: Mostrar Procesos 
+....................  
+.................... #ORG 0x2502, 0x2850           // COMANDO: $C4* 
+.................... void task_manager(){ 
+....................    while(TRUE){ 
+....................       desactivar_timer(); 
+....................       int m; 
+....................          int32 mproceso, mdirini, mdirfin, mdiract; 
+....................          printf("|   Proceso  |  Dir.Ini  |  Dir.Fin  |  Dir.Act  |"); 
+....................          for(m=0;m<np;m++) 
+....................          { 
+....................             mproceso = colap[m]+1; 
+....................             mdirini = vpcb[mproceso-1].di; 
+....................             mdirfin = vpcb[mproceso-1].df; 
+....................             mdiract = vpcb[mproceso-1].da; 
+....................             printf("|      %Lu     |   %Lu    |   %Lu    |   %Lu    |",mproceso,mdirini,mdirfin,mdiract); 
+....................          } 
+....................          printf("*"); 
+....................       activar_timer(); 
+....................       comando='D'; 
+....................       valor2=5; 
+....................       int16 mm; 
+....................       for (mm=0;mm<250;mm++) 
+....................       { 
+....................          int mmm; 
+....................          for (mmm=0;mmm<250;mmm++) 
+....................          { 
+....................             mm=mm+1; 
+....................             mm=mm-1; 
+....................          } 
+....................       } 
+....................    } 
+....................     
+.................... } 
+.................... */ 
+....................  
+.................... void limpiar_calendario (int mcm){ 
+....................    for (int i=0; i<mcm; i++){ 
+*
+0714:  MOVLB  5
+0716:  CLRF   x06
+0718:  MOVF   x05,W
+071A:  SUBWF  x06,W
+071C:  BC    0732
+....................       Calendario[i] = 0; 
+071E:  MOVLW  08
+0720:  ADDWF  x06,W
+0722:  MOVWF  FE9
+0724:  MOVLW  01
+0726:  MOVWF  FEA
+0728:  BTFSC  FD8.0
+072A:  INCF   FEA,F
+072C:  CLRF   FEF
+072E:  INCF   x06,F
+0730:  BRA    0718
+....................    } 
+0732:  MOVLB  0
+0734:  GOTO   4110 (RETURN)
+.................... } 
+....................  
+.................... void cargar_proceso(int idp, int prioridad) 
+.................... { 
+....................     colap[np]=idp-1; 
+*
+05AE:  CLRF   03
+05B0:  MOVF   16,W
+05B2:  ADDLW  17
+05B4:  MOVWF  FE9
+05B6:  MOVLW  00
+05B8:  ADDWFC 03,W
+05BA:  MOVWF  FEA
+05BC:  MOVLW  01
+05BE:  MOVLB  5
+05C0:  SUBWF  x06,W
+05C2:  MOVWF  FEF
+....................     vpcb[idp-1].estado=1; 
+05C4:  MOVLW  01
+05C6:  SUBWF  x06,W
+05C8:  MULLW  12
+05CA:  MOVF   FF3,W
+05CC:  CLRF   x09
+05CE:  MOVWF  x08
+05D0:  MOVLW  0C
+05D2:  ADDWF  x08,W
+05D4:  MOVWF  01
+05D6:  MOVLW  00
+05D8:  ADDWFC x09,W
+05DA:  MOVWF  03
+05DC:  MOVF   01,W
+05DE:  ADDLW  54
+05E0:  MOVWF  FE9
+05E2:  MOVLW  00
+05E4:  ADDWFC 03,W
+05E6:  MOVWF  FEA
+05E8:  MOVLW  01
+05EA:  MOVWF  FEF
+....................     vpcb[idp-1].prioridad =prioridad; 
+05EC:  SUBWF  x06,W
+05EE:  MULLW  12
+05F0:  MOVF   FF3,W
+05F2:  CLRF   x09
+05F4:  MOVWF  x08
+05F6:  MOVLW  11
+05F8:  ADDWF  x08,W
+05FA:  MOVWF  01
+05FC:  MOVLW  00
+05FE:  ADDWFC x09,W
+0600:  MOVWF  03
+0602:  MOVF   01,W
+0604:  ADDLW  54
+0606:  MOVWF  FE9
+0608:  MOVLW  00
+060A:  ADDWFC 03,W
+060C:  MOVWF  FEA
+060E:  MOVFF  507,FEF
+....................     proceso=10; 
+0612:  MOVLW  0A
+0614:  MOVWF  31
+....................     np++; 
+0616:  INCF   16,F
+0618:  MOVLB  0
+061A:  RETURN 0
+.................... } 
+....................  
+.................... void descargar_proceso(int idp) 
+.................... { 
+....................    int s,d,f; 
+....................    for(s=0;s<np;s++) 
+061C:  MOVLB  5
+061E:  CLRF   x06
+0620:  MOVF   16,W
+0622:  SUBWF  x06,W
+0624:  BC    0648
+....................       {if(colap[s]==idp-1) 
+0626:  CLRF   03
+0628:  MOVF   x06,W
+062A:  ADDLW  17
+062C:  MOVWF  FE9
+062E:  MOVLW  00
+0630:  ADDWFC 03,W
+0632:  MOVWF  FEA
+0634:  MOVFF  FEF,509
+0638:  MOVLW  01
+063A:  SUBWF  x05,W
+063C:  SUBWF  x09,W
+063E:  BNZ   0644
+....................          {d=s;} 
+0640:  MOVFF  506,507
+0644:  INCF   x06,F
+0646:  BRA    0620
+....................       } 
+....................    f=np-1; 
+0648:  MOVLW  01
+064A:  SUBWF  16,W
+064C:  MOVWF  x08
+....................    for(s=d;s<f;s++) 
+064E:  MOVFF  507,506
+0652:  MOVF   x08,W
+0654:  SUBWF  x06,W
+0656:  BC    068C
+....................       {colap[s]=colap[s+1]; 
+0658:  CLRF   03
+065A:  MOVF   x06,W
+065C:  ADDLW  17
+065E:  MOVWF  01
+0660:  MOVLW  00
+0662:  ADDWFC 03,F
+0664:  MOVFF  03,50A
+0668:  MOVLW  01
+066A:  ADDWF  x06,W
+066C:  CLRF   03
+066E:  ADDLW  17
+0670:  MOVWF  FE9
+0672:  MOVLW  00
+0674:  ADDWFC 03,W
+0676:  MOVWF  FEA
+0678:  MOVFF  FEF,50B
+067C:  MOVFF  50A,FEA
+0680:  MOVFF  01,FE9
+0684:  MOVFF  50B,FEF
+0688:  INCF   x06,F
+068A:  BRA    0652
+....................       } 
+....................    np--;    
+068C:  DECF   16,F
+....................    vpcb[idp-1].estado=0; 
+068E:  MOVLW  01
+0690:  SUBWF  x05,W
+0692:  MULLW  12
+0694:  MOVF   FF3,W
+0696:  CLRF   x0A
+0698:  MOVWF  x09
+069A:  MOVLW  0C
+069C:  ADDWF  x09,W
+069E:  MOVWF  01
+06A0:  MOVLW  00
+06A2:  ADDWFC x0A,W
+06A4:  MOVWF  03
+06A6:  MOVF   01,W
+06A8:  ADDLW  54
+06AA:  MOVWF  FE9
+06AC:  MOVLW  00
+06AE:  ADDWFC 03,W
+06B0:  MOVWF  FEA
+06B2:  CLRF   FEF
+....................    proceso=0; 
+06B4:  CLRF   31
+06B6:  MOVLB  0
+06B8:  RETURN 0
+.................... } 
+....................  
+.................... void Port_Init() 
+.................... { 
+....................    set_tris_b(0x00); 
+*
+07E4:  MOVLW  00
+07E6:  MOVWF  F93
+....................    set_tris_d(0x00); 
+07E8:  MOVWF  F95
+....................    set_tris_a(0x00); 
+07EA:  MOVWF  F92
+....................    output_b(0x00); 
+07EC:  CLRF   F8A
+....................    output_d(0x00); 
+07EE:  CLRF   F8C
+....................    output_a(0x00); 
+07F0:  CLRF   F89
+07F2:  GOTO   091A (RETURN)
+.................... } 
+....................  
+.................... void Config_TMR0() 
+.................... { 
+....................    T0CON=0b10000111; 
+*
+0906:  MOVLW  87
+0908:  MOVWF  FD5
+090A:  GOTO   0920 (RETURN)
+....................  
+.................... } 
+....................  
+.................... void Procesos_Init() 
+.................... { 
+....................    //Programa 1 
+....................    vpcb[0].di=0x1000; 
+*
+07F6:  CLRF   57
+07F8:  CLRF   56
+07FA:  MOVLW  10
+07FC:  MOVWF  55
+07FE:  CLRF   54
+....................    vpcb[0].da=0x1000;    
+0800:  CLRF   5F
+0802:  CLRF   5E
+0804:  MOVWF  5D
+0806:  CLRF   5C
+....................    vpcb[0].df=0x1044; 
+0808:  CLRF   5B
+080A:  CLRF   5A
+080C:  MOVWF  59
+080E:  MOVLW  44
+0810:  MOVWF  58
+....................    //Programa 2 
+....................    vpcb[1].di=0x1046; 
+0812:  CLRF   x69
+0814:  CLRF   x68
+0816:  MOVLW  10
+0818:  MOVWF  x67
+081A:  MOVLW  46
+081C:  MOVWF  x66
+....................    vpcb[1].da=0x1046; 
+081E:  CLRF   x71
+0820:  CLRF   x70
+0822:  MOVLW  10
+0824:  MOVWF  x6F
+0826:  MOVLW  46
+0828:  MOVWF  x6E
+....................    vpcb[1].df=0x1090; 
+082A:  CLRF   x6D
+082C:  CLRF   x6C
+082E:  MOVLW  10
+0830:  MOVWF  x6B
+0832:  MOVLW  90
+0834:  MOVWF  x6A
+....................    //Programa 3 
+....................    vpcb[2].di=0x1092; 
+0836:  CLRF   x7B
+0838:  CLRF   x7A
+083A:  MOVLW  10
+083C:  MOVWF  x79
+083E:  MOVLW  92
+0840:  MOVWF  x78
+....................    vpcb[2].da=0x1092; 
+0842:  CLRF   x83
+0844:  CLRF   x82
+0846:  MOVLW  10
+0848:  MOVWF  x81
+084A:  MOVLW  92
+084C:  MOVWF  x80
+....................    vpcb[2].df=0x10D6; 
+084E:  CLRF   x7F
+0850:  CLRF   x7E
+0852:  MOVLW  10
+0854:  MOVWF  x7D
+0856:  MOVLW  D6
+0858:  MOVWF  x7C
+....................    //Programa 4 
+....................    vpcb[3].di=0x10D8; 
+085A:  CLRF   x8D
+085C:  CLRF   x8C
+085E:  MOVLW  10
+0860:  MOVWF  x8B
+0862:  MOVLW  D8
+0864:  MOVWF  x8A
+....................    vpcb[3].da=0x10D8; 
+0866:  CLRF   x95
+0868:  CLRF   x94
+086A:  MOVLW  10
+086C:  MOVWF  x93
+086E:  MOVLW  D8
+0870:  MOVWF  x92
+....................    vpcb[3].df=0x11D8; 
+0872:  CLRF   x91
+0874:  CLRF   x90
+0876:  MOVLW  11
+0878:  MOVWF  x8F
+087A:  MOVLW  D8
+087C:  MOVWF  x8E
+....................    //Programa 5 
+....................    vpcb[4].di=0x11DA; 
+087E:  CLRF   x9F
+0880:  CLRF   x9E
+0882:  MOVLW  11
+0884:  MOVWF  x9D
+0886:  MOVLW  DA
+0888:  MOVWF  x9C
+....................    vpcb[4].da=0x11DA; 
+088A:  CLRF   xA7
+088C:  CLRF   xA6
+088E:  MOVLW  11
+0890:  MOVWF  xA5
+0892:  MOVLW  DA
+0894:  MOVWF  xA4
+....................    vpcb[4].df=0x12DA; 
+0896:  CLRF   xA3
+0898:  CLRF   xA2
+089A:  MOVLW  12
+089C:  MOVWF  xA1
+089E:  MOVLW  DA
+08A0:  MOVWF  xA0
+....................    //Programa 6 
+....................    vpcb[5].di=0x12DC; 
+08A2:  CLRF   xB1
+08A4:  CLRF   xB0
+08A6:  MOVLW  12
+08A8:  MOVWF  xAF
+08AA:  MOVLW  DC
+08AC:  MOVWF  xAE
+....................    vpcb[5].da=0x12DC; 
+08AE:  CLRF   xB9
+08B0:  CLRF   xB8
+08B2:  MOVLW  12
+08B4:  MOVWF  xB7
+08B6:  MOVLW  DC
+08B8:  MOVWF  xB6
+....................    vpcb[5].df=0x13DC; 
+08BA:  CLRF   xB5
+08BC:  CLRF   xB4
+08BE:  MOVLW  13
+08C0:  MOVWF  xB3
+08C2:  MOVLW  DC
+08C4:  MOVWF  xB2
+....................    //Programa 7 
+....................    vpcb[6].di=0x13DE; 
+08C6:  CLRF   xC3
+08C8:  CLRF   xC2
+08CA:  MOVLW  13
+08CC:  MOVWF  xC1
+08CE:  MOVLW  DE
+08D0:  MOVWF  xC0
+....................    vpcb[6].da=0x13DE; 
+08D2:  CLRF   xCB
+08D4:  CLRF   xCA
+08D6:  MOVLW  13
+08D8:  MOVWF  xC9
+08DA:  MOVLW  DE
+08DC:  MOVWF  xC8
+....................    vpcb[6].df=0x14DE; 
+08DE:  CLRF   xC7
+08E0:  CLRF   xC6
+08E2:  MOVLW  14
+08E4:  MOVWF  xC5
+08E6:  MOVLW  DE
+08E8:  MOVWF  xC4
+....................     
+....................    vpcb[0].estado=0; 
+08EA:  CLRF   x60
+....................    vpcb[1].estado=0; 
+08EC:  CLRF   x72
+....................    vpcb[2].estado=0; 
+08EE:  CLRF   x84
+....................    vpcb[3].estado=0; 
+08F0:  CLRF   x96
+....................    vpcb[4].estado=0; 
+08F2:  CLRF   xA8
+....................    vpcb[5].estado=0; 
+08F4:  CLRF   xBA
+....................    vpcb[6].estado=0; 
+08F6:  CLRF   xCC
+08F8:  GOTO   091C (RETURN)
+....................  
+....................     
+.................... } 
+....................  
+.................... void MCU_Init() 
+.................... { 
+....................    printf("Conectado.............*"); 
+*
+090E:  MOVLW  9C
+0910:  MOVWF  FF6
+0912:  MOVLW  04
+0914:  MOVWF  FF7
+0916:  RCALL  0738
+....................    Port_Init(); 
+0918:  BRA    07E4
+....................    Procesos_Init(); 
+091A:  BRA    07F6
+....................    inte_Init(); 
+091C:  BRA    08FC
+....................    Config_TMR0(); 
+091E:  BRA    0906
+....................    setup_spi(FALSE); 
+0920:  CLRF   FC6
+....................    setup_psp(PSP_DISABLED); 
+0922:  BCF    F96.4
+....................    setup_comparator(NC_NC_NC_NC); 
+0924:  MOVLW  07
+0926:  MOVWF  FB4
+0928:  MOVF   F92,W
+092A:  MOVWF  F92
+092C:  MOVLW  07
+092E:  MOVWF  00
+0930:  DECFSZ 00,F
+0932:  BRA    0930
+0934:  BRA    0936
+0936:  NOP   
+0938:  MOVF   FB4,W
+093A:  BCF    FA1.6
+....................    setup_vref(FALSE); 
+093C:  CLRF   FB5
+....................    port_b_pullups(FALSE); 
+093E:  BSF    FF1.7
+0940:  GOTO   098C (RETURN)
+.................... } 
+....................  
+....................  
+.................... #ORG 0x4000, 0x4FFE 
+.................... void Inicio_SO() 
+.................... { 
+....................    while (TRUE) 
+....................    {        
+....................       if(flagcmd){ 
+*
+4000:  BTFSS  30.1
+4002:  BRA    4008
+....................          procesa_cmd(); 
+4004:  GOTO   04DA
+....................       } 
+....................       switch(comando) 
+4008:  MOVLW  43
+400A:  SUBWF  53,W
+400C:  ADDLW  EA
+400E:  BTFSC  FD8.0
+4010:  BRA    41C4
+4012:  ADDLW  16
+4014:  GOTO   0766
+....................       { 
+....................          case 'C': {    // Cargar proceso especifico 
+....................                      if (valor2<8) cargar_proceso(valor2 , 1); 
+4018:  MOVF   32,W
+401A:  SUBLW  07
+401C:  BNC   402E
+401E:  MOVFF  32,506
+4022:  MOVLW  01
+4024:  MOVLB  5
+4026:  MOVWF  x07
+4028:  MOVLB  0
+402A:  CALL   05AE
+....................                      printf("C+%i*", valor2); 
+402E:  MOVLW  43
+4030:  BTFSS  F9E.4
+4032:  BRA    4030
+4034:  MOVWF  FAD
+4036:  MOVLW  2B
+4038:  BTFSS  F9E.4
+403A:  BRA    4038
+403C:  MOVWF  FAD
+403E:  MOVFF  32,505
+4042:  MOVLW  18
+4044:  MOVLB  5
+4046:  MOVWF  x06
+4048:  MOVLB  0
+404A:  CALL   03DE
+404E:  MOVLW  2A
+4050:  BTFSS  F9E.4
+4052:  BRA    4050
+4054:  MOVWF  FAD
+....................                      break; 
+4056:  BRA    41C4
+....................                    } 
+....................          case 'D': {    // Descargar proceso especifico 
+....................                      if (valor2<8) descargar_proceso(valor2); 
+4058:  MOVF   32,W
+405A:  SUBLW  07
+405C:  BNC   4066
+405E:  MOVFF  32,505
+4062:  CALL   061C
+....................                      printf("D+%i*", valor2); 
+4066:  MOVLW  44
+4068:  BTFSS  F9E.4
+406A:  BRA    4068
+406C:  MOVWF  FAD
+406E:  MOVLW  2B
+4070:  BTFSS  F9E.4
+4072:  BRA    4070
+4074:  MOVWF  FAD
+4076:  MOVFF  32,505
+407A:  MOVLW  18
+407C:  MOVLB  5
+407E:  MOVWF  x06
+4080:  MOVLB  0
+4082:  CALL   03DE
+4086:  MOVLW  2A
+4088:  BTFSS  F9E.4
+408A:  BRA    4088
+408C:  MOVWF  FAD
+....................                      break; 
+408E:  BRA    41C4
+....................                    } 
+....................          case 'U': {    // Cargar procesos 1-6 
+....................                      for (m=1;m<4;m++) {cargar_proceso(m , 1);} 
+4090:  MOVLW  01
+4092:  MOVWF  1D
+4094:  MOVF   1D,W
+4096:  SUBLW  03
+4098:  BNC   40AE
+409A:  MOVFF  1D,506
+409E:  MOVLW  01
+40A0:  MOVLB  5
+40A2:  MOVWF  x07
+40A4:  MOVLB  0
+40A6:  CALL   05AE
+40AA:  INCF   1D,F
+40AC:  BRA    4094
+....................                      break; 
+40AE:  BRA    41C4
+....................                    } 
+....................          case 'X': {    // Descargar procesos 1-6 
+....................                      for (m=1;m<4;m++) {descargar_proceso(m);} 
+40B0:  MOVLW  01
+40B2:  MOVWF  1D
+40B4:  MOVF   1D,W
+40B6:  SUBLW  03
+40B8:  BNC   40C6
+40BA:  MOVFF  1D,505
+40BE:  CALL   061C
+40C2:  INCF   1D,F
+40C4:  BRA    40B4
+....................                      break; 
+40C6:  BRA    41C4
+....................                    } 
+....................          case 'M': {    // iniciar/detener carga del calendario 
+....................                      if (valor2 == 0) { 
+40C8:  MOVF   32,F
+40CA:  BNZ   411E
+....................                         estado_calendario = 3; 
+40CC:  MOVLW  03
+40CE:  MOVLB  4
+40D0:  MOVWF  xF2
+....................                         mcm = (val1*255) + val2; 
+40D2:  MOVFF  36,508
+40D6:  MOVFF  35,507
+40DA:  MOVFF  34,506
+40DE:  MOVFF  33,505
+40E2:  MOVLB  5
+40E4:  CLRF   x0C
+40E6:  CLRF   x0B
+40E8:  CLRF   x0A
+40EA:  SETF   x09
+40EC:  MOVLB  0
+40EE:  CALL   06BA
+40F2:  MOVF   37,W
+40F4:  MOVLB  5
+40F6:  ADDWF  00,W
+40F8:  MOVLB  4
+40FA:  MOVWF  xF4
+40FC:  MOVF   38,W
+40FE:  MOVLB  5
+4100:  ADDWFC 01,W
+4102:  MOVLB  4
+4104:  MOVWF  xF5
+....................                         limpiar_calendario (mcm); 
+4106:  MOVFF  4F4,505
+410A:  MOVLB  0
+410C:  GOTO   0714
+....................                         printf("M+0*"); 
+4110:  MOVLW  B6
+4112:  MOVWF  FF6
+4114:  MOVLW  07
+4116:  MOVWF  FF7
+4118:  CALL   0738
+....................                      } else if ( valor2 == 1 ){ 
+411C:  BRA    4134
+411E:  DECFSZ 32,W
+4120:  BRA    4134
+....................                         estado_calendario = 0; 
+4122:  MOVLB  4
+4124:  CLRF   xF2
+....................                         printf("M+1*"); 
+4126:  MOVLW  BC
+4128:  MOVWF  FF6
+412A:  MOVLW  07
+412C:  MOVWF  FF7
+412E:  MOVLB  0
+4130:  CALL   0738
+....................                      } 
+....................                      break; 
+4134:  BRA    41C4
+....................                    } 
+....................          case 'P': {    // Guardar un proceso en el calendario 
+....................                      int pos; 
+....................                      pos = (val1*255) + val2; 
+4136:  MOVFF  36,508
+413A:  MOVFF  35,507
+413E:  MOVFF  34,506
+4142:  MOVFF  33,505
+4146:  MOVLB  5
+4148:  CLRF   x0C
+414A:  CLRF   x0B
+414C:  CLRF   x0A
+414E:  SETF   x09
+4150:  MOVLB  0
+4152:  CALL   06BA
+4156:  MOVF   37,W
+4158:  MOVLB  5
+415A:  ADDWF  00,W
+415C:  MOVWF  x04
+....................                      Calendario[pos] = valor2; 
+415E:  MOVLW  08
+4160:  ADDWF  x04,W
+4162:  MOVWF  FE9
+4164:  MOVLW  01
+4166:  MOVWF  FEA
+4168:  BTFSC  FD8.0
+416A:  INCF   FEA,F
+416C:  MOVFF  32,FEF
+....................                      printf("P+%i*",valor2); 
+4170:  MOVLW  50
+4172:  BTFSS  F9E.4
+4174:  BRA    4172
+4176:  MOVWF  FAD
+4178:  MOVLW  2B
+417A:  BTFSS  F9E.4
+417C:  BRA    417A
+417E:  MOVWF  FAD
+4180:  MOVFF  32,505
+4184:  MOVLW  18
+4186:  MOVWF  x06
+4188:  MOVLB  0
+418A:  CALL   03DE
+418E:  MOVLW  2A
+4190:  BTFSS  F9E.4
+4192:  BRA    4190
+4194:  MOVWF  FAD
+....................                      break; 
+4196:  BRA    41C4
+....................                    } 
+....................          case 'T': {    // Ejecutar calendario 
+....................                      estado_calendario = 1; 
+4198:  MOVLW  01
+419A:  MOVLB  4
+419C:  MOVWF  xF2
+....................                      reloj = 0; 
+419E:  CLRF   xF1
+41A0:  CLRF   xF0
+....................                      printf("T+1*"); 
+41A2:  MOVLW  C2
+41A4:  MOVWF  FF6
+41A6:  MOVLW  07
+41A8:  MOVWF  FF7
+41AA:  MOVLB  0
+41AC:  CALL   0738
+....................                      break; 
+41B0:  BRA    41C4
+....................                    } 
+....................          case 'R': {    // Detener Calendario 
+....................                      estado_calendario = 0; 
+41B2:  MOVLB  4
+41B4:  CLRF   xF2
+....................                      printf("R+1*"); 
+41B6:  MOVLW  C8
+41B8:  MOVWF  FF6
+41BA:  MOVLW  07
+41BC:  MOVWF  FF7
+41BE:  MOVLB  0
+41C0:  CALL   0738
+....................                      break; 
+....................                    } 
+....................       } 
+....................       comando='-'; 
+41C4:  MOVLW  2D
+41C6:  MOVWF  53
+....................       valor2=100; 
+41C8:  MOVLW  64
+41CA:  MOVWF  32
+....................       if (estado_calendario == 1){ 
+41CC:  MOVLB  4
+41CE:  DECFSZ xF2,W
+41D0:  BRA    4204
+....................          if (Calendario[reloj] != 0){ 
+41D2:  MOVLW  08
+41D4:  ADDWF  xF0,W
+41D6:  MOVWF  FE9
+41D8:  MOVLW  01
+41DA:  ADDWFC xF1,W
+41DC:  MOVWF  FEA
+41DE:  MOVF   FEF,F
+41E0:  BZ    4204
+....................             cargar_proceso(Calendario[reloj] , 2); 
+41E2:  MOVLW  08
+41E4:  ADDWF  xF0,W
+41E6:  MOVWF  FE9
+41E8:  MOVLW  01
+41EA:  ADDWFC xF1,W
+41EC:  MOVWF  FEA
+41EE:  MOVFF  FEF,505
+41F2:  MOVFF  505,506
+41F6:  MOVLW  02
+41F8:  MOVLB  5
+41FA:  MOVWF  x07
+41FC:  MOVLB  0
+41FE:  CALL   05AE
+4202:  MOVLB  4
+....................          } 
+....................       } 
+....................       if(np>0) 
+4204:  MOVF   16,F
+4206:  BZ    42FA
+....................       { 
+....................          if(vpcb[colap[0]].estado==1) 
+4208:  MOVF   17,W
+420A:  MULLW  12
+420C:  MOVF   FF3,W
+420E:  MOVLB  5
+4210:  CLRF   x06
+4212:  MOVWF  x05
+4214:  MOVLW  0C
+4216:  ADDWF  x05,W
+4218:  MOVWF  01
+421A:  MOVLW  00
+421C:  ADDWFC x06,W
+421E:  MOVWF  03
+4220:  MOVF   01,W
+4222:  ADDLW  54
+4224:  MOVWF  FE9
+4226:  MOVLW  00
+4228:  ADDWFC 03,W
+422A:  MOVWF  FEA
+422C:  DECFSZ FEF,W
+422E:  BRA    4290
+....................             {activar_timer(); 
+4230:  MOVLB  0
+4232:  CALL   075A
+....................              vpcb[colap[0]].estado=2; 
+4236:  MOVF   17,W
+4238:  MULLW  12
+423A:  MOVF   FF3,W
+423C:  MOVLB  5
+423E:  CLRF   x06
+4240:  MOVWF  x05
+4242:  MOVLW  0C
+4244:  ADDWF  x05,W
+4246:  MOVWF  01
+4248:  MOVLW  00
+424A:  ADDWFC x06,W
+424C:  MOVWF  03
+424E:  MOVF   01,W
+4250:  ADDLW  54
+4252:  MOVWF  FE9
+4254:  MOVLW  00
+4256:  ADDWFC 03,W
+4258:  MOVWF  FEA
+425A:  MOVLW  02
+425C:  MOVWF  FEF
+....................              goto_address(vpcb[colap[0]].di); 
+425E:  MOVF   17,W
+4260:  MULLW  12
+4262:  MOVF   FF3,W
+4264:  CLRF   x06
+4266:  MOVWF  x05
+4268:  MOVLW  54
+426A:  ADDWF  x05,W
+426C:  MOVWF  FE9
+426E:  MOVLW  00
+4270:  ADDWFC x06,W
+4272:  MOVWF  FEA
+4274:  MOVFF  FEF,507
+4278:  MOVFF  FEC,508
+427C:  MOVFF  FEC,509
+4280:  MOVFF  FEC,50A
+4284:  MOVFF  508,FFA
+4288:  MOVFF  507,FE8
+428C:  MOVWF  FF9
+....................             } 
+428E:  BRA    42FA
+....................          else 
+....................             {wreg=vpcb[colap[0]].wreg; 
+4290:  MOVF   17,W
+4292:  MULLW  12
+4294:  MOVF   FF3,W
+4296:  CLRF   x06
+4298:  MOVWF  x05
+429A:  MOVLW  0D
+429C:  ADDWF  x05,W
+429E:  MOVWF  01
+42A0:  MOVLW  00
+42A2:  ADDWFC x06,W
+42A4:  MOVWF  03
+42A6:  MOVF   01,W
+42A8:  ADDLW  54
+42AA:  MOVWF  FE9
+42AC:  MOVLW  00
+42AE:  ADDWFC 03,W
+42B0:  MOVWF  FEA
+42B2:  MOVFF  FEF,FE8
+....................              activar_timer(); 
+42B6:  MOVLB  0
+42B8:  CALL   075A
+....................              goto_address(vpcb[colap[0]].da); 
+42BC:  MOVF   17,W
+42BE:  MULLW  12
+42C0:  MOVF   FF3,W
+42C2:  MOVLB  5
+42C4:  CLRF   x06
+42C6:  MOVWF  x05
+42C8:  MOVLW  08
+42CA:  ADDWF  x05,W
+42CC:  MOVWF  01
+42CE:  MOVLW  00
+42D0:  ADDWFC x06,W
+42D2:  MOVWF  03
+42D4:  MOVF   01,W
+42D6:  ADDLW  54
+42D8:  MOVWF  FE9
+42DA:  MOVLW  00
+42DC:  ADDWFC 03,W
+42DE:  MOVWF  FEA
+42E0:  MOVFF  FEF,505
+42E4:  MOVFF  FEC,506
+42E8:  MOVFF  FEC,507
+42EC:  MOVFF  FEC,508
+42F0:  MOVFF  506,FFA
+42F4:  MOVFF  505,FE8
+42F8:  MOVWF  FF9
+....................             } 
+....................       } 
+42FA:  MOVLB  0
+42FC:  BRA    4000
+....................    } 
+42FE:  RETURN 0
+.................... } 
+....................  
+.................... void main(void) 
+*
+0944:  CLRF   FF8
+0946:  BCF    FD0.7
+0948:  BSF    07.7
+094A:  BCF    FB8.3
+094C:  MOVLW  40
+094E:  MOVWF  FAF
+0950:  MOVLW  A6
+0952:  MOVWF  FAC
+0954:  MOVLW  90
+0956:  MOVWF  FAB
+0958:  CLRF   16
+095A:  BCF    30.0
+095C:  CLRF   32
+095E:  CLRF   47
+0960:  CLRF   52
+0962:  BCF    30.1
+0964:  MOVLB  4
+0966:  CLRF   xF1
+0968:  CLRF   xF0
+096A:  CLRF   xF2
+096C:  CLRF   xF3
+096E:  CLRF   xF5
+0970:  CLRF   xF4
+0972:  MOVF   FC1,W
+0974:  ANDLW  C0
+0976:  IORLW  0F
+0978:  MOVWF  FC1
+097A:  MOVLW  07
+097C:  MOVWF  FB4
+.................... { 
+....................    printf("Esperando conexión..*"); 
+097E:  MOVLW  CE
+0980:  MOVWF  FF6
+0982:  MOVLW  07
+0984:  MOVWF  FF7
+0986:  MOVLB  0
+0988:  RCALL  0738
+....................     
+....................    MCU_Init(); 
+098A:  BRA    090E
+....................    #asm 
+....................    call 0x4000 
+098C:  CALL   4000,1
+....................    #endasm 
+.................... } 
+....................  
+0990:  SLEEP 
+
+Configuration Fuses:
+   Word  1: CC27   PLL12 CPUDIV1 USBDIV HS FCMEN IESO
+   Word  2: 1E3E   PUT BROWNOUT BORV21 VREGEN NOWDT WDT32768
+   Word  3: 0700   CCP2C1 PBADEN LPT1OSC NOMCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB
