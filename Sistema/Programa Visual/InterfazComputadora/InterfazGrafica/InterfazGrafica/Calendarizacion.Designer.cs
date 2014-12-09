@@ -66,17 +66,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LConexion = new System.Windows.Forms.Label();
+            this.BtnLecturaADC = new System.Windows.Forms.PictureBox();
+            this.LecturaADC = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnPredeterminado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnLimpiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCargar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnDetener)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnEjecutar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnLecturaADC)).BeginInit();
             this.SuspendLayout();
             // 
             // RTBx_Terminal
             // 
-            this.RTBx_Terminal.Location = new System.Drawing.Point(483, 0);
+            this.RTBx_Terminal.Location = new System.Drawing.Point(607, 1);
             this.RTBx_Terminal.Name = "RTBx_Terminal";
             this.RTBx_Terminal.Size = new System.Drawing.Size(274, 415);
             this.RTBx_Terminal.TabIndex = 0;
@@ -364,7 +367,7 @@
             this.BtnCargar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnCargar.BackgroundImage")));
             this.BtnCargar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnCargar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCargar.Location = new System.Drawing.Point(45, 320);
+            this.BtnCargar.Location = new System.Drawing.Point(38, 320);
             this.BtnCargar.Name = "BtnCargar";
             this.BtnCargar.Size = new System.Drawing.Size(60, 48);
             this.BtnCargar.TabIndex = 26;
@@ -377,7 +380,7 @@
             this.BtnDetener.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDetener.BackgroundImage")));
             this.BtnDetener.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnDetener.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDetener.Location = new System.Drawing.Point(372, 320);
+            this.BtnDetener.Location = new System.Drawing.Point(360, 320);
             this.BtnDetener.Name = "BtnDetener";
             this.BtnDetener.Size = new System.Drawing.Size(60, 48);
             this.BtnDetener.TabIndex = 27;
@@ -390,7 +393,7 @@
             this.BtnEjecutar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnEjecutar.BackgroundImage")));
             this.BtnEjecutar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnEjecutar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnEjecutar.Location = new System.Drawing.Point(216, 320);
+            this.BtnEjecutar.Location = new System.Drawing.Point(200, 320);
             this.BtnEjecutar.Name = "BtnEjecutar";
             this.BtnEjecutar.Size = new System.Drawing.Size(60, 48);
             this.BtnEjecutar.TabIndex = 28;
@@ -403,7 +406,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(338, 371);
+            this.label1.Location = new System.Drawing.Point(326, 371);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 14);
             this.label1.TabIndex = 29;
@@ -415,7 +418,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(180, 371);
+            this.label2.Location = new System.Drawing.Point(164, 371);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 14);
             this.label2.TabIndex = 30;
@@ -427,7 +430,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(15, 371);
+            this.label3.Location = new System.Drawing.Point(8, 371);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 14);
             this.label3.TabIndex = 31;
@@ -446,13 +449,40 @@
             this.LConexion.TabIndex = 32;
             this.LConexion.Text = "Conectar";
             // 
+            // BtnLecturaADC
+            // 
+            this.BtnLecturaADC.BackColor = System.Drawing.Color.Transparent;
+            this.BtnLecturaADC.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnLecturaADC.BackgroundImage")));
+            this.BtnLecturaADC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnLecturaADC.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnLecturaADC.Location = new System.Drawing.Point(501, 175);
+            this.BtnLecturaADC.Name = "BtnLecturaADC";
+            this.BtnLecturaADC.Size = new System.Drawing.Size(61, 56);
+            this.BtnLecturaADC.TabIndex = 33;
+            this.BtnLecturaADC.TabStop = false;
+            this.BtnLecturaADC.Click += new System.EventHandler(this.BtnLecturaADC_Click);
+            // 
+            // LecturaADC
+            // 
+            this.LecturaADC.AutoSize = true;
+            this.LecturaADC.BackColor = System.Drawing.Color.Transparent;
+            this.LecturaADC.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LecturaADC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LecturaADC.Location = new System.Drawing.Point(492, 234);
+            this.LecturaADC.Name = "LecturaADC";
+            this.LecturaADC.Size = new System.Drawing.Size(80, 14);
+            this.LecturaADC.TabIndex = 34;
+            this.LecturaADC.Text = "Lectura ADC";
+            // 
             // Caledarizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(756, 415);
+            this.ClientSize = new System.Drawing.Size(875, 415);
+            this.Controls.Add(this.LecturaADC);
+            this.Controls.Add(this.BtnLecturaADC);
             this.Controls.Add(this.LConexion);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -481,6 +511,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BtnCargar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnDetener)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnEjecutar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnLecturaADC)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -524,5 +555,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LConexion;
+        private System.Windows.Forms.PictureBox BtnLecturaADC;
+        private System.Windows.Forms.Label LecturaADC;
     }
 }

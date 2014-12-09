@@ -12,3 +12,4 @@ D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazC
 D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.Terminal.resources
 D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.AdmProcesos.resources
 D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.Version.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.LecturaADC.resources

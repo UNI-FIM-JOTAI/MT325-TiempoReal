@@ -1,0 +1,10 @@
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\bin\Release\InterfazGrafica.exe.config
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\bin\Release\InterfazGrafica.exe
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\bin\Release\InterfazGrafica.pdb
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Release\InterfazGrafica.CargaDescarga.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Release\InterfazGrafica.Principal.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Release\InterfazGrafica.Caledarizacion.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Release\InterfazGrafica.Properties.Resources.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Release\InterfazGrafica.csproj.GenerateResource.Cache
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Release\InterfazGrafica.exe
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Release\InterfazGrafica.pdb

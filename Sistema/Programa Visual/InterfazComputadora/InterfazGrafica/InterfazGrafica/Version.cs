@@ -17,9 +17,6 @@ namespace InterfazGrafica
         #region DECLARACION DE VARIABLES
 
         private string data = "";
-        private int j = 0;
-        private string cmd;
-        int cmd_num;
         int flag_cmd;
         string msg;
         int estado_conexion = 0;

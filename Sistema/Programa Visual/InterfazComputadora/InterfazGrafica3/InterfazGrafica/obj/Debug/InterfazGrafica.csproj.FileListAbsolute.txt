@@ -1,0 +1,14 @@
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\bin\Debug\InterfazGrafica.exe.config
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\bin\Debug\InterfazGrafica.exe
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\bin\Debug\InterfazGrafica.pdb
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.csprojResolveAssemblyReference.cache
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.Properties.Resources.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.csproj.GenerateResource.Cache
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.exe
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.pdb
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.Caledarizacion.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.Principal.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.CargaDescarga.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.Terminal.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.AdmProcesos.resources
+D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa Visual\InterfazComputadora\InterfazGrafica\InterfazGrafica\obj\Debug\InterfazGrafica.Version.resources

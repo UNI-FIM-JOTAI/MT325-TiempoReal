@@ -17,15 +17,9 @@ namespace InterfazGrafica
         #region DECLARACION DE VARIABLES
 
         private string data = "";
-        private int j = 0;
-        private string cmd;
-        int cmd_num;
         int flag_cmd;
         int estado_conexion=0;
 
-        int flag_envio = 0;
-        int pos_envio, proceso_envio;
-        int tmp1_envio, tmp2_envio;
         string msg;
 
         #endregion
@@ -41,17 +35,18 @@ namespace InterfazGrafica
             }
             PuertoSerial.PortName = "COM1";
             BtnActualizar.Enabled = false;
+            PuertoSerial.Close();
         }
 
         private void BtnConexion_Click(object sender, EventArgs e)
         {
             if (estado_conexion == 0)
             {
+                
                 if (!PuertoSerial.IsOpen)
                 {
                     PuertoSerial.PortName = PuertoList.Text;
                 }
-
                 PuertoSerial.Close();
                 PuertoSerial.Open();
 

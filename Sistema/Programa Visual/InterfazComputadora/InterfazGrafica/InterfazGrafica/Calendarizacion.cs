@@ -22,23 +22,24 @@ namespace InterfazGrafica
         int NumProcesos = 0;
         int Proceso, Duracion, Periodo;
         int tmpProceso, tmpDuracion, tmpPeriodo; 
-        int [] DuracionProceso = {3,3,1,1,5};
-        int [] PeriodoMuestreo = {10,10,10,10,10};
+        int [] DuracionProceso = {4,4,2,2,5};
+        int [] PeriodoMuestreo = {20,20,10,10,10};
         int[] ListaProcesos = {4,5,6,7,0};
         int MCM;
         string TxMCM;
         private string data = "";
         private int j = 0;
-        private string cmd;
-        int cmd_num;
-        int flag_cmd;
+        private string cmd="";
+        int cmd_num=0;
+        int flag_cmd=0;
         int estado_conexion = 0;
+        int valor = 0;
 
         int flag_envio=0;
         int pos_envio, proceso_envio;
         string Txtmp;
-        int tmp1_envio,tmp2_envio;
         string msg;
+        
 
         #endregion
 
@@ -543,7 +544,10 @@ namespace InterfazGrafica
                         cmd = s1;
                         break;
                     case 1:
-                        cmd_num = Convert.ToInt16(s1) ;
+                        cmd_num = Convert.ToInt16(s1);
+                        break;
+                    case 2:
+                        valor = Convert.ToInt16(s1);
                         break;
                 }
                 j = j + 1;
@@ -646,9 +650,11 @@ namespace InterfazGrafica
 
         }
 
-        
-
-
-        
+        private void BtnLecturaADC_Click(object sender, EventArgs e)
+        {
+            LecturaADC frm1 = new LecturaADC();
+            frm1.Show();
+        }
+ 
     }
 }

@@ -1,5 +1,5 @@
 #include <18F4550.h>
-
+#device adc=10       //Resolucion 10BITS
 #use delay(clock=10000000)
 #use rs232(baud=9600, xmit=PIN_C6,rcv=PIN_C7,bits=8,parity=N)
 #fuses HS,NOPROTECT,NOWDT,NOLVP,CPUDIV1,nomclr
@@ -31,6 +31,10 @@ int const lenbuff=10;
 int valor2=0;
 int32 val1,val2,val3,val4,val5;
 //int16 quantum=65048;
+
+// Lectura ADC
+int value;
+int16 value1;
 
 
 int   xbuff=0x00;
@@ -328,14 +332,25 @@ void Parpadear_B1()
 {
    //cont = 0;
    //contar = 1;
+   setup_adc_ports(AN0_TO_AN3|vss_vdd);
+   setup_adc(adc_clock_internal);
    while(TRUE)
    {
-      output_toggle(PIN_B1);
+      /*output_toggle(PIN_B1);
       for (k7=1;k7<50;k7++){for (l7=1;l7<100;++l7){}}
       output_toggle(PIN_B1);
-      for (k7=1;k7<50;k7++){for (l7=1;l7<100;++l7){}}
+      for (k7=1;k7<50;k7++){for (l7=1;l7<100;++l7){}}*/
+      set_adc_channel(0);
+      delay_us(50);
+      value1=Read_ADC();
+      //value1 = 500;
+      value1= (value1*250)/1023;
+      value = value1;
+      printf("A+0+%i*",value);
+      delay_us(150);
       comando = 'D';
       valor2 = 7;
+      for (k7=1;k7<250;k7++){for (l7=1;l7<250;++l7){}}
       //printf("T=%i*", cont);
       //contar = 0;
    }
@@ -368,6 +383,28 @@ void task_manager(){
    }
    
 }
+
+//*****************************************************************************
+//PROGRAMA 9: Lectura ADC
+#ORG 0x14E0, 0x1605
+void leer_ADC()
+{  //setup_adc_ports(0|vss_vdd);
+   //setup_adc(adc_clock_internal);
+   while(TRUE)
+   {
+      //set_adc_channel(0);
+      //value1=Read_ADC();
+      //delay_us(40);
+      //value = 5*(value1);
+      //value = value/1023.0;
+      value = 50;
+      printf("A+0+%i*",value);
+      //delay_ms(50);
+      comando = 'D';
+      valor2 = 9;
+   }
+}
+
 
 
 void limpiar_calendario (int mcm){
@@ -451,6 +488,10 @@ void Procesos_Init()
    vpcb[7].di=0x2502;
    vpcb[7].da=0x2502;
    vpcb[7].df=0x2850;
+   //Programa 9
+   vpcb[8].di=0x14E0;
+   vpcb[8].da=0x14E0;
+   vpcb[8].df=0x1605;
    
    vpcb[0].estado=0;
    vpcb[1].estado=0;
@@ -460,7 +501,7 @@ void Procesos_Init()
    vpcb[5].estado=0;
    vpcb[6].estado=0;
    vpcb[7].estado=0;
-
+   vpcb[8].estado=0;
    
 }
 
@@ -492,11 +533,13 @@ void Inicio_SO()
          case 'C': {    // Cargar proceso especifico
                      if (valor2<9) cargar_proceso(valor2 , 1);
                      printf("C+%i*", valor2);
+                     delay_us(100);
                      break;
                    }
          case 'D': {    // Descargar proceso especifico
                      if (valor2<9) descargar_proceso(valor2);
                      printf("D+%i*", valor2);
+                     delay_us(100);
                      break;
                    }
          case 'U': {    // Cargar procesos 1-6

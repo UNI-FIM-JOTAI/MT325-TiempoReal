@@ -1,7 +1,7 @@
-D G "__PCH__" 0 579 ""5.008""
-D G "__DEVICE__" 0 579 "4550"
-D G "__DATE__" 0 579 ""04-dic-14""
-D G "__TIME__" 0 579 ""18:09:57"" "Standard Header file for the PIC18F4550 device ////////////////"
+D G "__PCH__" 0 620 ""5.008""
+D G "__DEVICE__" 0 620 "4550"
+D G "__DATE__" 0 620 ""09-dic-14""
+D G "__TIME__" 0 620 ""08:59:35"" "Standard Header file for the PIC18F4550 device ////////////////"
 c L "set_tris_a" 1 5 21 "FUNCTION"
 v L "value" 1 36 "int8" `54 
 f B "set_tris_a" 1 36 "void(int8 value)" `53 
@@ -931,111 +931,121 @@ V G "val2" 0 32 "int32" `670
 V G "val3" 0 32 "int32" `671 
 V G "val4" 0 32 "int32" `672 
 V G "val5" 0 32 "int32" `673  "int16 quantum=65048;"
-V G "xbuff" 0 36 "int8" `674 
-V G "cbuff" 0 37 "int8[10]" `675 
-V G "rcvchar" 0 38 "int8" `676 
-V G "comando" 0 39 "int8" `677 
-V G "flagcmd" 0 40 "int1" `678 
-V G "vpcb" 0 53 "{int32 di,int32 df,int32 da,int8 estado,int8 wreg,int8 status,int8 bsr,int8 id,int8 prioridad}[10]" `689  "======== VARIABLES DEL CALENDARIO ========== \\"
-C L "jump_to_irs" 0 56 4 "FUNCTION"
-V G "calendario" 0 61 "int8[1000]" `690 
-V G "reloj" 0 62 "int16" `691 
-V G "estado_calendario" 0 63 "int8" `692 
-V G "prioridad_act" 0 64 "int8" `693 
-V G "mcm" 0 66 "int16" `694 
-F G "activar_timer" 0 71 "void()" `695  "set_timer0(65478);    //    para 3ms"
-C L "activar_timer" 0 56 7 "FUNCTION"
-C L "activar_timer" 0 56 3 "FUNCTION"
-F G "desactivar_timer" 0 87 "void()" `696 
-V L "c" 0 91 "int8" `698 
-F G "addcbuff" 0 91 "void(int8 c)" `697 
-F G "mostrar_procesos" 0 92 "void()" `699 
-V L "idp" 0 93 "int8" `701 
-F G "descargar_proceso" 0 93 "void(int8 idp)" `700 
-F G "Config_TMR0" 0 94 "void()" `702 
-F G "inter_quantum" 0 99 "void()" `703 
-V L "i" 0 99 "int8" `704 
-C L "inter_quantum" 0 56 1 "FUNCTION"
-C L "inter_quantum" 0 56 1 "FUNCTION"
-C L "inter_quantum" 0 56 3 "FUNCTION"
-C L "inter_quantum" 0 56 1 "FUNCTION"
-C L "inte_Init" 0 56 1 "FUNCTION"
-F G "inte_Init" 0 146 "void()" `705 
-F G "serial_isr" 0 154 "void()" `706  "printf("Recibido");     // se envia por Serial una palabra para verificar interrupcion"
-C L "serial_isr" 0 56 1 "FUNCTION"
-C L "serial_isr" 0 56 1 "FUNCTION"
-V L "c" 0 161 "int8" `708 
-F G "addcbuff" 0 162 "void(int8 c)" `697 
-C L "addcbuff" 0 56 1 "FUNCTION"
-C L "inicbuff" 0 56 1 "FUNCTION"
-F G "inicbuff" 0 175 "void(int8 c)" `707 
-V L "i" 0 176 "int8" `708 
-F G "procesa_cmd" 0 185 "void()" `709  "procesa el ultimo comando guardado, un comando esta comprendido entre $ hasta *"
-V L "i" 0 187 "int8" `710 
-V L "j" 0 187 "int8" `711 
-V L "salida" 0 188 "int8[10]" `712  "Argumento de comando (si lo tiene)"
-C L "procesa_cmd" 0 56 1 "FUNCTION"
-C L "procesa_cmd" 0 56 1 "FUNCTION"
-C L "procesa_cmd" 0 56 1 "FUNCTION"
-C L "procesa_cmd" 0 56 1 "FUNCTION"
-C L "procesa_cmd" 0 56 1 "FUNCTION"
-C L "procesa_cmd" 0 56 1 "FUNCTION"
-F G "Parpadear_D0" 0 220 "void()" `713 
-F G "Parpadear_D1" 0 235 "void()" `714 
-F G "Parpadear_D2" 0 250 "void()" `715 
-F G "Parpadear_D3" 0 265 "void()" `716  "cont = 0;"
-C L "Parpadear_D3" 0 56 1 "FUNCTION"
-C L "Parpadear_D3" 0 56 2 "FUNCTION"
-F G "Parpadear_D4" 0 286 "void()" `717  "cont = 0;"
-C L "Parpadear_D4" 0 56 1 "FUNCTION"
-C L "Parpadear_D4" 0 56 2 "FUNCTION"
-F G "Parpadear_B0" 0 308 "void()" `718  "cont = 0;"
-C L "Parpadear_B0" 0 56 1 "FUNCTION"
-C L "Parpadear_B0" 0 56 2 "FUNCTION"
-F G "Parpadear_B1" 0 328 "void()" `719  "cont = 0;"
-C L "Parpadear_B1" 0 56 1 "FUNCTION"
-C L "Parpadear_B1" 0 56 2 "FUNCTION"
-F G "task_manager" 0 349 "void()" `720 
-V L "m" 0 352 "int8" `721 
-V L "mproceso" 0 353 "int32" `722 
-V L "mdirini" 0 353 "int32" `723 
-V L "mdirfin" 0 353 "int32" `724 
-V L "mdiract" 0 353 "int32" `725 
-C L "task_manager" 0 56 1 "FUNCTION"
-V L "mcm" 0 373 "int8" `740 
-F G "limpiar_calendario" 0 373 "void(int8 mcm)" `739 
-V L "i" 0 374 "int8" `741 
-V L "idp" 0 379 "int8" `743 
-V L "prioridad" 0 379 "int8" `744 
-F G "cargar_proceso" 0 380 "void(int8 idp,int8 prioridad)" `742 
-V L "idp" 0 388 "int8" `746 
-F G "descargar_proceso" 0 389 "void(int8 idp)" `700 
-V L "s" 0 390 "int8" `745 
-V L "d" 0 390 "int8" `746 
-V L "f" 0 390 "int8" `747 
-F G "Port_Init" 0 405 "void()" `748 
-F G "Config_TMR0" 0 415 "void()" `702 
-F G "Procesos_Init" 0 421 "void()" `749  "Programa 1"
-C L "Procesos_Init" 0 56 1 "FUNCTION"
-C L "Procesos_Init" 0 56 1 "FUNCTION"
-C L "Procesos_Init" 0 56 1 "FUNCTION"
-C L "Procesos_Init" 0 56 1 "FUNCTION"
-C L "Procesos_Init" 0 56 1 "FUNCTION"
-C L "Procesos_Init" 0 56 1 "FUNCTION"
-C L "Procesos_Init" 0 56 1 "FUNCTION"
-F G "MCU_Init" 0 468 "void()" `750 
-F G "Inicio_SO" 0 484 "void()" `752 
-C L "Inicio_SO" 0 56 1 "FUNCTION"
-C L "Inicio_SO" 0 56 1 "FUNCTION"
-C L "Inicio_SO" 0 56 1 "FUNCTION"
-C L "Inicio_SO" 0 56 1 "FUNCTION"
-C L "Inicio_SO" 0 56 1 "FUNCTION"
-C L "Inicio_SO" 0 56 1 "FUNCTION"
-V L "pos" 0 523 "int8" `763 
-C L "Inicio_SO" 0 56 1 "FUNCTION"
-C L "Inicio_SO" 0 56 1 "FUNCTION"
-C L "Inicio_SO" 0 56 1 "FUNCTION"
-F G "MAIN" 0 569 "void()" `769 
+C L "jump_to_irs" 0 35 1 "FUNCTION"
+V G "value" 0 36 "int8" `674 
+V G "value1" 0 37 "int16" `675 
+V G "xbuff" 0 40 "int8" `676 
+V G "cbuff" 0 41 "int8[10]" `677 
+V G "rcvchar" 0 42 "int8" `678 
+V G "comando" 0 43 "int8" `679 
+V G "flagcmd" 0 44 "int1" `680 
+V G "vpcb" 0 57 "{int32 di,int32 df,int32 da,int8 estado,int8 wreg,int8 status,int8 bsr,int8 id,int8 prioridad}[10]" `691  "======== VARIABLES DEL CALENDARIO ========== \\"
+C L "jump_to_irs" 0 35 4 "FUNCTION"
+V G "calendario" 0 65 "int8[1000]" `692 
+V G "reloj" 0 66 "int16" `693 
+V G "estado_calendario" 0 67 "int8" `694 
+V G "prioridad_act" 0 68 "int8" `695 
+V G "mcm" 0 70 "int16" `696 
+F G "activar_timer" 0 75 "void()" `697  "set_timer0(65478);    //    para 3ms"
+C L "activar_timer" 0 35 7 "FUNCTION"
+C L "activar_timer" 0 35 3 "FUNCTION"
+F G "desactivar_timer" 0 91 "void()" `698 
+V L "c" 0 95 "int8" `700 
+F G "addcbuff" 0 95 "void(int8 c)" `699 
+F G "mostrar_procesos" 0 96 "void()" `701 
+V L "idp" 0 97 "int8" `703 
+F G "descargar_proceso" 0 97 "void(int8 idp)" `702 
+F G "Config_TMR0" 0 98 "void()" `704 
+F G "inter_quantum" 0 103 "void()" `705 
+V L "i" 0 103 "int8" `706 
+C L "inter_quantum" 0 35 1 "FUNCTION"
+C L "inter_quantum" 0 35 1 "FUNCTION"
+C L "inter_quantum" 0 35 3 "FUNCTION"
+C L "inter_quantum" 0 35 1 "FUNCTION"
+C L "inte_Init" 0 35 1 "FUNCTION"
+F G "inte_Init" 0 150 "void()" `707 
+F G "serial_isr" 0 158 "void()" `708  "printf("Recibido");     // se envia por Serial una palabra para verificar interrupcion"
+C L "serial_isr" 0 35 1 "FUNCTION"
+C L "serial_isr" 0 35 1 "FUNCTION"
+V L "c" 0 165 "int8" `710 
+F G "addcbuff" 0 166 "void(int8 c)" `699 
+C L "addcbuff" 0 35 1 "FUNCTION"
+C L "inicbuff" 0 35 1 "FUNCTION"
+F G "inicbuff" 0 179 "void(int8 c)" `709 
+V L "i" 0 180 "int8" `710 
+F G "procesa_cmd" 0 189 "void()" `711  "procesa el ultimo comando guardado, un comando esta comprendido entre $ hasta *"
+V L "i" 0 191 "int8" `712 
+V L "j" 0 191 "int8" `713 
+V L "salida" 0 192 "int8[10]" `714  "Argumento de comando (si lo tiene)"
+C L "procesa_cmd" 0 35 1 "FUNCTION"
+C L "procesa_cmd" 0 35 1 "FUNCTION"
+C L "procesa_cmd" 0 35 1 "FUNCTION"
+C L "procesa_cmd" 0 35 1 "FUNCTION"
+C L "procesa_cmd" 0 35 1 "FUNCTION"
+C L "procesa_cmd" 0 35 1 "FUNCTION"
+F G "Parpadear_D0" 0 224 "void()" `715 
+F G "Parpadear_D1" 0 239 "void()" `716 
+F G "Parpadear_D2" 0 254 "void()" `717 
+F G "Parpadear_D3" 0 269 "void()" `718  "cont = 0;"
+C L "Parpadear_D3" 0 35 1 "FUNCTION"
+C L "Parpadear_D3" 0 35 2 "FUNCTION"
+F G "Parpadear_D4" 0 290 "void()" `719  "cont = 0;"
+C L "Parpadear_D4" 0 35 1 "FUNCTION"
+C L "Parpadear_D4" 0 35 2 "FUNCTION"
+F G "Parpadear_B0" 0 312 "void()" `720  "cont = 0;"
+C L "Parpadear_B0" 0 35 1 "FUNCTION"
+C L "Parpadear_B0" 0 35 2 "FUNCTION"
+F G "Parpadear_B1" 0 332 "void()" `721  "cont = 0;"
+C L "Parpadear_B1" 0 35 1 "FUNCTION"
+C L "Parpadear_B1" 0 35 4 "FUNCTION"
+C L "Parpadear_B1" 0 35 1 "FUNCTION"
+C L "Parpadear_B1" 0 35 2 "FUNCTION"
+F G "task_manager" 0 364 "void()" `737 
+V L "m" 0 367 "int8" `738 
+V L "mproceso" 0 368 "int32" `739 
+V L "mdirini" 0 368 "int32" `740 
+V L "mdirfin" 0 368 "int32" `741 
+V L "mdiract" 0 368 "int32" `742 
+C L "task_manager" 0 35 1 "FUNCTION"
+F G "leer_ADC" 0 391 "void()" `754  "setup_adc_ports(0|vss_vdd);"
+C L "leer_ADC" 0 35 1 "FUNCTION"
+C L "leer_ADC" 0 35 5 "FUNCTION"
+C L "leer_ADC" 0 35 1 "FUNCTION"
+V L "mcm" 0 410 "int8" `757 
+F G "limpiar_calendario" 0 410 "void(int8 mcm)" `756 
+V L "i" 0 411 "int8" `758 
+V L "idp" 0 416 "int8" `760 
+V L "prioridad" 0 416 "int8" `761 
+F G "cargar_proceso" 0 417 "void(int8 idp,int8 prioridad)" `759 
+V L "idp" 0 425 "int8" `763 
+F G "descargar_proceso" 0 426 "void(int8 idp)" `702 
+V L "s" 0 427 "int8" `762 
+V L "d" 0 427 "int8" `763 
+V L "f" 0 427 "int8" `764 
+F G "Port_Init" 0 442 "void()" `765 
+F G "Config_TMR0" 0 452 "void()" `704 
+F G "Procesos_Init" 0 458 "void()" `766  "Programa 1"
+C L "Procesos_Init" 0 35 1 "FUNCTION"
+C L "Procesos_Init" 0 35 1 "FUNCTION"
+C L "Procesos_Init" 0 35 1 "FUNCTION"
+C L "Procesos_Init" 0 35 1 "FUNCTION"
+C L "Procesos_Init" 0 35 1 "FUNCTION"
+C L "Procesos_Init" 0 35 1 "FUNCTION"
+C L "Procesos_Init" 0 35 1 "FUNCTION"
+C L "Procesos_Init" 0 35 1 "FUNCTION"
+F G "MCU_Init" 0 509 "void()" `767 
+F G "Inicio_SO" 0 525 "void()" `769 
+C L "Inicio_SO" 0 35 1 "FUNCTION"
+C L "Inicio_SO" 0 35 1 "FUNCTION"
+C L "Inicio_SO" 0 35 1 "FUNCTION"
+C L "Inicio_SO" 0 35 1 "FUNCTION"
+C L "Inicio_SO" 0 35 1 "FUNCTION"
+C L "Inicio_SO" 0 35 1 "FUNCTION"
+V L "pos" 0 566 "int8" `774 
+C L "Inicio_SO" 0 35 1 "FUNCTION"
+C L "Inicio_SO" 0 35 1 "FUNCTION"
+C L "Inicio_SO" 0 35 1 "FUNCTION"
+F G "MAIN" 0 612 "void()" `780 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1
