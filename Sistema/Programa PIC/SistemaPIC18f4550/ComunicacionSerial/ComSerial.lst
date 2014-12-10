@@ -1,8 +1,8 @@
-CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
+CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 18:24
 
                Filename:   D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC18f4550\ComunicacionSerial\ComSerial.lst
 
-               ROM used:   5312 bytes (16%)
+               ROM used:   5438 bytes (17%)
                            Largest free fragment is 12288
                RAM used:   1279 (62%) at main() level
                            1335 (65%) worst case
@@ -539,25 +539,25 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 09FC:  MOVWF  FF9
 09FE:  DATA 18,40
 0A00:  DATA 64,40
-0A02:  DATA 62,42
-0A04:  DATA 62,42
-0A06:  DATA 62,42
-0A08:  DATA 62,42
-0A0A:  DATA 62,42
-0A0C:  DATA 62,42
-0A0E:  DATA 62,42
-0A10:  DATA 62,42
+0A02:  DATA 6C,42
+0A04:  DATA 6C,42
+0A06:  DATA 6C,42
+0A08:  DATA 6C,42
+0A0A:  DATA 6C,42
+0A0C:  DATA 6C,42
+0A0E:  DATA 6C,42
+0A10:  DATA 6C,42
 0A12:  DATA E0,40
-0A14:  DATA 62,42
-0A16:  DATA 62,42
+0A14:  DATA 6C,42
+0A16:  DATA 6C,42
 0A18:  DATA 8A,41
-0A1A:  DATA 62,42
-0A1C:  DATA 42,42
-0A1E:  DATA 62,42
+0A1A:  DATA 6C,42
+0A1C:  DATA 44,42
+0A1E:  DATA 6C,42
 0A20:  DATA 28,42
 0A22:  DATA A8,40
-0A24:  DATA 56,42
-0A26:  DATA 62,42
+0A24:  DATA 60,42
+0A26:  DATA 6C,42
 0A28:  DATA C8,40
 0A2A:  DATA 4D,2B
 0A2C:  DATA 30,2A
@@ -634,7 +634,9 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 ....................  
 .................... // Lectura ADC 
 .................... unsigned int send,send1; 
-.................... unsigned int16 value,value1; 
+.................... // PWM 
+.................... unsigned int16 numDuty,numDuty1; 
+.................... int1 pwmE = 0; 
 ....................  
 ....................  
 .................... int   xbuff=0x00; 
@@ -1112,7 +1114,7 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 036C:  MOVWF  FEA
 036E:  MOVFF  501,FEF
 ....................          flagcmd = 1; 
-0372:  BSF    33.1
+0372:  BSF    33.2
 ....................       break; 
 0374:  BRA    038A
 ....................       default: 
@@ -1169,7 +1171,7 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 ....................    disable_interrupts(int_rda);      
 070C:  BCF    F9D.5
 ....................    flagcmd=0;                       // Desactivo flag de comando pendiente. 
-070E:  BCF    33.1
+070E:  BCF    33.2
 ....................    for (i=0;i<xbuff;i++) 
 0710:  CLRF   x0E
 0712:  MOVF   50,W
@@ -1731,84 +1733,139 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 14EE:  MOVWF  FC0
 14F0:  BCF    FC0.7
 14F2:  BSF    FC2.0
+....................    setup_timer_2(T2_DIV_BY_4,124,1);      //100 us overflow, 100 us interrupt 
+14F4:  MOVLW  00
+14F6:  IORLW  05
+14F8:  MOVWF  FCA
+14FA:  MOVLW  7C
+14FC:  MOVWF  FCB
+....................    setup_ccp1(CCP_PWM|CCP_SHUTDOWN_AC_L|CCP_SHUTDOWN_BD_L); 
+14FE:  BCF    F94.2
+1500:  BCF    F8B.2
+1502:  MOVLW  0C
+1504:  MOVWF  FBD
+1506:  CLRF   FB7
+1508:  CLRF   FB6
+....................    if (pwmE == 1){ 
+150A:  BTFSS  33.1
+150C:  BRA    1518
+....................       set_pwm1_duty((int16)0); 
+150E:  CLRF   FBE
+1510:  MOVF   FBD,W
+1512:  ANDLW  CF
+1514:  MOVWF  FBD
+....................       pwmE = 0; 
+1516:  BCF    33.1
+....................    } 
 ....................    while(TRUE) 
 ....................    { 
 ....................       output_toggle(PIN_B1); 
-14F4:  BTG    F8A.1
+1518:  BTG    F8A.1
 ....................       set_adc_channel(1); 
-14F6:  MOVLW  04
-14F8:  MOVWF  01
-14FA:  MOVF   FC2,W
-14FC:  ANDLW  C3
-14FE:  IORWF  01,W
-1500:  MOVWF  FC2
-....................       delay_us(50); 
-1502:  MOVLW  29
-1504:  MOVWF  00
-1506:  DECFSZ 00,F
-1508:  BRA    1506
-150A:  NOP   
-....................       //value1=Read_ADC(); 
-....................       send1=Read_ADC(); 
-150C:  BSF    FC2.1
-150E:  BTFSC  FC2.1
-1510:  BRA    150E
-1512:  MOVFF  FC4,4B
-....................       //value1=900; 
-....................       //value1= (value1*100)/1023; 
-....................       //value1 = value1/4; 
-....................       //send1 = value1; 
-....................       //send1 = 300; 
-....................       printf("A+1+%u*",send1); 
-1516:  MOVLW  80
-1518:  MOVWF  FF6
 151A:  MOVLW  04
-151C:  MOVWF  FF7
-151E:  MOVLW  04
-1520:  MOVLB  5
-1522:  MOVWF  x1E
-1524:  MOVLB  0
-1526:  CALL   03A4
-152A:  MOVFF  4B,50D
-152E:  MOVLW  1B
-1530:  MOVLB  5
-1532:  MOVWF  x0E
-1534:  MOVLB  0
-1536:  CALL   03FA
-153A:  MOVLW  2A
-153C:  BTFSS  F9E.4
-153E:  BRA    153C
-1540:  MOVWF  FAD
+151C:  MOVWF  01
+151E:  MOVF   FC2,W
+1520:  ANDLW  C3
+1522:  IORWF  01,W
+1524:  MOVWF  FC2
+....................       delay_us(50); 
+1526:  MOVLW  29
+1528:  MOVWF  00
+152A:  DECFSZ 00,F
+152C:  BRA    152A
+152E:  NOP   
+....................       send1=Read_ADC(); 
+1530:  BSF    FC2.1
+1532:  BTFSC  FC2.1
+1534:  BRA    1532
+1536:  MOVFF  FC4,4B
+....................       printf("A+1+%u*",send1); 
+153A:  MOVLW  80
+153C:  MOVWF  FF6
+153E:  MOVLW  04
+1540:  MOVWF  FF7
+1542:  MOVLW  04
+1544:  MOVLB  5
+1546:  MOVWF  x1E
+1548:  MOVLB  0
+154A:  CALL   03A4
+154E:  MOVFF  4B,50D
+1552:  MOVLW  1B
+1554:  MOVLB  5
+1556:  MOVWF  x0E
+1558:  MOVLB  0
+155A:  CALL   03FA
+155E:  MOVLW  2A
+1560:  BTFSS  F9E.4
+1562:  BRA    1560
+1564:  MOVWF  FAD
+....................       numDuty1 = send1*2; 
+1566:  BCF    FD8.0
+1568:  RLCF   4B,W
+156A:  MOVWF  4E
+156C:  CLRF   4F
+156E:  BTFSC  FD8.0
+1570:  INCF   4F,F
+....................       if(numDuty1 > 495){numDuty1 = 495;} 
+1572:  MOVF   4F,W
+1574:  SUBLW  00
+1576:  BC    158A
+1578:  XORLW  FF
+157A:  BNZ   1582
+157C:  MOVF   4E,W
+157E:  SUBLW  EF
+1580:  BC    158A
+1582:  MOVLW  01
+1584:  MOVWF  4F
+1586:  MOVLW  EF
+1588:  MOVWF  4E
+....................       set_pwm1_duty((int16)numDuty1); 
+158A:  MOVFF  4F,02
+158E:  MOVFF  4E,01
+1592:  RRCF   02,F
+1594:  RRCF   01,F
+1596:  RRCF   02,F
+1598:  RRCF   01,F
+159A:  RRCF   02,F
+159C:  MOVFF  01,FBE
+15A0:  RRCF   02,F
+15A2:  RRCF   02,W
+15A4:  ANDLW  30
+15A6:  MOVWF  00
+15A8:  MOVF   FBD,W
+15AA:  ANDLW  CF
+15AC:  IORWF  00,W
+15AE:  MOVWF  FBD
 ....................       delay_us(150); 
-1542:  MOVLW  7C
-1544:  MOVWF  00
-1546:  DECFSZ 00,F
-1548:  BRA    1546
-154A:  BRA    154C
+15B0:  MOVLW  7C
+15B2:  MOVWF  00
+15B4:  DECFSZ 00,F
+15B6:  BRA    15B4
+15B8:  BRA    15BA
 ....................       comando = 'D'; 
-154C:  MOVLW  44
-154E:  MOVWF  5C
+15BA:  MOVLW  44
+15BC:  MOVWF  5C
 ....................       valor2 = 8; 
-1550:  MOVLW  08
-1552:  MOVWF  35
+15BE:  MOVLW  08
+15C0:  MOVWF  35
 ....................       for (k8=1;k8<250;k8++){for (l8=1;l8<250;++l8){}} 
-1554:  MOVLW  01
-1556:  MOVWF  29
-1558:  MOVF   29,W
-155A:  SUBLW  F9
-155C:  BNC   1570
-155E:  MOVLW  01
-1560:  MOVWF  31
-1562:  MOVF   31,W
-1564:  SUBLW  F9
-1566:  BNC   156C
-1568:  INCF   31,F
-156A:  BRA    1562
-156C:  INCF   29,F
-156E:  BRA    1558
-1570:  BRA    14F4
+15C2:  MOVLW  01
+15C4:  MOVWF  29
+15C6:  MOVF   29,W
+15C8:  SUBLW  F9
+15CA:  BNC   15DE
+15CC:  MOVLW  01
+15CE:  MOVWF  31
+15D0:  MOVF   31,W
+15D2:  SUBLW  F9
+15D4:  BNC   15DA
+15D6:  INCF   31,F
+15D8:  BRA    15D0
+15DA:  INCF   29,F
+15DC:  BRA    15C6
+15DE:  BRA    1518
 ....................    } 
-1572:  RETURN 0
+15E0:  RETURN 0
 .................... } 
 ....................  
 ....................  
@@ -2502,7 +2559,7 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 0C18:  CLRF   FB5
 ....................    port_b_pullups(FALSE); 
 0C1A:  BSF    FF1.7
-0C1C:  GOTO   0C68 (RETURN)
+0C1C:  GOTO   0C6A (RETURN)
 .................... } 
 ....................  
 ....................  
@@ -2513,7 +2570,7 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 ....................    {        
 ....................       if(flagcmd){ 
 *
-4000:  BTFSS  33.1
+4000:  BTFSS  33.2
 4002:  BRA    4008
 ....................          procesa_cmd(); 
 4004:  GOTO   0708
@@ -2523,7 +2580,7 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 400A:  SUBWF  5C,W
 400C:  ADDLW  EA
 400E:  BTFSC  FD8.0
-4010:  BRA    4262
+4010:  BRA    426C
 4012:  ADDLW  16
 4014:  GOTO   09DA
 ....................       { 
@@ -2565,7 +2622,7 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 405E:  BRA    4060
 4060:  NOP   
 ....................                      break; 
-4062:  BRA    4262
+4062:  BRA    426C
 ....................                    } 
 ....................          case 'D': {    // Descargar proceso especifico 
 ....................                      if (valor2<9) descargar_proceso(valor2); 
@@ -2601,7 +2658,7 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 40A2:  BRA    40A4
 40A4:  NOP   
 ....................                      break; 
-40A6:  BRA    4262
+40A6:  BRA    426C
 ....................                    } 
 ....................          case 'U': {    // Cargar procesos 1-6 
 ....................                      for (m=1;m<4;m++) {cargar_proceso(m , 1);} 
@@ -2619,7 +2676,7 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 40C2:  INCF   1E,F
 40C4:  BRA    40AC
 ....................                      break; 
-40C6:  BRA    4262
+40C6:  BRA    426C
 ....................                    } 
 ....................          case 'X': {    // Descargar procesos 1-6 
 ....................                      for (m=1;m<4;m++) {descargar_proceso(m);} 
@@ -2633,7 +2690,7 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 40DA:  INCF   1E,F
 40DC:  BRA    40CC
 ....................                      break; 
-40DE:  BRA    4262
+40DE:  BRA    426C
 ....................                    } 
 ....................          case 'M': {    // iniciar/detener carga del calendario 
 ....................                      if (valor2 == 0) { 
@@ -2716,7 +2773,7 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 4184:  CALL   0488
 ....................                      } 
 ....................                      break; 
-4188:  BRA    4262
+4188:  BRA    426C
 ....................                    } 
 ....................          case 'P': {    // Guardar un proceso en el calendario 
 ....................                      int pos; 
@@ -2789,7 +2846,7 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 4222:  BRA    4220
 4224:  MOVWF  FAD
 ....................                      break; 
-4226:  BRA    4262
+4226:  BRA    426C
 ....................                    } 
 ....................          case 'T': {    // Ejecutar calendario 
 ....................                      estado_calendario = 1; 
@@ -2799,201 +2856,216 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 ....................                      reloj = 0; 
 422E:  CLRF   xFA
 4230:  CLRF   xF9
+....................                      pwmE = 1; 
+4232:  BSF    33.1
 ....................                      printf("T+1*"); 
-4232:  MOVLW  36
-4234:  MOVWF  FF6
-4236:  MOVLW  0A
-4238:  MOVWF  FF7
-423A:  MOVLB  0
-423C:  CALL   0488
+4234:  MOVLW  36
+4236:  MOVWF  FF6
+4238:  MOVLW  0A
+423A:  MOVWF  FF7
+423C:  MOVLB  0
+423E:  CALL   0488
 ....................                      break; 
-4240:  BRA    4262
+4242:  BRA    426C
 ....................                    } 
 ....................          case 'R': {    // Detener Calendario 
 ....................                      estado_calendario = 0; 
-4242:  MOVLB  4
-4244:  CLRF   xFB
+4244:  MOVLB  4
+4246:  CLRF   xFB
+....................                      set_pwm1_duty((int16)0); 
+4248:  CLRF   FBE
+424A:  MOVF   FBD,W
+424C:  ANDLW  CF
+424E:  MOVWF  FBD
 ....................                      printf("R+1*"); 
-4246:  MOVLW  3C
-4248:  MOVWF  FF6
-424A:  MOVLW  0A
-424C:  MOVWF  FF7
-424E:  MOVLB  0
-4250:  CALL   0488
+4250:  MOVLW  3C
+4252:  MOVWF  FF6
+4254:  MOVLW  0A
+4256:  MOVWF  FF7
+4258:  MOVLB  0
+425A:  CALL   0488
 ....................                      break; 
-4254:  BRA    4262
+425E:  BRA    426C
 ....................                    } 
 ....................          case 'V': {    // Version 
 ....................                      printf("Version del Sistema: V3.0*"); 
-4256:  MOVLW  42
-4258:  MOVWF  FF6
-425A:  MOVLW  0A
-425C:  MOVWF  FF7
-425E:  CALL   0488
+4260:  MOVLW  42
+4262:  MOVWF  FF6
+4264:  MOVLW  0A
+4266:  MOVWF  FF7
+4268:  CALL   0488
 ....................                      break; 
 ....................                    } 
+....................          /*case 'W': { 
+....................                      if(valor2 == 1){ 
+....................                         numDuty1 = val3+(val2*10)+(val1*100); 
+....................                      } 
+....................                    } 
+....................          */ 
 ....................       } 
 ....................       comando='-'; 
-4262:  MOVLW  2D
-4264:  MOVWF  5C
+426C:  MOVLW  2D
+426E:  MOVWF  5C
 ....................       valor2=100; 
-4266:  MOVLW  64
-4268:  MOVWF  35
+4270:  MOVLW  64
+4272:  MOVWF  35
 ....................       if (estado_calendario == 1){ 
-426A:  MOVLB  4
-426C:  DECFSZ xFB,W
-426E:  BRA    42A2
+4274:  MOVLB  4
+4276:  DECFSZ xFB,W
+4278:  BRA    42AC
 ....................          if (Calendario[reloj] != 0){ 
-4270:  MOVLW  11
-4272:  ADDWF  xF9,W
-4274:  MOVWF  FE9
-4276:  MOVLW  01
-4278:  ADDWFC xFA,W
-427A:  MOVWF  FEA
-427C:  MOVF   FEF,F
-427E:  BZ    42A2
+427A:  MOVLW  11
+427C:  ADDWF  xF9,W
+427E:  MOVWF  FE9
+4280:  MOVLW  01
+4282:  ADDWFC xFA,W
+4284:  MOVWF  FEA
+4286:  MOVF   FEF,F
+4288:  BZ    42AC
 ....................             cargar_proceso(Calendario[reloj] , 2); 
-4280:  MOVLW  11
-4282:  ADDWF  xF9,W
-4284:  MOVWF  FE9
-4286:  MOVLW  01
-4288:  ADDWFC xFA,W
-428A:  MOVWF  FEA
-428C:  MOVFF  FEF,50E
-4290:  MOVFF  50E,50F
-4294:  MOVLW  02
-4296:  MOVLB  5
-4298:  MOVWF  x10
-429A:  MOVLB  0
-429C:  CALL   07EC
-42A0:  MOVLB  4
+428A:  MOVLW  11
+428C:  ADDWF  xF9,W
+428E:  MOVWF  FE9
+4290:  MOVLW  01
+4292:  ADDWFC xFA,W
+4294:  MOVWF  FEA
+4296:  MOVFF  FEF,50E
+429A:  MOVFF  50E,50F
+429E:  MOVLW  02
+42A0:  MOVLB  5
+42A2:  MOVWF  x10
+42A4:  MOVLB  0
+42A6:  CALL   07EC
+42AA:  MOVLB  4
 ....................          } 
 ....................       } 
-....................       if(np>0) 
-42A2:  MOVF   17,F
-42A4:  BZ    4398
+....................       if(np>0 || estado_calendario == 1 ) 
+42AC:  MOVF   17,F
+42AE:  BNZ   42B4
+42B0:  DECFSZ xFB,W
+42B2:  BRA    43A6
 ....................       { 
 ....................          if(vpcb[colap[0]].estado==1) 
-42A6:  MOVF   18,W
-42A8:  MULLW  12
-42AA:  MOVF   FF3,W
-42AC:  MOVLB  5
-42AE:  CLRF   x0F
-42B0:  MOVWF  x0E
-42B2:  MOVLW  0C
-42B4:  ADDWF  x0E,W
-42B6:  MOVWF  01
-42B8:  MOVLW  00
-42BA:  ADDWFC x0F,W
-42BC:  MOVWF  03
-42BE:  MOVF   01,W
-42C0:  ADDLW  5D
-42C2:  MOVWF  FE9
-42C4:  MOVLW  00
-42C6:  ADDWFC 03,W
-42C8:  MOVWF  FEA
-42CA:  DECFSZ FEF,W
-42CC:  BRA    432E
+42B4:  MOVF   18,W
+42B6:  MULLW  12
+42B8:  MOVF   FF3,W
+42BA:  MOVLB  5
+42BC:  CLRF   x0F
+42BE:  MOVWF  x0E
+42C0:  MOVLW  0C
+42C2:  ADDWF  x0E,W
+42C4:  MOVWF  01
+42C6:  MOVLW  00
+42C8:  ADDWFC x0F,W
+42CA:  MOVWF  03
+42CC:  MOVF   01,W
+42CE:  ADDLW  5D
+42D0:  MOVWF  FE9
+42D2:  MOVLW  00
+42D4:  ADDWFC 03,W
+42D6:  MOVWF  FEA
+42D8:  DECFSZ FEF,W
+42DA:  BRA    433C
 ....................             {activar_timer(); 
-42CE:  MOVLB  0
-42D0:  CALL   0656
+42DC:  MOVLB  0
+42DE:  CALL   0656
 ....................              vpcb[colap[0]].estado=2; 
-42D4:  MOVF   18,W
-42D6:  MULLW  12
-42D8:  MOVF   FF3,W
-42DA:  MOVLB  5
-42DC:  CLRF   x0F
-42DE:  MOVWF  x0E
-42E0:  MOVLW  0C
-42E2:  ADDWF  x0E,W
-42E4:  MOVWF  01
-42E6:  MOVLW  00
-42E8:  ADDWFC x0F,W
-42EA:  MOVWF  03
-42EC:  MOVF   01,W
-42EE:  ADDLW  5D
-42F0:  MOVWF  FE9
-42F2:  MOVLW  00
-42F4:  ADDWFC 03,W
-42F6:  MOVWF  FEA
-42F8:  MOVLW  02
-42FA:  MOVWF  FEF
+42E2:  MOVF   18,W
+42E4:  MULLW  12
+42E6:  MOVF   FF3,W
+42E8:  MOVLB  5
+42EA:  CLRF   x0F
+42EC:  MOVWF  x0E
+42EE:  MOVLW  0C
+42F0:  ADDWF  x0E,W
+42F2:  MOVWF  01
+42F4:  MOVLW  00
+42F6:  ADDWFC x0F,W
+42F8:  MOVWF  03
+42FA:  MOVF   01,W
+42FC:  ADDLW  5D
+42FE:  MOVWF  FE9
+4300:  MOVLW  00
+4302:  ADDWFC 03,W
+4304:  MOVWF  FEA
+4306:  MOVLW  02
+4308:  MOVWF  FEF
 ....................              goto_address(vpcb[colap[0]].di); 
-42FC:  MOVF   18,W
-42FE:  MULLW  12
-4300:  MOVF   FF3,W
-4302:  CLRF   x0F
-4304:  MOVWF  x0E
-4306:  MOVLW  5D
-4308:  ADDWF  x0E,W
-430A:  MOVWF  FE9
-430C:  MOVLW  00
-430E:  ADDWFC x0F,W
-4310:  MOVWF  FEA
-4312:  MOVFF  FEF,510
-4316:  MOVFF  FEC,511
-431A:  MOVFF  FEC,512
-431E:  MOVFF  FEC,513
-4322:  MOVFF  511,FFA
-4326:  MOVFF  510,FE8
-432A:  MOVWF  FF9
+430A:  MOVF   18,W
+430C:  MULLW  12
+430E:  MOVF   FF3,W
+4310:  CLRF   x0F
+4312:  MOVWF  x0E
+4314:  MOVLW  5D
+4316:  ADDWF  x0E,W
+4318:  MOVWF  FE9
+431A:  MOVLW  00
+431C:  ADDWFC x0F,W
+431E:  MOVWF  FEA
+4320:  MOVFF  FEF,510
+4324:  MOVFF  FEC,511
+4328:  MOVFF  FEC,512
+432C:  MOVFF  FEC,513
+4330:  MOVFF  511,FFA
+4334:  MOVFF  510,FE8
+4338:  MOVWF  FF9
 ....................             } 
-432C:  BRA    4398
+433A:  BRA    43A6
 ....................          else 
 ....................             {wreg=vpcb[colap[0]].wreg; 
-432E:  MOVF   18,W
-4330:  MULLW  12
-4332:  MOVF   FF3,W
-4334:  CLRF   x0F
-4336:  MOVWF  x0E
-4338:  MOVLW  0D
-433A:  ADDWF  x0E,W
-433C:  MOVWF  01
-433E:  MOVLW  00
-4340:  ADDWFC x0F,W
-4342:  MOVWF  03
-4344:  MOVF   01,W
-4346:  ADDLW  5D
-4348:  MOVWF  FE9
-434A:  MOVLW  00
-434C:  ADDWFC 03,W
-434E:  MOVWF  FEA
-4350:  MOVFF  FEF,FE8
+433C:  MOVF   18,W
+433E:  MULLW  12
+4340:  MOVF   FF3,W
+4342:  CLRF   x0F
+4344:  MOVWF  x0E
+4346:  MOVLW  0D
+4348:  ADDWF  x0E,W
+434A:  MOVWF  01
+434C:  MOVLW  00
+434E:  ADDWFC x0F,W
+4350:  MOVWF  03
+4352:  MOVF   01,W
+4354:  ADDLW  5D
+4356:  MOVWF  FE9
+4358:  MOVLW  00
+435A:  ADDWFC 03,W
+435C:  MOVWF  FEA
+435E:  MOVFF  FEF,FE8
 ....................              activar_timer(); 
-4354:  MOVLB  0
-4356:  CALL   0656
+4362:  MOVLB  0
+4364:  CALL   0656
 ....................              goto_address(vpcb[colap[0]].da); 
-435A:  MOVF   18,W
-435C:  MULLW  12
-435E:  MOVF   FF3,W
-4360:  MOVLB  5
-4362:  CLRF   x0F
-4364:  MOVWF  x0E
-4366:  MOVLW  08
-4368:  ADDWF  x0E,W
-436A:  MOVWF  01
-436C:  MOVLW  00
-436E:  ADDWFC x0F,W
-4370:  MOVWF  03
-4372:  MOVF   01,W
-4374:  ADDLW  5D
-4376:  MOVWF  FE9
-4378:  MOVLW  00
-437A:  ADDWFC 03,W
-437C:  MOVWF  FEA
-437E:  MOVFF  FEF,50E
-4382:  MOVFF  FEC,50F
-4386:  MOVFF  FEC,510
-438A:  MOVFF  FEC,511
-438E:  MOVFF  50F,FFA
-4392:  MOVFF  50E,FE8
-4396:  MOVWF  FF9
+4368:  MOVF   18,W
+436A:  MULLW  12
+436C:  MOVF   FF3,W
+436E:  MOVLB  5
+4370:  CLRF   x0F
+4372:  MOVWF  x0E
+4374:  MOVLW  08
+4376:  ADDWF  x0E,W
+4378:  MOVWF  01
+437A:  MOVLW  00
+437C:  ADDWFC x0F,W
+437E:  MOVWF  03
+4380:  MOVF   01,W
+4382:  ADDLW  5D
+4384:  MOVWF  FE9
+4386:  MOVLW  00
+4388:  ADDWFC 03,W
+438A:  MOVWF  FEA
+438C:  MOVFF  FEF,50E
+4390:  MOVFF  FEC,50F
+4394:  MOVFF  FEC,510
+4398:  MOVFF  FEC,511
+439C:  MOVFF  50F,FFA
+43A0:  MOVFF  50E,FE8
+43A4:  MOVWF  FF9
 ....................             } 
 ....................       } 
-4398:  MOVLB  0
-439A:  BRA    4000
+43A6:  MOVLB  0
+43A8:  BRA    4000
 ....................    } 
-439C:  RETURN 0
+43AA:  RETURN 0
 .................... } 
 ....................  
 .................... void main(void) 
@@ -3011,40 +3083,41 @@ CCS PCH C Compiler, Version 5.008, 5967               09-dic-14 13:07
 0C34:  CLRF   17
 0C36:  BCF    33.0
 0C38:  CLRF   35
-0C3A:  CLRF   50
-0C3C:  CLRF   5B
-0C3E:  BCF    33.1
-0C40:  MOVLB  4
-0C42:  CLRF   xFA
-0C44:  CLRF   xF9
-0C46:  CLRF   xFB
-0C48:  CLRF   xFC
-0C4A:  CLRF   xFE
-0C4C:  CLRF   xFD
-0C4E:  MOVF   FC1,W
-0C50:  ANDLW  C0
-0C52:  IORLW  0F
-0C54:  MOVWF  FC1
-0C56:  MOVLW  07
-0C58:  MOVWF  FB4
+0C3A:  BCF    33.1
+0C3C:  CLRF   50
+0C3E:  CLRF   5B
+0C40:  BCF    33.2
+0C42:  MOVLB  4
+0C44:  CLRF   xFA
+0C46:  CLRF   xF9
+0C48:  CLRF   xFB
+0C4A:  CLRF   xFC
+0C4C:  CLRF   xFE
+0C4E:  CLRF   xFD
+0C50:  MOVF   FC1,W
+0C52:  ANDLW  C0
+0C54:  IORLW  0F
+0C56:  MOVWF  FC1
+0C58:  MOVLW  07
+0C5A:  MOVWF  FB4
 .................... { 
 ....................    printf("Esperando conexión..*"); 
-0C5A:  MOVLW  5E
-0C5C:  MOVWF  FF6
-0C5E:  MOVLW  0A
-0C60:  MOVWF  FF7
-0C62:  MOVLB  0
-0C64:  RCALL  0488
+0C5C:  MOVLW  5E
+0C5E:  MOVWF  FF6
+0C60:  MOVLW  0A
+0C62:  MOVWF  FF7
+0C64:  MOVLB  0
+0C66:  RCALL  0488
 ....................     
 ....................    MCU_Init(); 
-0C66:  BRA    0BEA
+0C68:  BRA    0BEA
 ....................    #asm 
 ....................    call 0x4000 
-0C68:  CALL   4000,1
+0C6A:  CALL   4000,1
 ....................    #endasm 
 .................... } 
 ....................  
-0C6C:  SLEEP 
+0C6E:  SLEEP 
 
 Configuration Fuses:
    Word  1: CC27   PLL12 CPUDIV1 USBDIV HS FCMEN IESO

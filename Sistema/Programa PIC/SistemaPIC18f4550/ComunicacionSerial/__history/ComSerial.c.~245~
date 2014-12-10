@@ -1,5 +1,5 @@
 #include <18F4550.h>
-
+#device adc=8       //Resolucion 8BITS
 #use delay(clock=10000000)
 #use rs232(baud=9600, xmit=PIN_C6,rcv=PIN_C7,bits=8,parity=N)
 #fuses HS,NOPROTECT,NOWDT,NOLVP,CPUDIV1,nomclr
@@ -20,8 +20,8 @@ int colap[6];
 int m,m1;
 int8 i,j;
 
-int8 k1,k2,k3,k4,k5,k6,k7;
-int8 l1,l2,l3,l4,l5,l6,l7;
+int8 k1,k2,k3,k4,k5,k6,k7,k8;
+int8 l1,l2,l3,l4,l5,l6,l7,l8;
 int cont;
 int1 contar=0;
 
@@ -33,8 +33,10 @@ int32 val1,val2,val3,val4,val5;
 //int16 quantum=65048;
 
 // Lectura ADC
-int value;
-int16 value1;
+unsigned int send,send1;
+// PWM
+unsigned int16 numDuty,numDuty1;
+int1 pwmE = 0;
 
 
 int   xbuff=0x00;
@@ -326,28 +328,65 @@ void Parpadear_B0()
 }
 
 //*****************************************************************************
-//PROGRAMA 7: Parpadeo Led B1 - FINITO
+//PROGRAMA 7: Lectura ADC0 - FINITO
 #ORG 0x13DE, 0x14DE
-void Parpadear_B1()
+void leer_ADC0()
 {
    //cont = 0;
    //contar = 1;
+   setup_adc_ports(AN0_TO_AN3|vss_vdd);
+   setup_adc(adc_clock_internal);
+   while(TRUE)
+   {
+      output_toggle(PIN_B0);
+      set_adc_channel(0);
+      delay_us(50);
+      //value=Read_ADC();
+      send=Read_ADC();
+      //value1 = 500;
+      //value= (value*100)/1023;
+      //send = value;
+      printf("A+0+%u*",send);
+      delay_us(150);
+      comando = 'D';
+      valor2 = 7;
+      for (k7=1;k7<250;k7++){for (l7=1;l7<250;++l7){}}
+   }
+}
+
+//*****************************************************************************
+//PROGRAMA 8: Lectura ADC0 - FINITO
+#ORG 0x14E0, 0x1605
+void leer_ADC1()
+{  
+   setup_adc_ports(AN0_TO_AN3|vss_vdd);
+   setup_adc(adc_clock_internal);
+   setup_timer_2(T2_DIV_BY_4,124,1);      //100 us overflow, 100 us interrupt
+   setup_ccp1(CCP_PWM|CCP_SHUTDOWN_AC_L|CCP_SHUTDOWN_BD_L);
+   if (pwmE == 1){
+      set_pwm1_duty((int16)0);
+      pwmE = 0;
+   }
    while(TRUE)
    {
       output_toggle(PIN_B1);
-      for (k7=1;k7<50;k7++){for (l7=1;l7<100;++l7){}}
-      output_toggle(PIN_B1);
-      for (k7=1;k7<50;k7++){for (l7=1;l7<100;++l7){}}
+      set_adc_channel(1);
+      delay_us(50);
+      send1=Read_ADC();
+      printf("A+1+%u*",send1);
+      numDuty1 = send1*2;
+      if(numDuty1 > 495){numDuty1 = 495;}
+      set_pwm1_duty((int16)numDuty1);
+      delay_us(150);
       comando = 'D';
-      valor2 = 7;
-      //printf("T=%i*", cont);
-      //contar = 0;
+      valor2 = 8;
+      for (k8=1;k8<250;k8++){for (l8=1;l8<250;++l8){}}
    }
 }
 
 
 //*****************************************************************************
-// PROGRAMA 8: Mostrar Procesos
+// PROGRAMA 9: Mostrar Procesos
 
 #ORG 0x2502, 0x2850
 void task_manager(){
@@ -367,28 +406,13 @@ void task_manager(){
          }
          //printf("*");
       comando='D';
-      valor2=8;
+      valor2=9;
       activar_timer();
    }
    
 }
 
-//*****************************************************************************
-//PROGRAMA 9: Lectura ADC
-#ORG 0x14E0, 0x1605
-void leer_ADC()
-{  setup_adc_ports(0|vss_vdd);
-   setup_adc(adc_clock_internal);
-   while(TRUE)
-   {
-      set_adc_channel(0);
-      delay_us(40);
-      value1=Read_ADC();
-      value1 = value1/1023;
-      value = 200*(value1);
-      printf("A+0+%i",value);
-   }
-}
+
 
 
 
@@ -470,13 +494,14 @@ void Procesos_Init()
    vpcb[6].da=0x13DE;
    vpcb[6].df=0x14DE;
    //Programa 8
-   vpcb[7].di=0x2502;
-   vpcb[7].da=0x2502;
-   vpcb[7].df=0x2850;
+   vpcb[7].di=0x14E0;
+   vpcb[7].da=0x14E0;
+   vpcb[7].df=0x1605;
    //Programa 9
-   vpcb[8].di=0x14E0;
-   vpcb[8].da=0x14E0;
-   vpcb[8].df=0x1605;
+   vpcb[8].di=0x2502;
+   vpcb[8].da=0x2502;
+   vpcb[8].df=0x2850;
+   
    
    vpcb[0].estado=0;
    vpcb[1].estado=0;
@@ -518,11 +543,13 @@ void Inicio_SO()
          case 'C': {    // Cargar proceso especifico
                      if (valor2<9) cargar_proceso(valor2 , 1);
                      printf("C+%i*", valor2);
+                     delay_us(100);
                      break;
                    }
          case 'D': {    // Descargar proceso especifico
                      if (valor2<9) descargar_proceso(valor2);
                      printf("D+%i*", valor2);
+                     delay_us(100);
                      break;
                    }
          case 'U': {    // Cargar procesos 1-6
@@ -555,11 +582,13 @@ void Inicio_SO()
          case 'T': {    // Ejecutar calendario
                      estado_calendario = 1;
                      reloj = 0;
+                     pwmE = 1;
                      printf("T+1*");
                      break;
                    }
          case 'R': {    // Detener Calendario
                      estado_calendario = 0;
+                     set_pwm1_duty((int16)0);
                      printf("R+1*");
                      break;
                    }
@@ -567,6 +596,12 @@ void Inicio_SO()
                      printf("Version del Sistema: V3.0*");
                      break;
                    }
+         /*case 'W': {
+                     if(valor2 == 1){
+                        numDuty1 = val3+(val2*10)+(val1*100);
+                     }
+                   }
+         */
       }
       comando='-';
       valor2=100;
@@ -575,7 +610,7 @@ void Inicio_SO()
             cargar_proceso(Calendario[reloj] , 2);
          }
       }
-      if(np>0)
+      if(np>0 || estado_calendario == 1 )
       {
          if(vpcb[colap[0]].estado==1)
             {activar_timer();

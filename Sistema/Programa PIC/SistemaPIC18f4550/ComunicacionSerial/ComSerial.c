@@ -34,7 +34,9 @@ int32 val1,val2,val3,val4,val5;
 
 // Lectura ADC
 unsigned int send,send1;
-unsigned int16 value,value1;
+// PWM
+unsigned int16 numDuty,numDuty1;
+int1 pwmE = 0;
 
 
 int   xbuff=0x00;
@@ -359,19 +361,22 @@ void leer_ADC1()
 {  
    setup_adc_ports(AN0_TO_AN3|vss_vdd);
    setup_adc(adc_clock_internal);
+   setup_timer_2(T2_DIV_BY_4,124,1);      //100 us overflow, 100 us interrupt
+   setup_ccp1(CCP_PWM|CCP_SHUTDOWN_AC_L|CCP_SHUTDOWN_BD_L);
+   if (pwmE == 1){
+      set_pwm1_duty((int16)0);
+      pwmE = 0;
+   }
    while(TRUE)
    {
       output_toggle(PIN_B1);
       set_adc_channel(1);
       delay_us(50);
-      //value1=Read_ADC();
       send1=Read_ADC();
-      //value1=900;
-      //value1= (value1*100)/1023;
-      //value1 = value1/4;
-      //send1 = value1;
-      //send1 = 300;
       printf("A+1+%u*",send1);
+      numDuty1 = send1*2;
+      if(numDuty1 > 495){numDuty1 = 495;}
+      set_pwm1_duty((int16)numDuty1);
       delay_us(150);
       comando = 'D';
       valor2 = 8;
@@ -577,11 +582,13 @@ void Inicio_SO()
          case 'T': {    // Ejecutar calendario
                      estado_calendario = 1;
                      reloj = 0;
+                     pwmE = 1;
                      printf("T+1*");
                      break;
                    }
          case 'R': {    // Detener Calendario
                      estado_calendario = 0;
+                     set_pwm1_duty((int16)0);
                      printf("R+1*");
                      break;
                    }
@@ -589,6 +596,13 @@ void Inicio_SO()
                      printf("Version del Sistema: V3.0*");
                      break;
                    }
+         /*case 'W': {
+                     if(valor2 == 1){
+                        numDuty1 = val3+(val2*10)+(val1*100);
+                     }
+                   }
+         */
+      
       }
       comando='-';
       valor2=100;

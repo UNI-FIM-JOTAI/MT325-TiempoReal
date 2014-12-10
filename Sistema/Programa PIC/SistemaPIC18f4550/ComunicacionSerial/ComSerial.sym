@@ -46,7 +46,8 @@
 031     l8
 032     cont
 033.0   contar
-033.1   flagcmd
+033.1   pwmE
+033.2   flagcmd
 034     proceso
 035     valor2
 036-039 val1
@@ -56,8 +57,8 @@
 046-049 val5
 04A     send
 04B     send1
-04C-04D value
-04E-04F value1
+04C-04D numDuty
+04E-04F numDuty1
 050     xbuff
 051-05A cbuff
 05B     rcvchar
@@ -84,24 +85,25 @@
 50B     inter_quantum.@SCRATCH10
 50C     inter_quantum.@SCRATCH11
 50D     task_manager.m
-50D     Inicio_SO.pos
 50D     @PRINTF_U_9600_31766_31767.P1
-50E     procesa_cmd.i
+50D     Inicio_SO.pos
+50D     leer_ADC1.@SCRATCH1
 50E-511 task_manager.mproceso
-50E     @PRINTF_U_9600_31766_31767.P1
-50E     limpiar_calendario.mcm
 50E     @PRINTF_D_9600_31766_31767.P1
+50E     limpiar_calendario.mcm
+50E     procesa_cmd.i
 50E     descargar_proceso.idp
+50E     @PRINTF_U_9600_31766_31767.P1
 50E     Inicio_SO.@SCRATCH1
 50F     procesa_cmd.j
-50F     descargar_proceso.s
 50F     @PRINTF_D_9600_31766_31767.P1
-50F     limpiar_calendario.i
+50F     descargar_proceso.s
 50F     cargar_proceso.idp
+50F     limpiar_calendario.i
 50F     Inicio_SO.@SCRATCH2
-510-519 procesa_cmd.salida
 510     cargar_proceso.prioridad
 510     descargar_proceso.d
+510-519 procesa_cmd.salida
 510     limpiar_calendario.@SCRATCH1
 510     Inicio_SO.@SCRATCH3
 510     @PRINTF_D_9600_31766_31767.@SCRATCH1
@@ -123,8 +125,8 @@
 515     @DIV88.P1
 516-519 task_manager.mdirfin
 516     @DIV88.@SCRATCH1
-51A     inicbuff.i
 51A-51D task_manager.mdiract
+51A     inicbuff.i
 51A     procesa_cmd.@SCRATCH1
 51B     inicbuff.@SCRATCH1
 51B     procesa_cmd.@SCRATCH2
@@ -174,10 +176,10 @@ FD5     T0CON
 FE1-FE2 @WRITE_PACKED_MEMORY.P1
 FE1-FE2 @READ_PACKED_MEMORY.P2
 FE8     wreg
-FE9-FEA @READ_PACKED_MEMORY.P1
-FE9-FEA @WRITE_PACKED_MEMORY.P2
-FE9-FEA @WRITE_PROGRAM_MEMORY.P3
-FE9-FEA @READ_PROGRAM_MEMORY.P4
+FE9-FEA @WRITE_PACKED_MEMORY.P1
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PROGRAM_MEMORY.P4
 FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
 FF6-FF8 @READ_PROGRAM_MEMORY.P2
 FFD     TOSL
@@ -192,29 +194,29 @@ ROM Allocation:
 0003A4  @PSTRINGCN_9600_31766_31767
 0003CE  @DIV88
 0003FA  @PRINTF_U_9600_31766_31767
-000478  @const726.call
-000480  @const736.call
+000478  @const727.call
+000480  @const737.call
 000488  @PSTRINGC_9600_31766_31767
 0004AA  @MUL3232
 000506  @DIV3232
 00059A  @PRINTF_L32U_9600_31766_31767
 000656  activar_timer
-000662  @const743.call
-000696  @const748.call
-0006CA  @const766.call
+000662  @const744.call
+000696  @const749.call
+0006CA  @const767.call
 0006E2  inicbuff
 000708  procesa_cmd
 0007EC  cargar_proceso
 00085A  @PRINTF_D_9600_31766_31767
 000918  descargar_proceso
 0009B6  limpiar_calendario
-0009DA  @goto11250
-000A2A  @const773.call
-000A30  @const774.call
-000A36  @const777.call
-000A3C  @const778.call
-000A42  @const779.call
-000A5E  @const784.call
+0009DA  @goto11260
+000A2A  @const774.call
+000A30  @const775.call
+000A36  @const778.call
+000A3C  @const779.call
+000A42  @const780.call
+000A5E  @const785.call
 000A74  Port_Init
 000A86  Procesos_Init
 000BD8  inte_Init
@@ -222,7 +224,7 @@ ROM Allocation:
 000BEA  MCU_Init
 000C20  MAIN
 000C20  @cinit1
-000C5A  @cinit2
+000C5C  @cinit2
 001000  Parpadear_D0
 001046  Parpadear_D1
 001092  Parpadear_D2
@@ -238,10 +240,10 @@ Project Directory:
     D:\IGNACIO\ProgramacionGitHub\MT325-TiempoReal\Sistema\Programa PIC\SistemaPIC18f4550\ComunicacionSerial\
 
 Project Files:
-    ComSerial.c                                             [09-dic-14 13:07  CRC=D8140B23]
+    ComSerial.c                                             [09-dic-14 18:24  CRC=D30C2000]
     C:\Program Files (x86)\PICC\Devices\18F4550.h           [03-jul-13 14:29  CRC=A157EDDE]
 
-Source signature=1AC3E6DF
+Source signature=15BBFBBC
 
 Units:
     ComSerial (main)

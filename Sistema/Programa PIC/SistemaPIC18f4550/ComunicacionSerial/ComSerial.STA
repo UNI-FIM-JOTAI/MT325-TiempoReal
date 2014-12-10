@@ -1,9 +1,9 @@
 
-ROM used:   5312/16384 (16%)
-            7412/16384 (23%) including unused fragments
+ROM used:   5438/16384 (17%)
+            7426/16384 (23%) including unused fragments
 
             3.7 Average locations per line
-            15.5 Average locations per statement
+            15.3 Average locations per statement
 
 RAM used:   1279/2048 (62%) at main() level
             1335/2048 (65%) worst case
@@ -13,10 +13,10 @@ Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  626   343 100  ComSerial.c
+  639   356 100  ComSerial.c
   821     0   0  C:\Program Files (x86)\PICC\Devices\18F4550.h
 ----- -----
- 1447   343 Total
+ 1460   356 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -35,18 +35,18 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     72   1    0   391  3.7  Parpadear_D4
 0     72   1    0   391  3.7  Parpadear_B0
 0    148   1    0   425  4.6  leer_ADC0
-0      8   0    0             @const726
+0      8   0    0             @const727
 0     42   0    3             @PSTRINGCN_9600_31766_31767
 0     44   0    3             @DIV88
-0    126   1    2    38  0.9  @PRINTF_U_9600_31766_31767
-0    148   1    0   425  4.6  leer_ADC1
-0      8   0    0    38  0.9  @const736
+0    126   1    2             @PRINTF_U_9600_31766_31767
+0    258   2    1   813  6.8  leer_ADC1
+0      8   0    0             @const737
 0    504   5    2   548  5.1  task_manager
-0     52   0    0             @const743
-0     34   0    2   548  5.1  @PSTRINGC_9600_31766_31767
-0     92   1   14   548  5.1  @MUL3232
-0     52   0    0             @const748
-0    148   1   13   102  2.3  @DIV3232
+0     52   0    0             @const744
+0     34   0    2             @PSTRINGC_9600_31766_31767
+0     92   1   14             @MUL3232
+0     52   0    0             @const749
+0    148   1   13             @DIV3232
 0    188   2   12             @PRINTF_L32U_9600_31766_31767
 0     36   0    3   104  3.7  limpiar_calendario
 0    110   1    4   208  4.3  cargar_proceso
@@ -54,37 +54,37 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     18   0    0   106  1.3  Port_Init
 0      8   0    0    18  1.0  Config_TMR0
 0    338   3    0  2102  3.0  Procesos_Init
-0     54   1    0   169  1.3  MCU_Init
-0     24   0    0    18  1.0  @const766
-0    926   9    6  2511 10.8  Inicio_SO
-0    190   2    6  2511 10.8  @PRINTF_D_9600_31766_31767
-0      6   0    0             @const773
+0     54   0    0   169  1.3  MCU_Init
+0     24   0    0             @const767
+0    940   9    6  2639 11.3  Inicio_SO
+0    190   2    6             @PRINTF_D_9600_31766_31767
 0      6   0    0             @const774
-0      6   0    0             @const777
+0      6   0    0             @const775
 0      6   0    0             @const778
-0     28   0    0             @const779
-0     80   1    0             @goto11250
-0     78   1    0    38  0.9  MAIN
-0     22   0    0    38  0.9  @const784
- Inline         0    38  0.9  @cinit1
+0      6   0    0             @const779
+0     28   0    0             @const780
+0     80   1    0    38  0.9  @goto11260
+0     80   1    0    38  0.9  MAIN
+0     22   0    0             @const785
+ Inline         0             @cinit1
 
 Program metrics:
-    Functions               35
-    Statements              343
-    Comments                243
-    Volume (V)              27171
-    Difficulty (D)          130.3
-    Effort to implement (E) 3539180
-    Time to implement (T)   54 hours, 37 minutes
-    Est Delivered Bugs (B)  8
-    Cyclomatic Complexity   87
-    Maintainability (MI)    58
+    Functions               27
+    Statements              356
+    Comments                245
+    Volume (V)              20985
+    Difficulty (D)          103.3
+    Effort to implement (E) 2167127
+    Time to implement (T)   33 hours, 27 minutes
+    Est Delivered Bugs (B)  6
+    Cyclomatic Complexity   67
+    Maintainability (MI)    44
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00006     4  4  
 00008-000A0   154  0  
-000A2-00FFE  3020  914  
+000A2-00FFE  3022  912  
 01000-01044    64  6  
 01046-01090    64  12  
 01092-010D6    64  6  
@@ -92,11 +92,11 @@ Program metrics:
 011DA-012DA    72  186  
 012DC-013DC    72  186  
 013DE-014DE   148  110  
-014E0-01604   148  146  
+014E0-01604   258  36  
 01606-02500     0  3836  
 02502-02850   504  344  
 02852-03FFE     0  6062  
-04000-04FFE   926  3170  
+04000-04FFE   940  3156  
 05000-07FFE     0  12288  
 
 

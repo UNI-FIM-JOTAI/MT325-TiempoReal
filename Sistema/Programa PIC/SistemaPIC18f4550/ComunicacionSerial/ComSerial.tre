@@ -1,5 +1,5 @@
 ÀÄComSerial
-   ÃÄMAIN  0/78  Ram=0
+   ÃÄMAIN  0/80  Ram=0
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
    ³  ÀÄMCU_Init  0/54  Ram=0
@@ -23,7 +23,7 @@
    ³  ÀÄ@PRINTF_U_9600_31766_31767  0/126  Ram=2
    ³     ÃÄ@DIV88  0/44  Ram=3
    ³     ÀÄ@DIV88  0/44  Ram=3
-   ÃÄleer_ADC1  0/148  Ram=0
+   ÃÄleer_ADC1  0/258  Ram=1
    ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/42  Ram=3
    ³  ÀÄ@PRINTF_U_9600_31766_31767  0/126  Ram=2
    ³     ÀÄ*
@@ -48,10 +48,10 @@
    ³  ³  ÀÄ*
    ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/42  Ram=3
    ³  ÀÄactivar_timer  0/12  Ram=0
-   ÀÄInicio_SO  0/926  Ram=6
+   ÀÄInicio_SO  0/940  Ram=6
       ÃÄprocesa_cmd  0/228  Ram=15
       ³  ÀÄinicbuff  0/38  Ram=3
-      ÃÄ@goto11250  0/80  Ram=0
+      ÃÄ@goto11260  0/80  Ram=0
       ÃÄcargar_proceso  0/110  Ram=4
       ÃÄ@PRINTF_D_9600_31766_31767  0/190  Ram=6
       ³  ÃÄ@DIV88  0/44  Ram=3

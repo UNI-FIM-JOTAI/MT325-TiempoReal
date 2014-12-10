@@ -22,9 +22,9 @@ namespace InterfazGrafica
         int NumProcesos = 0;
         int Proceso, Duracion, Periodo;
         int tmpProceso, tmpDuracion, tmpPeriodo; 
-        int [] DuracionProceso = {4,4,2,2,2};
-        int [] PeriodoMuestreo = {20,20,10,10,10};
-        int[] ListaProcesos = {4,5,6,7,8};
+        int [] DuracionProceso = {4,4,2,2,3};
+        int [] PeriodoMuestreo = {20,20,10,20,10};
+        int[] ListaProcesos = {4,5,0,7,8};
         int MCM;
         string TxMCM;
         private string data = "";

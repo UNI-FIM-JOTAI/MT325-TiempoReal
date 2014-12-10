@@ -1,9 +1,1 @@
->>> Warning 202 "ComSerial.c" Line 25(5,9): Variable never used:   cont
->>> Warning 202 "ComSerial.c" Line 26(6,12): Variable never used:   contar
->>> Warning 202 "ComSerial.c" Line 32(22,26): Variable never used:   val4
->>> Warning 202 "ComSerial.c" Line 32(27,31): Variable never used:   val5
->>> Warning 202 "ComSerial.c" Line 37(16,21): Variable never used:   value
->>> Warning 202 "ComSerial.c" Line 37(22,28): Variable never used:   value1
-      Memory usage:   ROM=16%      RAM=62% - 65%
-      0 Errors,  6 Warnings.
-Build Successful.
+*** Error 43 "ComSerial.c" Line 628(1,2): Expecting a declaration
